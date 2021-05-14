@@ -7,23 +7,87 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE987711264AFE4700064A7D /* LoginViewController.swift */; };
+		AE987714264AFE5400064A7D /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE987713264AFE5400064A7D /* LoginViewController.storyboard */; };
+		AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */; };
 		AEA197712649933000D0D181 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197702649933000D0D181 /* AppDelegate.swift */; };
 		AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197722649933000D0D181 /* SceneDelegate.swift */; };
-		AEA197752649933000D0D181 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197742649933000D0D181 /* ViewController.swift */; };
-		AEA197782649933000D0D181 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA197762649933000D0D181 /* Main.storyboard */; };
+		AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197742649933000D0D181 /* OnboardingViewController.swift */; };
+		AEA197782649933000D0D181 /* OnboardingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA197762649933000D0D181 /* OnboardingViewController.storyboard */; };
 		AEA1977A2649933400D0D181 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEA197792649933400D0D181 /* Assets.xcassets */; };
 		AEA1977D2649933400D0D181 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA1977B2649933400D0D181 /* LaunchScreen.storyboard */; };
+		AEA1978B264996E500D0D181 /* OnboardingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA1978A264996E500D0D181 /* OnboardingCollectionView.swift */; };
+		AEA1978D2649970800D0D181 /* OnboardingCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA1978C2649970800D0D181 /* OnboardingCollectionView.xib */; };
+		AEA1978F26499A0B00D0D181 /* OnboardingCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA1978E26499A0B00D0D181 /* OnboardingCollectionViewModel.swift */; };
+		AEA1979226499AD800D0D181 /* UIViewUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA1979126499AD800D0D181 /* UIViewUtility.swift */; };
+		AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197952649A07E00D0D181 /* OnboardingCollectionViewCell.swift */; };
+		AEA197982649A07E00D0D181 /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA197962649A07E00D0D181 /* OnboardingCollectionViewCell.xib */; };
+		AEF84243264D83CF00FB8003 /* ResetPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF84242264D83CF00FB8003 /* ResetPasswordViewController.storyboard */; };
+		AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF84244264D83ED00FB8003 /* ResetPasswordViewController.swift */; };
+		AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84261264D8EAF00FB8003 /* Roboto-Medium.ttf */; };
+		AEF8426E264D8EAF00FB8003 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84262264D8EAF00FB8003 /* Roboto-Light.ttf */; };
+		AEF8426F264D8EAF00FB8003 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84263264D8EAF00FB8003 /* Roboto-Regular.ttf */; };
+		AEF84270264D8EAF00FB8003 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84264264D8EAF00FB8003 /* Roboto-MediumItalic.ttf */; };
+		AEF84271264D8EAF00FB8003 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84265264D8EAF00FB8003 /* Roboto-ThinItalic.ttf */; };
+		AEF84272264D8EAF00FB8003 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84266264D8EAF00FB8003 /* Roboto-BoldItalic.ttf */; };
+		AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84267264D8EAF00FB8003 /* Roboto-LightItalic.ttf */; };
+		AEF84274264D8EAF00FB8003 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84268264D8EAF00FB8003 /* Roboto-Italic.ttf */; };
+		AEF84275264D8EAF00FB8003 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84269264D8EAF00FB8003 /* Roboto-BlackItalic.ttf */; };
+		AEF84276264D8EAF00FB8003 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF8426A264D8EAF00FB8003 /* Roboto-Bold.ttf */; };
+		AEF84277264D8EAF00FB8003 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF8426B264D8EAF00FB8003 /* Roboto-Thin.ttf */; };
+		AEF84278264D8EAF00FB8003 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF8426C264D8EAF00FB8003 /* Roboto-Black.ttf */; };
+		AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF84279264D91DA00FB8003 /* OnboardingViewModel.swift */; };
+		AEF8427C264D936500FB8003 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8427B264D936500FB8003 /* LoginViewModel.swift */; };
+		AEF8427E264D940800FB8003 /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8427D264D940800FB8003 /* ResetPasswordViewModel.swift */; };
+		AEF84282264D9D9800FB8003 /* OnboardingRegisterStepOneViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF84281264D9D9800FB8003 /* OnboardingRegisterStepOneViewController.storyboard */; };
+		AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF84283264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift */; };
+		AEF84286264DA15300FB8003 /* OnboardingRegisterStepOneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF84285264DA15300FB8003 /* OnboardingRegisterStepOneViewModel.swift */; };
+		AEF84289264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF84288264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard */; };
+		AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8428A264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift */; };
+		AEF8428D264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8428C264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE987711264AFE4700064A7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AE987713264AFE5400064A7D /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtility.swift; sourceTree = "<group>"; };
 		AEA1976D2649933000D0D181 /* FigFolders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FigFolders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA197702649933000D0D181 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEA197722649933000D0D181 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AEA197742649933000D0D181 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AEA197772649933000D0D181 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AEA197742649933000D0D181 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		AEA197772649933000D0D181 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OnboardingViewController.storyboard; sourceTree = "<group>"; };
 		AEA197792649933400D0D181 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEA1977C2649933400D0D181 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEA1977E2649933400D0D181 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEA1978A264996E500D0D181 /* OnboardingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionView.swift; sourceTree = "<group>"; };
+		AEA1978C2649970800D0D181 /* OnboardingCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionView.xib; sourceTree = "<group>"; };
+		AEA1978E26499A0B00D0D181 /* OnboardingCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewModel.swift; sourceTree = "<group>"; };
+		AEA1979126499AD800D0D181 /* UIViewUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewUtility.swift; sourceTree = "<group>"; };
+		AEA197952649A07E00D0D181 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		AEA197962649A07E00D0D181 /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
+		AEF84242264D83CF00FB8003 /* ResetPasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResetPasswordViewController.storyboard; sourceTree = "<group>"; };
+		AEF84244264D83ED00FB8003 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		AEF84261264D8EAF00FB8003 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		AEF84262264D8EAF00FB8003 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		AEF84263264D8EAF00FB8003 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		AEF84264264D8EAF00FB8003 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		AEF84265264D8EAF00FB8003 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		AEF84266264D8EAF00FB8003 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		AEF84267264D8EAF00FB8003 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		AEF84268264D8EAF00FB8003 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		AEF84269264D8EAF00FB8003 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		AEF8426A264D8EAF00FB8003 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		AEF8426B264D8EAF00FB8003 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		AEF8426C264D8EAF00FB8003 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		AEF84279264D91DA00FB8003 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		AEF8427B264D936500FB8003 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		AEF8427D264D940800FB8003 /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		AEF84281264D9D9800FB8003 /* OnboardingRegisterStepOneViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingRegisterStepOneViewController.storyboard; sourceTree = "<group>"; };
+		AEF84283264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRegisterStepOneViewController.swift; sourceTree = "<group>"; };
+		AEF84285264DA15300FB8003 /* OnboardingRegisterStepOneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRegisterStepOneViewModel.swift; sourceTree = "<group>"; };
+		AEF84288264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingRegisterStepTwoViewController.storyboard; sourceTree = "<group>"; };
+		AEF8428A264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRegisterStepTwoViewController.swift; sourceTree = "<group>"; };
+		AEF8428C264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRegisterStepTwoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +101,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE98770F264AFDC900064A7D /* OnboardingLanding */ = {
+			isa = PBXGroup;
+			children = (
+				AEA197762649933000D0D181 /* OnboardingViewController.storyboard */,
+				AEF84279264D91DA00FB8003 /* OnboardingViewModel.swift */,
+				AEA197742649933000D0D181 /* OnboardingViewController.swift */,
+			);
+			path = OnboardingLanding;
+			sourceTree = "<group>";
+		};
+		AE987710264AFDDF00064A7D /* OnboardingLogin */ = {
+			isa = PBXGroup;
+			children = (
+				AE987713264AFE5400064A7D /* LoginViewController.storyboard */,
+				AEF8427B264D936500FB8003 /* LoginViewModel.swift */,
+				AE987711264AFE4700064A7D /* LoginViewController.swift */,
+			);
+			path = OnboardingLogin;
+			sourceTree = "<group>";
+		};
 		AEA197642649933000D0D181 = {
 			isa = PBXGroup;
 			children = (
@@ -57,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				AEA197842649935000D0D181 /* Lifecycle */,
-				AEA197852649936400D0D181 /* Templates */,
+				AEA19787264995DF00D0D181 /* Classes */,
 				AEA197862649937A00D0D181 /* Resources */,
 				AEA1977E2649933400D0D181 /* Info.plist */,
 			);
@@ -77,8 +161,7 @@
 		AEA197852649936400D0D181 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
-				AEA197742649933000D0D181 /* ViewController.swift */,
-				AEA197762649933000D0D181 /* Main.storyboard */,
+				AEA1979326499E9E00D0D181 /* Onboarding */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -86,9 +169,134 @@
 		AEA197862649937A00D0D181 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AEF84246264D84B200FB8003 /* Fonts */,
+				AEA1979026499AC600D0D181 /* Utilities */,
 				AEA197792649933400D0D181 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		AEA19787264995DF00D0D181 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AEA197852649936400D0D181 /* Templates */,
+				AEA19788264995EB00D0D181 /* Organisms */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AEA19788264995EB00D0D181 /* Organisms */ = {
+			isa = PBXGroup;
+			children = (
+				AEA19789264995FB00D0D181 /* OnboardingCollectionView */,
+			);
+			path = Organisms;
+			sourceTree = "<group>";
+		};
+		AEA19789264995FB00D0D181 /* OnboardingCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				AEA197942649A04800D0D181 /* CollectionViewCell */,
+				AEA1978C2649970800D0D181 /* OnboardingCollectionView.xib */,
+				AEA1978A264996E500D0D181 /* OnboardingCollectionView.swift */,
+				AEA1978E26499A0B00D0D181 /* OnboardingCollectionViewModel.swift */,
+			);
+			path = OnboardingCollectionView;
+			sourceTree = "<group>";
+		};
+		AEA1979026499AC600D0D181 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				AEA1979126499AD800D0D181 /* UIViewUtility.swift */,
+				AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		AEA1979326499E9E00D0D181 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AE98770F264AFDC900064A7D /* OnboardingLanding */,
+				AE987710264AFDDF00064A7D /* OnboardingLogin */,
+				AEF2E270264C49C80004B8BB /* OnboardingPasswordReset */,
+				AEF8427F264D980100FB8003 /* OnboardingRegisterPage */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AEA197942649A04800D0D181 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AEA197962649A07E00D0D181 /* OnboardingCollectionViewCell.xib */,
+				AEA197952649A07E00D0D181 /* OnboardingCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		AEF2E270264C49C80004B8BB /* OnboardingPasswordReset */ = {
+			isa = PBXGroup;
+			children = (
+				AEF84242264D83CF00FB8003 /* ResetPasswordViewController.storyboard */,
+				AEF8427D264D940800FB8003 /* ResetPasswordViewModel.swift */,
+				AEF84244264D83ED00FB8003 /* ResetPasswordViewController.swift */,
+			);
+			path = OnboardingPasswordReset;
+			sourceTree = "<group>";
+		};
+		AEF84246264D84B200FB8003 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AEF84260264D8EAF00FB8003 /* Roboto */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		AEF84260264D8EAF00FB8003 /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				AEF84261264D8EAF00FB8003 /* Roboto-Medium.ttf */,
+				AEF84262264D8EAF00FB8003 /* Roboto-Light.ttf */,
+				AEF84263264D8EAF00FB8003 /* Roboto-Regular.ttf */,
+				AEF84264264D8EAF00FB8003 /* Roboto-MediumItalic.ttf */,
+				AEF84265264D8EAF00FB8003 /* Roboto-ThinItalic.ttf */,
+				AEF84266264D8EAF00FB8003 /* Roboto-BoldItalic.ttf */,
+				AEF84267264D8EAF00FB8003 /* Roboto-LightItalic.ttf */,
+				AEF84268264D8EAF00FB8003 /* Roboto-Italic.ttf */,
+				AEF84269264D8EAF00FB8003 /* Roboto-BlackItalic.ttf */,
+				AEF8426A264D8EAF00FB8003 /* Roboto-Bold.ttf */,
+				AEF8426B264D8EAF00FB8003 /* Roboto-Thin.ttf */,
+				AEF8426C264D8EAF00FB8003 /* Roboto-Black.ttf */,
+			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
+		AEF8427F264D980100FB8003 /* OnboardingRegisterPage */ = {
+			isa = PBXGroup;
+			children = (
+				AEF84280264D9B1A00FB8003 /* OnboardingRegisterStepOne */,
+				AEF84287264DA2FD00FB8003 /* OnboardingRegisterStepTwo */,
+			);
+			path = OnboardingRegisterPage;
+			sourceTree = "<group>";
+		};
+		AEF84280264D9B1A00FB8003 /* OnboardingRegisterStepOne */ = {
+			isa = PBXGroup;
+			children = (
+				AEF84281264D9D9800FB8003 /* OnboardingRegisterStepOneViewController.storyboard */,
+				AEF84285264DA15300FB8003 /* OnboardingRegisterStepOneViewModel.swift */,
+				AEF84283264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift */,
+			);
+			path = OnboardingRegisterStepOne;
+			sourceTree = "<group>";
+		};
+		AEF84287264DA2FD00FB8003 /* OnboardingRegisterStepTwo */ = {
+			isa = PBXGroup;
+			children = (
+				AEF84288264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard */,
+				AEF8428C264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift */,
+				AEF8428A264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift */,
+			);
+			path = OnboardingRegisterStepTwo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,9 +356,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF84271264D8EAF00FB8003 /* Roboto-ThinItalic.ttf in Resources */,
+				AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */,
+				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
 				AEA1977D2649933400D0D181 /* LaunchScreen.storyboard in Resources */,
+				AEF8426F264D8EAF00FB8003 /* Roboto-Regular.ttf in Resources */,
+				AEF84289264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard in Resources */,
+				AEF84272264D8EAF00FB8003 /* Roboto-BoldItalic.ttf in Resources */,
+				AEF84276264D8EAF00FB8003 /* Roboto-Bold.ttf in Resources */,
 				AEA1977A2649933400D0D181 /* Assets.xcassets in Resources */,
-				AEA197782649933000D0D181 /* Main.storyboard in Resources */,
+				AEF84277264D8EAF00FB8003 /* Roboto-Thin.ttf in Resources */,
+				AEF84282264D9D9800FB8003 /* OnboardingRegisterStepOneViewController.storyboard in Resources */,
+				AEF84275264D8EAF00FB8003 /* Roboto-BlackItalic.ttf in Resources */,
+				AEF84274264D8EAF00FB8003 /* Roboto-Italic.ttf in Resources */,
+				AEA197782649933000D0D181 /* OnboardingViewController.storyboard in Resources */,
+				AE987714264AFE5400064A7D /* LoginViewController.storyboard in Resources */,
+				AEF84243264D83CF00FB8003 /* ResetPasswordViewController.storyboard in Resources */,
+				AEF84278264D8EAF00FB8003 /* Roboto-Black.ttf in Resources */,
+				AEA1978D2649970800D0D181 /* OnboardingCollectionView.xib in Resources */,
+				AEA197982649A07E00D0D181 /* OnboardingCollectionViewCell.xib in Resources */,
+				AEF84270264D8EAF00FB8003 /* Roboto-MediumItalic.ttf in Resources */,
+				AEF8426E264D8EAF00FB8003 /* Roboto-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,21 +387,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEA197752649933000D0D181 /* ViewController.swift in Sources */,
+				AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */,
+				AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */,
 				AEA197712649933000D0D181 /* AppDelegate.swift in Sources */,
+				AEF8428D264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift in Sources */,
 				AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */,
+				AEA1979226499AD800D0D181 /* UIViewUtility.swift in Sources */,
+				AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */,
+				AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */,
+				AEA1978F26499A0B00D0D181 /* OnboardingCollectionViewModel.swift in Sources */,
+				AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */,
+				AEF8427C264D936500FB8003 /* LoginViewModel.swift in Sources */,
+				AEF8427E264D940800FB8003 /* ResetPasswordViewModel.swift in Sources */,
+				AEF84286264DA15300FB8003 /* OnboardingRegisterStepOneViewModel.swift in Sources */,
+				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
+				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
+				AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */,
+				AEA1978B264996E500D0D181 /* OnboardingCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AEA197762649933000D0D181 /* Main.storyboard */ = {
+		AEA197762649933000D0D181 /* OnboardingViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AEA197772649933000D0D181 /* Base */,
 			);
-			name = Main.storyboard;
+			name = OnboardingViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		AEA1977B2649933400D0D181 /* LaunchScreen.storyboard */ = {

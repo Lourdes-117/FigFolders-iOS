@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cm8-26-Gid">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="2nC-HA-1RI">
+            <objects>
+                <navigationController id="cm8-26-Gid" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Ua-6e-Gos">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="t3N-RQ-fGh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gAv-OX-oZl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-838" y="124"/>
+        </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="FigFolders" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnB-U4-xfT">
+                                <rect key="frame" x="0.0" y="488.5" width="414" height="313.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's get started" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXQ-C1-2UY">
+                                        <rect key="frame" x="20" y="20" width="374" height="28.5"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jump in with your own private account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZY-Ig-qEI">
+                                        <rect key="frame" x="20" y="73.5" width="374" height="20"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get right things for you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0l8-DI-RCM">
+                                        <rect key="frame" x="20" y="105.5" width="374" height="20"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEX-SR-WIi">
+                                        <rect key="frame" x="32" y="188.5" width="350" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.32889872380000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="DOY-on-U1A"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                        <state key="normal" title="Log in">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTapLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JoD-jL-azJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1C-o4-FuG">
+                                        <rect key="frame" x="32" y="253.5" width="350" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="tZX-zz-Czj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTapSignup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ae7-ky-gNM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="g1C-o4-FuG" secondAttribute="bottom" constant="10" id="00W-2W-n01"/>
+                                    <constraint firstAttribute="trailing" secondItem="SZY-Ig-qEI" secondAttribute="trailing" constant="20" id="3Y4-pk-PYK"/>
+                                    <constraint firstItem="g1C-o4-FuG" firstAttribute="leading" secondItem="DEX-SR-WIi" secondAttribute="leading" id="4Gv-aO-D4F"/>
+                                    <constraint firstAttribute="trailing" secondItem="VXQ-C1-2UY" secondAttribute="trailing" constant="20" id="6Mr-Cb-m0x"/>
+                                    <constraint firstItem="VXQ-C1-2UY" firstAttribute="top" secondItem="wnB-U4-xfT" secondAttribute="top" constant="20" id="6Ok-kX-axU"/>
+                                    <constraint firstItem="SZY-Ig-qEI" firstAttribute="top" secondItem="VXQ-C1-2UY" secondAttribute="bottom" constant="25" id="FNJ-fE-14z"/>
+                                    <constraint firstItem="0l8-DI-RCM" firstAttribute="leading" secondItem="wnB-U4-xfT" secondAttribute="leading" constant="20" id="HUh-X5-1oY"/>
+                                    <constraint firstItem="0l8-DI-RCM" firstAttribute="top" secondItem="SZY-Ig-qEI" secondAttribute="bottom" constant="12" id="MCa-h5-SOd"/>
+                                    <constraint firstItem="g1C-o4-FuG" firstAttribute="top" secondItem="DEX-SR-WIi" secondAttribute="bottom" constant="15" id="P4w-r2-asI"/>
+                                    <constraint firstItem="DEX-SR-WIi" firstAttribute="leading" secondItem="wnB-U4-xfT" secondAttribute="leading" constant="32" id="YZN-fe-Fi7"/>
+                                    <constraint firstAttribute="trailing" secondItem="DEX-SR-WIi" secondAttribute="trailing" constant="32" id="c1n-NW-4fs"/>
+                                    <constraint firstAttribute="trailing" secondItem="0l8-DI-RCM" secondAttribute="trailing" constant="20" id="iOK-wI-a8G"/>
+                                    <constraint firstItem="SZY-Ig-qEI" firstAttribute="leading" secondItem="wnB-U4-xfT" secondAttribute="leading" constant="20" id="jnE-a3-oa9"/>
+                                    <constraint firstItem="VXQ-C1-2UY" firstAttribute="leading" secondItem="wnB-U4-xfT" secondAttribute="leading" constant="20" id="nvS-jl-quN"/>
+                                    <constraint firstItem="g1C-o4-FuG" firstAttribute="trailing" secondItem="DEX-SR-WIi" secondAttribute="trailing" id="tKG-Af-CPX"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZI0-3i-rDO" customClass="OnboardingCollectionView" customModule="FigFolders" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="488.5" width="414" height="313.5"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="ZI0-3i-rDO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6S6-ip-tKt"/>
+                            <constraint firstItem="wnB-U4-xfT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8MR-xW-7U9"/>
+                            <constraint firstItem="ZI0-3i-rDO" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.35" id="Dxd-3N-HJK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wnB-U4-xfT" secondAttribute="bottom" constant="60" id="NbN-Lg-mxd"/>
+                            <constraint firstItem="wnB-U4-xfT" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.35" id="NuG-eC-Pgi"/>
+                            <constraint firstItem="wnB-U4-xfT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TnY-Ns-pEO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZI0-3i-rDO" secondAttribute="trailing" id="UTx-M0-Beo"/>
+                            <constraint firstItem="wnB-U4-xfT" firstAttribute="bottom" secondItem="ZI0-3i-rDO" secondAttribute="bottom" id="hoP-1e-jj5"/>
+                            <constraint firstItem="wnB-U4-xfT" firstAttribute="trailing" secondItem="ZI0-3i-rDO" secondAttribute="trailing" id="loG-ZY-e8j"/>
+                            <constraint firstItem="wnB-U4-xfT" firstAttribute="top" secondItem="ZI0-3i-rDO" secondAttribute="top" id="ods-6z-Zt7"/>
+                            <constraint firstItem="wnB-U4-xfT" firstAttribute="leading" secondItem="ZI0-3i-rDO" secondAttribute="leading" id="zK5-8f-ySC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WqK-7y-aI3"/>
+                    <connections>
+                        <outlet property="loginButton" destination="DEX-SR-WIi" id="4O9-Us-VYp"/>
+                        <outlet property="onboardingCollectionView" destination="ZI0-3i-rDO" id="M2R-j6-C0V"/>
+                        <outlet property="signupButton" destination="g1C-o4-FuG" id="0iX-G2-TQr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="124"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

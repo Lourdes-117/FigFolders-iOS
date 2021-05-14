@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Onboarding Register Step Two View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingRegisterStepTwoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="OnboardingRegisterStepTwoViewController" customModule="FigFolders" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYa-rV-5nh">
+                                <rect key="frame" x="21" y="257" width="45" height="21"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdH-xL-L4o">
+                                <rect key="frame" x="21" y="371" width="80" height="21"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCn-Sd-Ad4">
+                                <rect key="frame" x="21" y="500" width="372" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="mkL-3T-aNm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTapRegisterButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="H6x-ss-6zk"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="john_doe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MUM-qg-juE">
+                                <rect key="frame" x="21" y="182" width="372" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HiT-Ki-f2a"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="********" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nlQ-6x-zUd">
+                                <rect key="frame" x="21" y="410" width="372" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="q8t-as-eCH"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnA-pz-hu1">
+                                <rect key="frame" x="21" y="76" width="134" height="42"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="johndoe@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oOY-Ct-fNk">
+                                <rect key="frame" x="21" y="296" width="372" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aUz-cJ-8Wz"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="email"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4P4-u8-abc">
+                                <rect key="frame" x="21" y="143" width="82" height="21"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="oOY-Ct-fNk" firstAttribute="top" secondItem="bYa-rV-5nh" secondAttribute="bottom" constant="18" id="3Rd-KU-sF5"/>
+                            <constraint firstItem="wdH-xL-L4o" firstAttribute="leading" secondItem="nlQ-6x-zUd" secondAttribute="leading" id="8KG-RW-XtL"/>
+                            <constraint firstItem="FnA-pz-hu1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="21" id="B3L-RS-V5R"/>
+                            <constraint firstItem="nlQ-6x-zUd" firstAttribute="trailing" secondItem="oOY-Ct-fNk" secondAttribute="trailing" id="Cdb-Bg-PtW"/>
+                            <constraint firstItem="bYa-rV-5nh" firstAttribute="top" secondItem="MUM-qg-juE" secondAttribute="bottom" constant="25" id="Ekm-8r-gFx"/>
+                            <constraint firstItem="oCn-Sd-Ad4" firstAttribute="top" secondItem="nlQ-6x-zUd" secondAttribute="bottom" constant="40" id="GgC-KC-Fa3"/>
+                            <constraint firstItem="oCn-Sd-Ad4" firstAttribute="trailing" secondItem="oOY-Ct-fNk" secondAttribute="trailing" id="I3p-qk-2gX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MUM-qg-juE" secondAttribute="trailing" constant="21" id="OOx-g9-3NT"/>
+                            <constraint firstItem="oOY-Ct-fNk" firstAttribute="trailing" secondItem="MUM-qg-juE" secondAttribute="trailing" id="Och-Wp-5YU"/>
+                            <constraint firstItem="wdH-xL-L4o" firstAttribute="leading" secondItem="oOY-Ct-fNk" secondAttribute="leading" id="RNx-Z7-SgL"/>
+                            <constraint firstItem="bYa-rV-5nh" firstAttribute="leading" secondItem="oOY-Ct-fNk" secondAttribute="leading" id="XHR-T4-Ypk"/>
+                            <constraint firstItem="wdH-xL-L4o" firstAttribute="top" secondItem="oOY-Ct-fNk" secondAttribute="bottom" constant="25" id="Yj7-s8-mje"/>
+                            <constraint firstItem="MUM-qg-juE" firstAttribute="top" secondItem="4P4-u8-abc" secondAttribute="bottom" constant="18" id="dVt-fA-O7N"/>
+                            <constraint firstItem="bYa-rV-5nh" firstAttribute="leading" secondItem="MUM-qg-juE" secondAttribute="leading" id="dzk-Ds-SCh"/>
+                            <constraint firstItem="nlQ-6x-zUd" firstAttribute="top" secondItem="wdH-xL-L4o" secondAttribute="bottom" constant="18" id="egb-Qz-9mE"/>
+                            <constraint firstItem="oCn-Sd-Ad4" firstAttribute="leading" secondItem="oOY-Ct-fNk" secondAttribute="leading" id="kk8-m9-Bwd"/>
+                            <constraint firstItem="FnA-pz-hu1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="mis-rv-eqB"/>
+                            <constraint firstItem="4P4-u8-abc" firstAttribute="leading" secondItem="MUM-qg-juE" secondAttribute="leading" id="n8E-EG-En9"/>
+                            <constraint firstItem="4P4-u8-abc" firstAttribute="top" secondItem="FnA-pz-hu1" secondAttribute="bottom" constant="25" id="rfs-ni-GOo"/>
+                            <constraint firstItem="4P4-u8-abc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="21" id="yIe-yM-Odq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailIDTextField" destination="oOY-Ct-fNk" id="3gV-k8-ai3"/>
+                        <outlet property="passwordTextField" destination="nlQ-6x-zUd" id="hk8-oC-PgH"/>
+                        <outlet property="registerButton" destination="oCn-Sd-Ad4" id="Ooe-AR-Ndf"/>
+                        <outlet property="userNameTextField" destination="MUM-qg-juE" id="jsh-jQ-Jgh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="119"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
