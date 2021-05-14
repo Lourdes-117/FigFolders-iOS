@@ -15,8 +15,9 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var usernameTakenLabel: UILabel!
     
-    let viewModel = OnboardingRegisterStepOneViewModel()
+    let viewModel = OnboardingRegisterStepTwoViewModel()
     
 // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -50,6 +51,7 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
     }
     
     private func setupViews() {
+        usernameTakenLabel.isHidden = true
         view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
         userNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         userNameTextField.layer.cornerRadius = viewModel.borderRadius
@@ -68,8 +70,20 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
     }
     
 //MARK: - Helper Methods
-    private func registerUser() {
+    private func isAllFieldsValid() -> Bool {
+        let isEmailValid = viewModel.isEmailValid(email: emailIDTextField.text)
+        emailIDTextField.addBorder(color: isEmailValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        let isUsernameValid = viewModel.isUsernameValid(username: userNameTextField.text)
+        userNameTextField.addBorder(color: isUsernameValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        let isPasswordValid = viewModel.isPasswordValid(password: passwordTextField.text)
+        passwordTextField.addBorder(color: isPasswordValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
         
+        return isEmailValid && isUsernameValid && isPasswordValid
+    }
+    
+    private func registerUser() {
+        guard isAllFieldsValid() else { return }
+        debugPrint("Register")
     }
     
 // MARK: - Button Actions

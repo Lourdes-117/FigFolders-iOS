@@ -102,6 +102,12 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username is Taken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsQ-Xa-aFd">
+                                                <rect key="frame" x="249.5" y="200" width="143.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -112,6 +118,8 @@
                                             <constraint firstItem="oOY-Ct-fNk" firstAttribute="trailing" secondItem="MUM-qg-juE" secondAttribute="trailing" id="7cq-Do-WBk"/>
                                             <constraint firstItem="4P4-u8-abc" firstAttribute="leading" secondItem="MUM-qg-juE" secondAttribute="leading" id="9bb-bZ-T1z"/>
                                             <constraint firstItem="wdH-xL-L4o" firstAttribute="leading" secondItem="oOY-Ct-fNk" secondAttribute="leading" id="E1M-Ck-fYA"/>
+                                            <constraint firstItem="lsQ-Xa-aFd" firstAttribute="top" secondItem="MUM-qg-juE" secondAttribute="bottom" constant="12" id="Fog-h3-6Js"/>
+                                            <constraint firstItem="lsQ-Xa-aFd" firstAttribute="trailing" secondItem="MUM-qg-juE" secondAttribute="trailing" id="GjY-ew-l8M"/>
                                             <constraint firstItem="bYa-rV-5nh" firstAttribute="top" secondItem="MUM-qg-juE" secondAttribute="bottom" constant="25" id="IMd-6e-bwR"/>
                                             <constraint firstAttribute="trailing" secondItem="MUM-qg-juE" secondAttribute="trailing" constant="21" id="L3O-PA-e2U"/>
                                             <constraint firstItem="4P4-u8-abc" firstAttribute="top" secondItem="FnA-pz-hu1" secondAttribute="bottom" constant="25" id="TRs-xA-yqP"/>
@@ -154,6 +162,7 @@
                         <outlet property="registerButton" destination="oCn-Sd-Ad4" id="Ooe-AR-Ndf"/>
                         <outlet property="scrollView" destination="0z1-XP-Ju1" id="Mgc-tR-EiE"/>
                         <outlet property="userNameTextField" destination="MUM-qg-juE" id="jsh-jQ-Jgh"/>
+                        <outlet property="usernameTakenLabel" destination="lsQ-Xa-aFd" id="0z7-8Y-b6k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

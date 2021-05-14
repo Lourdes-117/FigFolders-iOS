@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE27EB44264EE66000C34CBD /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB43264EE66000C34CBD /* StringUtility.swift */; };
+		AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB45264EE6A000C34CBD /* StringConstants.swift */; };
 		AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE987711264AFE4700064A7D /* LoginViewController.swift */; };
 		AE987714264AFE5400064A7D /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE987713264AFE5400064A7D /* LoginViewController.storyboard */; };
 		AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */; };
@@ -48,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE27EB43264EE66000C34CBD /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
+		AE27EB45264EE6A000C34CBD /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		AE987711264AFE4700064A7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AE987713264AFE5400064A7D /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtility.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 		AEA197862649937A00D0D181 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AE27EB45264EE6A000C34CBD /* StringConstants.swift */,
 				AEF84246264D84B200FB8003 /* Fonts */,
 				AEA1979026499AC600D0D181 /* Utilities */,
 				AEA197792649933400D0D181 /* Assets.xcassets */,
@@ -207,6 +212,7 @@
 		AEA1979026499AC600D0D181 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				AE27EB43264EE66000C34CBD /* StringUtility.swift */,
 				AEA1979126499AD800D0D181 /* UIViewUtility.swift */,
 				AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */,
 			);
@@ -402,8 +408,10 @@
 				AEF84286264DA15300FB8003 /* OnboardingRegisterStepOneViewModel.swift in Sources */,
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
+				AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */,
 				AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */,
 				AEA1978B264996E500D0D181 /* OnboardingCollectionView.swift in Sources */,
+				AE27EB44264EE66000C34CBD /* StringUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

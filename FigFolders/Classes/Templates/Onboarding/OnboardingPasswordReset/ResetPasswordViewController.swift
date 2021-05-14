@@ -12,6 +12,8 @@ class ResetPasswordViewController: UIViewController {
     @IBOutlet weak var emailIDTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     
+    var emailIdFromLogin: String?
+    
     let viewModel = ResetPasswordViewModel()
     
 // MARK: - Lifecycle Methods
@@ -28,6 +30,7 @@ class ResetPasswordViewController: UIViewController {
     }
     
     fileprivate func setupViews() {
+        emailIDTextField.text = emailIdFromLogin
         view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
         emailIDTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         emailIDTextField.layer.cornerRadius = viewModel.borderRadius
@@ -46,7 +49,13 @@ class ResetPasswordViewController: UIViewController {
     
 // MARK: - Helper Methods
     private func resetPassword() {
-        
+        let isEmailValid = viewModel.isEmailValid(email: emailIDTextField.text)
+        emailIDTextField.addBorder(color: isEmailValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        if isEmailValid {
+            debugPrint("Reset Password")
+        } else {
+            debugPrint("Invalid Email")
+        }
     }
 }
 

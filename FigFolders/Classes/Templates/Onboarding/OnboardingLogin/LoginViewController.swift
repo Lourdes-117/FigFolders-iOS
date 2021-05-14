@@ -26,11 +26,17 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setKeyboardNotifications()
+        resetView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeKeyboardNotifications()
+    }
+    
+    fileprivate func resetView() {
+        passwordTextField.text = nil
+        setupView()
     }
     
     private func setKeyboardNotifications() {
@@ -69,6 +75,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func onTapForgotPassword(_ sender: Any) {
         guard let resetViewController = ResetPasswordViewController.initiateVC() else { return }
+        if viewModel.isEmailValid(email: emailIDTextField.text) {
+            resetViewController.emailIdFromLogin = emailIDTextField.text
+        }
         navigationController?.pushViewController(resetViewController, animated: true)
     }
     
@@ -89,10 +98,21 @@ class LoginViewController: UIViewController {
         scrollView.contentInset = contentInset
     }
     
+    fileprivate func validateInputs() -> Bool {
+        let isEmailValid = viewModel.isEmailValid(email: emailIDTextField.text)
+        let isPasswordValid = viewModel.isPasswordValid(password: passwordTextField.text)
+        
+        emailIDTextField.addBorder(color: isEmailValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: 2)
+        passwordTextField.addBorder(color: isPasswordValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: 2)
+        return isEmailValid && isPasswordValid
+    }
+    
     fileprivate func authenticateUser(email: String?, password: String?) {
-        guard let email = email,
-              let password = password else { return }
-        debugPrint("Handle Login")
+        if validateInputs() {
+            debugPrint("Handle Login")
+        } else {
+            debugPrint("Invalid Inputs")
+        }
     }
 }
 

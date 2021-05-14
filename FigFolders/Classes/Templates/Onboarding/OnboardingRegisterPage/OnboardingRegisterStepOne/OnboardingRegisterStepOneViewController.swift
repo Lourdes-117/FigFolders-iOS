@@ -90,7 +90,19 @@ class OnboardingRegisterStepOneViewController: UIViewController {
         scrollView.contentInset = contentInset
     }
     
+    private func validateFields() -> Bool {
+        let isFirstNameValid = viewModel.isValidName(name: firstNameTextField.text)
+        firstNameTextField.addBorder(color: isFirstNameValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        let isLastNameValid = viewModel.isValidName(name: lastNameTextField.text)
+        lastNameTextField.addBorder(color: isLastNameValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        let isPhoneNumberValid = viewModel.isValidPhoneNumber(number: phoneNumberTextField.text)
+        phoneNumberTextField.addBorder(color: isPhoneNumberValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        
+        return isFirstNameValid && isLastNameValid && isPhoneNumberValid
+    }
+    
     private func goToStepTwo() {
+        guard validateFields() else { return }
         guard let registerStepTwoViewController = OnboardingRegisterStepTwoViewController.initiateVC() else { return }
         navigationController?.pushViewController(registerStepTwoViewController, animated: true)
     }
