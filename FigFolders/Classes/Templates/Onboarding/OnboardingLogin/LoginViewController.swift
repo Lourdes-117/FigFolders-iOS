@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailIDTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signinButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     let viewModel = LoginViewModel()
     
@@ -20,6 +21,25 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         initialSetup()
         setupDelegate()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeKeyboardNotifications()
+    }
+    
+    private func setKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func removeKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self)
     }
     
     fileprivate func initialSetup() {
@@ -54,6 +74,20 @@ class LoginViewController: UIViewController {
     
     
 // MARK: - Helper Methods
+    @objc func keyboardWillShow(notification:NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView.contentInset = contentInset
+    }
+
+    @objc func keyboardWillHide(notification:NSNotification) {
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+    }
     
     fileprivate func authenticateUser(email: String?, password: String?) {
         guard let email = email,

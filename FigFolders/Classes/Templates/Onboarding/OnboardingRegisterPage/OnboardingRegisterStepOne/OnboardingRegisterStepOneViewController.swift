@@ -15,6 +15,7 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     @IBOutlet weak var dateOfBirthTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     let viewModel = OnboardingRegisterStepOneViewModel()
     
@@ -24,10 +25,29 @@ class OnboardingRegisterStepOneViewController: UIViewController {
         initialSetup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeKeyboardNotifications()
+    }
+    
     private func initialSetup() {
         navigationController?.navigationBar.isHidden = false
         setupViews()
         setupDelegates()
+    }
+    
+    private func setKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func removeKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func setupViews() {
@@ -52,6 +72,21 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     }
     
 //MARK: - Helper Methods
+    @objc func keyboardWillShow(notification:NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView.contentInset = contentInset
+    }
+
+    @objc func keyboardWillHide(notification:NSNotification) {
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+    }
+    
     private func goToStepTwo() {
         guard let registerStepTwoViewController = OnboardingRegisterStepTwoViewController.initiateVC() else { return }
         navigationController?.pushViewController(registerStepTwoViewController, animated: true)
