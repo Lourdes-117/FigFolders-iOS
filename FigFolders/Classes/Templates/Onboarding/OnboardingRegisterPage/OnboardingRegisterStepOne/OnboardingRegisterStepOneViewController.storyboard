@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -25,14 +25,14 @@
             <objects>
                 <viewController storyboardIdentifier="OnboardingRegisterStepOneViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="OnboardingRegisterStepOneViewController" customModule="FigFolders" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="uPg-rF-fBR">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Fy-wF-ZZb">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="766"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8S-Z0-jal">
                                                 <rect key="frame" x="21" y="32" width="134" height="43"/>
@@ -47,7 +47,7 @@
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="John" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cxn-6i-Upy">
-                                                <rect key="frame" x="21" y="140" width="372" height="50"/>
+                                                <rect key="frame" x="21" y="140" width="348" height="50"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="JYD-rO-dXF"/>
@@ -63,7 +63,7 @@
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Doe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HLW-HH-vdW">
-                                                <rect key="frame" x="21" y="255" width="372" height="50"/>
+                                                <rect key="frame" x="21" y="255" width="348" height="50"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="7iD-7N-4TQ"/>
@@ -78,8 +78,8 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM-DD-YYYY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pWM-5T-I71">
-                                                <rect key="frame" x="21" y="370" width="372" height="50"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pWM-5T-I71">
+                                                <rect key="frame" x="21" y="370" width="348" height="50"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="q5t-Gs-s8A"/>
@@ -88,6 +88,10 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="T6D-Xv-tsH">
+                                                <rect key="frame" x="21" y="370" width="363" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </datePicker>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS9-UV-t3B">
                                                 <rect key="frame" x="21" y="445" width="120" height="22"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
@@ -95,7 +99,7 @@
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(123)456-7890" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Sy-0Z-B7T">
-                                                <rect key="frame" x="21" y="485" width="372" height="50"/>
+                                                <rect key="frame" x="21" y="485" width="348" height="50"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="3lU-mb-HsO"/>
@@ -105,7 +109,7 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="continue" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryL-Je-F7F">
-                                                <rect key="frame" x="21" y="580" width="372" height="50"/>
+                                                <rect key="frame" x="21" y="580" width="348" height="50"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="QIR-bn-Yx1"/>
@@ -132,6 +136,8 @@
                                             <constraint firstItem="Cxn-6i-Upy" firstAttribute="top" secondItem="qeg-b3-xma" secondAttribute="bottom" constant="18" id="NlB-50-v4L"/>
                                             <constraint firstItem="qeg-b3-xma" firstAttribute="top" secondItem="v8S-Z0-jal" secondAttribute="bottom" constant="25" id="PMi-rR-te4"/>
                                             <constraint firstItem="qeg-b3-xma" firstAttribute="leading" secondItem="Cxn-6i-Upy" secondAttribute="leading" id="Rln-V7-Twz"/>
+                                            <constraint firstItem="T6D-Xv-tsH" firstAttribute="trailing" secondItem="pWM-5T-I71" secondAttribute="trailing" id="USj-aa-9lK"/>
+                                            <constraint firstItem="T6D-Xv-tsH" firstAttribute="bottom" secondItem="pWM-5T-I71" secondAttribute="bottom" id="VIc-r1-GFe"/>
                                             <constraint firstItem="pWM-5T-I71" firstAttribute="top" secondItem="8Gb-xs-Rj7" secondAttribute="bottom" constant="18" id="XhP-RL-Z8o"/>
                                             <constraint firstItem="8Gb-xs-Rj7" firstAttribute="top" secondItem="HLW-HH-vdW" secondAttribute="bottom" constant="25" id="aw0-5k-T9k"/>
                                             <constraint firstAttribute="trailing" secondItem="Cxn-6i-Upy" secondAttribute="trailing" constant="21" id="cQm-Zl-hFl"/>
@@ -142,6 +148,8 @@
                                             <constraint firstItem="jvn-oL-0zb" firstAttribute="leading" secondItem="Cxn-6i-Upy" secondAttribute="leading" id="kx1-cv-AZ1"/>
                                             <constraint firstItem="HLW-HH-vdW" firstAttribute="trailing" secondItem="Cxn-6i-Upy" secondAttribute="trailing" id="o8v-Kj-jRX"/>
                                             <constraint firstItem="4Sy-0Z-B7T" firstAttribute="trailing" secondItem="pWM-5T-I71" secondAttribute="trailing" id="oFH-lt-Cv9"/>
+                                            <constraint firstItem="T6D-Xv-tsH" firstAttribute="top" secondItem="pWM-5T-I71" secondAttribute="top" id="qWB-Qr-Nzc"/>
+                                            <constraint firstItem="T6D-Xv-tsH" firstAttribute="leading" secondItem="pWM-5T-I71" secondAttribute="leading" id="qfX-SK-lKX"/>
                                             <constraint firstItem="v8S-Z0-jal" firstAttribute="top" secondItem="0Fy-wF-ZZb" secondAttribute="top" constant="32" id="uls-MY-vJ1"/>
                                             <constraint firstItem="ryL-Je-F7F" firstAttribute="trailing" secondItem="HLW-HH-vdW" secondAttribute="trailing" id="wjP-hs-7S2"/>
                                             <constraint firstItem="jvn-oL-0zb" firstAttribute="leading" secondItem="HLW-HH-vdW" secondAttribute="leading" id="yEO-cQ-Fnv"/>
@@ -171,6 +179,7 @@
                     </view>
                     <connections>
                         <outlet property="dateOfBirthTextField" destination="pWM-5T-I71" id="6pN-iO-OwA"/>
+                        <outlet property="datePicker" destination="T6D-Xv-tsH" id="EEq-Jc-VfL"/>
                         <outlet property="firstNameTextField" destination="Cxn-6i-Upy" id="bb4-Xh-IFB"/>
                         <outlet property="lastNameTextField" destination="HLW-HH-vdW" id="MBv-b5-aqY"/>
                         <outlet property="nextButton" destination="ryL-Je-F7F" id="Stw-Ow-Qti"/>

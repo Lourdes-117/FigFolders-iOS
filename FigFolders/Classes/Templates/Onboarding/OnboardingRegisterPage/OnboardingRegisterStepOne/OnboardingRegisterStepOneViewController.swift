@@ -16,7 +16,8 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    @IBOutlet weak var datePicker: UIDatePicker!
+
     let viewModel = OnboardingRegisterStepOneViewModel()
     
 // MARK: - Lifecycle Methods
@@ -51,6 +52,7 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     }
     
     private func setupViews() {
+        datePicker.maximumDate = Date()
         view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
         firstNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         firstNameTextField.layer.cornerRadius = viewModel.borderRadius
@@ -58,6 +60,7 @@ class OnboardingRegisterStepOneViewController: UIViewController {
         lastNameTextField.layer.cornerRadius = viewModel.borderRadius
         dateOfBirthTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         dateOfBirthTextField.layer.cornerRadius = viewModel.borderRadius
+        dateOfBirthTextField.inputView = datePicker
         phoneNumberTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         phoneNumberTextField.layer.cornerRadius = viewModel.borderRadius
         nextButton.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
@@ -104,7 +107,7 @@ extension OnboardingRegisterStepOneViewController: UITextFieldDelegate {
         if firstNameTextField.isFirstResponder {
             lastNameTextField.becomeFirstResponder()
         } else if lastNameTextField.isFirstResponder {
-            dateOfBirthTextField.becomeFirstResponder()
+            lastNameTextField.resignFirstResponder()
         } else if phoneNumberTextField.isFirstResponder {
             phoneNumberTextField.resignFirstResponder()
             goToStepTwo()
