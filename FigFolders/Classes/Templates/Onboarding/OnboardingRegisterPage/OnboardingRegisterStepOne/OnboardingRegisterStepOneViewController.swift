@@ -31,6 +31,7 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     }
     
     private func setupViews() {
+        view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
         firstNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         firstNameTextField.layer.cornerRadius = viewModel.borderRadius
         lastNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)

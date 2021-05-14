@@ -28,6 +28,7 @@ class ResetPasswordViewController: UIViewController {
     }
     
     fileprivate func setupViews() {
+        view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
         emailIDTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         emailIDTextField.layer.cornerRadius = viewModel.borderRadius
         submitButton.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)

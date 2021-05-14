@@ -12,6 +12,7 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var onboardingCollectionView: OnboardingCollectionView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
+    @IBOutlet weak var loginSignupView: UIView!
     
     let viewModel = OnboardingViewModel()
     
@@ -34,9 +35,12 @@ class OnboardingViewController: UIViewController {
     }
     
     private func setupViews() {
+        view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
         loginButton.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         loginButton.layer.cornerRadius = viewModel.borderRadius
         signupButton.layer.cornerRadius = viewModel.borderRadius
+        loginSignupView.isHidden = true
+        onboardingCollectionView.isHidden = false
     }
     
     private func setupDatasourceDelegate() {
@@ -58,6 +62,8 @@ class OnboardingViewController: UIViewController {
 // MARK: - Delegates
 extension OnboardingViewController: OnboardingCollectionViewDelegate {
     func didFinishOnboarding() {
-        onboardingCollectionView.fadeOut()
+        onboardingCollectionView.fadeOut { [weak self] in
+            self?.loginSignupView.fadeIn()
+        }
     }
 }

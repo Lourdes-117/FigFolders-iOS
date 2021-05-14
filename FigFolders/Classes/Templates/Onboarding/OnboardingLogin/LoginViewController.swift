@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
     }
     
     fileprivate func setupView() {
+        view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
         emailIDTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         emailIDTextField.layer.cornerRadius = viewModel.borderRadius
         passwordTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
