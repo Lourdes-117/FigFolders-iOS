@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import NVActivityIndicatorView
 
 class LoginViewController: UIViewController {
 // MARK: - Outlets
@@ -110,8 +111,30 @@ class LoginViewController: UIViewController {
     
     fileprivate func authenticateUser(email: String?, password: String?) {
         guard validateInputs() else { return }
+        
+        // Activity Indicator
+        let activityBackgroundView = UIView(frame: view.frame)
+        activityBackgroundView.backgroundColor = viewModel.activityIndicatorBackgroundColor
+        let activityView = NVActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-50,
+                                                                 y: (view.frame.height/2)-50,
+                                                                 width: 100,
+                                                                 height: 100),
+                                                   type: .triangleSkewSpin,
+                                                   color: UIColor.blue,
+                                                   padding: 0)
+        activityBackgroundView.addSubview(activityView)
+        activityView.startAnimating()
+        view.addSubview(activityBackgroundView)
+        
+        // Authenticate
         FirebaseAuth.Auth.auth().signIn(withEmail: emailIDTextField.text ?? "", password: passwordTextField.text ?? "") { _, error in
-            guard error == nil else { return }
+            guard error == nil else {
+                activityView.stopAnimating()
+                activityBackgroundView.removeFromSuperview()
+                return
+            }
+            activityView.stopAnimating()
+            activityBackgroundView.removeFromSuperview()
             debugPrint("Signin Successful")
         }
     }

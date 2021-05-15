@@ -8,5 +8,7 @@ target 'FigFolders' do
   # Pods for FigFolders
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'NVActivityIndicatorView'
 
 end

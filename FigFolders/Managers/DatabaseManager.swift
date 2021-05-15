@@ -6,11 +6,33 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 final class DatabaseManager {
     static let shared = DatabaseManager()
     
-    func saveUsersData(username: String, completion: @escaping (Bool) -> Void) {
-        
+    private let database = Database.database(url: "https://figfolders-default-rtdb.asia-southeast1.firebasedatabase.app").reference()
+    
+// MARK: - User Account Methods
+    
+    /// Saves User Details To RealTime Database
+    func saveUsersData(userDetails: UserDetailsModel, completion: @escaping (Bool) -> Void) {
+        let userDatabaseReference = database.child(userDetails.username)
+        userDatabaseReference.observeSingleEvent(of: .value) { snapshot in
+            // Check if user Exists
+            guard !snapshot.exists() else {
+                completion(false)
+                return
+            }
+            
+            // Save data if user does not exist
+            userDatabaseReference.setValue(userDetails.toDictionnary) { error, _ in
+                guard error == nil else {
+                    completion(false)
+                    return
+                }
+                completion(true)
+            }
+        }
     }
 }

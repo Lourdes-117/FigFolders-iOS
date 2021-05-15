@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import NVActivityIndicatorView
 
 class OnboardingRegisterStepTwoViewController: UIViewController {
     
@@ -90,9 +91,58 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
     
     private func registerUser() {
         guard isAllFieldsValid() else { return }
-        FirebaseAuth.Auth.auth().createUser(withEmail: emailIDTextField.text ?? "", password: passwordTextField.text ?? "") { _, error in
-            guard error == nil else { return }
-            debugPrint("Register User")
+        // Activity Indicator
+        let activityBackgroundView = UIView(frame: view.frame)
+        activityBackgroundView.backgroundColor = viewModel.activityIndicatorBackgroundColor
+        let activityView = NVActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-50,
+                                                                 y: (view.frame.height/2)-50,
+                                                                 width: 100,
+                                                                 height: 100),
+                                                   type: .triangleSkewSpin,
+                                                   color: UIColor.blue,
+                                                   padding: 0)
+        activityBackgroundView.addSubview(activityView)
+        activityView.startAnimating()
+        view.addSubview(activityBackgroundView)
+        
+        // Authentication
+        FirebaseAuth.Auth.auth().createUser(withEmail: emailIDTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] _, error in
+            guard error == nil,
+                  let strongSelf = self else {
+                activityView.stopAnimating()
+                activityBackgroundView.removeFromSuperview()
+                return
+            }
+            let userDetails = UserDetailsModel(firstNameString: strongSelf.firstName ?? "",
+                                               lastNameString: strongSelf.lastName ?? "",
+                                               dateOfBirthString: strongSelf.dateOfBirth ?? "",
+                                               phoneNumberString: strongSelf.phoneNumber ?? "",
+                                               emailIDString: strongSelf.emailIDTextField.text ?? "",
+                                               usernameString: strongSelf.userNameTextField.text ?? "")
+            
+            DatabaseManager.shared.saveUsersData(userDetails: userDetails) { success in
+                if success {
+                    FirebaseAuth.Auth.auth().signIn(withEmail: strongSelf.emailIDTextField.text ?? "", password: strongSelf.passwordTextField.text ?? "") { _, error in
+                        guard error == nil else {
+                            activityView.stopAnimating()
+                            activityBackgroundView.removeFromSuperview()
+                            return
+                        }
+                        debugPrint("Created User In Database")
+                        UserDefaults.standard.setValue(strongSelf.firstName, forKey: StringConstants.shared.userDefaults.firstName)
+                        UserDefaults.standard.setValue(strongSelf.lastName, forKey: StringConstants.shared.userDefaults.lastName)
+                        UserDefaults.standard.setValue(strongSelf.emailIDTextField.text, forKey: StringConstants.shared.userDefaults.emailID)
+                        UserDefaults.standard.setValue(strongSelf.phoneNumber, forKey: StringConstants.shared.userDefaults.phoneNumber)
+                        UserDefaults.standard.setValue(strongSelf.dateOfBirth, forKey: StringConstants.shared.userDefaults.dateOfBirth)
+                        
+                        activityView.stopAnimating()
+                        activityBackgroundView.removeFromSuperview()
+                        debugPrint("Login Successful")
+                    }
+                    
+                    debugPrint("Register Successful")
+                }
+            }
         }
     }
     

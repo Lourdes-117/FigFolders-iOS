@@ -15,6 +15,8 @@ class OnboardingRegisterStepTwoViewModel {
     let fieldValidColor = UIColor.green
     let fieldInvalidColor = UIColor.red
     
+    let activityIndicatorBackgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    
     func isEmailValid(email: String?) -> Bool {
         guard let email = email,
               !email.isEmpty else { return false }

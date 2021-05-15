@@ -10,8 +10,9 @@ import Foundation
 class StringConstants {
     static let shared = StringConstants()
 
-    //Constants
+    // Constants
     let regex = RegexConstants()
+    let userDefaults = UserDefaultsConstants()
 }
 
 struct RegexConstants {
@@ -19,4 +20,13 @@ struct RegexConstants {
     let name = "^[A-Za-z]\\w{1,29}$"
     let phoneNumber = "^(\\+\\d{1,2}\\s?)?1?\\-?\\.?\\s?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$"
     let userName = "^[a-zA-Z0-9](_(?!(\\.|_))|\\.(?!(_|\\.))|[a-zA-Z0-9]){6,18}[a-zA-Z0-9]$"
+}
+
+struct UserDefaultsConstants {
+    let firstName = "firstName"
+    let lastName = "lastName"
+    let emailID = "emailID"
+    let phoneNumber = "phoneNumber"
+    let dateOfBirth = "dateOfBirth"
+    let profilePicUrl = "profilePicurl"
 }

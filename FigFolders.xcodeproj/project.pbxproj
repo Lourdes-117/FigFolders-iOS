@@ -29,6 +29,7 @@
 		AEA1979226499AD800D0D181 /* UIViewUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA1979126499AD800D0D181 /* UIViewUtility.swift */; };
 		AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197952649A07E00D0D181 /* OnboardingCollectionViewCell.swift */; };
 		AEA197982649A07E00D0D181 /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA197962649A07E00D0D181 /* OnboardingCollectionViewCell.xib */; };
+		AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */; };
 		AEF84243264D83CF00FB8003 /* ResetPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF84242264D83CF00FB8003 /* ResetPasswordViewController.storyboard */; };
 		AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF84244264D83ED00FB8003 /* ResetPasswordViewController.swift */; };
 		AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84261264D8EAF00FB8003 /* Roboto-Medium.ttf */; };
@@ -81,6 +82,7 @@
 		AEA1979126499AD800D0D181 /* UIViewUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewUtility.swift; sourceTree = "<group>"; };
 		AEA197952649A07E00D0D181 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		AEA197962649A07E00D0D181 /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
+		AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableUtility.swift; sourceTree = "<group>"; };
 		AEF84242264D83CF00FB8003 /* ResetPasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResetPasswordViewController.storyboard; sourceTree = "<group>"; };
 		AEF84244264D83ED00FB8003 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		AEF84261264D8EAF00FB8003 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				AEA1979126499AD800D0D181 /* UIViewUtility.swift */,
 				AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */,
 				AE861B26264FBCF400E708D7 /* DateUtility.swift */,
+				AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */,
 				AEA197712649933000D0D181 /* AppDelegate.swift in Sources */,
 				AEF8428D264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift in Sources */,
+				AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */,
 				AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */,
 				AEA1979226499AD800D0D181 /* UIViewUtility.swift in Sources */,
 				AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */,
