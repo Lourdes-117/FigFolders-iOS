@@ -20,7 +20,7 @@ final class DatabaseManager {
         let userDatabaseReference = database.child(userDetails.username)
         userDatabaseReference.observeSingleEvent(of: .value) { snapshot in
             // Check if user Exists
-            guard !snapshot.exists() else {
+            guard snapshot.value != nil else {
                 completion(false)
                 return
             }
@@ -33,6 +33,13 @@ final class DatabaseManager {
                 }
                 completion(true)
             }
+        }
+    }
+    
+    /// Check If Username Is Available
+    func isUsernameAvailable(username: String, completion: @escaping (Bool) -> Void) {
+        database.child(username).observeSingleEvent(of: .value) { snapshot in
+            completion(!snapshot.exists())
         }
     }
 }

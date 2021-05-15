@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dig-73-Qxp">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home Tab Bar Controller-->
+        <scene sceneID="4J9-tu-ZO3">
+            <objects>
+                <tabBarController storyboardIdentifier="HomeTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dig-73-Qxp" customClass="HomeTabBarController" customModule="FigFolders" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AmZ-OK-E3I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Lvv-dp-zQL" kind="relationship" relationship="viewControllers" id="HA7-Rf-mVF"/>
+                        <segue destination="gow-Bd-ZMA" kind="relationship" relationship="viewControllers" id="ioQ-Z3-gvL"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3hj-JG-1Lu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-344" y="128"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="fwt-8b-mdA">
+            <objects>
+                <navigationController id="gow-Bd-ZMA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="bZU-sc-HfB"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I3S-rW-4yS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RYF-UB-duS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="535" y="700"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="Wxb-jz-40U">
+            <objects>
+                <navigationController id="Lvv-dp-zQL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="6Dr-7g-AQl"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="px8-hN-P9L">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FqD-iv-Nnt" kind="relationship" relationship="rootViewController" id="V02-dy-wrc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JlW-3l-de4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="536" y="-206"/>
+        </scene>
+        <!--HomeViewController-->
+        <scene sceneID="KUD-Jl-Cog">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeViewController" referencedIdentifier="HomeViewController" id="FqD-iv-Nnt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="P6x-VD-jM0"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fEU-Z8-tIh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1433" y="-206"/>
+        </scene>
+    </scenes>
+</document>

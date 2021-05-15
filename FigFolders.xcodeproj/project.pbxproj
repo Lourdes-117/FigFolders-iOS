@@ -10,6 +10,10 @@
 		2DA5B53E39413BB4E715138D /* Pods_FigFolders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */; };
 		AE27EB44264EE66000C34CBD /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB43264EE66000C34CBD /* StringUtility.swift */; };
 		AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB45264EE6A000C34CBD /* StringConstants.swift */; };
+		AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7A26BE265055EA0057D454 /* HomeTabBarController.storyboard */; };
+		AE7A26C1265056390057D454 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A26C0265056390057D454 /* HomeTabBarController.swift */; };
+		AE7A26C3265056FE0057D454 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */; };
+		AE7A26C5265057120057D454 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A26C4265057120057D454 /* HomeViewController.swift */; };
 		AE861B25264FB75D00E708D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE861B24264FB75D00E708D7 /* GoogleService-Info.plist */; };
 		AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B26264FBCF400E708D7 /* DateUtility.swift */; };
 		AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */; };
@@ -61,6 +65,10 @@
 		6534D6FF9EF3121470874BD9 /* Pods-FigFolders.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FigFolders.release.xcconfig"; path = "Target Support Files/Pods-FigFolders/Pods-FigFolders.release.xcconfig"; sourceTree = "<group>"; };
 		AE27EB43264EE66000C34CBD /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		AE27EB45264EE6A000C34CBD /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		AE7A26BE265055EA0057D454 /* HomeTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTabBarController.storyboard; sourceTree = "<group>"; };
+		AE7A26C0265056390057D454 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
+		AE7A26C4265057120057D454 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AE861B24264FB75D00E708D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AE861B26264FBCF400E708D7 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModel.swift; sourceTree = "<group>"; };
@@ -126,6 +134,25 @@
 				00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE7A26BC265055590057D454 /* HomeTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				AE7A26BD265055770057D454 /* HomeViewController */,
+				AE7A26BE265055EA0057D454 /* HomeTabBarController.storyboard */,
+				AE7A26C0265056390057D454 /* HomeTabBarController.swift */,
+			);
+			path = HomeTabBar;
+			sourceTree = "<group>";
+		};
+		AE7A26BD265055770057D454 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */,
+				AE7A26C4265057120057D454 /* HomeViewController.swift */,
+			);
+			path = HomeViewController;
 			sourceTree = "<group>";
 		};
 		AE861B28264FBDAD00E708D7 /* Models */ = {
@@ -210,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				AEA1979326499E9E00D0D181 /* Onboarding */,
+				AE7A26BC265055590057D454 /* HomeTabBar */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -421,6 +449,7 @@
 			files = (
 				AEF84271264D8EAF00FB8003 /* Roboto-ThinItalic.ttf in Resources */,
 				AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */,
+				AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */,
 				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
 				AEA1977D2649933400D0D181 /* LaunchScreen.storyboard in Resources */,
 				AEF8426F264D8EAF00FB8003 /* Roboto-Regular.ttf in Resources */,
@@ -438,6 +467,7 @@
 				AEF84278264D8EAF00FB8003 /* Roboto-Black.ttf in Resources */,
 				AEA1978D2649970800D0D181 /* OnboardingCollectionView.xib in Resources */,
 				AEA197982649A07E00D0D181 /* OnboardingCollectionViewCell.xib in Resources */,
+				AE7A26C3265056FE0057D454 /* HomeViewController.storyboard in Resources */,
 				AE861B25264FB75D00E708D7 /* GoogleService-Info.plist in Resources */,
 				AEF84270264D8EAF00FB8003 /* Roboto-MediumItalic.ttf in Resources */,
 				AEF8426E264D8EAF00FB8003 /* Roboto-Light.ttf in Resources */,
@@ -493,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE7A26C5265057120057D454 /* HomeViewController.swift in Sources */,
 				AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */,
 				AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */,
 				AEA197712649933000D0D181 /* AppDelegate.swift in Sources */,
@@ -513,6 +544,7 @@
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
 				AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */,
+				AE7A26C1265056390057D454 /* HomeTabBarController.swift in Sources */,
 				AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */,
 				AEA1978B264996E500D0D181 /* OnboardingCollectionView.swift in Sources */,
 				AE27EB44264EE66000C34CBD /* StringUtility.swift in Sources */,

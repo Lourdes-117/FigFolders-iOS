@@ -135,6 +135,7 @@ class LoginViewController: UIViewController {
             }
             activityView.stopAnimating()
             activityBackgroundView.removeFromSuperview()
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(HomeTabBarController.initiateVC())
             debugPrint("Signin Successful")
         }
     }
