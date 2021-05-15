@@ -104,6 +104,10 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     private func goToStepTwo() {
         guard validateFields() else { return }
         guard let registerStepTwoViewController = OnboardingRegisterStepTwoViewController.initiateVC() else { return }
+        registerStepTwoViewController.firstName = firstNameTextField.text
+        registerStepTwoViewController.lastName = lastNameTextField.text
+        registerStepTwoViewController.dateOfBirth = datePicker.date.toDateString()
+        registerStepTwoViewController.phoneNumber = phoneNumberTextField.text
         navigationController?.pushViewController(registerStepTwoViewController, animated: true)
     }
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 // MARK: - Outlets
@@ -108,10 +109,10 @@ class LoginViewController: UIViewController {
     }
     
     fileprivate func authenticateUser(email: String?, password: String?) {
-        if validateInputs() {
-            debugPrint("Handle Login")
-        } else {
-            debugPrint("Invalid Inputs")
+        guard validateInputs() else { return }
+        FirebaseAuth.Auth.auth().signIn(withEmail: emailIDTextField.text ?? "", password: passwordTextField.text ?? "") { _, error in
+            guard error == nil else { return }
+            debugPrint("Signin Successful")
         }
     }
 }

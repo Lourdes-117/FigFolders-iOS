@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class OnboardingRegisterStepTwoViewController: UIViewController {
     
@@ -18,6 +19,12 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
     @IBOutlet weak var usernameTakenLabel: UILabel!
     
     let viewModel = OnboardingRegisterStepTwoViewModel()
+    
+// MARK: - Data From Step One
+    var firstName: String?
+    var lastName: String?
+    var dateOfBirth: String?
+    var phoneNumber: String?
     
 // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -83,7 +90,10 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
     
     private func registerUser() {
         guard isAllFieldsValid() else { return }
-        debugPrint("Register")
+        FirebaseAuth.Auth.auth().createUser(withEmail: emailIDTextField.text ?? "", password: passwordTextField.text ?? "") { _, error in
+            guard error == nil else { return }
+            debugPrint("Register User")
+        }
     }
     
 // MARK: - Button Actions

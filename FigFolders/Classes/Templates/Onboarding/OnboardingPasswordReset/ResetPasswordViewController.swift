@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ResetPasswordViewController: UIViewController {
 // MARK: - Outlets
@@ -51,10 +52,10 @@ class ResetPasswordViewController: UIViewController {
     private func resetPassword() {
         let isEmailValid = viewModel.isEmailValid(email: emailIDTextField.text)
         emailIDTextField.addBorder(color: isEmailValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
-        if isEmailValid {
-            debugPrint("Reset Password")
-        } else {
-            debugPrint("Invalid Email")
+        guard isEmailValid else { return }
+        FirebaseAuth.Auth.auth().sendPasswordReset(withEmail: emailIDTextField.text ?? "") { error in
+            guard error == nil else { return }
+            debugPrint("Password Reset Link Sent")
         }
     }
 }
