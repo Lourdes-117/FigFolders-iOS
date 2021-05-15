@@ -7,11 +7,13 @@
 
 import UIKit
 import FirebaseAuth
+import NVActivityIndicatorView
 
 class ResetPasswordViewController: UIViewController {
 // MARK: - Outlets
     @IBOutlet weak var emailIDTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
     
     var emailIdFromLogin: String?
     
@@ -52,9 +54,38 @@ class ResetPasswordViewController: UIViewController {
     private func resetPassword() {
         let isEmailValid = viewModel.isEmailValid(email: emailIDTextField.text)
         emailIDTextField.addBorder(color: isEmailValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        
+        // Activity Indicator
+        let activityBackgroundView = UIView(frame: view.frame)
+        activityBackgroundView.backgroundColor = viewModel.activityIndicatorBackgroundColor
+        let activityView = NVActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-50,
+                                                                 y: (view.frame.height/2)-50,
+                                                                 width: 100,
+                                                                 height: 100),
+                                                   type: .triangleSkewSpin,
+                                                   color: UIColor.blue,
+                                                   padding: 0)
+        activityBackgroundView.addSubview(activityView)
+        activityView.startAnimating()
+        view.addSubview(activityBackgroundView)
+        
         guard isEmailValid else { return }
-        FirebaseAuth.Auth.auth().sendPasswordReset(withEmail: emailIDTextField.text ?? "") { error in
-            guard error == nil else { return }
+        FirebaseAuth.Auth.auth().sendPasswordReset(withEmail: emailIDTextField.text ?? "") { [weak self] error in
+            guard error == nil else {
+                switch AuthErrorCode(rawValue: error!._code) {
+                case .userNotFound:
+                    self?.statusLabel.text = self?.viewModel.userNotFound
+                    debugPrint("User Not Found")
+                default:
+                    break
+                }
+                activityView.stopAnimating()
+                activityBackgroundView.removeFromSuperview()
+                return
+            }
+            activityView.stopAnimating()
+            activityBackgroundView.removeFromSuperview()
+            self?.statusLabel.text = self?.viewModel.passwordResetLinkSent
             debugPrint("Password Reset Link Sent")
         }
     }
