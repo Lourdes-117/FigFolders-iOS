@@ -16,13 +16,38 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="muW-pQ-69E" customClass="HamburgerMenuView" customModule="FigFolders" customModuleProvider="target">
+                                <rect key="frame" x="-8.5" y="44" width="372.5" height="818"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1l-Y4-lk2">
+                                <rect key="frame" x="364" y="44" width="50" height="852"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="K1l-Y4-lk2" secondAttribute="trailing" id="1ZV-ab-cFJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="muW-pQ-69E" secondAttribute="trailing" constant="50" id="WvS-LN-ZDh"/>
+                            <constraint firstAttribute="bottom" secondItem="K1l-Y4-lk2" secondAttribute="bottom" id="bAY-HH-XTA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="muW-pQ-69E" secondAttribute="bottom" id="cPd-V0-caf"/>
+                            <constraint firstItem="K1l-Y4-lk2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="eIz-6f-EJq"/>
+                            <constraint firstItem="muW-pQ-69E" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.9" id="odK-KY-XcW"/>
+                            <constraint firstItem="muW-pQ-69E" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="qIC-pp-8q7"/>
+                            <constraint firstItem="K1l-Y4-lk2" firstAttribute="leading" secondItem="muW-pQ-69E" secondAttribute="trailing" id="qh7-XD-J5T"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="hamburgerMenuLeftConstraint" destination="WvS-LN-ZDh" id="krX-Xj-BhK"/>
+                        <outlet property="hamburgerMenuOverflowView" destination="K1l-Y4-lk2" id="dgg-Rw-Zxg"/>
+                        <outlet property="hamburgerMenuView" destination="muW-pQ-69E" id="NCR-AB-FzO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="124"/>
+            <point key="canvasLocation" x="137.68115942028987" y="123.88392857142857"/>
         </scene>
     </scenes>
     <resources>

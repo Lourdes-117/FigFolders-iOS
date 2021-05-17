@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HamburgerMenuView" customModule="FigFolders" customModuleProvider="target">
+            <connections>
+                <outlet property="nameLabel" destination="W8N-hI-Iz2" id="r0r-1E-Sld"/>
+                <outlet property="profilePictureImage" destination="FYm-u4-vgo" id="SOp-tN-q38"/>
+                <outlet property="tableView" destination="8Lm-fp-ey2" id="XUK-TR-4Un"/>
+                <outlet property="viewProfileButton" destination="YKI-TO-dSm" id="vwA-Wf-xV1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uz5-rS-WnJ">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Lm-fp-ey2">
+                    <rect key="frame" x="0.0" y="75" width="414" height="771"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhN-16-yxe">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peter Paul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8N-hI-Iz2">
+                            <rect key="frame" x="22" y="11" width="115" height="30"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="25"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKI-TO-dSm">
+                            <rect key="frame" x="22" y="41" width="115" height="30"/>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                            <state key="normal" title="View Profile">
+                                <color key="titleColor" systemColor="labelColor"/>
+                            </state>
+                            <connections>
+                                <action selector="onTapViewProfileButton:" destination="-1" eventType="touchUpInside" id="sM8-wI-Xu2"/>
+                            </connections>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FYm-u4-vgo">
+                            <rect key="frame" x="332" y="8" width="60" height="59"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="FYm-u4-vgo" secondAttribute="height" multiplier="1:1" id="jYH-40-vPB"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.44313725490196076" green="0.97254901960784312" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="YKI-TO-dSm" firstAttribute="trailing" secondItem="W8N-hI-Iz2" secondAttribute="trailing" id="0zv-ux-l1J"/>
+                        <constraint firstAttribute="height" constant="75" id="3df-IP-cHY"/>
+                        <constraint firstAttribute="trailing" secondItem="FYm-u4-vgo" secondAttribute="trailing" constant="22" id="7Rz-U3-P4O"/>
+                        <constraint firstItem="FYm-u4-vgo" firstAttribute="height" secondItem="jhN-16-yxe" secondAttribute="height" multiplier="0.8" id="VZk-ie-Beg"/>
+                        <constraint firstItem="W8N-hI-Iz2" firstAttribute="leading" secondItem="jhN-16-yxe" secondAttribute="leading" constant="22" id="dYX-db-E8d"/>
+                        <constraint firstItem="FYm-u4-vgo" firstAttribute="centerY" secondItem="jhN-16-yxe" secondAttribute="centerY" id="dyx-i7-YY0"/>
+                        <constraint firstItem="W8N-hI-Iz2" firstAttribute="top" secondItem="jhN-16-yxe" secondAttribute="top" constant="11" id="mNL-0o-gGb"/>
+                        <constraint firstItem="YKI-TO-dSm" firstAttribute="leading" secondItem="W8N-hI-Iz2" secondAttribute="leading" id="qLD-8G-vIP"/>
+                        <constraint firstItem="YKI-TO-dSm" firstAttribute="top" secondItem="W8N-hI-Iz2" secondAttribute="bottom" id="rvD-uz-b0g"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfM-m7-9cz">
+                    <rect key="frame" x="0.0" y="846" width="414" height="50"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fig_Folders_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Cyt-Xb-d0e">
+                            <rect key="frame" x="22" y="1.5" width="47.5" height="47.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Cyt-Xb-d0e" secondAttribute="height" multiplier="1:1" id="De1-HY-UbP"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wX-ip-Lk6">
+                            <rect key="frame" x="362" y="10.5" width="30" height="29"/>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                            <state key="normal" title="Help">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="onTapHelpButton:" destination="-1" eventType="touchUpInside" id="pRW-y8-WfU"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.44313725490196076" green="0.97254901960784312" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="3wX-ip-Lk6" secondAttribute="trailing" constant="22" id="74M-Sh-Zqh"/>
+                        <constraint firstItem="Cyt-Xb-d0e" firstAttribute="height" secondItem="AfM-m7-9cz" secondAttribute="height" multiplier="0.95" id="9Uz-Bh-hvi"/>
+                        <constraint firstItem="Cyt-Xb-d0e" firstAttribute="leading" secondItem="AfM-m7-9cz" secondAttribute="leading" constant="22" id="fP9-NL-jPo"/>
+                        <constraint firstAttribute="height" constant="50" id="ib5-25-4HX"/>
+                        <constraint firstItem="Cyt-Xb-d0e" firstAttribute="centerY" secondItem="AfM-m7-9cz" secondAttribute="centerY" id="nhL-F9-5CD"/>
+                        <constraint firstItem="3wX-ip-Lk6" firstAttribute="centerY" secondItem="AfM-m7-9cz" secondAttribute="centerY" id="xfE-5x-zs6"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="AfM-m7-9cz" secondAttribute="bottom" id="B2Z-k7-cV5"/>
+                <constraint firstAttribute="trailing" secondItem="8Lm-fp-ey2" secondAttribute="trailing" id="VqV-9Q-PNp"/>
+                <constraint firstItem="jhN-16-yxe" firstAttribute="leading" secondItem="uz5-rS-WnJ" secondAttribute="leading" id="Y13-xP-f47"/>
+                <constraint firstAttribute="trailing" secondItem="AfM-m7-9cz" secondAttribute="trailing" id="dip-vB-KkH"/>
+                <constraint firstItem="AfM-m7-9cz" firstAttribute="top" secondItem="8Lm-fp-ey2" secondAttribute="bottom" id="flw-q9-btj"/>
+                <constraint firstAttribute="trailing" secondItem="jhN-16-yxe" secondAttribute="trailing" id="mWN-rx-0xQ"/>
+                <constraint firstItem="8Lm-fp-ey2" firstAttribute="top" secondItem="jhN-16-yxe" secondAttribute="bottom" id="mhK-EJ-QLG"/>
+                <constraint firstItem="AfM-m7-9cz" firstAttribute="leading" secondItem="uz5-rS-WnJ" secondAttribute="leading" id="pML-sC-fKI"/>
+                <constraint firstItem="8Lm-fp-ey2" firstAttribute="leading" secondItem="uz5-rS-WnJ" secondAttribute="leading" id="qgi-73-eX2"/>
+                <constraint firstItem="jhN-16-yxe" firstAttribute="top" secondItem="uz5-rS-WnJ" secondAttribute="top" id="y0q-XD-l2r"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="76.811594202898561" y="55.580357142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Fig_Folders_Logo" width="335" height="384"/>
+        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

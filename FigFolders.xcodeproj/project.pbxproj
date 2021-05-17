@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2DA5B53E39413BB4E715138D /* Pods_FigFolders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */; };
+		AE16D8922652DA4D00000BB5 /* HamburgerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */; };
+		AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */; };
+		AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */; };
+		AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */; };
 		AE27EB44264EE66000C34CBD /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB43264EE66000C34CBD /* StringUtility.swift */; };
 		AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB45264EE6A000C34CBD /* StringConstants.swift */; };
 		AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7A26BE265055EA0057D454 /* HomeTabBarController.storyboard */; };
@@ -18,6 +22,9 @@
 		AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B26264FBCF400E708D7 /* DateUtility.swift */; };
 		AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */; };
 		AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */; };
+		AE94E070265306360020CB95 /* HamburgermenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */; };
+		AE94E071265306360020CB95 /* HamburgermenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE94E06F265306360020CB95 /* HamburgermenuTableViewCell.xib */; };
+		AE94E07326530FC80020CB95 /* UILabelUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94E07226530FC80020CB95 /* UILabelUtility.swift */; };
 		AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE987711264AFE4700064A7D /* LoginViewController.swift */; };
 		AE987714264AFE5400064A7D /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE987713264AFE5400064A7D /* LoginViewController.storyboard */; };
 		AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */; };
@@ -63,6 +70,10 @@
 		00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FigFolders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F27D2551E5368249C37D5ED /* Pods-FigFolders.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FigFolders.debug.xcconfig"; path = "Target Support Files/Pods-FigFolders/Pods-FigFolders.debug.xcconfig"; sourceTree = "<group>"; };
 		6534D6FF9EF3121470874BD9 /* Pods-FigFolders.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FigFolders.release.xcconfig"; path = "Target Support Files/Pods-FigFolders/Pods-FigFolders.release.xcconfig"; sourceTree = "<group>"; };
+		AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuView.swift; sourceTree = "<group>"; };
+		AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgerMenuView.xib; sourceTree = "<group>"; };
+		AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewModel.swift; sourceTree = "<group>"; };
+		AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerViewModel.swift; sourceTree = "<group>"; };
 		AE27EB43264EE66000C34CBD /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		AE27EB45264EE6A000C34CBD /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		AE7A26BE265055EA0057D454 /* HomeTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTabBarController.storyboard; sourceTree = "<group>"; };
@@ -73,6 +84,9 @@
 		AE861B26264FBCF400E708D7 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModel.swift; sourceTree = "<group>"; };
 		AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgermenuTableViewCell.swift; sourceTree = "<group>"; };
+		AE94E06F265306360020CB95 /* HamburgermenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgermenuTableViewCell.xib; sourceTree = "<group>"; };
+		AE94E07226530FC80020CB95 /* UILabelUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelUtility.swift; sourceTree = "<group>"; };
 		AE987711264AFE4700064A7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AE987713264AFE5400064A7D /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtility.swift; sourceTree = "<group>"; };
@@ -136,6 +150,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AE16D8902652DA1A00000BB5 /* HamburgerMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				AE16D8972652E2B000000BB5 /* HamburgerMenuTableViewCell */,
+				AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */,
+				AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */,
+				AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */,
+			);
+			path = HamburgerMenuView;
+			sourceTree = "<group>";
+		};
+		AE16D8972652E2B000000BB5 /* HamburgerMenuTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE94E06F265306360020CB95 /* HamburgermenuTableViewCell.xib */,
+				AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */,
+			);
+			path = HamburgerMenuTableViewCell;
+			sourceTree = "<group>";
+		};
 		AE7A26BC265055590057D454 /* HomeTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +185,7 @@
 			children = (
 				AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */,
 				AE7A26C4265057120057D454 /* HomeViewController.swift */,
+				AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -266,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				AEA19789264995FB00D0D181 /* OnboardingCollectionView */,
+				AE16D8902652DA1A00000BB5 /* HamburgerMenuView */,
 			);
 			path = Organisms;
 			sourceTree = "<group>";
@@ -289,6 +325,7 @@
 				AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */,
 				AE861B26264FBCF400E708D7 /* DateUtility.swift */,
 				AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */,
+				AE94E07226530FC80020CB95 /* UILabelUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -451,12 +488,14 @@
 				AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */,
 				AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */,
 				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
+				AE94E071265306360020CB95 /* HamburgermenuTableViewCell.xib in Resources */,
 				AEA1977D2649933400D0D181 /* LaunchScreen.storyboard in Resources */,
 				AEF8426F264D8EAF00FB8003 /* Roboto-Regular.ttf in Resources */,
 				AEF84289264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard in Resources */,
 				AEF84272264D8EAF00FB8003 /* Roboto-BoldItalic.ttf in Resources */,
 				AEF84276264D8EAF00FB8003 /* Roboto-Bold.ttf in Resources */,
 				AEA1977A2649933400D0D181 /* Assets.xcassets in Resources */,
+				AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */,
 				AEF84277264D8EAF00FB8003 /* Roboto-Thin.ttf in Resources */,
 				AEF84282264D9D9800FB8003 /* OnboardingRegisterStepOneViewController.storyboard in Resources */,
 				AEF84275264D8EAF00FB8003 /* Roboto-BlackItalic.ttf in Resources */,
@@ -532,6 +571,7 @@
 				AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */,
 				AEA1979226499AD800D0D181 /* UIViewUtility.swift in Sources */,
 				AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */,
+				AE94E07326530FC80020CB95 /* UILabelUtility.swift in Sources */,
 				AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */,
 				AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */,
 				AEA1978F26499A0B00D0D181 /* OnboardingCollectionViewModel.swift in Sources */,
@@ -541,12 +581,16 @@
 				AEF8427C264D936500FB8003 /* LoginViewModel.swift in Sources */,
 				AEF8427E264D940800FB8003 /* ResetPasswordViewModel.swift in Sources */,
 				AEF84286264DA15300FB8003 /* OnboardingRegisterStepOneViewModel.swift in Sources */,
+				AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */,
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
+				AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */,
 				AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */,
 				AE7A26C1265056390057D454 /* HomeTabBarController.swift in Sources */,
 				AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */,
 				AEA1978B264996E500D0D181 /* OnboardingCollectionView.swift in Sources */,
+				AE94E070265306360020CB95 /* HamburgermenuTableViewCell.swift in Sources */,
+				AE16D8922652DA4D00000BB5 /* HamburgerMenuView.swift in Sources */,
 				AE27EB44264EE66000C34CBD /* StringUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
