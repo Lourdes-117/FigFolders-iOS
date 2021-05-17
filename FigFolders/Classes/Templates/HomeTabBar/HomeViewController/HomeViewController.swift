@@ -27,8 +27,16 @@ class HomeViewController: UIViewController {
     }
     
     private func setupView() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: viewModel.leftBarButtonImage , style: .plain, target: self, action: #selector(onTapLeftBarButtonItem))
-        navigationController?.navigationBar.barTintColor = viewModel.navigationBarColor
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: viewModel.leftBarButtonImage,
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(onTapHamburgerMenuIcon))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: viewModel.rightBarButtonImage,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(onTapChatIcon))
+        self.title = viewModel.pageTitle
+        UINavigationBar.appearance().barTintColor = viewModel.navigationBarColor
         navigationController?.navigationBar.tintColor = viewModel.navigationIconsColor
         hamburgerMenuLeftConstraint.constant = viewModel.hamburgerMenuLeftConstraint
         hamburgerMenuOverflowView.isHidden = true
@@ -47,9 +55,13 @@ class HomeViewController: UIViewController {
         expandOrCollapseHamburgerMenu()
     }
     
-    @objc private func onTapLeftBarButtonItem() {
+    @objc private func onTapHamburgerMenuIcon() {
         viewModel.isHamburgerMenuExpanded.toggle()
         expandOrCollapseHamburgerMenu()
+    }
+    
+    @objc func onTapChatIcon() {
+        
     }
     
 // MARK: - Helper Methods

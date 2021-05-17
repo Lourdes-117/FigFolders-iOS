@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewControllerViewModel {
     let leftBarButtonImage = UIImage(named: "hamburger_menu_icon")?.withTintColor(UIColor.black) ?? UIImage()
+    let rightBarButtonImage = UIImage(named: "chat_icon")?.withTintColor(UIColor.black) ?? UIImage()
     let pageTitle = "Home"
     let navigationBarColor = UIColor(red: 26, green: 214, blue: 70, alpha: 1)
     let navigationIconsColor = UIColor.black

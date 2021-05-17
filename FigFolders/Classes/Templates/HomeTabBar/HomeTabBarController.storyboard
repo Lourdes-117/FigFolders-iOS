@@ -15,6 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.10196078431372549" green="0.83921568627450982" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Lvv-dp-zQL" kind="relationship" relationship="viewControllers" id="HA7-Rf-mVF"/>
@@ -33,6 +34,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I3S-rW-4yS">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.10196078431372549" green="0.83921568627450982" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYF-UB-duS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -47,6 +49,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="px8-hN-P9L">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.10196078431372549" green="0.83921568627450982" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="FqD-iv-Nnt" kind="relationship" relationship="rootViewController" id="V02-dy-wrc"/>
