@@ -14,6 +14,9 @@
 		AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */; };
 		AE27EB44264EE66000C34CBD /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB43264EE66000C34CBD /* StringUtility.swift */; };
 		AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB45264EE6A000C34CBD /* StringConstants.swift */; };
+		AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6B944626542E90006463E1 /* ProfileViewController.swift */; };
+		AE6B944B26542EAF006463E1 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE6B944A26542EAF006463E1 /* ProfileViewController.storyboard */; };
+		AE6B944D26542EC4006463E1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6B944C26542EC4006463E1 /* ProfileViewModel.swift */; };
 		AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7A26BE265055EA0057D454 /* HomeTabBarController.storyboard */; };
 		AE7A26C1265056390057D454 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A26C0265056390057D454 /* HomeTabBarController.swift */; };
 		AE7A26C3265056FE0057D454 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */; };
@@ -76,6 +79,9 @@
 		AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerViewModel.swift; sourceTree = "<group>"; };
 		AE27EB43264EE66000C34CBD /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		AE27EB45264EE6A000C34CBD /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		AE6B944626542E90006463E1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		AE6B944A26542EAF006463E1 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
+		AE6B944C26542EC4006463E1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		AE7A26BE265055EA0057D454 /* HomeTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTabBarController.storyboard; sourceTree = "<group>"; };
 		AE7A26C0265056390057D454 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
@@ -170,6 +176,16 @@
 			path = HamburgerMenuTableViewCell;
 			sourceTree = "<group>";
 		};
+		AE6B944526542E17006463E1 /* ProfilePage */ = {
+			isa = PBXGroup;
+			children = (
+				AE6B944A26542EAF006463E1 /* ProfileViewController.storyboard */,
+				AE6B944C26542EC4006463E1 /* ProfileViewModel.swift */,
+				AE6B944626542E90006463E1 /* ProfileViewController.swift */,
+			);
+			path = ProfilePage;
+			sourceTree = "<group>";
+		};
 		AE7A26BC265055590057D454 /* HomeTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,8 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */,
-				AE7A26C4265057120057D454 /* HomeViewController.swift */,
 				AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */,
+				AE7A26C4265057120057D454 /* HomeViewController.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -273,6 +289,7 @@
 			children = (
 				AEA1979326499E9E00D0D181 /* Onboarding */,
 				AE7A26BC265055590057D454 /* HomeTabBar */,
+				AE6B944526542E17006463E1 /* ProfilePage */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -498,6 +515,7 @@
 				AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */,
 				AEF84277264D8EAF00FB8003 /* Roboto-Thin.ttf in Resources */,
 				AEF84282264D9D9800FB8003 /* OnboardingRegisterStepOneViewController.storyboard in Resources */,
+				AE6B944B26542EAF006463E1 /* ProfileViewController.storyboard in Resources */,
 				AEF84275264D8EAF00FB8003 /* Roboto-BlackItalic.ttf in Resources */,
 				AEF84274264D8EAF00FB8003 /* Roboto-Italic.ttf in Resources */,
 				AEA197782649933000D0D181 /* OnboardingViewController.storyboard in Resources */,
@@ -574,7 +592,9 @@
 				AE94E07326530FC80020CB95 /* UILabelUtility.swift in Sources */,
 				AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */,
 				AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */,
+				AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */,
 				AEA1978F26499A0B00D0D181 /* OnboardingCollectionViewModel.swift in Sources */,
+				AE6B944D26542EC4006463E1 /* ProfileViewModel.swift in Sources */,
 				AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */,
 				AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */,
 				AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */,

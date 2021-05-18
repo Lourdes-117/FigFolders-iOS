@@ -17,6 +17,8 @@ class HamburgerMenuView: UIView {
     let kIdentifier = "HamburgerMenuView"
     let viewModel = HamburgerMenuViewModel()
     
+    weak var delegate: HamburgerMenuDelegate?
+    
 // MARK: - Lifecycle Methods
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,6 +49,7 @@ class HamburgerMenuView: UIView {
 
 // MARK: - Button Actions
     @IBAction func onTapViewProfileButton(_ sender: Any) {
+        delegate?.onTapViewProfile()
     }
     
     @IBAction func onTapHelpButton(_ sender: Any) {
@@ -67,5 +70,8 @@ extension HamburgerMenuView: UITableViewDataSource {
 }
 
 extension HamburgerMenuView: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let type = HamburgerMenuItemType(rawValue: indexPath.row) else { return }
+        delegate?.onSelectHamburgerMenu(type: type)
+    }
 }

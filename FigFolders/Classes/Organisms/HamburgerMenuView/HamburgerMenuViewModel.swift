@@ -7,6 +7,11 @@
 
 import Foundation
 
+protocol HamburgerMenuDelegate: NSObjectProtocol {
+    func onSelectHamburgerMenu(type: HamburgerMenuItemType)
+    func onTapViewProfile()
+}
+
 enum HamburgerMenuItemType: Int {
     case notifications = 0
     case myFiles = 1
