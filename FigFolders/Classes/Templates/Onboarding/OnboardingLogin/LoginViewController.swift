@@ -139,6 +139,10 @@ class LoginViewController: UIViewController {
             debugPrint("Signin Successful")
         }
     }
+    
+    deinit {
+        debugPrint(self.description + "Released From Memory")
+    }
 }
 
 // MARK: - TextField Delegate

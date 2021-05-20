@@ -26,9 +26,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if FirebaseAuth.Auth.auth().currentUser != nil {
             guard let tabbarController = HomeTabBarController.initiateVC() else { return }
             window?.rootViewController = tabbarController
-        } else {
-            guard let tabbarController = OnboardingViewController.initiateVC() else { return }
-            window?.rootViewController = tabbarController
         }
     }
     

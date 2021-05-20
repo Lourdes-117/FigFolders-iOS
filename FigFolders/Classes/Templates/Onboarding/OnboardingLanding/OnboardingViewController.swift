@@ -58,6 +58,10 @@ class OnboardingViewController: UIViewController {
         guard let signupViewController = OnboardingRegisterStepOneViewController.initiateVC() else { return }
         navigationController?.pushViewController(signupViewController, animated: true)
     }
+    
+    deinit {
+        debugPrint(self.description + "Released From Memory")
+    }
 }
 
 // MARK: - Delegates

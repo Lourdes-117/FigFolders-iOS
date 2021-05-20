@@ -115,6 +115,10 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     @IBAction func onTapNextButton(_ sender: Any) {
         goToStepTwo()
     }
+    
+    deinit {
+        debugPrint(self.description + "Released From Memory")
+    }
 }
 
 // MARK: - TextField Delegate

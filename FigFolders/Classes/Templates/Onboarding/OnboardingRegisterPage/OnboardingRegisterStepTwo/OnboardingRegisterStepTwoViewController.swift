@@ -189,6 +189,10 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
     @IBAction func onTapRegisterButton(_ sender: Any) {
         registerUser()
     }
+    
+    deinit {
+        debugPrint(self.description + "Released From Memory")
+    }
 }
 
 // MARK: - TextField Delegate

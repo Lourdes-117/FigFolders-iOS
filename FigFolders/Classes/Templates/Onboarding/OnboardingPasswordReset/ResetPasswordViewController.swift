@@ -89,6 +89,10 @@ class ResetPasswordViewController: UIViewController {
             debugPrint("Password Reset Link Sent")
         }
     }
+    
+    deinit {
+        debugPrint(self.description + "Released From Memory")
+    }
 }
 
 // MARK: - TextField Delegate

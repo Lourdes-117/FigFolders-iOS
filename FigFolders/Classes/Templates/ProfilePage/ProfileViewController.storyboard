@@ -29,7 +29,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLq-Dl-PAi">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1061"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1086"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pvw-zv-gzC">
                                                 <rect key="frame" x="18" y="18.5" width="100" height="99"/>
@@ -199,9 +199,9 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stF-6n-D7P">
-                                                <rect key="frame" x="0.0" y="1011" width="414" height="50"/>
+                                                <rect key="frame" x="0.0" y="1011" width="414" height="75"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="YDW-Zf-ZVD"/>
+                                                    <constraint firstAttribute="height" constant="75" id="YDW-Zf-ZVD"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="23"/>
                                                 <state key="normal" title="Log Out">
@@ -310,6 +310,7 @@
                         <outlet property="emailIDTextField" destination="gfy-Gn-aTG" id="BBv-4s-n6T"/>
                         <outlet property="firstNameTextField" destination="jyZ-Xf-e4Q" id="adf-WL-q1z"/>
                         <outlet property="lastNameTextField" destination="uad-VE-LxB" id="LuA-mG-ZWX"/>
+                        <outlet property="logoutButton" destination="stF-6n-D7P" id="JLs-e6-nsE"/>
                         <outlet property="personalDetailsEditButton" destination="Gr5-dU-UBy" id="9V9-0k-mNM"/>
                         <outlet property="phoneNumberTextField" destination="gnI-CN-Sbd" id="lgc-Ar-kub"/>
                         <outlet property="profilePictureView" destination="pvw-zv-gzC" id="HJq-eA-jiI"/>

@@ -85,7 +85,10 @@ class HomeViewController: UIViewController {
             guard let completion = completion else { return }
             completion()
         }
-
+    }
+    
+    deinit {
+        debugPrint(self.description + "Released From Memory")
     }
 }
 
