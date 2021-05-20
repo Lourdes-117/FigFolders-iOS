@@ -13,6 +13,7 @@ class StringConstants {
     // Constants
     let regex = RegexConstants()
     let userDefaults = UserDefaultsConstants()
+    let database = DatabaseConstants()
 }
 
 struct RegexConstants {
@@ -29,4 +30,8 @@ struct UserDefaultsConstants {
     let phoneNumber = "phoneNumber"
     let dateOfBirth = "dateOfBirth"
     let profilePicUrl = "profilePicurl"
+}
+
+struct DatabaseConstants {
+    let usersArray = "users_array"
 }

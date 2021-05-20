@@ -26,11 +26,43 @@ final class DatabaseManager {
             }
             
             // Save data if user does not exist
-            userDatabaseReference.setValue(userDetails.toDictionnary) { error, _ in
+            userDatabaseReference.setValue(userDetails.toDictionnary) { [weak self] error, _ in
                 guard error == nil else {
                     completion(false)
                     return
                 }
+                self?.appendInUserArray(userDetails: userDetails, completion: completion)
+            }
+        }
+    }
+    
+    private func createUserMappingDictFrom(userDetails: UserDetailsModel) -> [String: String] {
+        return [userDetails.safeEmail: userDetails.username]
+    }
+    
+    /// Append In User Array
+    private func appendInUserArray(userDetails: UserDetailsModel, completion: @escaping (Bool) -> Void) {
+        let usersDatabaseReference = database.child(StringConstants.shared.database.usersArray)
+        usersDatabaseReference.observeSingleEvent(of: .value) { [weak self] snapshot in
+            if (!snapshot.exists()) { // If User Mapping Does Not Exist yet
+                guard let stronSelf = self else { return }
+                let userDictArray = [stronSelf.createUserMappingDictFrom(userDetails: userDetails)]
+                usersDatabaseReference.setValue(userDictArray) { error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    completion(true)
+                }
+            } else { // If User Mapping Dict Exists Already
+                guard var userArray = snapshot.value as? [[String: String]],
+                      let strongSelf = self else {
+                    completion(false)
+                    return
+                }
+                let userDetails = strongSelf.createUserMappingDictFrom(userDetails: userDetails)
+                userArray.append(userDetails)
+                usersDatabaseReference.setValue(userArray)
                 completion(true)
             }
         }

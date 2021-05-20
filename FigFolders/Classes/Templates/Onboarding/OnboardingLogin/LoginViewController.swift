@@ -127,7 +127,7 @@ class LoginViewController: UIViewController {
         view.addSubview(activityBackgroundView)
         
         // Authenticate
-        FirebaseAuth.Auth.auth().signIn(withEmail: emailIDTextField.text ?? "", password: passwordTextField.text ?? "") { _, error in
+        FirebaseAuth.Auth.auth().signIn(withEmail: emailIDTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] _, error in
             guard error == nil else {
                 activityView.stopAnimating()
                 activityBackgroundView.removeFromSuperview()
@@ -136,6 +136,7 @@ class LoginViewController: UIViewController {
             activityView.stopAnimating()
             activityBackgroundView.removeFromSuperview()
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(HomeTabBarController.initiateVC())
+            UserDefaults.standard.setValue(self?.emailIDTextField.text, forKey: StringConstants.shared.userDefaults.emailID)
             debugPrint("Signin Successful")
         }
     }

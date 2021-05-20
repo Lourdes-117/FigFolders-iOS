@@ -27,6 +27,12 @@ struct UserDetailsModel: Codable {
     var profilePicUrl: String
     
     static func getSafeEmail(email: String) -> String {
-        email.replacingOccurrences(of: "@", with: "^")
+        let edittedEmail = email.replacingOccurrences(of: "@", with: "^")
+        return edittedEmail.replacingOccurrences(of: ".", with: "~")
+    }
+    
+    static func getProperEmail(safeEmail: String) -> String {
+        let edittedEmail = safeEmail.replacingOccurrences(of: "^", with: "@")
+        return edittedEmail.replacingOccurrences(of: "~", with: ".")
     }
 }
