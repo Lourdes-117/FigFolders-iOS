@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: ViewControllerWithLoading {
 
 // MARK: - Outlets
     @IBOutlet weak var personalDetailsEditButton: UIButton!
@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController {
     
     let viewModel = ProfileViewModel()
     
-// MARK: - Lifecycle Methods
+// MARK: - Lifecycle Methodss
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
@@ -33,6 +33,10 @@ class ProfileViewController: UIViewController {
     private func initialSetup() {
         setupView()
         disableAllInputFields()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     private func setupView() {
