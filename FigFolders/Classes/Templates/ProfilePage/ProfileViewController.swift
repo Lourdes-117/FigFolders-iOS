@@ -38,6 +38,7 @@ class ProfileViewController: ViewControllerWithLoading {
         setupView()
         populateData()
         disableAllInputFields()
+        setupDelegates()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +53,13 @@ class ProfileViewController: ViewControllerWithLoading {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         removeKeyboardNotifications()
+    }
+    
+    private func setupDelegates() {
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        phoneNumberTextField.delegate = self
+        emailIDTextField.delegate = self
     }
     
     private func setupView() {
@@ -285,5 +293,13 @@ extension ProfileViewController: UserVerificationDelegate {
         hideLoadingIndicatorView()
         enableAllInputFields()
         viewModel.userDetailToUpdate = nil
+    }
+}
+
+
+// MARK: - TextField Delegate
+extension ProfileViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
     }
 }
