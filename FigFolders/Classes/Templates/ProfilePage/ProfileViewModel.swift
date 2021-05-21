@@ -21,6 +21,10 @@ class ProfileViewModel {
     
     let saveButtonTitle = "Save"
     let saveButtonColor = UIColor(red: 0, green: 0, blue: 255, alpha: 1)
+    let editButtonTitle = "Edit"
+    let cancelButtonTitle = "Cancel"
+    
+    var userDetailToUpdate: UserDetailsModel?
     
     private let logOutConfirmationTitle = "Log Out"
     private let logOutConfirmationMessage = "Are You Sure You Want To Log Out?"

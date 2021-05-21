@@ -15,6 +15,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var forgotPasswordContentView: UIView!
+    var isUserVerified = false
+    
+    weak var delegate: UserVerificationDelegate?
+    
+    var shouldActAsVerificationScreen = false
     
     let viewModel = LoginViewModel()
     
@@ -34,6 +40,13 @@ class LoginViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeKeyboardNotifications()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if !isUserVerified {
+            delegate?.verificationFailed()
+        }
     }
     
     fileprivate func resetView() {
@@ -56,6 +69,9 @@ class LoginViewController: UIViewController {
     }
     
     fileprivate func setupView() {
+        if shouldActAsVerificationScreen {
+            forgotPasswordContentView.isHidden = true
+        }
         view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
         emailIDTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         emailIDTextField.layer.cornerRadius = viewModel.borderRadius
@@ -133,8 +149,15 @@ class LoginViewController: UIViewController {
                 activityBackgroundView.removeFromSuperview()
                 return
             }
+            self?.isUserVerified = true
             activityView.stopAnimating()
             activityBackgroundView.removeFromSuperview()
+            if self?.shouldActAsVerificationScreen ?? false {
+                self?.dismiss(animated: true, completion: {
+                    self?.delegate?.verificationSuccessful()
+                })
+                return
+            }
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(HomeTabBarController.initiateVC())
             UserDefaults.standard.setValue(self?.emailIDTextField.text, forKey: StringConstants.shared.userDefaults.emailID)
             let safeEmail = UserDetailsModel.getSafeEmail(email: self?.emailIDTextField.text ?? "")

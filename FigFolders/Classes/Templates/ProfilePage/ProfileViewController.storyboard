@@ -323,6 +323,7 @@
                         <outlet property="personalDetailsEditButton" destination="Gr5-dU-UBy" id="9V9-0k-mNM"/>
                         <outlet property="phoneNumberTextField" destination="gnI-CN-Sbd" id="lgc-Ar-kub"/>
                         <outlet property="profilePictureView" destination="pvw-zv-gzC" id="HJq-eA-jiI"/>
+                        <outlet property="scrollView" destination="Eja-QO-mDd" id="2lg-aD-QBB"/>
                         <outlet property="usernameLabel" destination="8Rt-Ue-0TR" id="rp1-fd-LSj"/>
                     </connections>
                 </viewController>

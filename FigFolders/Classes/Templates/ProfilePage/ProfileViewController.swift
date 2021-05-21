@@ -13,6 +13,7 @@ class ProfileViewController: ViewControllerWithLoading {
 // MARK: - Outlets
     @IBOutlet weak var personalDetailsEditButton: UIButton!
     @IBOutlet weak var profilePictureView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -37,6 +38,7 @@ class ProfileViewController: ViewControllerWithLoading {
         setupView()
         populateData()
         disableAllInputFields()
+        setKeyboardNotifications()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,10 +58,15 @@ class ProfileViewController: ViewControllerWithLoading {
         dateOfBirthDatePicker.maximumDate = Date()
     }
     
+    private func setKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     func disableAllInputFields() {
         viewModel.isEditEnabled = false
         
-        personalDetailsEditButton.isHidden = false
+        personalDetailsEditButton.setTitle(viewModel.editButtonTitle, for: .normal)
         
         firstNameTextField.isEnabled = false
         lastNameTextField.isEnabled = false
@@ -84,7 +91,7 @@ class ProfileViewController: ViewControllerWithLoading {
     func enableAllInputFields() {
         viewModel.isEditEnabled = true
         
-        personalDetailsEditButton.isHidden = true
+        personalDetailsEditButton.setTitle(viewModel.cancelButtonTitle, for: .normal)
         
         firstNameTextField.isEnabled = true
         lastNameTextField.isEnabled = true
@@ -97,6 +104,22 @@ class ProfileViewController: ViewControllerWithLoading {
     }
     
 // MARK: - Button Taps
+    
+    @objc func keyboardWillShow(notification:NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView.contentInset = contentInset
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification) {
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+    }
+
     @IBAction func onTapChangePassword(_ sender: Any) {
     }
     
@@ -118,7 +141,12 @@ class ProfileViewController: ViewControllerWithLoading {
     }
     
     @IBAction func onTapEditPersonalDetails(_ sender: Any) {
-        enableAllInputFields()
+        if viewModel.isEditEnabled {
+            disableAllInputFields()
+            populateData()
+        } else {
+            enableAllInputFields()
+        }
     }
     
     deinit {
@@ -127,8 +155,46 @@ class ProfileViewController: ViewControllerWithLoading {
     
 // MARK: - Helper Methods
     private func saveUser() {
+        let safeEmail = UserDetailsModel.getSafeEmail(email: emailIDTextField.text ?? "")
+        let userDetails = UserDetailsModel(firstNameString: firstNameTextField.text ?? "",
+                                           lastNameString: lastNameTextField.text ?? "",
+                                           dateOfBirthString: dateOfBirthDatePicker.date.toDateString(),
+                                           phoneNumberString: phoneNumberTextField.text ?? "",
+                                           emailIDString: safeEmail,
+                                           usernameString: viewModel.userName ?? "")
+        showLoadingIndicator()
+        
+        DatabaseManager.shared.getUsernameForEmail(emailID: viewModel.userName ?? "") { [weak self] username in
+            guard username == nil else {
+                // TODO: - Add User Notification here
+                self?.hideLoadingIndicatorView()
+                return
+            }
+            // Use Email Available. Can be updated in Firebase Auth
+            guard let strongSelf = self else { return }
+            if strongSelf.viewModel.emailID == strongSelf.emailIDTextField.text { // Email ID Not changed
+                DatabaseManager.shared.updateDetailsOfUser(userDetails: userDetails) { [weak self] success in
+                    guard let strongSelf = self else { return }
+                    strongSelf.hideLoadingIndicatorView()
+                    if success {
+                        UserDefaults.standard.setValue(userDetails.firstName, forKey: StringConstants.shared.userDefaults.firstName)
+                        UserDefaults.standard.setValue(userDetails.lastName, forKey: StringConstants.shared.userDefaults.lastName)
+                        UserDefaults.standard.setValue(userDetails.safeEmail, forKey: StringConstants.shared.userDefaults.emailID)
+                        UserDefaults.standard.setValue(userDetails.phoneNumber, forKey: StringConstants.shared.userDefaults.phoneNumber)
+                        UserDefaults.standard.setValue(userDetails.dateOfBirth, forKey: StringConstants.shared.userDefaults.dateOfBirth)
+                        self?.populateData()
+                    }
+                }
+            } else { // Email ID Changed
+                strongSelf.viewModel.userDetailToUpdate = userDetails
+                if let loginViewController = LoginViewController.initiateVC() {
+                    loginViewController.delegate = self
+                    loginViewController.shouldActAsVerificationScreen = true
+                    self?.present(loginViewController, animated: true, completion: nil)
+                }
+            }
+        }
         disableAllInputFields()
-        populateData()
     }
     
     private func signoutUser() {
@@ -140,5 +206,45 @@ class ProfileViewController: ViewControllerWithLoading {
         } catch {
             debugPrint("Error In Signing Out User")
         }
+    }
+}
+
+
+// MARK: - User Verification Delegate
+extension ProfileViewController: UserVerificationDelegate {
+    func verificationSuccessful() {
+        FirebaseAuth.Auth.auth().currentUser?.updateEmail(to: emailIDTextField.text ?? "") { [weak self] error in
+            guard error == nil else {
+                self?.hideLoadingIndicatorView()
+                debugPrint("Email Update Failed In Firebase Auth")
+                return
+            }
+            guard let strongSelf = self,
+                  let userDetails = strongSelf.viewModel.userDetailToUpdate else {
+                self?.hideLoadingIndicatorView()
+                debugPrint("Error Updating Values To Database")
+                return
+            }
+            strongSelf.viewModel.userDetailToUpdate = nil
+            DatabaseManager.shared.updateDetailsOfUser(userDetails: userDetails) { success in
+                strongSelf.hideLoadingIndicatorView()
+                if success {
+                    UserDefaults.standard.setValue(userDetails.firstName, forKey: StringConstants.shared.userDefaults.firstName)
+                    UserDefaults.standard.setValue(userDetails.lastName, forKey: StringConstants.shared.userDefaults.lastName)
+                    UserDefaults.standard.setValue(userDetails.safeEmail, forKey: StringConstants.shared.userDefaults.emailID)
+                    UserDefaults.standard.setValue(userDetails.phoneNumber, forKey: StringConstants.shared.userDefaults.phoneNumber)
+                    UserDefaults.standard.setValue(userDetails.safeEmail, forKey: StringConstants.shared.userDefaults.emailID)
+                    UserDefaults.standard.setValue(userDetails.dateOfBirth, forKey: StringConstants.shared.userDefaults.dateOfBirth)
+                    self?.populateData()
+                }
+            }
+        }
+    }
+    
+    func verificationFailed() {
+        // TODO: - Handle Failure Notification
+        hideLoadingIndicatorView()
+        enableAllInputFields()
+        viewModel.userDetailToUpdate = nil
     }
 }

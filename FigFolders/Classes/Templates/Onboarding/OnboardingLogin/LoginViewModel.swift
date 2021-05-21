@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol UserVerificationDelegate: NSObjectProtocol {
+    func verificationSuccessful()
+    func verificationFailed()
+}
+
 class LoginViewModel {
     let borderRadius: CGFloat = 5
     let borderWidth: CGFloat = 2

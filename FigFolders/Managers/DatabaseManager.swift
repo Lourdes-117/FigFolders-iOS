@@ -97,6 +97,43 @@ final class DatabaseManager {
         }
     }
     
+    func updateDetailsOfUser(userDetails: UserDetailsModel, completion: @escaping (Bool)->Void) {
+        
+        if let existingEmailId = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String {
+            if userDetails.safeEmail != existingEmailId { // If Email Id changes, update mapping
+                let userArrayRef = database.child(StringConstants.shared.database.usersArray)
+                userArrayRef.observeSingleEvent(of: .value) { [weak self] snapshot in
+                    guard var userArray = snapshot.value as? [[String: String]],
+                          let strongSelf = self else {
+                        completion(false)
+                        return
+                    }
+                    userArray.removeAll { user in
+                        user[existingEmailId] != nil
+                    }
+                    let newUser = strongSelf.createUserMappingDictFrom(userDetails: userDetails)
+                    userArray.append(newUser)
+                    userArrayRef.setValue(userArray)
+                }
+            }
+        }
+        
+        let userReference = database.child(userDetails.username)
+        userReference.observeSingleEvent(of: .value) { snapshot in
+            guard (snapshot.value as? [String: String])?.decodeDictAsClass(type: UserDetailsModel.self) != nil else {
+                completion(false)
+                return
+            }
+            userReference.setValue(userDetails.toDictionary) { error, _ in
+                guard error != nil else {
+                    completion(false)
+                    return
+                }
+                completion(true)
+            }
+        }
+    }
+    
     /// Check If Username Is Available
     func isUsernameAvailable(username: String, completion: @escaping (Bool) -> Void) {
         database.child(username).observeSingleEvent(of: .value) { snapshot in
