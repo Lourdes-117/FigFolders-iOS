@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     }
     
     private func initialSetup() {
+        setUserDefaults()
         setupView()
         setupGestures()
         setupDelegate()
@@ -53,6 +54,18 @@ class HomeViewController: UIViewController {
         hamburgerMenuOverflowView.addGestureRecognizer(dismissTapGesture)
         let dismissPanGesture = UIPanGestureRecognizer(target: self, action: #selector(onTapOverflowView))
         hamburgerMenuOverflowView.addGestureRecognizer(dismissPanGesture)
+    }
+    
+    private func setUserDefaults() {
+        guard let username = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String else { return }
+        DatabaseManager.shared.getUserDetailsForUsername(username: username) { userDetails in
+            guard let userDetails = userDetails else { return }
+            UserDefaults.standard.setValue(userDetails.firstName, forKey: StringConstants.shared.userDefaults.firstName)
+            UserDefaults.standard.setValue(userDetails.lastName, forKey: StringConstants.shared.userDefaults.lastName)
+            UserDefaults.standard.setValue(userDetails.safeEmail, forKey: StringConstants.shared.userDefaults.emailID)
+            UserDefaults.standard.setValue(userDetails.phoneNumber, forKey: StringConstants.shared.userDefaults.phoneNumber)
+            UserDefaults.standard.setValue(userDetails.dateOfBirth, forKey: StringConstants.shared.userDefaults.dateOfBirth)
+        }
     }
     
     private func setupDelegate() {

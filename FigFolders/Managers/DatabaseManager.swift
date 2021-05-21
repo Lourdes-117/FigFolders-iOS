@@ -26,7 +26,7 @@ final class DatabaseManager {
             }
             
             // Save data if user does not exist
-            userDatabaseReference.setValue(userDetails.toDictionnary) { [weak self] error, _ in
+            userDatabaseReference.setValue(userDetails.toDictionary) { [weak self] error, _ in
                 guard error == nil else {
                     completion(false)
                     return
@@ -65,6 +65,35 @@ final class DatabaseManager {
                 usersDatabaseReference.setValue(userArray)
                 completion(true)
             }
+        }
+    }
+    
+    /// Gets The Username For Given Email ID
+    func getUsernameForEmail(emailID: String, completion: @escaping (String?) -> Void) {
+        database.child(StringConstants.shared.database.usersArray).observeSingleEvent(of: .value) { snapshot in
+            guard snapshot.exists(),
+                   let usersArray = (snapshot.value as? [[String: String]]) else {
+                    completion(nil)
+                    return
+                   }
+            let userDictSelected = usersArray.first { $0[emailID] != nil }
+            guard let userDict = userDictSelected else {
+                completion(nil)
+                return
+            }
+            let userName = userDict[emailID]
+            completion(userName)
+        }
+    }
+    
+    /// Get User Details For Username
+    func getUserDetailsForUsername(username: String, completion: @escaping (UserDetailsModel?) -> Void) {
+        database.child(username).observeSingleEvent(of: .value) { snapshot in
+            guard let personDetails = (snapshot.value as? [String: String])?.decodeDictAsClass(type: UserDetailsModel.self) else {
+                completion(nil)
+                return
+            }
+            completion(personDetails)
         }
     }
     

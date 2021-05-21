@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserDetailsModel: Codable {
+struct UserDetailsModel: Encodable, Decodable {
     init(firstNameString: String, lastNameString: String, dateOfBirthString: String, phoneNumberString: String, emailIDString: String, usernameString: String) {
         firstName = firstNameString
         lastName = lastNameString

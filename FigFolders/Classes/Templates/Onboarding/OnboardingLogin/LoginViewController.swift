@@ -137,6 +137,10 @@ class LoginViewController: UIViewController {
             activityBackgroundView.removeFromSuperview()
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(HomeTabBarController.initiateVC())
             UserDefaults.standard.setValue(self?.emailIDTextField.text, forKey: StringConstants.shared.userDefaults.emailID)
+            let safeEmail = UserDetailsModel.getSafeEmail(email: self?.emailIDTextField.text ?? "")
+            DatabaseManager.shared.getUsernameForEmail(emailID: safeEmail) { username in
+                UserDefaults.standard.setValue(username, forKey: StringConstants.shared.userDefaults.userName)
+            }
             debugPrint("Signin Successful")
         }
     }

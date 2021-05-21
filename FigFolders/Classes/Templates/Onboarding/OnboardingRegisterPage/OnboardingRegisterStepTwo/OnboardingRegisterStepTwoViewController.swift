@@ -152,9 +152,10 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
                                 debugPrint("Created User In Database")
                                 UserDefaults.standard.setValue(strongSelf.firstName, forKey: StringConstants.shared.userDefaults.firstName)
                                 UserDefaults.standard.setValue(strongSelf.lastName, forKey: StringConstants.shared.userDefaults.lastName)
-                                UserDefaults.standard.setValue(strongSelf.emailIDTextField.text, forKey: StringConstants.shared.userDefaults.emailID)
+                                UserDefaults.standard.setValue(UserDetailsModel.getSafeEmail(email:strongSelf.emailIDTextField.text ?? ""), forKey: StringConstants.shared.userDefaults.emailID)
                                 UserDefaults.standard.setValue(strongSelf.phoneNumber, forKey: StringConstants.shared.userDefaults.phoneNumber)
                                 UserDefaults.standard.setValue(strongSelf.dateOfBirth, forKey: StringConstants.shared.userDefaults.dateOfBirth)
+                                UserDefaults.standard.setValue(strongSelf.userNameTextField.text ?? "", forKey: StringConstants.shared.userDefaults.userName)
                                 
                                 activityView.stopAnimating()
                                 activityBackgroundView.removeFromSuperview()

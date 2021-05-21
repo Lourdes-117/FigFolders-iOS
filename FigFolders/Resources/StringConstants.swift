@@ -30,6 +30,7 @@ struct UserDefaultsConstants {
     let phoneNumber = "phoneNumber"
     let dateOfBirth = "dateOfBirth"
     let profilePicUrl = "profilePicurl"
+    let userName = "userName"
 }
 
 struct DatabaseConstants {
