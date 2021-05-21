@@ -35,6 +35,7 @@ class HamburgerMenuView: UIView {
     private func setupView() {
         profilePictureImage.layer.cornerRadius = profilePictureImage.frame.height/2
         viewProfileButton.setTitle(viewModel.viewProfileButtonTitle, for: .normal)
+        nameLabel.text = viewModel.fullName
     }
     
     private func registerCells() {

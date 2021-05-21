@@ -211,6 +211,12 @@
                                                     <action selector="onTapLogOutButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Emj-WZ-C0d"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user_name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rt-Ue-0TR">
+                                                <rect key="frame" x="138" y="61.5" width="93" height="23"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -248,6 +254,7 @@
                                             <constraint firstItem="6TP-Je-Z08" firstAttribute="top" secondItem="qvt-pF-lTg" secondAttribute="bottom" constant="15" id="TI9-Mx-tax"/>
                                             <constraint firstItem="pvw-zv-gzC" firstAttribute="top" secondItem="yLq-Dl-PAi" secondAttribute="top" constant="18" id="Trn-wt-Arg"/>
                                             <constraint firstAttribute="trailing" secondItem="stF-6n-D7P" secondAttribute="trailing" id="Tsq-Su-VFN"/>
+                                            <constraint firstItem="8Rt-Ue-0TR" firstAttribute="top" secondItem="WCb-iN-vcN" secondAttribute="bottom" constant="8" id="Val-zO-E4X"/>
                                             <constraint firstItem="WCb-iN-vcN" firstAttribute="leading" secondItem="pvw-zv-gzC" secondAttribute="trailing" constant="20" id="Wcu-30-by4"/>
                                             <constraint firstItem="dh7-Ar-Hgz" firstAttribute="top" secondItem="pvw-zv-gzC" secondAttribute="bottom" constant="30" id="WgX-Kk-Ivb"/>
                                             <constraint firstItem="y00-Sa-11f" firstAttribute="width" secondItem="y00-Sa-11f" secondAttribute="height" multiplier="1:1" id="Yw2-x1-KT5"/>
@@ -265,6 +272,7 @@
                                             <constraint firstAttribute="trailing" secondItem="9Se-kT-9hN" secondAttribute="trailing" id="iAh-Mi-00L"/>
                                             <constraint firstItem="8vR-gB-hcT" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" id="igP-Ea-Xg1"/>
                                             <constraint firstItem="WCb-iN-vcN" firstAttribute="top" secondItem="pvw-zv-gzC" secondAttribute="top" id="is4-Sk-iWQ"/>
+                                            <constraint firstItem="8Rt-Ue-0TR" firstAttribute="leading" secondItem="WCb-iN-vcN" secondAttribute="leading" id="jXZ-dg-e2W"/>
                                             <constraint firstItem="qvt-pF-lTg" firstAttribute="top" secondItem="mwt-cn-A4r" secondAttribute="bottom" constant="10" id="jie-0m-RJj"/>
                                             <constraint firstItem="mwt-cn-A4r" firstAttribute="top" secondItem="uad-VE-LxB" secondAttribute="bottom" constant="15" id="mV6-Qk-gK5"/>
                                             <constraint firstItem="vev-Wa-K50" firstAttribute="top" secondItem="y00-Sa-11f" secondAttribute="bottom" constant="20" id="mZE-RF-DWZ"/>
@@ -309,11 +317,13 @@
                         <outlet property="dateOfBirthDatePicker" destination="qvt-pF-lTg" id="9le-GZ-NQE"/>
                         <outlet property="emailIDTextField" destination="gfy-Gn-aTG" id="BBv-4s-n6T"/>
                         <outlet property="firstNameTextField" destination="jyZ-Xf-e4Q" id="adf-WL-q1z"/>
+                        <outlet property="fullNameLabel" destination="WCb-iN-vcN" id="qcC-4N-F7q"/>
                         <outlet property="lastNameTextField" destination="uad-VE-LxB" id="LuA-mG-ZWX"/>
                         <outlet property="logoutButton" destination="stF-6n-D7P" id="JLs-e6-nsE"/>
                         <outlet property="personalDetailsEditButton" destination="Gr5-dU-UBy" id="9V9-0k-mNM"/>
                         <outlet property="phoneNumberTextField" destination="gnI-CN-Sbd" id="lgc-Ar-kub"/>
                         <outlet property="profilePictureView" destination="pvw-zv-gzC" id="HJq-eA-jiI"/>
+                        <outlet property="usernameLabel" destination="8Rt-Ue-0TR" id="rp1-fd-LSj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

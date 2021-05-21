@@ -14,6 +14,9 @@ class ProfileViewController: ViewControllerWithLoading {
     @IBOutlet weak var personalDetailsEditButton: UIButton!
     @IBOutlet weak var profilePictureView: UIImageView!
     
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    
     // Personal Details
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -32,6 +35,7 @@ class ProfileViewController: ViewControllerWithLoading {
     
     private func initialSetup() {
         setupView()
+        populateData()
         disableAllInputFields()
     }
     
@@ -65,6 +69,16 @@ class ProfileViewController: ViewControllerWithLoading {
         
         logoutButton.setTitle(viewModel.logOutButtonTitle, for: .normal)
         logoutButton.setTitleColor(viewModel.logOutButtonColor, for: .normal)
+    }
+    
+    private func populateData() {
+        fullNameLabel.text = viewModel.fullname
+        usernameLabel.text = viewModel.userName
+        firstNameTextField.text = viewModel.firstName
+        lastNameTextField.text = viewModel.lastName
+        phoneNumberTextField.text = viewModel.phoneNumber
+        emailIDTextField.text = viewModel.emailID
+        dateOfBirthDatePicker.date = viewModel.dateOfBirth
     }
     
     func enableAllInputFields() {

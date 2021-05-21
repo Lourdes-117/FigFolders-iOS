@@ -52,4 +52,16 @@ enum HamburgerMenuItemType: Int {
 
 class HamburgerMenuViewModel {
     let viewProfileButtonTitle = "View Profile"
+    
+    var firstName: String? {
+        UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.firstName) as? String
+    }
+    
+    var lastName: String? {
+        UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.lastName) as? String
+    }
+    
+    var fullName: String? {
+        return (firstName ?? "") + " " + (lastName ?? "")
+    }
 }
