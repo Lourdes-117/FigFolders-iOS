@@ -22,10 +22,19 @@ class ProfileViewModel {
     let saveButtonTitle = "Save"
     let saveButtonColor = UIColor(red: 0, green: 0, blue: 255, alpha: 1)
     
-    let logOutConfirmationTitle = "LogOut"
-    let logOutConfirmationMessage = "Are You Sure You Want To Log Out?"
+    private let logOutConfirmationTitle = "Log Out"
+    private let logOutConfirmationMessage = "Are You Sure You Want To Log Out?"
+    private let saveConfirmationTitle = "Save"
+    private let saveOutConfirmationMessage = "Are You Sure You Want To Update Pesonal Details?"
     let yes = "Yes"
     let no = "No"
+    
+    var alertTitle: String {
+        isEditEnabled ? saveConfirmationTitle: logOutConfirmationTitle
+    }
+    var alertMessage: String {
+        isEditEnabled ? saveOutConfirmationMessage: logOutConfirmationMessage
+    }
     
     var firstName: String? {
         UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.firstName) as? String

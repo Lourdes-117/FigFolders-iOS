@@ -101,27 +101,20 @@ class ProfileViewController: ViewControllerWithLoading {
     }
     
     @IBAction func onTapLogOutButton(_ sender: Any) {
-        if viewModel.isEditEnabled {
-            // Is Editable
-            disableAllInputFields()
-        } else {
-            // Is Not Editable
-            let logOutAlertView = UIAlertController(title: viewModel.logOutButtonTitle, message: viewModel.logOutConfirmationMessage, preferredStyle: .alert)
-            let noAction = UIAlertAction(title: viewModel.no, style: .default, handler: nil)
-            let yesAction = UIAlertAction(title: viewModel.yes, style: .destructive) { _ in
-                do {
-                    try FirebaseAuth.Auth.auth().signOut()
-                    let storyboard = UIStoryboard(name: String(describing: OnboardingViewController.self), bundle: Bundle.main)
-                    let viewController = storyboard.instantiateViewController(identifier: String(describing: OnboardingViewController.self))
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController)
-                } catch {
-                    debugPrint("Error In Signing Out User")
-                }
-            }
-            logOutAlertView.addAction(noAction)
-            logOutAlertView.addAction(yesAction)
-            self.present(logOutAlertView, animated: true, completion: nil)
+        
+        let alertView = UIAlertController(title: viewModel.alertTitle, message: viewModel.alertMessage, preferredStyle: .alert)
+        let noAction = UIAlertAction(title: viewModel.no, style: .default) { [weak self] _ in
+            if !(self?.viewModel.isEditEnabled ?? false) { return }
+            self?.disableAllInputFields()
+            self?.populateData()
         }
+        let yesAction = UIAlertAction(title: viewModel.yes, style: .destructive) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.viewModel.isEditEnabled ? strongSelf.saveUser(): strongSelf.signoutUser()
+        }
+        alertView.addAction(noAction)
+        alertView.addAction(yesAction)
+        self.present(alertView, animated: true, completion: nil)
     }
     
     @IBAction func onTapEditPersonalDetails(_ sender: Any) {
@@ -130,5 +123,22 @@ class ProfileViewController: ViewControllerWithLoading {
     
     deinit {
         debugPrint(self.description + "Released From Memory")
+    }
+    
+// MARK: - Helper Methods
+    private func saveUser() {
+        disableAllInputFields()
+        populateData()
+    }
+    
+    private func signoutUser() {
+        do {
+            try FirebaseAuth.Auth.auth().signOut()
+            let storyboard = UIStoryboard(name: String(describing: OnboardingViewController.self), bundle: Bundle.main)
+            let viewController = storyboard.instantiateViewController(identifier: String(describing: OnboardingViewController.self))
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController)
+        } catch {
+            debugPrint("Error In Signing Out User")
+        }
     }
 }
