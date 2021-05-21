@@ -38,17 +38,32 @@ class ProfileViewController: ViewControllerWithLoading {
         setupView()
         populateData()
         disableAllInputFields()
-        setKeyboardNotifications()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setKeyboardNotifications()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        removeKeyboardNotifications()
+    }
+    
     private func setupView() {
         self.title = viewModel.pageTitle
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        
+        firstNameTextField.layer.cornerRadius = viewModel.inputViewCornerRadius
+        lastNameTextField.layer.cornerRadius = viewModel.inputViewCornerRadius
+        phoneNumberTextField.layer.cornerRadius = viewModel.inputViewCornerRadius
+        emailIDTextField.layer.cornerRadius = viewModel.inputViewCornerRadius
+        
         personalDetailsEditButton.layer.cornerRadius = viewModel.editButtonCornerRadius
         profilePictureView.setRoundedCorners()
         personalDetailsEditButton.layer.shadowColor = viewModel.editButtonShadowColor
@@ -63,10 +78,19 @@ class ProfileViewController: ViewControllerWithLoading {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    private func removeKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     func disableAllInputFields() {
         viewModel.isEditEnabled = false
         
         personalDetailsEditButton.setTitle(viewModel.editButtonTitle, for: .normal)
+        
+        firstNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
+        lastNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
+        phoneNumberTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
+        emailIDTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         
         firstNameTextField.isEnabled = false
         lastNameTextField.isEnabled = false
@@ -155,6 +179,7 @@ class ProfileViewController: ViewControllerWithLoading {
     
 // MARK: - Helper Methods
     private func saveUser() {
+        guard isAllFieldsValid() else { return }
         let safeEmail = UserDetailsModel.getSafeEmail(email: emailIDTextField.text ?? "")
         let userDetails = UserDetailsModel(firstNameString: firstNameTextField.text ?? "",
                                            lastNameString: lastNameTextField.text ?? "",
@@ -197,6 +222,19 @@ class ProfileViewController: ViewControllerWithLoading {
         disableAllInputFields()
     }
     
+    private func isAllFieldsValid() -> Bool {
+        let isEmailValid = viewModel.isEmailValid(email: emailIDTextField.text)
+        emailIDTextField.addBorder(color: isEmailValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        let isFirstNameValid = viewModel.isValidName(name: firstNameTextField.text)
+        firstNameTextField.addBorder(color: isFirstNameValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        let isLastNameValid = viewModel.isValidName(name: lastNameTextField.text)
+        lastNameTextField.addBorder(color: isLastNameValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        let isPhoneNumberValid = viewModel.isValidPhoneNumber(number: phoneNumberTextField.text)
+        phoneNumberTextField.addBorder(color: isPhoneNumberValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        
+        return isEmailValid && isFirstNameValid && isLastNameValid && isPhoneNumberValid
+    }
+    
     private func signoutUser() {
         do {
             try FirebaseAuth.Auth.auth().signOut()
@@ -236,6 +274,7 @@ extension ProfileViewController: UserVerificationDelegate {
                     UserDefaults.standard.setValue(userDetails.safeEmail, forKey: StringConstants.shared.userDefaults.emailID)
                     UserDefaults.standard.setValue(userDetails.dateOfBirth, forKey: StringConstants.shared.userDefaults.dateOfBirth)
                     self?.populateData()
+                    self?.disableAllInputFields()
                 }
             }
         }

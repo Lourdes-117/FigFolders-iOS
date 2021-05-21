@@ -68,4 +68,27 @@ class ProfileViewModel {
     var fullname: String? {
         return (firstName ?? "") + " " + (lastName ?? "")
     }
+    
+    let borderWidth: CGFloat = 1
+    let borderColor = UIColor.clear
+    let inputViewCornerRadius: CGFloat = 5
+    
+    let fieldValidColor = UIColor.green
+    let fieldInvalidColor = UIColor.red
+    
+    func isEmailValid(email: String?) -> Bool {
+        guard let email = email,
+              !email.isEmpty else { return false }
+        return email.matchesRegex(StringConstants.shared.regex.email)
+    }
+    
+    func isValidName(name: String?) -> Bool {
+        guard let name = name else { return false }
+        return name.matchesRegex(StringConstants.shared.regex.name)
+    }
+    
+    func isValidPhoneNumber(number: String?) -> Bool {
+        guard let number = number else { return false }
+        return number.matchesRegex(StringConstants.shared.regex.phoneNumber)
+    }
 }
