@@ -32,6 +32,10 @@ class HamburgerMenuView: UIView {
         commonInit(kIdentifier)
     }
     
+    func refreshView() {
+        setupView()
+    }
+    
     private func setupView() {
         profilePictureImage.layer.cornerRadius = profilePictureImage.frame.height/2
         viewProfileButton.setTitle(viewModel.viewProfileButtonTitle, for: .normal)
