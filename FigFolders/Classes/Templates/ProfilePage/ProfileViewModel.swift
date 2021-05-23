@@ -30,6 +30,9 @@ class ProfileViewModel {
     private let logOutConfirmationMessage = "Are You Sure You Want To Log Out?"
     private let saveConfirmationTitle = "Save"
     private let saveOutConfirmationMessage = "Are You Sure You Want To Update Pesonal Details?"
+    let passwordResetTitle = "Password Reset"
+    let passwordResetMessage = "Password Reset Email Sent. Please Check Your Email"
+    let ok = "Okay"
     let yes = "Yes"
     let no = "No"
     

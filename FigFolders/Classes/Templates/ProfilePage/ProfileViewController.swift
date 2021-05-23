@@ -153,6 +153,19 @@ class ProfileViewController: ViewControllerWithLoading {
     }
 
     @IBAction func onTapChangePassword(_ sender: Any) {
+        guard let emailSafe = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String else { return }
+        let email = UserDetailsModel.getProperEmail(safeEmail: emailSafe)
+        FirebaseAuth.Auth.auth().sendPasswordReset(withEmail: email) { [weak self] error in
+            guard error == nil,
+                  let strongSelf = self else {
+                debugPrint("Error Seting Password Reset Email")
+                return
+            }
+            let alert = UIAlertController(title: strongSelf.viewModel.passwordResetTitle, message: strongSelf.viewModel.passwordResetMessage, preferredStyle: .alert)
+            let action = UIAlertAction(title: strongSelf.viewModel.ok, style: .default, handler: nil)
+            alert.addAction(action)
+            strongSelf.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func onTapLogOutButton(_ sender: Any) {
