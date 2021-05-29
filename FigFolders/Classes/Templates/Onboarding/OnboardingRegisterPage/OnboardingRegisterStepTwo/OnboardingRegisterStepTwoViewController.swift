@@ -172,7 +172,8 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
                                                            dateOfBirthString: strongSelf.dateOfBirth ?? "",
                                                            phoneNumberString: strongSelf.phoneNumber ?? "",
                                                            emailIDString: strongSelf.emailIDTextField.text ?? "",
-                                                           usernameString: strongSelf.userNameTextField.text ?? "")
+                                                           usernameString: strongSelf.userNameTextField.text ?? "",
+                                                           profilePicUrlString: "")
                         
                         DatabaseManager.shared.saveUsersData(userDetails: userDetails) { success in
                             if success {

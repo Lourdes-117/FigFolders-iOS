@@ -14,6 +14,7 @@ class StringConstants {
     let regex = RegexConstants()
     let userDefaults = UserDefaultsConstants()
     let database = DatabaseConstants()
+    let storage = StorageConstants()
 }
 
 struct RegexConstants {
@@ -35,4 +36,8 @@ struct UserDefaultsConstants {
 
 struct DatabaseConstants {
     let usersArray = "users_array"
+}
+
+struct StorageConstants {
+    let profilePicturePath = "profile_picture/"
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import SDWebImage
 
 class ProfileViewController: ViewControllerWithLoading {
 
@@ -72,6 +73,7 @@ class ProfileViewController: ViewControllerWithLoading {
         phoneNumberTextField.layer.cornerRadius = viewModel.inputViewCornerRadius
         emailIDTextField.layer.cornerRadius = viewModel.inputViewCornerRadius
         
+        setupProfilePicture()
         personalDetailsEditButton.layer.cornerRadius = viewModel.editButtonCornerRadius
         profilePictureView.setRoundedCorners()
         personalDetailsEditButton.layer.shadowColor = viewModel.editButtonShadowColor
@@ -79,6 +81,17 @@ class ProfileViewController: ViewControllerWithLoading {
         personalDetailsEditButton.layer.shadowOffset = .zero
         personalDetailsEditButton.layer.shadowRadius = viewModel.editButtonCornerRadius
         dateOfBirthDatePicker.maximumDate = Date()
+    }
+    
+    private func setupProfilePicture() {
+        let profilePicTapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapProfilePicEdit))
+        profilePictureView.addGestureRecognizer(profilePicTapGesture)
+        profilePictureView.isUserInteractionEnabled = true
+        if let profilePictureUrl = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) as? String,
+           let url = URL(string: profilePictureUrl) {
+            
+            profilePictureView.sd_setImage(with: url, completed: nil)
+        }
     }
     
     private func setKeyboardNotifications() {
@@ -185,6 +198,10 @@ class ProfileViewController: ViewControllerWithLoading {
         self.present(alertView, animated: true, completion: nil)
     }
     
+    @objc func onTapProfilePicEdit() {
+        presentPhotoActionSheet()
+    }
+    
     @IBAction func onTapEditPersonalDetails(_ sender: Any) {
         if viewModel.isEditEnabled {
             disableAllInputFields()
@@ -194,12 +211,8 @@ class ProfileViewController: ViewControllerWithLoading {
         }
     }
     
-    deinit {
-        debugPrint(self.description + "Released From Memory")
-    }
-    
 // MARK: - Helper Methods
-    private func saveUser() {
+    private func saveUser(profilePicUrl: String = (UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) as? String) ?? "") {
         guard isAllFieldsValid() else { return }
         let safeEmail = UserDetailsModel.getSafeEmail(email: emailIDTextField.text ?? "")
         let userDetails = UserDetailsModel(firstNameString: firstNameTextField.text ?? "",
@@ -207,7 +220,8 @@ class ProfileViewController: ViewControllerWithLoading {
                                            dateOfBirthString: dateOfBirthDatePicker.date.toDateString(),
                                            phoneNumberString: phoneNumberTextField.text ?? "",
                                            emailIDString: safeEmail,
-                                           usernameString: viewModel.userName ?? "")
+                                           usernameString: viewModel.userName ?? "",
+                                           profilePicUrlString: profilePicUrl)
         showLoadingIndicator()
         
         DatabaseManager.shared.getUsernameForEmail(emailID: viewModel.userName ?? "") { [weak self] username in
@@ -266,6 +280,10 @@ class ProfileViewController: ViewControllerWithLoading {
             debugPrint("Error In Signing Out User")
         }
     }
+    
+    deinit {
+        debugPrint(self.description + "Released From Memory")
+    }
 }
 
 
@@ -316,3 +334,62 @@ extension ProfileViewController: UITextFieldDelegate {
         view.endEditing(true)
     }
 }
+
+// MARK: - Image Picker
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func presentPhotoActionSheet() {
+        let actionSheet = UIAlertController(title: viewModel.profilePicSelectionTitle, message: viewModel.profilePicSelectionMessage, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: viewModel.cancel, style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: viewModel.takePhoto, style: .default, handler: {[weak self] _ in
+            self?.presentCamera()
+        }))
+        actionSheet.addAction(UIAlertAction(title: viewModel.choosePhoto, style: .default, handler: {[weak self] _ in
+            self?.presentPhotoPicker()
+        }))
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func presentCamera() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .camera
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func presentPhotoPicker() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            guard let username = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String,
+                  let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+                picker.dismiss(animated: true, completion: nil)
+                return
+            }
+        showLoadingIndicator()
+        StorageManager.shared.uploadProfilePicture(username: username, image: image) { [weak self] result in
+            self?.hideLoadingIndicatorView()
+            switch result {
+            case .success(let url):
+                UserDefaults.standard.setValue(url, forKey: StringConstants.shared.userDefaults.profilePicUrl)
+                self?.profilePictureView.image = image
+                self?.saveUser(profilePicUrl: url)
+            case .failure(let error):
+                break;
+            }
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+

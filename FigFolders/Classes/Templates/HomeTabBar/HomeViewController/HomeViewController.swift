@@ -58,9 +58,10 @@ class HomeViewController: ViewControllerWithLoading {
     }
     
     private func setUserDefaults() {
-        let emailID = (UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String) ?? UserDetailsModel.getSafeEmail(email: FirebaseAuth.Auth.auth().currentUser?.email ?? "")
+        let unsafeEmail = (UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String) ?? UserDetailsModel.getSafeEmail(email: FirebaseAuth.Auth.auth().currentUser?.email ?? "")
+        let emailID = UserDetailsModel.getSafeEmail(email: unsafeEmail)
         showLoadingIndicator(with: .ballScaleMultiple, color: .blue)
-        if let userName = (UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String) {
+        if let userName = (UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String) {
             DatabaseManager.shared.getUserDetailsForUsername(username: userName) { [weak self] userDetails in
                 guard let userDetails = userDetails else {
                     self?.hideLoadingIndicatorView()
@@ -85,6 +86,7 @@ class HomeViewController: ViewControllerWithLoading {
                         self?.hideLoadingIndicatorView()
                         return
                     }
+                    UserDefaults.standard.setValue(userDetails.username, forKey: StringConstants.shared.userDefaults.userName)
                     UserDefaults.standard.setValue(userDetails.firstName, forKey: StringConstants.shared.userDefaults.firstName)
                     UserDefaults.standard.setValue(userDetails.lastName, forKey: StringConstants.shared.userDefaults.lastName)
                     UserDefaults.standard.setValue(userDetails.safeEmail, forKey: StringConstants.shared.userDefaults.emailID)

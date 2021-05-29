@@ -11,5 +11,6 @@ target 'FigFolders' do
   pod 'Firebase/Database'
   pod 'Firebase/Crashlytics'
   pod 'NVActivityIndicatorView'
-
+  pod 'Firebase/Storage'
+  pod 'SDWebImage'
 end

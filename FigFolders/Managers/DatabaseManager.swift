@@ -9,9 +9,14 @@ import Foundation
 import FirebaseDatabase
 
 final class DatabaseManager {
+    private init() {
+        let databaseRef = Database.database(url: "https://figfolders-default-rtdb.asia-southeast1.firebasedatabase.app")
+        databaseRef.isPersistenceEnabled = true
+        self.database = databaseRef.reference()
+    }
     static let shared = DatabaseManager()
     
-    private let database = Database.database(url: "https://figfolders-default-rtdb.asia-southeast1.firebasedatabase.app").reference()
+    private let database: DatabaseReference!
     
 // MARK: - User Account Methods
     

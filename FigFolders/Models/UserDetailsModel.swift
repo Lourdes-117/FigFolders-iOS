@@ -8,14 +8,14 @@
 import Foundation
 
 struct UserDetailsModel: Encodable, Decodable {
-    init(firstNameString: String, lastNameString: String, dateOfBirthString: String, phoneNumberString: String, emailIDString: String, usernameString: String) {
+    init(firstNameString: String, lastNameString: String, dateOfBirthString: String, phoneNumberString: String, emailIDString: String, usernameString: String, profilePicUrlString: String) {
         firstName = firstNameString
         lastName = lastNameString
         dateOfBirth = dateOfBirthString
         phoneNumber = phoneNumberString
         username = usernameString
         safeEmail = UserDetailsModel.getSafeEmail(email: emailIDString)
-        profilePicUrl = ""
+        profilePicUrl = profilePicUrlString
     }
     
     var firstName: String

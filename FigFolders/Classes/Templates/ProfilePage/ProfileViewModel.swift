@@ -36,6 +36,12 @@ class ProfileViewModel {
     let yes = "Yes"
     let no = "No"
     
+    let profilePicSelectionTitle = "Profile Picture"
+    let profilePicSelectionMessage = "How Would You Like To Select Your Picture"
+    let cancel = "Cancel"
+    let takePhoto = "Take Photo"
+    let choosePhoto = "Choose Photo"
+    
     var alertTitle: String {
         isEditEnabled ? saveConfirmationTitle: logOutConfirmationTitle
     }
@@ -54,6 +60,11 @@ class ProfileViewModel {
     var userName: String? {
         UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String
     }
+    
+    var profilePicUrl: String? {
+        UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) as? String
+    }
+    
     var dateOfBirth: Date {
         guard let dateString = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.dateOfBirth) as? String else { return Date() }
         let dateFormatter = DateFormatter()

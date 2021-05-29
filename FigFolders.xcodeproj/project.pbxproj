@@ -32,6 +32,8 @@
 		AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE987711264AFE4700064A7D /* LoginViewController.swift */; };
 		AE987714264AFE5400064A7D /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE987713264AFE5400064A7D /* LoginViewController.storyboard */; };
 		AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */; };
+		AE9DC66A2662DA42001B9392 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DC6692662DA42001B9392 /* StorageManager.swift */; };
+		AE9DC66C2662E695001B9392 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DC66B2662E695001B9392 /* UIImageExtension.swift */; };
 		AEA197712649933000D0D181 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197702649933000D0D181 /* AppDelegate.swift */; };
 		AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197722649933000D0D181 /* SceneDelegate.swift */; };
 		AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197742649933000D0D181 /* OnboardingViewController.swift */; };
@@ -99,6 +101,8 @@
 		AE987711264AFE4700064A7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AE987713264AFE5400064A7D /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtility.swift; sourceTree = "<group>"; };
+		AE9DC6692662DA42001B9392 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		AE9DC66B2662E695001B9392 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		AEA1976D2649933000D0D181 /* FigFolders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FigFolders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA197702649933000D0D181 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEA197722649933000D0D181 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */,
+				AE9DC6692662DA42001B9392 /* StorageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 				AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */,
 				AE66557026580B76004DA48A /* DecodableUtility.swift */,
 				AE94E07226530FC80020CB95 /* UILabelUtility.swift */,
+				AE9DC66B2662E695001B9392 /* UIImageExtension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -611,11 +617,13 @@
 				AE66557126580B76004DA48A /* DecodableUtility.swift in Sources */,
 				AEA1978F26499A0B00D0D181 /* OnboardingCollectionViewModel.swift in Sources */,
 				AE6B944D26542EC4006463E1 /* ProfileViewModel.swift in Sources */,
+				AE9DC66A2662DA42001B9392 /* StorageManager.swift in Sources */,
 				AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */,
 				AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */,
 				AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */,
 				AEF8427C264D936500FB8003 /* LoginViewModel.swift in Sources */,
 				AEF8427E264D940800FB8003 /* ResetPasswordViewModel.swift in Sources */,
+				AE9DC66C2662E695001B9392 /* UIImageExtension.swift in Sources */,
 				AEF84286264DA15300FB8003 /* OnboardingRegisterStepOneViewModel.swift in Sources */,
 				AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */,
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
