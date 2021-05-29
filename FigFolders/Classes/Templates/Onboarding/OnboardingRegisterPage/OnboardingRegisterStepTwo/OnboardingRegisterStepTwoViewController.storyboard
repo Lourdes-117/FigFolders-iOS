@@ -108,12 +108,19 @@
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email-ID is Taken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0f-Gk-JGd">
+                                                <rect key="frame" x="264" y="314" width="129" height="20"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="nlQ-6x-zUd" firstAttribute="top" secondItem="wdH-xL-L4o" secondAttribute="bottom" constant="18" id="3TY-oE-4tD"/>
                                             <constraint firstItem="bYa-rV-5nh" firstAttribute="leading" secondItem="MUM-qg-juE" secondAttribute="leading" id="3lB-2m-x1c"/>
                                             <constraint firstItem="nlQ-6x-zUd" firstAttribute="trailing" secondItem="oOY-Ct-fNk" secondAttribute="trailing" id="4dq-ok-Xss"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oCn-Sd-Ad4" secondAttribute="bottom" constant="10" id="4jR-uy-efS"/>
                                             <constraint firstItem="wdH-xL-L4o" firstAttribute="top" secondItem="oOY-Ct-fNk" secondAttribute="bottom" constant="25" id="7Tm-Y6-0aZ"/>
                                             <constraint firstItem="oOY-Ct-fNk" firstAttribute="trailing" secondItem="MUM-qg-juE" secondAttribute="trailing" id="7cq-Do-WBk"/>
                                             <constraint firstItem="4P4-u8-abc" firstAttribute="leading" secondItem="MUM-qg-juE" secondAttribute="leading" id="9bb-bZ-T1z"/>
@@ -128,10 +135,12 @@
                                             <constraint firstItem="oCn-Sd-Ad4" firstAttribute="leading" secondItem="oOY-Ct-fNk" secondAttribute="leading" id="evF-pq-xq7"/>
                                             <constraint firstItem="wdH-xL-L4o" firstAttribute="leading" secondItem="nlQ-6x-zUd" secondAttribute="leading" id="fjE-Tf-akL"/>
                                             <constraint firstItem="oCn-Sd-Ad4" firstAttribute="trailing" secondItem="oOY-Ct-fNk" secondAttribute="trailing" id="fvO-7Z-pqb"/>
+                                            <constraint firstItem="F0f-Gk-JGd" firstAttribute="trailing" secondItem="oOY-Ct-fNk" secondAttribute="trailing" id="h4M-gb-xHG"/>
                                             <constraint firstItem="FnA-pz-hu1" firstAttribute="leading" secondItem="5gl-bQ-Csm" secondAttribute="leading" constant="21" id="hui-X8-ez7"/>
                                             <constraint firstItem="bYa-rV-5nh" firstAttribute="leading" secondItem="oOY-Ct-fNk" secondAttribute="leading" id="j9J-FW-GRi"/>
                                             <constraint firstItem="MUM-qg-juE" firstAttribute="top" secondItem="4P4-u8-abc" secondAttribute="bottom" constant="18" id="kel-Qg-6cD"/>
                                             <constraint firstItem="oOY-Ct-fNk" firstAttribute="top" secondItem="bYa-rV-5nh" secondAttribute="bottom" constant="18" id="mY9-lk-a3C"/>
+                                            <constraint firstItem="F0f-Gk-JGd" firstAttribute="top" secondItem="oOY-Ct-fNk" secondAttribute="bottom" constant="12" id="rdS-y8-yXD"/>
                                             <constraint firstItem="FnA-pz-hu1" firstAttribute="top" secondItem="5gl-bQ-Csm" secondAttribute="top" constant="32" id="yOh-Ip-c3N"/>
                                         </constraints>
                                     </view>
@@ -157,6 +166,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailIDTakenLabel" destination="F0f-Gk-JGd" id="h37-NW-4fh"/>
                         <outlet property="emailIDTextField" destination="oOY-Ct-fNk" id="3gV-k8-ai3"/>
                         <outlet property="passwordTextField" destination="nlQ-6x-zUd" id="hk8-oC-PgH"/>
                         <outlet property="registerButton" destination="oCn-Sd-Ad4" id="Ooe-AR-Ndf"/>
