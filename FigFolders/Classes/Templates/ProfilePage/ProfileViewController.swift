@@ -166,7 +166,11 @@ class ProfileViewController: ViewControllerWithLoading {
     }
 
     @IBAction func onTapChangePassword(_ sender: Any) {
-        guard let emailSafe = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String else { return }
+        showLoadingIndicator()
+        guard let emailSafe = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String else {
+            hideLoadingIndicatorView()
+            return
+        }
         let email = UserDetailsModel.getProperEmail(safeEmail: emailSafe)
         FirebaseAuth.Auth.auth().sendPasswordReset(withEmail: email) { [weak self] error in
             guard error == nil,
@@ -177,6 +181,7 @@ class ProfileViewController: ViewControllerWithLoading {
             let alert = UIAlertController(title: strongSelf.viewModel.passwordResetTitle, message: strongSelf.viewModel.passwordResetMessage, preferredStyle: .alert)
             let action = UIAlertAction(title: strongSelf.viewModel.ok, style: .default, handler: nil)
             alert.addAction(action)
+            strongSelf.hideLoadingIndicatorView()
             strongSelf.present(alert, animated: true, completion: nil)
         }
     }
