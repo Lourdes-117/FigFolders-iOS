@@ -13,7 +13,7 @@ class ViewControllerWithLoading: UIViewController {
     private var activityBackgroundView: UIView?
     private var activityView: NVActivityIndicatorView?
     
-    func showLoadingIndicator(with type: NVActivityIndicatorType = .triangleSkewSpin, color: UIColor = .blue) {
+    func showLoadingIndicator(with type: NVActivityIndicatorType = .orbit, color: UIColor = .green) {
         activityBackgroundView = UIView(frame: view.frame)
         activityBackgroundView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
         activityView = NVActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-50,

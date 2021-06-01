@@ -14,7 +14,7 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
 // MARK: - Outlets
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var emailIDTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: PasswordTextField!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var usernameTakenLabel: UILabel!
@@ -71,6 +71,7 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
         passwordTextField.layer.cornerRadius = viewModel.borderRadius
         registerButton.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         registerButton.layer.cornerRadius = viewModel.borderRadius
+        passwordTextField.setupView()
     }
     
     private func setupDelegates() {

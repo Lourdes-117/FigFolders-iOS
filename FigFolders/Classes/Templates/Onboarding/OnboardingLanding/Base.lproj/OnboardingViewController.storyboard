@@ -119,7 +119,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fig_Folders_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="MNe-e6-kVk">
-                                <rect key="frame" x="75" y="127.99999999999997" width="278" height="278.33333333333326"/>
+                                <rect key="frame" x="75" y="113" width="278" height="278.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="aSJ-d2-eaS"/>
                                     <constraint firstAttribute="width" secondItem="MNe-e6-kVk" secondAttribute="height" multiplier="1:1" id="le7-eZ-zr6"/>
@@ -131,7 +131,7 @@
                         <constraints>
                             <constraint firstItem="ZI0-3i-rDO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6S6-ip-tKt"/>
                             <constraint firstItem="wnB-U4-xfT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8MR-xW-7U9"/>
-                            <constraint firstItem="MNe-e6-kVk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="Fcs-FL-EJt"/>
+                            <constraint firstItem="MNe-e6-kVk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Fcs-FL-EJt"/>
                             <constraint firstItem="MNe-e6-kVk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.65" priority="999" id="NNL-X6-xLb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wnB-U4-xfT" secondAttribute="bottom" id="NbN-Lg-mxd"/>
                             <constraint firstItem="wnB-U4-xfT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TnY-Ns-pEO"/>

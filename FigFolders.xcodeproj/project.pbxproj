@@ -26,6 +26,7 @@
 		AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B26264FBCF400E708D7 /* DateUtility.swift */; };
 		AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */; };
 		AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */; };
+		AE89D4CB2665581000CF0439 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE89D4CA2665581000CF0439 /* PasswordTextField.swift */; };
 		AE94E070265306360020CB95 /* HamburgermenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */; };
 		AE94E071265306360020CB95 /* HamburgermenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE94E06F265306360020CB95 /* HamburgermenuTableViewCell.xib */; };
 		AE94E07326530FC80020CB95 /* UILabelUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94E07226530FC80020CB95 /* UILabelUtility.swift */; };
@@ -95,6 +96,7 @@
 		AE861B26264FBCF400E708D7 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModel.swift; sourceTree = "<group>"; };
 		AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		AE89D4CA2665581000CF0439 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgermenuTableViewCell.swift; sourceTree = "<group>"; };
 		AE94E06F265306360020CB95 /* HamburgermenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgermenuTableViewCell.xib; sourceTree = "<group>"; };
 		AE94E07226530FC80020CB95 /* UILabelUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelUtility.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				AEBB86802656EB4400D2476B /* ViewControllerWithLoading.swift */,
+				AE89D4CA2665581000CF0439 /* PasswordTextField.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */,
 				AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */,
 				AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */,
+				AE89D4CB2665581000CF0439 /* PasswordTextField.swift in Sources */,
 				AEF8427C264D936500FB8003 /* LoginViewModel.swift in Sources */,
 				AEF8427E264D940800FB8003 /* ResetPasswordViewModel.swift in Sources */,
 				AE9DC66C2662E695001B9392 /* UIImageExtension.swift in Sources */,

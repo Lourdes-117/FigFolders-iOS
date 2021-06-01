@@ -62,7 +62,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0R1-40-AC6">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0R1-40-AC6" customClass="PasswordTextField" customModule="FigFolders" customModuleProvider="target">
                                                 <rect key="frame" x="21" y="253" width="372" height="50"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -73,7 +73,7 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GC1-P4-rqg">
-                                                <rect key="frame" x="21" y="381" width="372" height="50"/>
+                                                <rect key="frame" x="21" y="406" width="372" height="50"/>
                                                 <color key="backgroundColor" red="0.0" green="0.32889872380596302" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Ese-jZ-bmi"/>
@@ -114,6 +114,12 @@
                                                     <constraint firstItem="wD0-91-ktn" firstAttribute="leading" secondItem="vBH-dQ-MqI" secondAttribute="leading" constant="20" symbolic="YES" id="uyT-3R-K8u"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Signing in. Please Try Again" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoI-VN-Mle">
+                                                <rect key="frame" x="95.5" y="367" width="223.5" height="18"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -124,7 +130,7 @@
                                             <constraint firstItem="vBH-dQ-MqI" firstAttribute="top" secondItem="0R1-40-AC6" secondAttribute="bottom" constant="25" id="Ex3-ga-Q8e"/>
                                             <constraint firstItem="0R1-40-AC6" firstAttribute="trailing" secondItem="7uJ-TA-aSZ" secondAttribute="trailing" id="Lt2-ES-RYZ"/>
                                             <constraint firstItem="vBH-dQ-MqI" firstAttribute="leading" secondItem="dP4-01-jtn" secondAttribute="leading" constant="1" id="Me8-gK-P6t"/>
-                                            <constraint firstItem="GC1-P4-rqg" firstAttribute="top" secondItem="vBH-dQ-MqI" secondAttribute="bottom" constant="35" id="QAt-wZ-4ZW"/>
+                                            <constraint firstItem="GC1-P4-rqg" firstAttribute="top" secondItem="vBH-dQ-MqI" secondAttribute="bottom" constant="60" id="QAt-wZ-4ZW"/>
                                             <constraint firstAttribute="trailing" secondItem="7uJ-TA-aSZ" secondAttribute="trailing" constant="21" id="UTU-ue-rTg"/>
                                             <constraint firstItem="GC1-P4-rqg" firstAttribute="trailing" secondItem="0R1-40-AC6" secondAttribute="trailing" id="a0C-oO-Z6P"/>
                                             <constraint firstItem="7uJ-TA-aSZ" firstAttribute="top" secondItem="dsf-0Q-868" secondAttribute="bottom" constant="18" id="gsi-EM-XU5"/>
@@ -132,6 +138,8 @@
                                             <constraint firstItem="q2I-dc-uqG" firstAttribute="leading" secondItem="7uJ-TA-aSZ" secondAttribute="leading" id="iAI-F6-yKL"/>
                                             <constraint firstItem="q2I-dc-uqG" firstAttribute="leading" secondItem="0R1-40-AC6" secondAttribute="leading" id="m3T-NL-KNh"/>
                                             <constraint firstItem="dsf-0Q-868" firstAttribute="top" secondItem="9eQ-Uf-4bC" secondAttribute="bottom" constant="25" id="mT2-1d-Onj"/>
+                                            <constraint firstItem="IoI-VN-Mle" firstAttribute="centerX" secondItem="dP4-01-jtn" secondAttribute="centerX" id="nPX-z0-NlY"/>
+                                            <constraint firstItem="IoI-VN-Mle" firstAttribute="top" secondItem="Nxy-8p-xpu" secondAttribute="bottom" constant="15" id="o2a-lA-Ps5"/>
                                             <constraint firstItem="q2I-dc-uqG" firstAttribute="top" secondItem="7uJ-TA-aSZ" secondAttribute="bottom" constant="25" id="yJV-tI-40I"/>
                                             <constraint firstItem="dsf-0Q-868" firstAttribute="leading" secondItem="dP4-01-jtn" secondAttribute="leading" constant="21" id="zyp-Uw-yFx"/>
                                         </constraints>
@@ -159,6 +167,7 @@
                     </view>
                     <connections>
                         <outlet property="emailIDTextField" destination="7uJ-TA-aSZ" id="6Q3-Pi-A27"/>
+                        <outlet property="errorSigningInLabel" destination="IoI-VN-Mle" id="dNW-mM-X0N"/>
                         <outlet property="forgotPasswordContentView" destination="vBH-dQ-MqI" id="hK5-7H-xWP"/>
                         <outlet property="passwordTextField" destination="0R1-40-AC6" id="X5k-aN-1ci"/>
                         <outlet property="scrollView" destination="wsV-qf-zNE" id="TYA-6W-uP1"/>

@@ -12,10 +12,12 @@ import NVActivityIndicatorView
 class LoginViewController: UIViewController {
 // MARK: - Outlets
     @IBOutlet weak var emailIDTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: PasswordTextField!
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var forgotPasswordContentView: UIView!
+    @IBOutlet weak var errorSigningInLabel: UILabel!
+    
     var isUserVerified = false
     
     weak var delegate: UserVerificationDelegate?
@@ -72,10 +74,12 @@ class LoginViewController: UIViewController {
         if shouldActAsVerificationScreen {
             forgotPasswordContentView.isHidden = true
         }
+        errorSigningInLabel.isHidden = true
         view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
         emailIDTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         emailIDTextField.layer.cornerRadius = viewModel.borderRadius
         passwordTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
+        passwordTextField.setupView()
         passwordTextField.layer.cornerRadius = viewModel.borderRadius
         signinButton.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         signinButton.layer.cornerRadius = viewModel.borderRadius
@@ -126,6 +130,7 @@ class LoginViewController: UIViewController {
     }
     
     fileprivate func authenticateUser(email: String?, password: String?) {
+        errorSigningInLabel.isHidden = true
         guard validateInputs() else { return }
         
         // Activity Indicator
@@ -145,6 +150,10 @@ class LoginViewController: UIViewController {
         // Authenticate
         FirebaseAuth.Auth.auth().signIn(withEmail: emailIDTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] _, error in
             guard error == nil else {
+                guard let strongSelf = self else { return }
+                strongSelf.errorSigningInLabel.isHidden = false
+                strongSelf.emailIDTextField.addBorder(color: strongSelf.viewModel.borderColor, width: strongSelf.viewModel.borderWidth)
+                strongSelf.passwordTextField.addBorder(color: strongSelf.viewModel.borderColor, width: strongSelf.viewModel.borderWidth)
                 activityView.stopAnimating()
                 activityBackgroundView.removeFromSuperview()
                 return
