@@ -9,8 +9,8 @@ import UIKit
 
 class PasswordTextField: UITextField {
     let rightButtonWidth: CGFloat = 45
-    let eyeImageName = "eye"
-    let eyeSlashedImageName = "eye.slash"
+    let eyeImageName = "eye.slash"
+    let eyeSlashedImageName = "eye"
     let imageTintColor = UIColor.black
     
     var rightButton: UIButton?
