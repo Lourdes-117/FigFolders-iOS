@@ -11,16 +11,16 @@ class ProfileViewModel {
     var isEditEnabled = false
     
     let pageTitle = "My Profile"
-    let editButtonShadowColor = UIColor.lightGray.cgColor
+    let editButtonShadowColor = ColorPalette.greyscale3.color?.cgColor
     let editButtonDhadowOpacity: Float = 1
     let editButtonShadowRadius: CGFloat = 10
     let editButtonCornerRadius: CGFloat = 5
     
     let logOutButtonTitle = "Log Out"
-    let logOutButtonColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1)
+    let logOutButtonColor = LabelColorPalette.labelColorRed.color
     
     let saveButtonTitle = "Save"
-    let saveButtonColor = UIColor(red: 0, green: 0, blue: 255, alpha: 1)
+    let saveButtonColor = LabelColorPalette.labelColorLink.color
     let editButtonTitle = "Edit"
     let cancelButtonTitle = "Cancel"
     
@@ -86,9 +86,11 @@ class ProfileViewModel {
     let borderWidth: CGFloat = 1
     let borderColor = UIColor.clear
     let inputViewCornerRadius: CGFloat = 5
+    let navigationTitleColor = LabelColorPalette.labelColorPrimary.color ?? UIColor()
+    let navigationBarColor = ColorPalette.primary_green.color
     
     let fieldValidColor = UIColor.green
-    let fieldInvalidColor = UIColor.red
+    let fieldInvalidColor = LabelColorPalette.labelColorRed.color ?? UIColor()
     
     func isEmailValid(email: String?) -> Bool {
         guard let email = email,

@@ -12,5 +12,5 @@ class OnboardingViewModel {
     let borderWidth: CGFloat = 2
     let borderColor = UIColor.black
     let gradientStartColor = UIColor.white
-    let gradientEndColor = UIColor(red: 150, green: 255, blue: 150, alpha: 0)
+    let gradientEndColor = UIColor(red: 162, green: 227, blue: 196, alpha: 0)
 }

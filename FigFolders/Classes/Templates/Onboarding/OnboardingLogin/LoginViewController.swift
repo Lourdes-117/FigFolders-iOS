@@ -68,6 +68,7 @@ class LoginViewController: ViewControllerWithLoading {
     fileprivate func initialSetup() {
         setupView()
         navigationController?.navigationBar.isHidden = false
+        view.addGradient(from: viewModel.gradientStartColor, to: viewModel.gradientEndColor, direction: .topToBottom)
     }
     
     fileprivate func setupView() {
@@ -75,7 +76,6 @@ class LoginViewController: ViewControllerWithLoading {
             forgotPasswordContentView.isHidden = true
         }
         errorSigningInLabel.isHidden = true
-        view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
         emailIDTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         emailIDTextField.layer.cornerRadius = viewModel.borderRadius
         passwordTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)

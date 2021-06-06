@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -29,7 +29,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLq-Dl-PAi">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1086"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1081"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pvw-zv-gzC">
                                                 <rect key="frame" x="18" y="18.5" width="100" height="99"/>
@@ -40,14 +40,14 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peter Paul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="23" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCb-iN-vcN">
-                                                <rect key="frame" x="138" y="18" width="137" height="35.5"/>
+                                                <rect key="frame" x="138" y="18" width="138.5" height="35"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="30"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Se-kT-9hN">
                                                 <rect key="frame" x="0.0" y="182" width="414" height="1"/>
-                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <color key="backgroundColor" name="Greyscale3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="3Bl-NM-wIg"/>
                                                 </constraints>
@@ -55,13 +55,13 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 Followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh7-Ar-Hgz">
                                                 <rect key="frame" x="58" y="148" width="91" height="19"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNY-O2-PZf">
-                                                <rect key="frame" x="265.5" y="148" width="90.5" height="19"/>
+                                                <rect key="frame" x="265" y="148" width="91" height="19"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recent_uploads_icon" translatesAutoresizingMaskIntoConstraints="NO" id="dWk-LD-PIM">
@@ -73,15 +73,15 @@
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vR-gB-hcT">
                                                 <rect key="frame" x="0.0" y="471" width="414" height="1"/>
-                                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                                <color key="backgroundColor" name="Greyscale3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="JlC-Ze-Fkx"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJy-2y-avK">
-                                                <rect key="frame" x="52" y="486" width="146" height="24"/>
+                                                <rect key="frame" x="52" y="486" width="144.5" height="24"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personal_details_icon" translatesAutoresizingMaskIntoConstraints="NO" id="y00-Sa-11f">
@@ -92,133 +92,141 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Uploads" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgv-ZJ-6bJ">
-                                                <rect key="frame" x="52" y="197" width="141" height="24"/>
+                                                <rect key="frame" x="52" y="197" width="144" height="24"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gr5-dU-UBy">
-                                                <rect key="frame" x="345" y="484" width="56" height="28"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="frame" x="344" y="484" width="57" height="28"/>
+                                                <color key="backgroundColor" name="Greyscale1"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="5"/>
                                                 <state key="normal" title="Edit">
-                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                    <color key="titleColor" name="LabelColorPrimary"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="onTapEditPersonalDetails:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="igr-wx-uJq"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vev-Wa-K50">
-                                                <rect key="frame" x="25" y="529" width="88" height="22"/>
+                                                <rect key="frame" x="25" y="529" width="88" height="21"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Peter" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jyZ-Xf-e4Q">
-                                                <rect key="frame" x="25" y="561" width="364" height="34"/>
+                                                <rect key="frame" x="25" y="560" width="364" height="34"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9Q-TR-HhK">
-                                                <rect key="frame" x="25" y="610" width="88" height="22"/>
+                                                <rect key="frame" x="25" y="609" width="88" height="21"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Paul" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uad-VE-LxB">
-                                                <rect key="frame" x="25" y="642" width="364" height="34"/>
+                                                <rect key="frame" x="25" y="640" width="364" height="34"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TP-Je-Z08">
-                                                <rect key="frame" x="25" y="786" width="120" height="22"/>
+                                                <rect key="frame" x="25" y="783" width="121.5" height="21"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234567890" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnI-CN-Sbd">
-                                                <rect key="frame" x="25" y="818" width="364" height="34"/>
+                                                <rect key="frame" x="25" y="814" width="364" height="34"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numberPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdd-WY-5TX">
-                                                <rect key="frame" x="25" y="867" width="66" height="22"/>
+                                                <rect key="frame" x="25" y="863" width="66" height="21"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="peterpaul@gmail.com" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gfy-Gn-aTG">
-                                                <rect key="frame" x="25" y="899" width="364" height="34"/>
+                                                <rect key="frame" x="25" y="894" width="364" height="34"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Of Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mwt-cn-A4r">
-                                                <rect key="frame" x="25" y="691" width="103" height="22"/>
+                                                <rect key="frame" x="25" y="689" width="105" height="21"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="qvt-pF-lTg">
-                                                <rect key="frame" x="25" y="723" width="364" height="48"/>
+                                                <rect key="frame" x="25" y="720" width="364" height="48"/>
+                                                <color key="backgroundColor" name="Greyscale1"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="lmN-LA-P2Q"/>
                                                 </constraints>
                                             </datePicker>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbA-wq-3cm">
-                                                <rect key="frame" x="0.0" y="953" width="414" height="1"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="frame" x="0.0" y="948" width="414" height="1"/>
+                                                <color key="backgroundColor" name="Greyscale3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="RaW-25-tTG"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtU-Na-qDA">
-                                                <rect key="frame" x="0.0" y="1010" width="414" height="1"/>
-                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="frame" x="0.0" y="1005" width="414" height="1"/>
+                                                <color key="backgroundColor" name="Greyscale3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="iX2-Cx-cyN"/>
                                                 </constraints>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings-icon" translatesAutoresizingMaskIntoConstraints="NO" id="lKl-to-PpI">
-                                                <rect key="frame" x="17" y="971" width="22" height="22"/>
+                                                <rect key="frame" x="17" y="966" width="22" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="22" id="Zze-Gx-nKq"/>
                                                     <constraint firstAttribute="width" secondItem="lKl-to-PpI" secondAttribute="height" multiplier="1:1" id="mPL-ox-CQP"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhc-Om-Hfq">
-                                                <rect key="frame" x="49" y="970.5" width="162" height="23.5"/>
+                                                <rect key="frame" x="49" y="965.5" width="164" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Svx-ak-6xU">
-                                                <rect key="frame" x="0.0" y="954" width="414" height="56"/>
+                                                <rect key="frame" x="0.0" y="949" width="414" height="56"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" name="LabelColorPrimary"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="onTapChangePassword:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="vAa-Vc-iud"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="stF-6n-D7P">
-                                                <rect key="frame" x="0.0" y="1011" width="414" height="75"/>
+                                                <rect key="frame" x="0.0" y="1006" width="414" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="YDW-Zf-ZVD"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="23"/>
                                                 <state key="normal" title="Log Out">
-                                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                                    <color key="titleColor" name="LabelColorRed"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="onTapLogOutButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Emj-WZ-C0d"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user_name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rt-Ue-0TR">
-                                                <rect key="frame" x="138" y="61.5" width="93" height="23"/>
+                                                <rect key="frame" x="138" y="61" width="93" height="23"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="Greyscale1"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="stF-6n-D7P" secondAttribute="bottom" id="4vW-IT-gGQ"/>
                                             <constraint firstItem="jyZ-Xf-e4Q" firstAttribute="leading" secondItem="vev-Wa-K50" secondAttribute="leading" id="52E-PG-vDJ"/>
@@ -305,7 +313,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" red="0.10196078431372549" green="0.83921568627450982" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="Primary-Green"/>
                         <constraints>
                             <constraint firstItem="Eja-QO-mDd" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="TuW-vz-zho"/>
                             <constraint firstItem="Eja-QO-mDd" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="eBs-Kw-DeR"/>
@@ -337,17 +345,20 @@
         <image name="personal_details_icon" width="22" height="16"/>
         <image name="recent_uploads_icon" width="19" height="22"/>
         <image name="settings-icon" width="22" height="22"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="Greyscale1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Greyscale3">
+            <color red="0.71372549019607845" green="0.71764705882352942" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LabelColorPrimary">
+            <color red="0.094117647058823528" green="0.10196078431372549" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LabelColorRed">
+            <color red="1" green="0.094117647058823528" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary-Green">
+            <color red="0.63529411764705879" green="0.8901960784313725" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

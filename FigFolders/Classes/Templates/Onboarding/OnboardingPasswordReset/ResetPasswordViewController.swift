@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import NVActivityIndicatorView
 
-class ResetPasswordViewController: UIViewController {
+class ResetPasswordViewController: ViewControllerWithLoading {
 // MARK: - Outlets
     @IBOutlet weak var emailIDTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
@@ -34,7 +34,7 @@ class ResetPasswordViewController: UIViewController {
     
     fileprivate func setupViews() {
         emailIDTextField.text = emailIdFromLogin
-        view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
+        view.addGradient(from: viewModel.gradientStartColor, to: viewModel.gradientEndColor, direction: .topToBottom)
         emailIDTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         emailIDTextField.layer.cornerRadius = viewModel.borderRadius
         submitButton.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
@@ -56,18 +56,7 @@ class ResetPasswordViewController: UIViewController {
         emailIDTextField.addBorder(color: isEmailValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
         
         // Activity Indicator
-        let activityBackgroundView = UIView(frame: view.frame)
-        activityBackgroundView.backgroundColor = viewModel.activityIndicatorBackgroundColor
-        let activityView = NVActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-50,
-                                                                 y: (view.frame.height/2)-50,
-                                                                 width: 100,
-                                                                 height: 100),
-                                                   type: .triangleSkewSpin,
-                                                   color: UIColor.blue,
-                                                   padding: 0)
-        activityBackgroundView.addSubview(activityView)
-        activityView.startAnimating()
-        view.addSubview(activityBackgroundView)
+        showLoadingIndicator()
         
         guard isEmailValid else { return }
         FirebaseAuth.Auth.auth().sendPasswordReset(withEmail: emailIDTextField.text ?? "") { [weak self] error in
@@ -81,12 +70,10 @@ class ResetPasswordViewController: UIViewController {
                 default:
                     break
                 }
-                activityView.stopAnimating()
-                activityBackgroundView.removeFromSuperview()
+                strongSelf.hideLoadingIndicatorView()
                 return
             }
-            activityView.stopAnimating()
-            activityBackgroundView.removeFromSuperview()
+            self?.hideLoadingIndicatorView()
             self?.statusLabel.text = self?.viewModel.passwordResetLinkSent
             debugPrint("Password Reset Link Sent")
         }

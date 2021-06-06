@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +32,7 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Lm-fp-ey2">
                     <rect key="frame" x="0.0" y="75" width="414" height="771"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" name="Greyscale1"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhN-16-yxe">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
@@ -39,14 +40,14 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peter Paul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8N-hI-Iz2">
                             <rect key="frame" x="22" y="11" width="115" height="30"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="25"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" name="LabelColorPrimary"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKI-TO-dSm">
                             <rect key="frame" x="22" y="41" width="115" height="30"/>
                             <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                             <state key="normal" title="View Profile">
-                                <color key="titleColor" systemColor="labelColor"/>
+                                <color key="titleColor" name="LabelColorPrimary"/>
                             </state>
                             <connections>
                                 <action selector="onTapViewProfileButton:" destination="-1" eventType="touchUpInside" id="sM8-wI-Xu2"/>
@@ -60,7 +61,7 @@
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="0.44313725490196076" green="0.97254901960784312" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" name="Primary-Green"/>
                     <constraints>
                         <constraint firstItem="YKI-TO-dSm" firstAttribute="trailing" secondItem="W8N-hI-Iz2" secondAttribute="trailing" id="0zv-ux-l1J"/>
                         <constraint firstAttribute="height" constant="75" id="3df-IP-cHY"/>
@@ -86,14 +87,14 @@
                             <rect key="frame" x="362" y="10.5" width="30" height="29"/>
                             <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                             <state key="normal" title="Help">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" name="LabelColorPrimary"/>
                             </state>
                             <connections>
                                 <action selector="onTapHelpButton:" destination="-1" eventType="touchUpInside" id="pRW-y8-WfU"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.44313725490196076" green="0.97254901960784312" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" name="Primary-Green"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="3wX-ip-Lk6" secondAttribute="trailing" constant="22" id="74M-Sh-Zqh"/>
                         <constraint firstItem="Cyt-Xb-d0e" firstAttribute="height" secondItem="AfM-m7-9cz" secondAttribute="height" multiplier="0.95" id="9Uz-Bh-hvi"/>
@@ -126,9 +127,15 @@
     <resources>
         <image name="Fig_Folders_Logo" width="335" height="384"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Greyscale1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LabelColorPrimary">
+            <color red="0.094117647058823528" green="0.10196078431372549" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary-Green">
+            <color red="0.63529411764705879" green="0.8901960784313725" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

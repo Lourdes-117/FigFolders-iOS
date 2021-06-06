@@ -62,7 +62,7 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
     private func setupViews() {
         usernameTakenLabel.isHidden = true
         emailIDTakenLabel.isHidden = true
-        view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
+        view.addGradient(from: viewModel.gradientStartColor, to: viewModel.gradientEndColor, direction: .topToBottom)
         userNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         userNameTextField.layer.cornerRadius = viewModel.borderRadius
         emailIDTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)

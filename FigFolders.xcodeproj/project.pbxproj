@@ -10,6 +10,7 @@
 		2DA5B53E39413BB4E715138D /* Pods_FigFolders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */; };
 		AE1177B5266CD57F0031FEBA /* Color-Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */; };
 		AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */; };
+		AE1177B9266CEC930031FEBA /* HomeTabControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */; };
 		AE16D8922652DA4D00000BB5 /* HamburgerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */; };
 		AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */; };
 		AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */; };
@@ -90,6 +91,7 @@
 		6534D6FF9EF3121470874BD9 /* Pods-FigFolders.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FigFolders.release.xcconfig"; path = "Target Support Files/Pods-FigFolders/Pods-FigFolders.release.xcconfig"; sourceTree = "<group>"; };
 		AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color-Palette.xcassets"; sourceTree = "<group>"; };
 		AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabControllerViewModel.swift; sourceTree = "<group>"; };
 		AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuView.swift; sourceTree = "<group>"; };
 		AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgerMenuView.xib; sourceTree = "<group>"; };
 		AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewModel.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			children = (
 				AE7A26BD265055770057D454 /* HomeViewController */,
 				AE7A26BE265055EA0057D454 /* HomeTabBarController.storyboard */,
+				AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */,
 				AE7A26C0265056390057D454 /* HomeTabBarController.swift */,
 			);
 			path = HomeTabBar;
@@ -703,6 +706,7 @@
 				AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */,
 				AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */,
 				AE89D4CB2665581000CF0439 /* PasswordTextField.swift in Sources */,
+				AE1177B9266CEC930031FEBA /* HomeTabControllerViewModel.swift in Sources */,
 				AEF8427C264D936500FB8003 /* LoginViewModel.swift in Sources */,
 				AEF8427E264D940800FB8003 /* ResetPasswordViewModel.swift in Sources */,
 				AE9DC66C2662E695001B9392 /* UIImageExtension.swift in Sources */,

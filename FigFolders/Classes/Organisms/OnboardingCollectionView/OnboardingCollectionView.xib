@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,9 +42,9 @@
                     <color key="currentPageIndicatorTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </pageControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYv-5j-yzJ">
-                    <rect key="frame" x="219" y="454" width="71" height="42"/>
+                    <rect key="frame" x="228" y="454" width="53" height="42"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="25"/>
-                    <state key="normal" title="Next &gt;">
+                    <state key="normal" title="Next">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
@@ -53,19 +54,32 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPC-UX-CJ7">
                     <rect key="frame" x="239.5" y="504" width="30" height="30"/>
                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                    <state key="normal" title="Skip"/>
+                    <state key="normal" title="Skip">
+                        <color key="titleColor" name="LabelColorLink"/>
+                    </state>
                     <connections>
                         <action selector="onTapSkipButton:" destination="-1" eventType="touchUpInside" id="hcj-zh-wUj"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJf-Qy-0Ek">
+                    <rect key="frame" x="284" y="454" width="12.5" height="42"/>
+                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <state key="normal" image="chevron.forward" catalog="system"/>
+                    <connections>
+                        <action selector="onTapNextButton:" destination="-1" eventType="touchUpInside" id="Nu1-AS-IM8"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="BJf-Qy-0Ek" firstAttribute="leading" secondItem="bYv-5j-yzJ" secondAttribute="trailing" constant="3" id="4f7-KI-rE8"/>
                 <constraint firstItem="slX-wD-khH" firstAttribute="top" secondItem="tqJ-Iw-9Dd" secondAttribute="bottom" constant="13" id="6bO-WG-Yx0"/>
+                <constraint firstItem="BJf-Qy-0Ek" firstAttribute="bottom" secondItem="bYv-5j-yzJ" secondAttribute="bottom" id="B3X-Zr-VDe"/>
                 <constraint firstAttribute="bottom" secondItem="nPC-UX-CJ7" secondAttribute="bottom" id="Ptg-ze-lp8"/>
                 <constraint firstItem="bYv-5j-yzJ" firstAttribute="top" secondItem="slX-wD-khH" secondAttribute="bottom" constant="13" id="R5J-Ep-Qvi"/>
                 <constraint firstItem="slX-wD-khH" firstAttribute="centerX" secondItem="tqJ-Iw-9Dd" secondAttribute="centerX" id="elF-oO-kqf"/>
                 <constraint firstItem="bYv-5j-yzJ" firstAttribute="centerX" secondItem="tqJ-Iw-9Dd" secondAttribute="centerX" id="hkB-jf-ihR"/>
+                <constraint firstItem="BJf-Qy-0Ek" firstAttribute="top" secondItem="bYv-5j-yzJ" secondAttribute="top" id="ier-lT-yJz"/>
                 <constraint firstItem="nPC-UX-CJ7" firstAttribute="top" secondItem="bYv-5j-yzJ" secondAttribute="bottom" constant="8" id="qdi-Gs-jHL"/>
                 <constraint firstItem="nPC-UX-CJ7" firstAttribute="centerX" secondItem="bYv-5j-yzJ" secondAttribute="centerX" id="qlR-zw-MIu"/>
                 <constraint firstItem="tqJ-Iw-9Dd" firstAttribute="leading" secondItem="v2I-OJ-5Me" secondAttribute="leading" id="v9Q-7h-KKd"/>
@@ -79,6 +93,10 @@
         </view>
     </objects>
     <resources>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
+        <namedColor name="LabelColorLink">
+            <color red="0.14117647058823529" green="0.41960784313725491" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

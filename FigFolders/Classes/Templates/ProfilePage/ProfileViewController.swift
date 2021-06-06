@@ -66,7 +66,9 @@ class ProfileViewController: ViewControllerWithLoading {
     private func setupView() {
         self.title = viewModel.pageTitle
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: viewModel.navigationTitleColor]
+        navigationController?.navigationBar.backgroundColor = viewModel.navigationBarColor
+        navigationController?.navigationBar.tintColor = viewModel.navigationTitleColor
         
         firstNameTextField.layer.cornerRadius = viewModel.inputViewCornerRadius
         lastNameTextField.layer.cornerRadius = viewModel.inputViewCornerRadius

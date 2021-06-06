@@ -17,10 +17,11 @@ class LoginViewModel {
     let borderWidth: CGFloat = 2
     let borderColor = UIColor.black
     
-    let fieldValidColor = UIColor.green
-    let fieldInvalidColor = UIColor.red
+    let gradientStartColor = UIColor.white
+    let gradientEndColor = UIColor(red: 162, green: 227, blue: 196, alpha: 0)
     
-    let activityIndicatorBackgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
+    let fieldValidColor = UIColor.green
+    let fieldInvalidColor = LabelColorPalette.labelColorRed.color ?? UIColor()
     
     func isEmailValid(email: String?) -> Bool {
         guard let email = email,
