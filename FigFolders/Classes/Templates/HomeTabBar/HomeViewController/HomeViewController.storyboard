@@ -61,7 +61,7 @@
     </scenes>
     <resources>
         <namedColor name="Primary-Green">
-            <color red="0.63529411764705879" green="0.8901960784313725" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.63499999046325684" green="0.88999998569488525" blue="0.76899999380111694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

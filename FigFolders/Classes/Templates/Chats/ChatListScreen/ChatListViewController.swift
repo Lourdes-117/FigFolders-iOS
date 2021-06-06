@@ -24,6 +24,8 @@ class ChatListViewController: UIViewController {
     private func setupView() {
         self.title = viewModel.title
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.backgroundColor = viewModel.navigationBarColor
+        navigationController?.navigationBar.tintColor = viewModel.navigationTitleColor
         setupRightBarButtonItem()
     }
     
