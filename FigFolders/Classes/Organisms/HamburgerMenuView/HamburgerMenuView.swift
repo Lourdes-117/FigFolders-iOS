@@ -40,6 +40,15 @@ class HamburgerMenuView: UIView {
         profilePictureImage.layer.cornerRadius = profilePictureImage.frame.height/2
         viewProfileButton.setTitle(viewModel.viewProfileButtonTitle, for: .normal)
         nameLabel.text = viewModel.fullName
+        setupProfilePic()
+    }
+    
+    private func setupProfilePic() {
+        if let profilePictureUrl = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) as? String,
+           let url = URL(string: profilePictureUrl) {
+            
+            profilePictureImage.sd_setImage(with: url, completed: nil)
+        }
     }
     
     private func registerCells() {

@@ -241,7 +241,7 @@ extension OnboardingRegisterStepTwoViewController: UITextFieldDelegate {
         if userNameTextField.isFirstResponder {
             emailIDTextField.becomeFirstResponder()
         } else if emailIDTextField.isFirstResponder {
-            passwordTextField.becomeFirstResponder()
+            _ = passwordTextField.becomeFirstResponder()
         } else if passwordTextField.isFirstResponder {
             passwordTextField.resignFirstResponder()
             registerUser()

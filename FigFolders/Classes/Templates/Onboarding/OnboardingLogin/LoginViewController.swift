@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import NVActivityIndicatorView
 
-class LoginViewController: UIViewController {
+class LoginViewController: ViewControllerWithLoading {
 // MARK: - Outlets
     @IBOutlet weak var emailIDTextField: UITextField!
     @IBOutlet weak var passwordTextField: PasswordTextField!
@@ -134,18 +134,7 @@ class LoginViewController: UIViewController {
         guard validateInputs() else { return }
         
         // Activity Indicator
-        let activityBackgroundView = UIView(frame: view.frame)
-        activityBackgroundView.backgroundColor = viewModel.activityIndicatorBackgroundColor
-        let activityView = NVActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-50,
-                                                                 y: (view.frame.height/2)-50,
-                                                                 width: 100,
-                                                                 height: 100),
-                                                   type: .triangleSkewSpin,
-                                                   color: UIColor.blue,
-                                                   padding: 0)
-        activityBackgroundView.addSubview(activityView)
-        activityView.startAnimating()
-        view.addSubview(activityBackgroundView)
+        showLoadingIndicator()
         
         // Authenticate
         FirebaseAuth.Auth.auth().signIn(withEmail: emailIDTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] _, error in
@@ -154,13 +143,11 @@ class LoginViewController: UIViewController {
                 strongSelf.errorSigningInLabel.isHidden = false
                 strongSelf.emailIDTextField.addBorder(color: strongSelf.viewModel.borderColor, width: strongSelf.viewModel.borderWidth)
                 strongSelf.passwordTextField.addBorder(color: strongSelf.viewModel.borderColor, width: strongSelf.viewModel.borderWidth)
-                activityView.stopAnimating()
-                activityBackgroundView.removeFromSuperview()
+                self?.hideLoadingIndicatorView()
                 return
             }
             self?.isUserVerified = true
-            activityView.stopAnimating()
-            activityBackgroundView.removeFromSuperview()
+            self?.hideLoadingIndicatorView()
             if self?.shouldActAsVerificationScreen ?? false {
                 self?.dismiss(animated: true, completion: {
                     self?.delegate?.verificationSuccessful()
@@ -186,7 +173,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if emailIDTextField.isFirstResponder {
-            passwordTextField.becomeFirstResponder()
+            _ = passwordTextField.becomeFirstResponder()
         } else if passwordTextField.isFirstResponder {
             authenticateUser(email: emailIDTextField.text, password: passwordTextField.text)
             view.endEditing(true)

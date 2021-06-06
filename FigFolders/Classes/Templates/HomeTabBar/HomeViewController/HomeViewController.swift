@@ -115,7 +115,8 @@ class HomeViewController: ViewControllerWithLoading {
     }
     
     @objc func onTapChatIcon() {
-        
+        guard let vc = ChatListViewController.initiateVC() else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 // MARK: - Helper Methods

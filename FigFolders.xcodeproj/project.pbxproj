@@ -27,12 +27,20 @@
 		AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */; };
 		AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */; };
 		AE89D4CB2665581000CF0439 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE89D4CA2665581000CF0439 /* PasswordTextField.swift */; };
+		AE94D9152667FFDF00D6E921 /* ChatListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE94D9142667FFDF00D6E921 /* ChatListViewController.storyboard */; };
+		AE94D9172667FFEF00D6E921 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94D9162667FFEF00D6E921 /* ChatListViewController.swift */; };
 		AE94E070265306360020CB95 /* HamburgermenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */; };
 		AE94E071265306360020CB95 /* HamburgermenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE94E06F265306360020CB95 /* HamburgermenuTableViewCell.xib */; };
 		AE94E07326530FC80020CB95 /* UILabelUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94E07226530FC80020CB95 /* UILabelUtility.swift */; };
 		AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE987711264AFE4700064A7D /* LoginViewController.swift */; };
 		AE987714264AFE5400064A7D /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE987713264AFE5400064A7D /* LoginViewController.storyboard */; };
 		AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */; };
+		AE9D2345266B698B005B5C55 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D2344266B698B005B5C55 /* ChatListViewModel.swift */; };
+		AE9D2348266B6C56005B5C55 /* SearchChatViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9D2347266B6C56005B5C55 /* SearchChatViewController.storyboard */; };
+		AE9D234A266B6C81005B5C55 /* SearchChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D2349266B6C81005B5C55 /* SearchChatViewController.swift */; };
+		AE9D234D266B6E60005B5C55 /* PullDownTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D234C266B6E60005B5C55 /* PullDownTopBarView.swift */; };
+		AE9D234F266B6E6F005B5C55 /* PullDownTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9D234E266B6E6F005B5C55 /* PullDownTopBarView.xib */; };
+		AE9D2351266B7D2A005B5C55 /* SearchChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D2350266B7D2A005B5C55 /* SearchChatViewModel.swift */; };
 		AE9DC66A2662DA42001B9392 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DC6692662DA42001B9392 /* StorageManager.swift */; };
 		AE9DC66C2662E695001B9392 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DC66B2662E695001B9392 /* UIImageExtension.swift */; };
 		AEA197712649933000D0D181 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197702649933000D0D181 /* AppDelegate.swift */; };
@@ -97,12 +105,20 @@
 		AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModel.swift; sourceTree = "<group>"; };
 		AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		AE89D4CA2665581000CF0439 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		AE94D9142667FFDF00D6E921 /* ChatListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatListViewController.storyboard; sourceTree = "<group>"; };
+		AE94D9162667FFEF00D6E921 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgermenuTableViewCell.swift; sourceTree = "<group>"; };
 		AE94E06F265306360020CB95 /* HamburgermenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgermenuTableViewCell.xib; sourceTree = "<group>"; };
 		AE94E07226530FC80020CB95 /* UILabelUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelUtility.swift; sourceTree = "<group>"; };
 		AE987711264AFE4700064A7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AE987713264AFE5400064A7D /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtility.swift; sourceTree = "<group>"; };
+		AE9D2344266B698B005B5C55 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		AE9D2347266B6C56005B5C55 /* SearchChatViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchChatViewController.storyboard; sourceTree = "<group>"; };
+		AE9D2349266B6C81005B5C55 /* SearchChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChatViewController.swift; sourceTree = "<group>"; };
+		AE9D234C266B6E60005B5C55 /* PullDownTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullDownTopBarView.swift; sourceTree = "<group>"; };
+		AE9D234E266B6E6F005B5C55 /* PullDownTopBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullDownTopBarView.xib; sourceTree = "<group>"; };
+		AE9D2350266B7D2A005B5C55 /* SearchChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChatViewModel.swift; sourceTree = "<group>"; };
 		AE9DC6692662DA42001B9392 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		AE9DC66B2662E695001B9392 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		AEA1976D2649933000D0D181 /* FigFolders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FigFolders.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +249,25 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		AE94D9122667FF9500D6E921 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				AE9D2346266B6C0C005B5C55 /* SearchChatScreen */,
+				AE94D9132667FFBF00D6E921 /* ChatListScreen */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		AE94D9132667FFBF00D6E921 /* ChatListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AE94D9142667FFDF00D6E921 /* ChatListViewController.storyboard */,
+				AE94D9162667FFEF00D6E921 /* ChatListViewController.swift */,
+				AE9D2344266B698B005B5C55 /* ChatListViewModel.swift */,
+			);
+			path = ChatListScreen;
+			sourceTree = "<group>";
+		};
 		AE98770F264AFDC900064A7D /* OnboardingLanding */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +286,25 @@
 				AE987711264AFE4700064A7D /* LoginViewController.swift */,
 			);
 			path = OnboardingLogin;
+			sourceTree = "<group>";
+		};
+		AE9D2346266B6C0C005B5C55 /* SearchChatScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AE9D2347266B6C56005B5C55 /* SearchChatViewController.storyboard */,
+				AE9D2349266B6C81005B5C55 /* SearchChatViewController.swift */,
+				AE9D2350266B7D2A005B5C55 /* SearchChatViewModel.swift */,
+			);
+			name = SearchChatScreen;
+			sourceTree = "<group>";
+		};
+		AE9D234B266B6E1E005B5C55 /* PullDownTopBar */ = {
+			isa = PBXGroup;
+			children = (
+				AE9D234E266B6E6F005B5C55 /* PullDownTopBarView.xib */,
+				AE9D234C266B6E60005B5C55 /* PullDownTopBarView.swift */,
+			);
+			path = PullDownTopBar;
 			sourceTree = "<group>";
 		};
 		AEA197642649933000D0D181 = {
@@ -298,6 +352,7 @@
 		AEA197852649936400D0D181 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				AE94D9122667FF9500D6E921 /* Chats */,
 				AEA1979326499E9E00D0D181 /* Onboarding */,
 				AE7A26BC265055590057D454 /* HomeTabBar */,
 				AE6B944526542E17006463E1 /* ProfilePage */,
@@ -329,6 +384,7 @@
 		AEA19788264995EB00D0D181 /* Organisms */ = {
 			isa = PBXGroup;
 			children = (
+				AE9D234B266B6E1E005B5C55 /* PullDownTopBar */,
 				AEA19789264995FB00D0D181 /* OnboardingCollectionView */,
 				AE16D8902652DA1A00000BB5 /* HamburgerMenuView */,
 			);
@@ -525,10 +581,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEF84271264D8EAF00FB8003 /* Roboto-ThinItalic.ttf in Resources */,
+				AE94D9152667FFDF00D6E921 /* ChatListViewController.storyboard in Resources */,
 				AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */,
 				AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */,
 				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
 				AE94E071265306360020CB95 /* HamburgermenuTableViewCell.xib in Resources */,
+				AE9D234F266B6E6F005B5C55 /* PullDownTopBarView.xib in Resources */,
 				AEA1977D2649933400D0D181 /* LaunchScreen.storyboard in Resources */,
 				AEF8426F264D8EAF00FB8003 /* Roboto-Regular.ttf in Resources */,
 				AEF84289264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard in Resources */,
@@ -547,6 +605,7 @@
 				AEF84278264D8EAF00FB8003 /* Roboto-Black.ttf in Resources */,
 				AEA1978D2649970800D0D181 /* OnboardingCollectionView.xib in Resources */,
 				AEA197982649A07E00D0D181 /* OnboardingCollectionViewCell.xib in Resources */,
+				AE9D2348266B6C56005B5C55 /* SearchChatViewController.storyboard in Resources */,
 				AE7A26C3265056FE0057D454 /* HomeViewController.storyboard in Resources */,
 				AE861B25264FB75D00E708D7 /* GoogleService-Info.plist in Resources */,
 				AEF84270264D8EAF00FB8003 /* Roboto-MediumItalic.ttf in Resources */,
@@ -605,8 +664,11 @@
 			files = (
 				AE7A26C5265057120057D454 /* HomeViewController.swift in Sources */,
 				AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */,
+				AE94D9172667FFEF00D6E921 /* ChatListViewController.swift in Sources */,
+				AE9D2345266B698B005B5C55 /* ChatListViewModel.swift in Sources */,
 				AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */,
 				AEA197712649933000D0D181 /* AppDelegate.swift in Sources */,
+				AE9D2351266B7D2A005B5C55 /* SearchChatViewModel.swift in Sources */,
 				AEF8428D264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift in Sources */,
 				AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */,
 				AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */,
@@ -615,6 +677,7 @@
 				AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */,
 				AE94E07326530FC80020CB95 /* UILabelUtility.swift in Sources */,
 				AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */,
+				AE9D234A266B6C81005B5C55 /* SearchChatViewController.swift in Sources */,
 				AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */,
 				AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */,
 				AE66557126580B76004DA48A /* DecodableUtility.swift in Sources */,
@@ -633,6 +696,7 @@
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
 				AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */,
+				AE9D234D266B6E60005B5C55 /* PullDownTopBarView.swift in Sources */,
 				AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */,
 				AE7A26C1265056390057D454 /* HomeTabBarController.swift in Sources */,
 				AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */,
