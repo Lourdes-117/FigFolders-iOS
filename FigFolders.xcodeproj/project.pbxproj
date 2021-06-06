@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2DA5B53E39413BB4E715138D /* Pods_FigFolders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */; };
+		AE1177B5266CD57F0031FEBA /* Color-Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */; };
+		AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */; };
 		AE16D8922652DA4D00000BB5 /* HamburgerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */; };
 		AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */; };
 		AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */; };
@@ -86,6 +88,8 @@
 		00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FigFolders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F27D2551E5368249C37D5ED /* Pods-FigFolders.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FigFolders.debug.xcconfig"; path = "Target Support Files/Pods-FigFolders/Pods-FigFolders.debug.xcconfig"; sourceTree = "<group>"; };
 		6534D6FF9EF3121470874BD9 /* Pods-FigFolders.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FigFolders.release.xcconfig"; path = "Target Support Files/Pods-FigFolders/Pods-FigFolders.release.xcconfig"; sourceTree = "<group>"; };
+		AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color-Palette.xcassets"; sourceTree = "<group>"; };
+		AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuView.swift; sourceTree = "<group>"; };
 		AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgerMenuView.xib; sourceTree = "<group>"; };
 		AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewModel.swift; sourceTree = "<group>"; };
@@ -180,6 +184,16 @@
 				00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE1177B3266CD54B0031FEBA /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				AEA197792649933400D0D181 /* Assets.xcassets */,
+				AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */,
+				AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		AE16D8902652DA1A00000BB5 /* HamburgerMenuView */ = {
@@ -367,7 +381,7 @@
 				AEF84246264D84B200FB8003 /* Fonts */,
 				AEA1979026499AC600D0D181 /* Utilities */,
 				AEBB867F2656EB2700D2476B /* CustomClasses */,
-				AEA197792649933400D0D181 /* Assets.xcassets */,
+				AE1177B3266CD54B0031FEBA /* Assets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -585,6 +599,7 @@
 				AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */,
 				AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */,
 				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
+				AE1177B5266CD57F0031FEBA /* Color-Palette.xcassets in Resources */,
 				AE94E071265306360020CB95 /* HamburgermenuTableViewCell.xib in Resources */,
 				AE9D234F266B6E6F005B5C55 /* PullDownTopBarView.xib in Resources */,
 				AEA1977D2649933400D0D181 /* LaunchScreen.storyboard in Resources */,
@@ -695,6 +710,7 @@
 				AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */,
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
+				AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */,
 				AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */,
 				AE9D234D266B6E60005B5C55 /* PullDownTopBarView.swift in Sources */,
 				AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */,
