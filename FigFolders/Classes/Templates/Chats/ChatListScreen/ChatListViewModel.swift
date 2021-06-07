@@ -11,5 +11,5 @@ class ChatListViewModel {
     let navigationTitleColor = LabelColorPalette.labelColorPrimary.color ?? UIColor()
     let navigationBarColor = ColorPalette.primary_green.color
     let title = "Chats"
-    let composeImage = UIImage(systemName: "square.and.pencil")
+    let composeMessageImage = UIImage(systemName: "square.and.pencil")
 }

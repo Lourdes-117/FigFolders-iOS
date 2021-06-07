@@ -9,6 +9,20 @@ import UIKit
 import NVActivityIndicatorView
 
 class ViewControllerWithLoading: UIViewController {
+    /// Returns Current User's email ID
+    var currentUserEmail: String? {
+        get {
+            return UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String
+        }
+    }
+    
+    /// Returns Current User's Username
+    var currentUserUsername: String? {
+        get {
+            return UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String
+        }
+    }
+    
     /// Shows Loading Indicator Over Full Screen
     private var activityBackgroundView: UIView?
     private var activityView: NVActivityIndicatorView?

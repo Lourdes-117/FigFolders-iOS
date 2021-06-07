@@ -139,10 +139,26 @@ final class DatabaseManager {
         }
     }
     
+    /// Get List Of All Users
+    func getAllUsers(completion: @escaping (Result<[[String: String]], Error>) -> Void) {
+        database.child(StringConstants.shared.database.usersArray).observeSingleEvent(of: .value) { snapshot in
+            guard let value = snapshot.value as? [[String: String]] else {
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            completion(.success(value))
+        }
+    }
+    
     /// Check If Username Is Available
     func isUsernameAvailable(username: String, completion: @escaping (Bool) -> Void) {
         database.child(username).observeSingleEvent(of: .value) { snapshot in
             completion(!snapshot.exists())
         }
     }
+}
+
+// MARK:- Database Errors
+public enum DatabaseError: Error {
+    case failedToFetch
 }

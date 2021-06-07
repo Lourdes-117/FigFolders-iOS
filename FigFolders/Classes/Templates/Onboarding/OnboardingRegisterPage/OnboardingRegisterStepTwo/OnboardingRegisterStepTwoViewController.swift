@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import NVActivityIndicatorView
 
-class OnboardingRegisterStepTwoViewController: UIViewController {
+class OnboardingRegisterStepTwoViewController: ViewControllerWithLoading {
     
 // MARK: - Outlets
     @IBOutlet weak var userNameTextField: UITextField!
@@ -140,18 +140,7 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
         view.endEditing(true)
         guard isAllFieldsValid() else { return }
         // Activity Indicator
-        let activityBackgroundView = UIView(frame: view.frame)
-        activityBackgroundView.backgroundColor = viewModel.activityIndicatorBackgroundColor
-        let activityView = NVActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-50,
-                                                                 y: (view.frame.height/2)-50,
-                                                                 width: 100,
-                                                                 height: 100),
-                                                   type: .triangleSkewSpin,
-                                                   color: UIColor.blue,
-                                                   padding: 0)
-        activityBackgroundView.addSubview(activityView)
-        activityView.startAnimating()
-        view.addSubview(activityBackgroundView)
+        showLoadingIndicator()
         
         // Check If Username and EmailID Is Available
         isEmailIDAvailable { [weak self] isEmailIDAvailable in
@@ -164,8 +153,7 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
                     FirebaseAuth.Auth.auth().createUser(withEmail: strongSelf.emailIDTextField.text ?? "", password: strongSelf.passwordTextField.text ?? "") { [weak self] _, error in
                         guard error == nil,
                               let strongSelf = self else {
-                            activityView.stopAnimating()
-                            activityBackgroundView.removeFromSuperview()
+                            self?.hideLoadingIndicatorView()
                             return
                         }
                         let userDetails = UserDetailsModel(firstNameString: strongSelf.firstName ?? "",
@@ -180,8 +168,7 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
                             if success {
                                 FirebaseAuth.Auth.auth().signIn(withEmail: strongSelf.emailIDTextField.text ?? "", password: strongSelf.passwordTextField.text ?? "") { _, error in
                                     guard error == nil else {
-                                        activityView.stopAnimating()
-                                        activityBackgroundView.removeFromSuperview()
+                                        self?.hideLoadingIndicatorView()
                                         return
                                     }
                                     debugPrint("Created User In Database")
@@ -192,8 +179,7 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
                                     UserDefaults.standard.setValue(strongSelf.dateOfBirth, forKey: StringConstants.shared.userDefaults.dateOfBirth)
                                     UserDefaults.standard.setValue(strongSelf.userNameTextField.text ?? "", forKey: StringConstants.shared.userDefaults.userName)
                                     
-                                    activityView.stopAnimating()
-                                    activityBackgroundView.removeFromSuperview()
+                                    self?.hideLoadingIndicatorView()
                                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(HomeTabBarController.initiateVC())
                                     debugPrint("Login Successful")
                                 }
@@ -203,8 +189,7 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
                         }
                     }
                 } else {
-                    activityView.stopAnimating()
-                    activityBackgroundView.isHidden = true
+                    self?.hideLoadingIndicatorView()
                 }
             }
         }

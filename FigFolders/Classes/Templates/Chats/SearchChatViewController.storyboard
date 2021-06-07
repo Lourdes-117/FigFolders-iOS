@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TqZ-So-7ed">
-                                <rect key="frame" x="0.0" y="55" width="414" height="807"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TqZ-So-7ed">
+                                <rect key="frame" x="0.0" y="106" width="414" height="756"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVJ-6c-pAc" customClass="PullDownTopBarView" customModule="FigFolders" customModuleProvider="target">
@@ -28,21 +28,30 @@
                                     <constraint firstAttribute="height" constant="55" id="eB3-H8-oYM"/>
                                 </constraints>
                             </view>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for a Username" translatesAutoresizingMaskIntoConstraints="NO" id="iDB-U3-Vhv">
+                                <rect key="frame" x="0.0" y="55" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="TqZ-So-7ed" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="OFR-Hs-UKA"/>
-                            <constraint firstItem="TqZ-So-7ed" firstAttribute="top" secondItem="iVJ-6c-pAc" secondAttribute="bottom" id="SWY-5B-2HN"/>
+                            <constraint firstItem="iDB-U3-Vhv" firstAttribute="top" secondItem="iVJ-6c-pAc" secondAttribute="bottom" id="PIE-ZH-6DI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="TqZ-So-7ed" secondAttribute="bottom" id="VKd-JL-B9q"/>
                             <constraint firstItem="iVJ-6c-pAc" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="ZBy-yS-Fdx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TqZ-So-7ed" secondAttribute="trailing" id="c4c-jl-wVu"/>
+                            <constraint firstItem="iDB-U3-Vhv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gDe-ue-r8e"/>
+                            <constraint firstItem="iDB-U3-Vhv" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="gpN-nM-6d3"/>
+                            <constraint firstItem="TqZ-So-7ed" firstAttribute="top" secondItem="iDB-U3-Vhv" secondAttribute="bottom" id="iUv-GO-Tdt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iVJ-6c-pAc" secondAttribute="trailing" id="lgy-6r-5Xk"/>
                             <constraint firstItem="iVJ-6c-pAc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="n77-uH-R5M"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="pullDownTopBarView" destination="iVJ-6c-pAc" id="vWt-2g-OyM"/>
+                        <outlet property="searchView" destination="iDB-U3-Vhv" id="Mzm-Ox-olA"/>
+                        <outlet property="tableView" destination="TqZ-So-7ed" id="80f-1a-g4B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -30,7 +30,7 @@ class ChatListViewController: UIViewController {
     }
     
     private func setupRightBarButtonItem() {
-        let composeBarButton = UIBarButtonItem(image: viewModel.composeImage, style: .plain, target: self, action: #selector(onTapComposeButton))
+        let composeBarButton = UIBarButtonItem(image: viewModel.composeMessageImage, style: .plain, target: self, action: #selector(onTapComposeButton))
         navigationItem.rightBarButtonItem = composeBarButton
     }
     

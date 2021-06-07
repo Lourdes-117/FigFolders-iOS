@@ -35,6 +35,8 @@ class HomeViewController: ViewControllerWithLoading {
     }
     
     private func setupView() {
+        navigationController?.navigationBar.backgroundColor = viewModel.navigationBarColor
+        navigationController?.navigationBar.tintColor = viewModel.navigationTitleColor
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: viewModel.leftBarButtonImage,
                                                            style: .plain,
                                                            target: self,
