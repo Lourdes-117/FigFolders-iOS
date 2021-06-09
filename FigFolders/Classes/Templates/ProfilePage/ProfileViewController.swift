@@ -280,6 +280,7 @@ class ProfileViewController: ViewControllerWithLoading {
     private func signoutUser() {
         do {
             try FirebaseAuth.Auth.auth().signOut()
+            deleteAllUserDefaults()
             let storyboard = UIStoryboard(name: String(describing: OnboardingViewController.self), bundle: Bundle.main)
             let viewController = storyboard.instantiateViewController(identifier: String(describing: OnboardingViewController.self))
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController)

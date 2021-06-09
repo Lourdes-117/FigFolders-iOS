@@ -123,6 +123,7 @@ class HomeViewController: ViewControllerWithLoading {
     
 // MARK: - Helper Methods
     private func expandOrCollapseHamburgerMenu(completion: (() -> Void)? = nil) {
+        hamburgerMenuView.expandOrCollapseMenu()
         UIView.animate(withDuration: kAnimationDuration) { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.hamburgerMenuLeftConstraint.constant = strongSelf.viewModel.hamburgerMenuLeftConstraint

@@ -43,6 +43,10 @@ class HamburgerMenuView: UIView {
         setupProfilePic()
     }
     
+    func expandOrCollapseMenu() {
+        setupProfilePic()
+    }
+    
     private func setupProfilePic() {
         if let profilePictureUrl = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) as? String,
            let url = URL(string: profilePictureUrl) {

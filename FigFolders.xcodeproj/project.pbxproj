@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2DA5B53E39413BB4E715138D /* Pods_FigFolders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */; };
+		AE0E3CD126713046002D2D29 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E3CCF26713046002D2D29 /* ChatListTableViewCell.swift */; };
+		AE0E3CD226713046002D2D29 /* ChatListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE0E3CD026713046002D2D29 /* ChatListTableViewCell.xib */; };
+		AE0E3CD426714AC8002D2D29 /* StructIterationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E3CD326714AC8002D2D29 /* StructIterationProtocol.swift */; };
+		AE0E3CD626715053002D2D29 /* ChatListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E3CD526715053002D2D29 /* ChatListTableViewModel.swift */; };
+		AE0E3CD826715252002D2D29 /* NSLayoutConstraintUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E3CD726715252002D2D29 /* NSLayoutConstraintUtility.swift */; };
 		AE1177B5266CD57F0031FEBA /* Color-Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */; };
 		AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */; };
 		AE1177B9266CEC930031FEBA /* HomeTabControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */; };
@@ -89,6 +94,11 @@
 		00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FigFolders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F27D2551E5368249C37D5ED /* Pods-FigFolders.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FigFolders.debug.xcconfig"; path = "Target Support Files/Pods-FigFolders/Pods-FigFolders.debug.xcconfig"; sourceTree = "<group>"; };
 		6534D6FF9EF3121470874BD9 /* Pods-FigFolders.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FigFolders.release.xcconfig"; path = "Target Support Files/Pods-FigFolders/Pods-FigFolders.release.xcconfig"; sourceTree = "<group>"; };
+		AE0E3CCF26713046002D2D29 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
+		AE0E3CD026713046002D2D29 /* ChatListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListTableViewCell.xib; sourceTree = "<group>"; };
+		AE0E3CD326714AC8002D2D29 /* StructIterationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructIterationProtocol.swift; sourceTree = "<group>"; };
+		AE0E3CD526715053002D2D29 /* ChatListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewModel.swift; sourceTree = "<group>"; };
+		AE0E3CD726715252002D2D29 /* NSLayoutConstraintUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NSLayoutConstraintUtility.swift; path = ../../../../../../NSLayoutConstraintUtility.swift; sourceTree = "<group>"; };
 		AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color-Palette.xcassets"; sourceTree = "<group>"; };
 		AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabControllerViewModel.swift; sourceTree = "<group>"; };
@@ -186,6 +196,16 @@
 				00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE0E3CCE26712F42002D2D29 /* ChatListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE0E3CD026713046002D2D29 /* ChatListTableViewCell.xib */,
+				AE0E3CD526715053002D2D29 /* ChatListTableViewModel.swift */,
+				AE0E3CCF26713046002D2D29 /* ChatListTableViewCell.swift */,
+			);
+			path = ChatListTableViewCell;
 			sourceTree = "<group>";
 		};
 		AE1177B3266CD54B0031FEBA /* Assets */ = {
@@ -401,6 +421,7 @@
 		AEA19788264995EB00D0D181 /* Organisms */ = {
 			isa = PBXGroup;
 			children = (
+				AE0E3CCE26712F42002D2D29 /* ChatListTableViewCell */,
 				AE9D234B266B6E1E005B5C55 /* PullDownTopBar */,
 				AEA19789264995FB00D0D181 /* OnboardingCollectionView */,
 				AE16D8902652DA1A00000BB5 /* HamburgerMenuView */,
@@ -430,6 +451,8 @@
 				AE66557026580B76004DA48A /* DecodableUtility.swift */,
 				AE94E07226530FC80020CB95 /* UILabelUtility.swift */,
 				AE9DC66B2662E695001B9392 /* UIImageExtension.swift */,
+				AE0E3CD326714AC8002D2D29 /* StructIterationProtocol.swift */,
+				AE0E3CD726715252002D2D29 /* NSLayoutConstraintUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -606,6 +629,7 @@
 				AE94E071265306360020CB95 /* HamburgermenuTableViewCell.xib in Resources */,
 				AE9D234F266B6E6F005B5C55 /* PullDownTopBarView.xib in Resources */,
 				AEA1977D2649933400D0D181 /* LaunchScreen.storyboard in Resources */,
+				AE0E3CD226713046002D2D29 /* ChatListTableViewCell.xib in Resources */,
 				AEF8426F264D8EAF00FB8003 /* Roboto-Regular.ttf in Resources */,
 				AEF84289264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard in Resources */,
 				AEF84272264D8EAF00FB8003 /* Roboto-BoldItalic.ttf in Resources */,
@@ -686,6 +710,7 @@
 				AE9D2345266B698B005B5C55 /* ChatListViewModel.swift in Sources */,
 				AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */,
 				AEA197712649933000D0D181 /* AppDelegate.swift in Sources */,
+				AE0E3CD126713046002D2D29 /* ChatListTableViewCell.swift in Sources */,
 				AE9D2351266B7D2A005B5C55 /* SearchChatViewModel.swift in Sources */,
 				AEF8428D264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift in Sources */,
 				AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */,
@@ -693,6 +718,7 @@
 				AEA1979226499AD800D0D181 /* UIViewUtility.swift in Sources */,
 				AEBB86812656EB4400D2476B /* ViewControllerWithLoading.swift in Sources */,
 				AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */,
+				AE0E3CD826715252002D2D29 /* NSLayoutConstraintUtility.swift in Sources */,
 				AE94E07326530FC80020CB95 /* UILabelUtility.swift in Sources */,
 				AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */,
 				AE9D234A266B6C81005B5C55 /* SearchChatViewController.swift in Sources */,
@@ -701,6 +727,7 @@
 				AE66557126580B76004DA48A /* DecodableUtility.swift in Sources */,
 				AEA1978F26499A0B00D0D181 /* OnboardingCollectionViewModel.swift in Sources */,
 				AE6B944D26542EC4006463E1 /* ProfileViewModel.swift in Sources */,
+				AE0E3CD426714AC8002D2D29 /* StructIterationProtocol.swift in Sources */,
 				AE9DC66A2662DA42001B9392 /* StorageManager.swift in Sources */,
 				AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */,
 				AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */,
@@ -720,6 +747,7 @@
 				AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */,
 				AE7A26C1265056390057D454 /* HomeTabBarController.swift in Sources */,
 				AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */,
+				AE0E3CD626715053002D2D29 /* ChatListTableViewModel.swift in Sources */,
 				AEA1978B264996E500D0D181 /* OnboardingCollectionView.swift in Sources */,
 				AE94E070265306360020CB95 /* HamburgermenuTableViewCell.swift in Sources */,
 				AE16D8922652DA4D00000BB5 /* HamburgerMenuView.swift in Sources */,

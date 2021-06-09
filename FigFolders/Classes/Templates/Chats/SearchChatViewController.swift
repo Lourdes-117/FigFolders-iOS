@@ -24,6 +24,7 @@ class SearchChatViewController: ViewControllerWithLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        registerCells()
         setupDataSourceDelegate()
     }
     
@@ -31,6 +32,10 @@ class SearchChatViewController: ViewControllerWithLoading {
         pullDownTopBarView.delegate = self
         pullDownTopBarView.titleString = viewModel.title
         
+    }
+    
+    private func registerCells() {
+        tableView.register(UINib(nibName: ChatListTableViewCell.kIdentifier, bundle: Bundle.main), forCellReuseIdentifier: ChatListTableViewCell.kIdentifier)
     }
     
     fileprivate func setupDataSourceDelegate() {
@@ -94,11 +99,14 @@ extension SearchChatViewController: UISearchBarDelegate {
 // MARK: - TableView Datasource
 extension SearchChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        searchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.kIdentifier) as? ChatListTableViewCell,
+              let userNameString = searchResults[indexPath.row].values.first else { return UITableViewCell() }
+        cell.configureCell(userNameString: userNameString, cellType: .chatSearch)
+        return cell
     }
 }
 

@@ -24,7 +24,7 @@ struct RegexConstants {
     let userName = "^[a-zA-Z0-9](_(?!(\\.|_))|\\.(?!(_|\\.))|[a-zA-Z0-9]){6,18}[a-zA-Z0-9]$"
 }
 
-struct UserDefaultsConstants {
+struct UserDefaultsConstants: Loopable {
     let firstName = "firstName"
     let lastName = "lastName"
     let emailID = "emailID"
@@ -40,4 +40,17 @@ struct DatabaseConstants {
 
 struct StorageConstants {
     let profilePicturePath = "profile_picture/"
+}
+
+func deleteAllUserDefaults() {
+    var userDefaultsDict: [String: Any]? = nil
+    do {
+        userDefaultsDict = try StringConstants.shared.userDefaults.allProperties()
+    } catch {
+        debugPrint("UserDefaults Dict Not Iterable")
+    }
+    userDefaultsDict?.forEach { userDefault in
+        guard let key = userDefault.value as? String else { return }
+        UserDefaults.standard.removeObject(forKey: key)
+    }
 }
