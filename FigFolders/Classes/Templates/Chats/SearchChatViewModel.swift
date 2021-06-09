@@ -8,4 +8,5 @@
 import Foundation
 class SearchChatViewModel {
     let title = "Search Chat"
+    let autoSearchMinTextLength = 3
 }

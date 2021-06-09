@@ -93,6 +93,18 @@ extension SearchChatViewController: UISearchBarDelegate {
         hasFetched = false
         searchUsers(query: text.lowercased())
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let text = searchBar.text, !text.isEmpty, !text.replacingOccurrences(of: " ", with: "").isEmpty,
+              text.count >= viewModel.autoSearchMinTextLength else {
+            searchResults.removeAll()
+            tableView.reloadData()
+            return
+        }
+        searchResults.removeAll()
+        hasFetched = false
+        searchUsers(query: text.lowercased())
+    }
 }
 
 
