@@ -13,4 +13,5 @@ target 'FigFolders' do
   pod 'NVActivityIndicatorView'
   pod 'Firebase/Storage'
   pod 'SDWebImage'
+  pod 'MessageKit'
 end
