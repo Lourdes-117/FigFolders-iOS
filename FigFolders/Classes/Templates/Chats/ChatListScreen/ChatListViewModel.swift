@@ -29,4 +29,12 @@ class ChatListViewModel {
     func getConversationIdAtIndex(_ index: Int) -> String? {
         return conversations[index].conversationID
     }
+    
+    func getUsernameAtIndex(_ index: Int) -> String? {
+        return conversations[index].otherUserName
+    }
+    
+    func getEmailIDAtIndex(_ index: Int) -> String? {
+        return conversations[index].otherUserEmailID
+    }
 }

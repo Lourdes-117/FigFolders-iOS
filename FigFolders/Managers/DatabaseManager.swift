@@ -157,6 +157,7 @@ final class DatabaseManager {
         }
     }
     
+//  MARK: - Conversation Methods
     
     /// Gets All Conversations Of Particular User. This method Observes Continuously
     func getAllConversationsOfUser(username: String, completion: @escaping (Result<[UserConversationsModel], Error>) -> Void) {
@@ -167,6 +168,34 @@ final class DatabaseManager {
                 return
             }
             completion(.success(conversations))
+        }
+    }
+    
+    func conversationExistsAtUserNode(with targetUser: String, completion: @escaping (Result<String, Error>) -> Void ) {
+        guard let currentUserEmail = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String else {
+            completion(.failure(DatabaseError.failedToFetch))
+            return
+        }
+        // Create Reference For Target User
+        let targetUserReference = database.child("\(targetUser)/\(StringConstants.shared.database.conversations)")
+        targetUserReference.observeSingleEvent(of: .value) { snapshot in
+            guard let targetUserConversations = (snapshot.value as? [[String: String]]).decodeDictAsClass(type: [UserConversationsModel].self) else {
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            // Search In Target User Conversations
+            if let conversation = targetUserConversations.first(where: {
+                guard let targetUserEmailOfOtherUser = $0.otherUserEmailID else { return false }
+                return targetUserEmailOfOtherUser == currentUserEmail
+            }) {
+                // Conversation Id Found In Other User
+                guard let conversationID = conversation.conversationID else {
+                    completion(.failure(DatabaseError.failedToFetch))
+                    return
+                }
+                completion(.success(conversationID))
+                return
+            }
         }
     }
 }

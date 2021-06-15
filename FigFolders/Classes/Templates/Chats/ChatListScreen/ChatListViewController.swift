@@ -67,7 +67,27 @@ class ChatListViewController: ViewControllerWithLoading {
     }
     
 // MARK: - Helper Methods
-    
+    fileprivate func openChatWithUser(name: String, email: String, conversationID: String?) {
+        guard let chatViewController = ChatViewController.initiateVC() else { return }
+        if conversationID != nil {
+            chatViewController.setupConversation(name: name, email: email, conversationID: conversationID)
+            chatViewController.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(chatViewController, animated: true)
+            return
+        }
+        
+        // Check If Conversation ID Exists With Other User
+        DatabaseManager.shared.conversationExistsAtUserNode(with: name) { [weak self] result in
+            switch result {
+            case .success(let retreivedConversationID):
+                chatViewController.setupConversation(name: name, email: email, conversationID: retreivedConversationID)
+            case .failure(_):
+                chatViewController.setupConversation(name: name, email: email, conversationID: nil)
+            }
+            chatViewController.navigationItem.largeTitleDisplayMode = .never
+            self?.navigationController?.pushViewController(chatViewController, animated: true)
+        }
+    }
     
 }
 
@@ -76,9 +96,11 @@ extension ChatListViewController: SearchChatSelectionDelegate {
     func didSelectUser(_ emailID: String, _ username: String) {
         if let conversationID = viewModel.getConversationIdForUsername(username: username) {
             // Conversation With User Already Exists
+            openChatWithUser(name: username, email: emailID, conversationID: conversationID)
             
         } else {
             // Conversation With User Does Not Exist
+            openChatWithUser(name: username, email: emailID, conversationID: nil)
         }
     }
 }
@@ -102,7 +124,9 @@ extension ChatListViewController: UITableViewDataSource {
 // MARK: - Table View Delegate
 extension ChatListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let conversationID = viewModel.getConversationIdAtIndex(indexPath.row) else { return }
-        
+        guard let conversationID = viewModel.getConversationIdAtIndex(indexPath.row),
+        let username = viewModel.getUsernameAtIndex(indexPath.row),
+        let emailId = viewModel.getEmailIDAtIndex(indexPath.row) else { return }
+        openChatWithUser(name: username, email: emailId, conversationID: conversationID)
     }
 }

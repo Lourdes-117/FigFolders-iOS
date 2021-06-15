@@ -15,8 +15,10 @@ class StringConstants {
     let userDefaults = UserDefaultsConstants()
     let database = DatabaseConstants()
     let storage = StorageConstants()
+    let messageKind = MessageKindConstant()
 }
 
+///Use Through StringConstants shared Instance
 struct RegexConstants {
     let email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     let name = "^[A-Za-z]\\w{1,29}$"
@@ -24,6 +26,7 @@ struct RegexConstants {
     let userName = "^[a-zA-Z0-9](_(?!(\\.|_))|\\.(?!(_|\\.))|[a-zA-Z0-9]){6,18}[a-zA-Z0-9]$"
 }
 
+///Use Through StringConstants shared Instance
 struct UserDefaultsConstants: Loopable {
     let firstName = "firstName"
     let lastName = "lastName"
@@ -34,14 +37,31 @@ struct UserDefaultsConstants: Loopable {
     let userName = "userName"
 }
 
+///Use Through StringConstants shared Instance
 struct DatabaseConstants {
     let usersArray = "users_array"
     let conversations = "conversations"
+    let conversationID = "conversationID"
 }
 
+///Use Through StringConstants shared Instance
 struct StorageConstants {
     let profilePicturePath = "profile_picture/"
 }
+
+struct MessageKindConstant {
+    let text = "text"
+    let attributedText = "attributedText"
+    let photo = "photo"
+    let video = "video"
+    let location = "location"
+    let emoji = "emoji"
+    let audio = "audio"
+    let contact = "contact"
+    let linkPreview = "linkPreview"
+    let custom = "custom"
+}
+
 
 func deleteAllUserDefaults() {
     var userDefaultsDict: [String: Any]? = nil
