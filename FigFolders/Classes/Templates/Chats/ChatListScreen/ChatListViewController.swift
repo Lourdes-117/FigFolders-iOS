@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChatListViewController: UIViewController {
+class ChatListViewController: ViewControllerWithLoading {
     let viewModel = ChatListViewModel()
     
 // MARK: - Outlets
@@ -19,6 +19,7 @@ class ChatListViewController: UIViewController {
         setupView()
         registerCells()
         setupDatasourceDelegate()
+        startListeningForConversations()
     }
     
     private func setupView() {
@@ -35,16 +36,73 @@ class ChatListViewController: UIViewController {
     }
     
     private func registerCells() {
-        
+        tableView.register(UINib(nibName: ChatListTableViewCell.kIdentifier, bundle: Bundle.main), forCellReuseIdentifier: ChatListTableViewCell.kIdentifier)
     }
     
     private func setupDatasourceDelegate() {
-        
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    private func startListeningForConversations() {
+        guard let userName = currentUserUsername else { return }
+        DatabaseManager.shared.getAllConversationsOfUser(username: userName) { [weak self] result in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success(let conversations):
+                guard !conversations.isEmpty else { return }
+                strongSelf.viewModel.conversations = conversations
+                strongSelf.tableView.reloadData()
+            case .failure(let error):
+                debugPrint(error)
+            }
+        }
     }
     
 // MARK: - Button Tap Actions
     @objc private func onTapComposeButton() {
         guard let searchChatViewController = SearchChatViewController.initiateVC() else { return }
+        searchChatViewController.delegate = self
         self.present(searchChatViewController, animated: true, completion: nil)
+    }
+    
+// MARK: - Helper Methods
+    
+    
+}
+
+// MARK: - Search Chat Delegate
+extension ChatListViewController: SearchChatSelectionDelegate {
+    func didSelectUser(_ emailID: String, _ username: String) {
+        if let conversationID = viewModel.getConversationIdForUsername(username: username) {
+            // Conversation With User Already Exists
+            
+        } else {
+            // Conversation With User Does Not Exist
+        }
+    }
+}
+
+// MARK: - Table View Datasource
+extension ChatListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.numberOfConversations
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let conversation = viewModel.conversations[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.kIdentifier) as? ChatListTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.configureCell(userNameString: conversation.otherUserName, cellType: .chatList, latestMessage: conversation.latestmessage)
+        return cell
+    }
+}
+
+// MARK: - Table View Delegate
+extension ChatListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let conversationID = viewModel.getConversationIdAtIndex(indexPath.row) else { return }
+        
     }
 }

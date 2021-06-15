@@ -13,6 +13,8 @@ class SearchChatViewController: ViewControllerWithLoading {
     private var searchResults = [[String: String]]()
     private var hasFetched = false
     
+    weak var delegate: SearchChatSelectionDelegate?
+    
     let viewModel = SearchChatViewModel()
     
 // MARK: - Outlets
@@ -124,5 +126,19 @@ extension SearchChatViewController: UITableViewDataSource {
 
 // MARK: - TableView Delegate
 extension SearchChatViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let emailID = searchResults[indexPath.row].keys.first,
+              let username = searchResults[indexPath.row].values.first else {
+                  debugPrint("Error In Selecting User")
+                  return
+              }
+        debugPrint("-----")
+        debugPrint("Selected User")
+        debugPrint("EmailID  :\(emailID)")
+        debugPrint("Username :\(username)")
+        debugPrint("-----")
+        self.dismiss(animated: true) { [weak self] in
+            self?.delegate?.didSelectUser(emailID, username)
+        }
+    }
 }

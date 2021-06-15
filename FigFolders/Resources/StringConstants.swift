@@ -36,6 +36,7 @@ struct UserDefaultsConstants: Loopable {
 
 struct DatabaseConstants {
     let usersArray = "users_array"
+    let conversations = "conversations"
 }
 
 struct StorageConstants {

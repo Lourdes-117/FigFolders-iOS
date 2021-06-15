@@ -156,6 +156,19 @@ final class DatabaseManager {
             completion(!snapshot.exists())
         }
     }
+    
+    
+    /// Gets All Conversations Of Particular User. This method Observes Continuously
+    func getAllConversationsOfUser(username: String, completion: @escaping (Result<[UserConversationsModel], Error>) -> Void) {
+        let conversationsPath = "\(username)/\(StringConstants.shared.database.conversations)"
+        database.child(conversationsPath).observe(.value) { snapshot in
+            guard let conversations = (snapshot.value as? [[String: String]])?.decodeDictAsClass(type: [UserConversationsModel].self) else {
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            completion(.success(conversations))
+        }
+    }
 }
 
 // MARK:- Database Errors

@@ -23,11 +23,12 @@ class ChatListTableViewCell: UITableViewCell {
         setupView()
     }
     
-    func configureCell(userNameString: String?, cellType: ChatListCellType) {
+    func configureCell(userNameString: String?, cellType: ChatListCellType, latestMessage: UserLatestConversationModel? = nil) {
         setupCellType(cellType: cellType)
         
         guard let userNameString = userNameString else { return }
         userName.text = userNameString
+        recentMessage.text = latestMessage?.message
         DatabaseManager.shared.getUserDetailsForUsername(username: userNameString) { [weak self] userDetailsModel in
             guard let userDetails = userDetailsModel else { return }
             let profilePicUrl = URL(string: userDetails.profilePicUrl)

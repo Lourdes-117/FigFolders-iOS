@@ -26,6 +26,8 @@ struct UserDetailsModel: Encodable, Decodable {
     var safeEmail: String
     var profilePicUrl: String
     
+    var conversations: [UserConversationsModel?]?
+    
     static func getSafeEmail(email: String) -> String {
         let edittedEmail = email.replacingOccurrences(of: "@", with: "^")
         return edittedEmail.replacingOccurrences(of: ".", with: "~")
@@ -35,4 +37,17 @@ struct UserDetailsModel: Encodable, Decodable {
         let edittedEmail = safeEmail.replacingOccurrences(of: "^", with: "@")
         return edittedEmail.replacingOccurrences(of: "~", with: ".")
     }
+}
+
+class UserConversationsModel: Encodable, Decodable {
+    var latestmessage: UserLatestConversationModel?
+    var conversationID: String?
+    var otherUserName: String?
+    var otherUserEmailID: String?
+}
+
+class UserLatestConversationModel: Encodable, Decodable {
+    var date: String?
+    var isRead: Bool?
+    var message: String?
 }

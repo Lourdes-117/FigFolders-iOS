@@ -6,6 +6,10 @@
 //
 
 import Foundation
+protocol SearchChatSelectionDelegate: NSObjectProtocol {
+    func didSelectUser(_ emailID: String, _ username: String)
+}
+
 class SearchChatViewModel {
     let title = "Search Chat"
     let autoSearchMinTextLength = 3
