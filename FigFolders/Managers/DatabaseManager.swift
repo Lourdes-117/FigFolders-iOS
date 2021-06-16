@@ -100,7 +100,7 @@ final class DatabaseManager {
                 let encodedDictionary = try JSONSerialization.data(withJSONObject: anyValue, options: [])
                 personDetails = try JSONDecoder().decode(UserDetailsModel.self, from: encodedDictionary)
             } catch {
-                debugPrint("Error: ", error)
+                debugPrint("Error Gettings UserDetails: ", error)
             }
             completion(personDetails)
         }
@@ -167,23 +167,21 @@ final class DatabaseManager {
     func getAllConversationsOfUser(username: String, completion: @escaping (Result<[UserConversationsModel], Error>) -> Void) {
         let conversationsPath = "\(username)/\(StringConstants.shared.database.conversations)"
         database.child(conversationsPath).observe(.value) { snapshot in
-            guard let conversationDictArray = snapshot.value as? [[String: Any]] else {
+            guard let anyValue = snapshot.value else {
                 completion(.failure(DatabaseError.failedToFetch))
                 return
             }
-            var conversations = [UserConversationsModel]()
-            conversationDictArray.forEach { userDict in
-                let conversation = UserConversationsModel()
-                conversation.latestMessage = UserLatestConversationModel()
-                let latestDict = userDict[StringConstants.shared.database.latestMessage] as? [String: Any]
-                conversation.conversationID = userDict[StringConstants.shared.database.conversationID] as? String
-                conversation.otherUserName = userDict[StringConstants.shared.database.otherUserName] as? String
-                conversation.otherUserEmailID = userDict[StringConstants.shared.database.otherUserEmailID] as? String
-                conversation.latestMessage?.date = latestDict?[StringConstants.shared.database.date] as? String
-                conversation.latestMessage?.isRead = latestDict?[StringConstants.shared.database.isRead] as? Bool
-                conversation.latestMessage?.message = latestDict?[StringConstants.shared.database.message] as? String
-                conversations.append(conversation)
-                
+            var conversationsObject: [UserConversationsModel]?
+            do {
+                let data = try JSONSerialization.data(withJSONObject: anyValue, options: [])
+                let conversations = try JSONDecoder().decode([UserConversationsModel].self, from: data)
+                conversationsObject = conversations
+            } catch {
+                debugPrint("Error Getting Conversations: ", error)
+            }
+            guard let conversations = conversationsObject else {
+                completion(.failure(DatabaseError.failedToFetch))
+                return
             }
             completion(.success(conversations))
         }
