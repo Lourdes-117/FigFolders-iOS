@@ -40,7 +40,7 @@ struct UserDetailsModel: Encodable, Decodable {
 }
 
 class UserConversationsModel: Encodable, Decodable {
-    var latestmessage: UserLatestConversationModel?
+    var latestMessage: UserLatestConversationModel?
     var conversationID: String?
     var otherUserName: String?
     var otherUserEmailID: String?
@@ -50,4 +50,14 @@ class UserLatestConversationModel: Encodable, Decodable {
     var date: String?
     var isRead: Bool?
     var message: String?
+}
+
+class MessageModel: Encodable, Decodable {
+    var content: String?
+    var date: String?
+    var isRead: Bool?
+    var messageID: String?
+    var otherUserName: String?
+    var senderName: String?
+    var type: String?
 }

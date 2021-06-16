@@ -42,6 +42,13 @@ struct DatabaseConstants {
     let usersArray = "users_array"
     let conversations = "conversations"
     let conversationID = "conversationID"
+    let messagesArray = "messages"
+    let otherUserEmailID = "otherUserEmailID"
+    let otherUserName = "otherUserName"
+    let latestMessage = "latestMessage"
+    let date = "date"
+    let isRead = "isRead"
+    let message = "message"
 }
 
 ///Use Through StringConstants shared Instance

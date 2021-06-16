@@ -32,7 +32,7 @@ class ChatListTableViewCell: UITableViewCell {
         DatabaseManager.shared.getUserDetailsForUsername(username: userNameString) { [weak self] userDetailsModel in
             guard let userDetails = userDetailsModel else { return }
             let profilePicUrl = URL(string: userDetails.profilePicUrl)
-            self?.profilePic.sd_setImage(with: profilePicUrl, completed: nil)
+            self?.profilePic.sd_setImage(with: profilePicUrl, placeholderImage: self?.viewModel.profilePlaceholderImage)
         }
     }
     

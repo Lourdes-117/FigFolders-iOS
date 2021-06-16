@@ -109,4 +109,12 @@ class ChatViewControllerViewModel {
         let profilePicurl = getProfilePicPathFromUsername(username)
         return Sender(senderId: email, displayName: username, photoUrl: profilePicurl)
     }
+    
+    func generateMessageID() -> String? {
+        let dateString = Date().timeIntervalSince1970.description.replacingOccurrences(of: ".", with: "")
+        guard let senderEmail = senderEmail else { return nil }
+        let messageId = "conversation_\(receiverEmail)_\(dateString)_\(senderEmail)".replacingOccurrences(of: " ", with: "")
+        debugPrint("Generated Message ID: \(messageId)")
+        return messageId
+    }
 }

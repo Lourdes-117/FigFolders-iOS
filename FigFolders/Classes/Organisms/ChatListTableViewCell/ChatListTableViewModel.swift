@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum ChatListCellType {
     case chatSearch
@@ -15,4 +16,5 @@ enum ChatListCellType {
 class ChatListTableViewModel {
     let lowPriority: Float = 1
     let highPriorityPriority: Float = 1000
+    let profilePlaceholderImage = UIImage(systemName: "person.circle.fill")?.withTintColor(.lightGray)
 }

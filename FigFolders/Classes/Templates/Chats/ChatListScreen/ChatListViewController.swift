@@ -116,7 +116,7 @@ extension ChatListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.kIdentifier) as? ChatListTableViewCell else {
             return UITableViewCell()
         }
-        cell.configureCell(userNameString: conversation.otherUserName, cellType: .chatList, latestMessage: conversation.latestmessage)
+        cell.configureCell(userNameString: conversation.otherUserName, cellType: .chatList, latestMessage: conversation.latestMessage)
         return cell
     }
 }

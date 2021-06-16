@@ -39,7 +39,7 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-//        messageInputBar.delegate = self
+        messageInputBar.delegate = self
         messagesCollectionView.messageCellDelegate = self
     }
     
@@ -109,6 +109,45 @@ extension ChatViewController: MessageCellDelegate {
             present(videoController, animated: true)
         default:
             break
+        }
+    }
+}
+
+// MARK:- Input Bar Delegate
+extension ChatViewController: InputBarAccessoryViewDelegate {
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        guard !text.replacingOccurrences(of: " ", with: "").isEmpty,
+              let messageId = viewModel.generateMessageID(),
+              let selfSender = viewModel.selfSender else {
+            return
+        }
+        let message = Message(sender: selfSender, messageId: messageId, sentDate: Date(), kind: .text(text))
+        if viewModel.isNewConversation {
+            //Create Convo in DB
+            self.messageInputBar.inputTextView.text = ""
+            DatabaseManager.shared.createNewConversation(with: viewModel.receiverEmail, messageToSend : message, otherUserName: viewModel.receiverName) { [weak self] success in
+                if success {
+                    self?.messagesCollectionView.reloadData()
+                    self?.viewModel.conversationID = messageId
+                    self?.listenForMessage()
+                    debugPrint("Message Sent")
+                } else {
+                    debugPrint("Failed To Send")
+                }
+            }
+        } else {
+            //Append Convo In DB
+            guard let conversationID = viewModel.conversationID else {
+                return
+            }
+            self.messageInputBar.inputTextView.text = ""
+//            DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: viewModel.senderEmail ?? "", senderName: viewModel.senderName, message: message, receiverEmailId: viewModel.receiverEmail, reveiverName: viewModel.receiverName, existingConversationID: viewModel.conversationID) { success in
+//                if success {
+//                    debugPrint("Message Sent")
+//                } else {
+//                    debugPrint("Failed To Send")
+//                }
+//            }
         }
     }
 }
