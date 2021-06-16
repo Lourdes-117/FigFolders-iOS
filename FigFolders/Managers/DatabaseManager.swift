@@ -41,38 +41,6 @@ final class DatabaseManager {
         }
     }
     
-    private func createUserMappingDictFrom(userDetails: UserDetailsModel) -> [String: String] {
-        return [userDetails.safeEmail: userDetails.username]
-    }
-    
-    /// Append In User Array
-    private func appendInUserArray(userDetails: UserDetailsModel, completion: @escaping (Bool) -> Void) {
-        let usersDatabaseReference = database.child(StringConstants.shared.database.usersArray)
-        usersDatabaseReference.observeSingleEvent(of: .value) { [weak self] snapshot in
-            if (!snapshot.exists()) { // If User Mapping Does Not Exist yet
-                guard let stronSelf = self else { return }
-                let userDictArray = [stronSelf.createUserMappingDictFrom(userDetails: userDetails)]
-                usersDatabaseReference.setValue(userDictArray) { error, _ in
-                    guard error == nil else {
-                        completion(false)
-                        return
-                    }
-                    completion(true)
-                }
-            } else { // If User Mapping Dict Exists Already
-                guard var userArray = snapshot.value as? [[String: String]],
-                      let strongSelf = self else {
-                    completion(false)
-                    return
-                }
-                let userDetails = strongSelf.createUserMappingDictFrom(userDetails: userDetails)
-                userArray.append(userDetails)
-                usersDatabaseReference.setValue(userArray)
-                completion(true)
-            }
-        }
-    }
-    
     /// Gets The Username For Given Email ID
     func getUsernameForEmail(emailID: String, completion: @escaping (String?) -> Void) {
         database.child(StringConstants.shared.database.usersArray).observeSingleEvent(of: .value) { snapshot in
@@ -94,7 +62,8 @@ final class DatabaseManager {
     /// Get User Details For Username
     func getUserDetailsForUsername(username: String, completion: @escaping (UserDetailsModel?) -> Void) {
         database.child(username).observeSingleEvent(of: .value) { snapshot in
-            guard let anyValue = snapshot.value else { return }
+            guard let anyValue = snapshot.value,
+                snapshot.exists() else { return }
             var personDetails: UserDetailsModel?
             do {
                 let encodedDictionary = try JSONSerialization.data(withJSONObject: anyValue, options: [])
@@ -161,13 +130,48 @@ final class DatabaseManager {
         }
     }
     
+// MARK: - User Account Helper Methods
+    
+    private func createUserMappingDictFrom(userDetails: UserDetailsModel) -> [String: String] {
+        return [userDetails.safeEmail: userDetails.username]
+    }
+    
+    /// Append In User Array
+    private func appendInUserArray(userDetails: UserDetailsModel, completion: @escaping (Bool) -> Void) {
+        let usersDatabaseReference = database.child(StringConstants.shared.database.usersArray)
+        usersDatabaseReference.observeSingleEvent(of: .value) { [weak self] snapshot in
+            if (!snapshot.exists()) { // If User Mapping Does Not Exist yet
+                guard let stronSelf = self else { return }
+                let userDictArray = [stronSelf.createUserMappingDictFrom(userDetails: userDetails)]
+                usersDatabaseReference.setValue(userDictArray) { error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    completion(true)
+                }
+            } else { // If User Mapping Dict Exists Already
+                guard var userArray = snapshot.value as? [[String: String]],
+                      let strongSelf = self else {
+                    completion(false)
+                    return
+                }
+                let userDetails = strongSelf.createUserMappingDictFrom(userDetails: userDetails)
+                userArray.append(userDetails)
+                usersDatabaseReference.setValue(userArray)
+                completion(true)
+            }
+        }
+    }
+    
 //  MARK: - Conversation Methods
     
     /// Gets All Conversations Of Particular User. This method Observes Continuously
     func getAllConversationsOfUser(username: String, completion: @escaping (Result<[UserConversationsModel], Error>) -> Void) {
         let conversationsPath = "\(username)/\(StringConstants.shared.database.conversations)"
         database.child(conversationsPath).observe(.value) { snapshot in
-            guard let anyValue = snapshot.value else {
+            guard let anyValue = snapshot.value,
+                snapshot.exists() else {
                 completion(.failure(DatabaseError.failedToFetch))
                 return
             }
@@ -222,10 +226,9 @@ final class DatabaseManager {
             return
         }
         
-        createNewConversationForUser(currentUserName, messageToSend, otherUserEmail, otherUserName) { [weak self] success in
+        createNewConversationForUser(otherUserName, messageToSend, currentUserEmail, currentUserName) { [weak self] success in
             if success {
-                let currentUserName = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String ?? ""
-                self?.createNewConversationForUser(otherUserName, messageToSend, currentUserEmail, currentUserName) {
+                self?.createNewConversationForUser(currentUserName, messageToSend, otherUserEmail, otherUserName) {
                     success in
                     completion(success)
                 }
@@ -235,8 +238,110 @@ final class DatabaseManager {
         }
     }
     
+    /// Send A Message To Target Conversation
+    func sendMessage(conversationID: String, senderEmail: String, senderName: String, message: Message, receiverEmailId: String,
+                            receiverName: String, existingConversationID: String?, completion: @escaping (Bool) -> Void) {
+        //Add New Message To Conversation
+        let conversationPath = "\(StringConstants.shared.database.conversations)/\(conversationID)/\(StringConstants.shared.database.messagesArray)"
+        database.child(conversationPath).observeSingleEvent(of: .value) { [weak self] snapshot in
+            guard let currentMessagesAnyValue = snapshot.value,
+                snapshot.exists() else {
+                completion(false)
+                return
+            }
+            
+            var currentMessagesOptional: [MessageModel]?
+            
+            do {
+                let data = try JSONSerialization.data(withJSONObject: currentMessagesAnyValue, options: [])
+                let messages = try JSONDecoder().decode([MessageModel].self, from: data)
+                currentMessagesOptional = messages
+            } catch {
+                debugPrint("Error Getting Messages: ", error)
+                completion(false)
+            }
+            
+            guard var currentMessages = currentMessagesOptional else {
+                completion(false)
+                return
+            }
+            
+            let newMessage = MessageModel()
+            newMessage.content = self?.getMessageString(message) ?? ""
+            newMessage.date = message.sentDate.toDateString()
+            newMessage.isRead = false
+            newMessage.messageID = message.messageId
+            newMessage.otherUserName = receiverName
+            newMessage.senderName = senderName
+            newMessage.type = message.kind.rawValue
+            
+            currentMessages.append(newMessage)
+            
+            var messagesDictionary = [[String: Any]]()
+            for eachMessage in currentMessages {
+                if let eachMessageDict = eachMessage.toDictionary {
+                    messagesDictionary.append(eachMessageDict)
+                }
+            }
+            
+            self?.database.child("\(StringConstants.shared.database.conversations)/\(conversationID)/\(StringConstants.shared.database.messagesArray)").setValue(messagesDictionary, withCompletionBlock: { [weak self] error, _ in
+                guard error == nil else {
+                    completion(false)
+                    return
+                }
+                // Update Sender Latest Message
+                self?.updateLatestMessageForUser(username: senderName, conversationID: conversationID, message: message, completion: { success in
+                    // Latest Message Updated
+                    if success {
+                        completion(true)
+                        return
+                    }
+                    
+                    //Creating Latest Message
+
+                    let currentUserConversationsReference = self?.database.child("\(senderName)/\(StringConstants.shared.database.conversations)")
+                    currentUserConversationsReference?.observeSingleEvent(of: .value, with: { currentUserConversationsSnapshot in
+                        if var currentUserConversations = currentUserConversationsSnapshot.value as? [[String: Any]] {
+                            // Conversations Node Exists Under User
+                            guard let newConversation = self?.createConversationNode(message, receiverEmailId, receiverName, overrideMessageID: existingConversationID) else {
+                                completion(false)
+                                return
+                            }
+                            currentUserConversations.append(newConversation)
+                            currentUserConversationsReference?.setValue(currentUserConversations, withCompletionBlock: { error, _ in
+                                guard error == nil else {
+                                    completion(false)
+                                    return
+                                }
+                                completion(true)
+                            })
+                        } else { // Conversations Node Does Not Exist Under User
+                            guard let newConversation = self?.createConversationNode(message, receiverEmailId, receiverName, overrideMessageID: existingConversationID) else {
+                                completion(false)
+                                return
+                            }
+                            let newConversationArray = [newConversation]
+                            currentUserConversationsReference?.setValue(newConversationArray, withCompletionBlock: { error, _ in
+                            guard error == nil else {
+                                    completion(false)
+                                    return
+                                }
+                                completion(true)
+                            })
+                        }
+                    })
+                    
+                })
+                
+                // Update Recepient Latest Message
+                self?.updateLatestMessageForUser(username: receiverName, conversationID: conversationID, message: message, completion: completion)
+            })
+        }
+    }
+    
+// MARK: - Conversation Helper Methods
     /// Create A New Conversation For User
-    fileprivate func createNewConversationForUser(_ currentUserName: String, _ messageToSend: Message, _ otherUserEmail: String, _ otherUserName: String, _ completion: @escaping (Bool) -> Void) {
+    private func createNewConversationForUser(_ currentUserName: String, _ messageToSend: Message, _ otherUserEmail: String, _ otherUserName: String, _ completion: @escaping (Bool) -> Void) {
         let reference = database.child(currentUserName)
         reference.observeSingleEvent(of: .value) { [weak self] snapshot in
             guard var userNode = (snapshot.value as? [String : Any]) else {
@@ -274,13 +379,13 @@ final class DatabaseManager {
                         completion(false)
                         return
                     }
-                    let currentUserName = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String ?? ""
                     self?.finishCreatingConversation(message: messageToSend, currentUserName: currentUserName, otherUserName: otherUserName, completion: completion)
                 }
             }
         }
     }
     
+    /// Create A Conversation Node
     private func createConversationNode(_ message: Message, _ otherUserEmail: String, _ otherUserName: String, overrideMessageID: String? = nil) -> [String: Any] {
         let messageDate = message.sentDate.toDateString()
         
@@ -301,6 +406,7 @@ final class DatabaseManager {
         return newConversationData.toDictionary ?? [String: Any]()
     }
     
+    /// Get Message Text
     private func getMessageString(_ message: Message) -> String {
         var messageString = ""
         switch message.kind {
@@ -360,6 +466,73 @@ final class DatabaseManager {
             }
             completion(true)
         }
+    }
+    
+    private func updateLatestMessageForUser(username: String, conversationID: String, message: Message, completion: @escaping (Bool) -> Void) {
+        //Update Sender Latest Message
+        self.database.child("\(username)/\(StringConstants.shared.database.conversations)").observeSingleEvent(of: .value, with: { [weak self] snapshot in
+            guard let senderConversationsAnyValue = snapshot.value,
+                snapshot.exists() else {
+                completion(false)
+                return
+            }
+            
+            var senderConversationsOptional: [UserConversationsModel]?
+            
+            do {
+                let conversationsData = try JSONSerialization.data(withJSONObject: senderConversationsAnyValue, options: [])
+                let conversations = try JSONDecoder().decode([UserConversationsModel].self, from: conversationsData)
+                senderConversationsOptional = conversations
+            } catch {
+                debugPrint("Error Getting Conversations To Update: ", error)
+                completion(false)
+            }
+            
+            guard var senderConversations = senderConversationsOptional else {
+                completion(false)
+                return
+            }
+            
+            var position = 0
+            var targetConversation: UserConversationsModel?
+            
+            for conversationIterating in senderConversations {
+                if let currentConversationID = conversationIterating.conversationID,
+                   currentConversationID == conversationID {
+                    targetConversation = conversationIterating
+                    break
+                }
+                position += 1
+            }
+            
+            let latestMesageUpdated = UserLatestConversationModel()
+            latestMesageUpdated.message = self?.getMessageString(message) ?? ""
+            latestMesageUpdated.isRead = false
+            latestMesageUpdated.date = message.sentDate.toDateString()
+            
+            targetConversation?.latestMessage = latestMesageUpdated
+            guard let targetConversation = targetConversation else {
+                completion(false)
+                return
+            }
+            senderConversations[position] = targetConversation
+
+            var senderConversationsDict = [[String: Any]]()
+            for eachConversation in senderConversations {
+                let eachConversationDict = eachConversation.toDictionary
+                if let dict = eachConversationDict {
+                    senderConversationsDict.append(dict)
+                }
+            }
+            
+            self?.database.child("\(username)/\(StringConstants.shared.database.conversations)").setValue( senderConversationsDict, withCompletionBlock: { error, _ in
+                guard error == nil else {
+                    completion(false)
+                    return
+                }
+                completion(true)
+            })
+        })
     }
 }
 

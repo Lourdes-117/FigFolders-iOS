@@ -141,13 +141,13 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 return
             }
             self.messageInputBar.inputTextView.text = ""
-//            DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: viewModel.senderEmail ?? "", senderName: viewModel.senderName, message: message, receiverEmailId: viewModel.receiverEmail, reveiverName: viewModel.receiverName, existingConversationID: viewModel.conversationID) { success in
-//                if success {
-//                    debugPrint("Message Sent")
-//                } else {
-//                    debugPrint("Failed To Send")
-//                }
-//            }
+            DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: viewModel.senderEmail ?? "", senderName: viewModel.senderName, message: message, receiverEmailId: viewModel.receiverEmail, receiverName: viewModel.receiverName, existingConversationID: viewModel.conversationID) { success in
+                if success {
+                    debugPrint("Message Sent")
+                } else {
+                    debugPrint("Failed To Send")
+                }
+            }
         }
     }
 }
