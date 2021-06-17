@@ -104,10 +104,9 @@ class ChatViewControllerViewModel {
     let senderName = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String ?? ""
     
     var selfSender: Sender? {
-        guard let email = senderEmail else { return nil }
         let username = senderName
         let profilePicurl = getProfilePicPathFromUsername(username)
-        return Sender(senderId: email, displayName: username, photoUrl: profilePicurl)
+        return Sender(senderId: username, displayName: username, photoUrl: profilePicurl)
     }
     
     func generateMessageID() -> String? {

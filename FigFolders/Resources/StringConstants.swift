@@ -44,6 +44,7 @@ struct DatabaseConstants {
     let conversationID = "conversationID"
     let messagesArray = "messages"
     let otherUserEmailID = "otherUserEmailID"
+    let messageType = "type"
     let otherUserName = "otherUserName"
     let latestMessage = "latestMessage"
     let date = "date"

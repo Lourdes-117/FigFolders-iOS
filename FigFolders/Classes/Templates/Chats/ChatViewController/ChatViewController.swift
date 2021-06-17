@@ -43,9 +43,30 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messageCellDelegate = self
     }
     
-// MARK: - Helper Methods
-    fileprivate func listenForMessage() {
-        
+    // MARK: - Helper Methods
+    private func listenForMessage() {
+        guard let conversationID = viewModel.conversationID else { return }
+//        spinner.show(in: view)
+        DatabaseManager.shared.getAllMessagesForConversation(with: conversationID) { [weak self] result in
+//            self?.spinner.dismiss()
+            switch result {
+            case .success(let messages):
+                guard !messages.isEmpty else {
+                    return
+                }
+                DispatchQueue.main.async { [weak self] in
+                    if self?.messages.isEmpty ?? true {
+                        self?.messages = messages
+                        self?.messagesCollectionView.reloadData()
+                    } else {
+                        self?.messages = messages
+                        self?.messagesCollectionView.reloadDataAndKeepOffset()
+                    }
+                }
+            case .failure(let error):
+                debugPrint("Failed To Fetch messages \(error)")
+            }
+        }
     }
 }
 

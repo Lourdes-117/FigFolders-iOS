@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseDatabase
+import MessageKit
 
 final class DatabaseManager {
     private init() {
@@ -382,6 +383,60 @@ final class DatabaseManager {
                     self?.finishCreatingConversation(message: messageToSend, currentUserName: currentUserName, otherUserName: otherUserName, completion: completion)
                 }
             }
+        }
+    }
+    
+    /// Get All Messages For A Given Conversation
+    func getAllMessagesForConversation(with id: String, completion: @escaping (Result<[Message], Error>) -> Void) {
+        database.child("\(StringConstants.shared.database.conversations)/\(id)/\(StringConstants.shared.database.messagesArray)").observe(.value) { snapshot in
+            guard let value = snapshot.value as? [[String: Any]] else {
+                completion(.failure(DatabaseError.failedToFetch))
+                return
+            }
+            let messages: [Message] = value.compactMap { dictionary in
+                var eachMessageOptional: MessageModel?
+                do {
+                    let eachMessageData = try JSONSerialization.data(withJSONObject: dictionary, options: [])
+                    let decodedMessage = try JSONDecoder().decode(MessageModel.self, from: eachMessageData)
+                    eachMessageOptional = decodedMessage
+                } catch {
+                    debugPrint("Failed To Fetch All Messages: ",error)
+                    completion(.failure(DatabaseError.failedToFetch))
+                }
+                guard let content = eachMessageOptional?.content,
+                      let dateString = eachMessageOptional?.date,
+                      let messageId = eachMessageOptional?.messageID,
+                      let otherUserName = eachMessageOptional?.otherUserName,
+                      let senderName = eachMessageOptional?.senderName,
+                      let messageType = eachMessageOptional?.type,
+                      let date = dateString.toDateObject() else {
+                    completion(.failure(DatabaseError.failedToFetch))
+                    return nil
+                }
+                
+                let sender = Sender(senderId: senderName, displayName: senderName, photoUrl: getProfilePicPathFromUsername(otherUserName))
+                
+                var messageKind: MessageKind?
+                if messageType == StringConstants.shared.messageKind.text {
+                    messageKind = .text(content)
+                } else if messageType == StringConstants.shared.messageKind.photo {
+                    guard let imageUrl = URL(string: content) else { return nil }
+                    messageKind = .photo(Media(url: imageUrl, image: nil, placeholderImage: UIImage(named: "image_placeholder") ?? UIImage(), size: CGSize(width: 300, height: 300)))
+                } else if messageType == StringConstants.shared.messageKind.video {
+                    guard let videoUrl = URL(string: content) else { return nil }
+                    messageKind = .video(Media(url: videoUrl, image: nil, placeholderImage: UIImage(named: "video_placeholder") ?? UIImage(), size: CGSize(width: 300, height: 300)))
+                }
+                
+                guard let messageKind = messageKind else {
+                    return Message(sender: sender, messageId: messageId, sentDate: date, kind: .text("Error Loading Message"))
+                }
+                
+                return Message(sender: sender,
+                               messageId: messageId,
+                               sentDate: date,
+                               kind: messageKind)
+            }
+            completion(.success(messages))
         }
     }
     
