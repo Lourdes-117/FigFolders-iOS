@@ -74,6 +74,8 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Please Allow Access To Click A Photo From Camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Please Allow Access To Record A Video</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Pleaes Allow Access To Pick A Photo From your Camera Roll</string>
 </dict>

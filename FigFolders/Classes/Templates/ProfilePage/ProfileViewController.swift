@@ -390,6 +390,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                 self?.profilePictureView.image = image
                 self?.saveUser(profilePicUrl: url)
             case .failure(let error):
+                debugPrint("Error Uploadding Profile Picture: ",error)
                 break;
             }
         }

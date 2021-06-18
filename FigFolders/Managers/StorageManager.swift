@@ -48,4 +48,39 @@ class StorageManager {
             }
         }
     }
+    
+    /// Uploadd Video With URL
+    fileprivate func uploadVideoWithURL(filePath: String, fileURL: URL, completion: @escaping UploadPictureCompletion) {
+        
+        storage.child(filePath).putFile(from: fileURL, metadata: nil) { [weak self] _, error in
+            guard error == nil else {
+                //failed
+                completion(.failure(StorageErrors.failedToUpload))
+                return
+            }
+            
+            self?.storage.child(filePath).downloadURL(completion: { url, error in
+                guard let url = url else {
+                    debugPrint("Failed To Download Image")
+                    completion(.failure(StorageErrors.failedToDownload))
+                    return
+                }
+                let urlString = url.absoluteString
+                debugPrint("download Url returned \(urlString)")
+                completion(.success(urlString))
+            })
+        }
+    }
+    
+    /// Upload Message Photo
+    public func uploadMessagePhoto(with data: Data, fileName: String, completion: @escaping UploadPictureCompletion) {
+        let filePath = "\(StringConstants.shared.storage.messageImagesPath)\(fileName)"
+        uploadImageAtPath(filePath: filePath, imageData: data, completion: completion)
+    }
+    
+    /// Upload Video Or File With URL
+    public func uploadMessageVideo(with url: URL, fileName: String, completion: @escaping UploadPictureCompletion) {
+        let filePath = "\(StringConstants.shared.storage.messageVideosPath)\(fileName)"
+        uploadVideoWithURL(filePath: filePath, fileURL: url, completion: completion)
+    }
 }

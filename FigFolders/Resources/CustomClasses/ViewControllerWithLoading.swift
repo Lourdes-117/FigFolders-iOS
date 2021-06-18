@@ -23,10 +23,10 @@ class ViewControllerWithLoading: UIViewController {
         }
     }
     
-    /// Shows Loading Indicator Over Full Screen
     private var activityBackgroundView: UIView?
     private var activityView: NVActivityIndicatorView?
     
+    /// Shows Loading Indicator Over Full Screen
     func showLoadingIndicator(with type: NVActivityIndicatorType = .orbit, color: UIColor = .blue) {
         activityBackgroundView = UIView(frame: view.frame)
         activityBackgroundView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
@@ -50,6 +50,7 @@ class ViewControllerWithLoading: UIViewController {
         view.addSubview(activityBackgroundView)
     }
     
+    /// Hide Loading Indicator
     func hideLoadingIndicatorView() {
         guard let activityView = activityView,
               let activityBackgroundView = activityBackgroundView else { return }

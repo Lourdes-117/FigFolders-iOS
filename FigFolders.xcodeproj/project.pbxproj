@@ -22,6 +22,9 @@
 		AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */; };
 		AE27EB44264EE66000C34CBD /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB43264EE66000C34CBD /* StringUtility.swift */; };
 		AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB45264EE6A000C34CBD /* StringConstants.swift */; };
+		AE3F86A8267BBA1100B4D814 /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F86A6267BBA1100B4D814 /* ImageViewerViewController.swift */; };
+		AE3F86A9267BBA1100B4D814 /* ImageViewerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3F86A7267BBA1100B4D814 /* ImageViewerViewController.storyboard */; };
+		AE3F86AB267BBC0C00B4D814 /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F86AA267BBC0C00B4D814 /* ImageZoomView.swift */; };
 		AE66557126580B76004DA48A /* DecodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE66557026580B76004DA48A /* DecodableUtility.swift */; };
 		AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6B944626542E90006463E1 /* ProfileViewController.swift */; };
 		AE6B944B26542EAF006463E1 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE6B944A26542EAF006463E1 /* ProfileViewController.storyboard */; };
@@ -35,6 +38,9 @@
 		AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */; };
 		AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */; };
 		AE89D4CB2665581000CF0439 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE89D4CA2665581000CF0439 /* PasswordTextField.swift */; };
+		AE8AE516267D11AE009065E2 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8AE515267D11AE009065E2 /* LocationPickerViewController.swift */; };
+		AE8AE518267D11E5009065E2 /* LocationPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8AE517267D11E5009065E2 /* LocationPickerViewController.storyboard */; };
+		AE8AE51A267D1242009065E2 /* LocationPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8AE519267D1242009065E2 /* LocationPickerViewModel.swift */; };
 		AE94D9152667FFDF00D6E921 /* ChatListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE94D9142667FFDF00D6E921 /* ChatListViewController.storyboard */; };
 		AE94D9172667FFEF00D6E921 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94D9162667FFEF00D6E921 /* ChatListViewController.swift */; };
 		AE94E070265306360020CB95 /* HamburgermenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */; };
@@ -111,6 +117,9 @@
 		AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerViewModel.swift; sourceTree = "<group>"; };
 		AE27EB43264EE66000C34CBD /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		AE27EB45264EE6A000C34CBD /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		AE3F86A6267BBA1100B4D814 /* ImageViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
+		AE3F86A7267BBA1100B4D814 /* ImageViewerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewerViewController.storyboard; sourceTree = "<group>"; };
+		AE3F86AA267BBC0C00B4D814 /* ImageZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
 		AE66557026580B76004DA48A /* DecodableUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableUtility.swift; sourceTree = "<group>"; };
 		AE6B944626542E90006463E1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AE6B944A26542EAF006463E1 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
@@ -124,6 +133,9 @@
 		AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModel.swift; sourceTree = "<group>"; };
 		AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		AE89D4CA2665581000CF0439 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		AE8AE515267D11AE009065E2 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
+		AE8AE517267D11E5009065E2 /* LocationPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationPickerViewController.storyboard; sourceTree = "<group>"; };
+		AE8AE519267D1242009065E2 /* LocationPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewModel.swift; sourceTree = "<group>"; };
 		AE94D9142667FFDF00D6E921 /* ChatListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatListViewController.storyboard; sourceTree = "<group>"; };
 		AE94D9162667FFEF00D6E921 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgermenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -244,6 +256,15 @@
 			path = HamburgerMenuTableViewCell;
 			sourceTree = "<group>";
 		};
+		AE3F86A5267BBA1100B4D814 /* ImageViewerController */ = {
+			isa = PBXGroup;
+			children = (
+				AE3F86A7267BBA1100B4D814 /* ImageViewerViewController.storyboard */,
+				AE3F86A6267BBA1100B4D814 /* ImageViewerViewController.swift */,
+			);
+			path = ImageViewerController;
+			sourceTree = "<group>";
+		};
 		AE6B944526542E17006463E1 /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +311,16 @@
 				AE9DC6692662DA42001B9392 /* StorageManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		AE8AE514267D118E009065E2 /* LocationPickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE8AE517267D11E5009065E2 /* LocationPickerViewController.storyboard */,
+				AE8AE519267D1242009065E2 /* LocationPickerViewModel.swift */,
+				AE8AE515267D11AE009065E2 /* LocationPickerViewController.swift */,
+			);
+			path = LocationPickerViewController;
 			sourceTree = "<group>";
 		};
 		AE94D9122667FF9500D6E921 /* Chats */ = {
@@ -400,6 +431,8 @@
 				AEA1979326499E9E00D0D181 /* Onboarding */,
 				AE7A26BC265055590057D454 /* HomeTabBar */,
 				AE6B944526542E17006463E1 /* ProfilePage */,
+				AE3F86A5267BBA1100B4D814 /* ImageViewerController */,
+				AE8AE514267D118E009065E2 /* LocationPickerViewController */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -489,6 +522,7 @@
 			children = (
 				AEBB86802656EB4400D2476B /* ViewControllerWithLoading.swift */,
 				AE89D4CA2665581000CF0439 /* PasswordTextField.swift */,
+				AE3F86AA267BBC0C00B4D814 /* ImageZoomView.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -497,8 +531,8 @@
 			isa = PBXGroup;
 			children = (
 				AEC7743D26791CCD00EEEED0 /* ChatViewController.storyboard */,
-				AEC7743F26791CE200EEEED0 /* ChatViewController.swift */,
 				AEC774412679270300EEEED0 /* ChatViewModel.swift */,
+				AEC7743F26791CE200EEEED0 /* ChatViewController.swift */,
 			);
 			path = ChatViewController;
 			sourceTree = "<group>";
@@ -642,6 +676,7 @@
 				AE94D9152667FFDF00D6E921 /* ChatListViewController.storyboard in Resources */,
 				AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */,
 				AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */,
+				AE3F86A9267BBA1100B4D814 /* ImageViewerViewController.storyboard in Resources */,
 				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
 				AE1177B5266CD57F0031FEBA /* Color-Palette.xcassets in Resources */,
 				AE94E071265306360020CB95 /* HamburgermenuTableViewCell.xib in Resources */,
@@ -670,6 +705,7 @@
 				AE861B25264FB75D00E708D7 /* GoogleService-Info.plist in Resources */,
 				AEF84270264D8EAF00FB8003 /* Roboto-MediumItalic.ttf in Resources */,
 				AEF8426E264D8EAF00FB8003 /* Roboto-Light.ttf in Resources */,
+				AE8AE518267D11E5009065E2 /* LocationPickerViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,6 +759,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE7A26C5265057120057D454 /* HomeViewController.swift in Sources */,
+				AE8AE51A267D1242009065E2 /* LocationPickerViewModel.swift in Sources */,
 				AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */,
 				AE94D9172667FFEF00D6E921 /* ChatListViewController.swift in Sources */,
 				AEC7744026791CE200EEEED0 /* ChatViewController.swift in Sources */,
@@ -735,6 +772,7 @@
 				AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */,
 				AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */,
 				AEA1979226499AD800D0D181 /* UIViewUtility.swift in Sources */,
+				AE8AE516267D11AE009065E2 /* LocationPickerViewController.swift in Sources */,
 				AEBB86812656EB4400D2476B /* ViewControllerWithLoading.swift in Sources */,
 				AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */,
 				AE0E3CD826715252002D2D29 /* NSLayoutConstraintUtility.swift in Sources */,
@@ -743,12 +781,14 @@
 				AE9D234A266B6C81005B5C55 /* SearchChatViewController.swift in Sources */,
 				AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */,
 				AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */,
+				AE3F86AB267BBC0C00B4D814 /* ImageZoomView.swift in Sources */,
 				AE66557126580B76004DA48A /* DecodableUtility.swift in Sources */,
 				AEA1978F26499A0B00D0D181 /* OnboardingCollectionViewModel.swift in Sources */,
 				AE6B944D26542EC4006463E1 /* ProfileViewModel.swift in Sources */,
 				AE0E3CD426714AC8002D2D29 /* StructIterationProtocol.swift in Sources */,
 				AE9DC66A2662DA42001B9392 /* StorageManager.swift in Sources */,
 				AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */,
+				AE3F86A8267BBA1100B4D814 /* ImageViewerViewController.swift in Sources */,
 				AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */,
 				AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */,
 				AE89D4CB2665581000CF0439 /* PasswordTextField.swift in Sources */,

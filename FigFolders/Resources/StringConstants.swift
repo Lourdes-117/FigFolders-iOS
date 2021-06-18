@@ -55,6 +55,9 @@ struct DatabaseConstants {
 ///Use Through StringConstants shared Instance
 struct StorageConstants {
     let profilePicturePath = "profile_picture/"
+    let messageImagesPath = "messages/images/"
+    let messageVideosPath = "messages/videos/"
+    let videoExtension = ".mp4"
 }
 
 struct MessageKindConstant {

@@ -73,6 +73,7 @@ class ChatViewControllerViewModel {
     let photo = "Photo"
     let video = "Video"
     let audio = "Audio"
+    let location = "Location"
     let cancel = "Cancel"
     
     // Attaching Media
@@ -84,6 +85,7 @@ class ChatViewControllerViewModel {
     let attachVideoMessage = "Where Would You Like To Attach Video From"
     let mediaTypeForVideo = "public.movie"
     let videoQualityType: UIImagePickerController.QualityType = .typeMedium
+    let videoMaxLength = TimeInterval(120)
     
     // Segue Identifiers
     let imageViewerSegueIdentifier = "ImageViewerViewControllerSegue"
@@ -99,6 +101,10 @@ class ChatViewControllerViewModel {
     var isNewConversation: Bool {
         return conversationID == nil
     }
+    
+    // Avatar
+    let avatarStringStartingIndexForAvatar = 0
+    let avatarStringEndingIndexForAvatar = 2
     
     let senderEmail = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String
     let senderName = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String ?? ""
