@@ -43,7 +43,7 @@ extension MessageKind {
     }
 }
 
-struct LocationMessage: LocationItem {
+struct Location: LocationItem {
     var location: CLLocation
     var size: CGSize
 }

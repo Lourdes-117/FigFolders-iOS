@@ -224,6 +224,20 @@ extension ChatViewController: MessagesDisplayDelegate {
 
 // MARK: - Message Cell Delegate
 extension ChatViewController: MessageCellDelegate {
+    func didTapMessage(in cell: MessageCollectionViewCell) {
+        dismissKeyboard()
+        guard let section = messagesCollectionView.indexPath(for: cell)?.section else { return }
+        let message = messages[section]
+        switch message.kind {
+        case .location(let location):
+            guard let locationViewController = LocationPickerViewController.initiateVC() else { return }
+            locationViewController.setupLocationMarker(location: location)
+            navigationController?.pushViewController(locationViewController, animated: true)
+        default:
+            break
+        }
+    }
+    
     func didTapImage(in cell: MessageCollectionViewCell) {
         dismissKeyboard()
         guard let section = messagesCollectionView.indexPath(for: cell)?.section else { return }
@@ -255,7 +269,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         }
         let message = Message(sender: selfSender, messageId: messageId, sentDate: Date(), kind: .text(text))
         if viewModel.isNewConversation {
-            //Create Convo in DB
+            // Create Convo in DB
             self.messageInputBar.inputTextView.text = ""
             DatabaseManager.shared.createNewConversation(with: viewModel.receiverEmail, messageToSend : message, otherUserName: viewModel.receiverName) { [weak self] success in
                 if success {
@@ -268,7 +282,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
                 }
             }
         } else {
-            //Append Convo In DB
+            // Append Convo In DB
             guard let conversationID = viewModel.conversationID else {
                 return
             }
@@ -302,7 +316,7 @@ extension ChatViewController: UIImagePickerControllerDelegate {
                   let lowResImageData = image.jpeg(.lowest),
                   let lowResImage = UIImage(data: lowResImageData) else { return }
             
-            //Upload Image
+            // Upload Image
             let fileName = messageID
             StorageManager.shared.uploadMessagePhoto(with: imageData, fileName: fileName) { [weak self] result in
                 guard let strongSelf = self else { return }
@@ -311,7 +325,7 @@ extension ChatViewController: UIImagePickerControllerDelegate {
                     let url = URL(string: urlString)
                     let media = Media(url: url, image: image, placeholderImage: lowResImage, size: .zero)
                     let message = Message(sender: selfSender, messageId: messageID, sentDate: Date(), kind: .photo(media))
-                    //Sending Message
+                    // Sending Message
                     DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: senderEmail, senderName: strongSelf.viewModel.senderName, message: message, receiverEmailId: strongSelf.viewModel.receiverEmail, receiverName: strongSelf.viewModel.receiverName, existingConversationID: strongSelf.viewModel.conversationID) { success in
                         if success {
                             debugPrint("Image Message Sent")
@@ -394,5 +408,21 @@ extension ChatViewController: UINavigationControllerDelegate {
 extension ChatViewController: LocationPickerDelegate {
     func selectedLocationToSend(_ location: CLLocationCoordinate2D) {
         debugPrint("Selected Location To Send: \(location.latitude), \(location.longitude)")
+        // Send Location
+        guard let messageID = viewModel.generateMessageID(),
+              let conversationID = viewModel.conversationID,
+              let selfSender = viewModel.selfSender,
+              let senderEmail = viewModel.senderEmail  else { return }
+        
+        let media = Location(location: CLLocation(latitude: location.latitude, longitude: location.longitude), size: .zero)
+        let message = Message(sender: selfSender, messageId: messageID, sentDate: Date(), kind: .location(media))
+        // Sending Message
+        DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: senderEmail, senderName: viewModel.senderName, message: message, receiverEmailId: viewModel.receiverEmail, receiverName: viewModel.receiverName, existingConversationID: viewModel.conversationID) { success in
+            if success {
+                debugPrint("Location Message Sent")
+            } else {
+                debugPrint("Location Message Sending Failure")
+            }
+        }
     }
 }

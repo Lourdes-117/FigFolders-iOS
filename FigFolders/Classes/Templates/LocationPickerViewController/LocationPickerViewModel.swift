@@ -15,7 +15,8 @@ protocol LocationPickerDelegate: NSObjectProtocol {
 
 class LocationPickerViewModel {
     let numberOfTapsRequiredOnMap = 1
-    let pageTitle = "Send Location"
+    let locationPageLocation = "Location"
+    let sendLocationPageLocation = "Send Location"
     let sendBarButtonImage = UIImage(systemName: "paperplane.fill")
     let okText = "Ok"
     let noLocationSelectedText = "No Location Selected"

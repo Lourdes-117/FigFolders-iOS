@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseDatabase
+import CoreLocation
 import MessageKit
 
 final class DatabaseManager {
@@ -245,11 +246,13 @@ final class DatabaseManager {
         //Add New Message To Conversation
         let conversationPath = "\(StringConstants.shared.database.conversations)/\(conversationID)/\(StringConstants.shared.database.messagesArray)"
         database.child(conversationPath).observeSingleEvent(of: .value) { [weak self] snapshot in
-            guard let currentMessagesAnyValue = snapshot.value,
+            guard var currentMessagesAnyValue = snapshot.value as? [Any?],
                 snapshot.exists() else {
                 completion(false)
                 return
             }
+            
+            currentMessagesAnyValue.removeAll(where: { $0 == nil })
             
             var currentMessagesOptional: [MessageModel]?
             
@@ -389,11 +392,12 @@ final class DatabaseManager {
     /// Get All Messages For A Given Conversation
     func getAllMessagesForConversation(with id: String, completion: @escaping (Result<[Message], Error>) -> Void) {
         database.child("\(StringConstants.shared.database.conversations)/\(id)/\(StringConstants.shared.database.messagesArray)").observe(.value) { snapshot in
-            guard let value = snapshot.value as? [[String: Any]] else {
+            guard let value = snapshot.value as? [[String: Any]?] else {
                 completion(.failure(DatabaseError.failedToFetch))
                 return
             }
-            let messages: [Message] = value.compactMap { dictionary in
+            let messages: [Message] = value.compactMap { dictionaryOptional in
+                guard let dictionary = dictionaryOptional else{ return nil }
                 var eachMessageOptional: MessageModel?
                 do {
                     let eachMessageData = try JSONSerialization.data(withJSONObject: dictionary, options: [])
@@ -417,14 +421,22 @@ final class DatabaseManager {
                 let sender = Sender(senderId: senderName, displayName: senderName, photoUrl: getProfilePicPathFromUsername(otherUserName))
                 
                 var messageKind: MessageKind?
-                if messageType == StringConstants.shared.messageKind.text {
+                
+                // Message Rendering On Screen
+                if messageType == StringConstants.shared.messageKind.text { // Text Message
                     messageKind = .text(content)
-                } else if messageType == StringConstants.shared.messageKind.photo {
+                } else if messageType == StringConstants.shared.messageKind.photo { // Photo Message
                     guard let imageUrl = URL(string: content) else { return nil }
                     messageKind = .photo(Media(url: imageUrl, image: nil, placeholderImage: UIImage(named: "image_placeholder") ?? UIImage(), size: CGSize(width: 300, height: 300)))
-                } else if messageType == StringConstants.shared.messageKind.video {
+                } else if messageType == StringConstants.shared.messageKind.video { // Video Message
                     guard let videoUrl = URL(string: content) else { return nil }
                     messageKind = .video(Media(url: videoUrl, image: nil, placeholderImage: UIImage(named: "video_placeholder") ?? UIImage(), size: CGSize(width: 300, height: 300)))
+                } else if messageType == StringConstants.shared.messageKind.location { // Location Message
+                    let locationComponents = content.components(separatedBy: ",")
+                    guard let latitude = Double(locationComponents.first ?? ""),
+                          let longitude = Double(locationComponents.last ?? "") else { return nil }
+                    let location = Location(location: CLLocation(latitude: latitude, longitude: longitude), size: CGSize(width: 300, height: 300))
+                    messageKind = .location(location)
                 }
                 
                 guard let messageKind = messageKind else {
@@ -436,6 +448,7 @@ final class DatabaseManager {
                                sentDate: date,
                                kind: messageKind)
             }
+            
             completion(.success(messages))
         }
     }
@@ -478,8 +491,9 @@ final class DatabaseManager {
             if let urlString = mediaItem.url?.absoluteString {
                 messageString = urlString
             }
-        case .location(_):
-            break
+        case .location(let locationData):
+            let location = locationData.location
+            messageString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
         case .emoji(_):
             break
         case .audio(_):

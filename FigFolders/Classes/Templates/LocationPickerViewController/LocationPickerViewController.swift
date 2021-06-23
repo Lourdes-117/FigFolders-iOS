@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import MessageKit
 
 class LocationPickerViewController: UIViewController {
     
@@ -17,6 +18,7 @@ class LocationPickerViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     weak var delegate: LocationPickerDelegate?
+    var locationFromPreviousScreen: LocationItem?
     
     private var selectedCoordinate: CLLocationCoordinate2D?
 
@@ -27,9 +29,14 @@ class LocationPickerViewController: UIViewController {
     }
     
     private func initialSetup() {
-        self.title = viewModel.pageTitle
-        setupBarButtonItems()
-        setupMap()
+        if let locationFromPreviousScreen = locationFromPreviousScreen { // If User Opens From Chat Tapping A Location, Share Button Should Not Be Available And Selected Location Should Be Annotated
+            self.title = viewModel.locationPageLocation
+            setupLocationFromPreviousLocation(locationFromPreviousScreen: locationFromPreviousScreen)
+        } else { // No Location Should Be Annotated, Share Button Should Be Available
+            self.title = viewModel.sendLocationPageLocation
+            setupBarButtonItems()
+            setupMap()
+        }
     }
     
     private func setupBarButtonItems() {
@@ -38,15 +45,19 @@ class LocationPickerViewController: UIViewController {
     }
     
     private func setupMap() {
-        mapView.isUserInteractionEnabled = true
         let mapTapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapMap(_:)))
         mapTapGesture.numberOfTapsRequired = viewModel.numberOfTapsRequiredOnMap
         mapTapGesture.numberOfTouchesRequired = viewModel.numberOfTapsRequiredOnMap
         mapView.addGestureRecognizer(mapTapGesture)
     }
     
+    func setupLocationMarker(location: LocationItem) {
+        locationFromPreviousScreen = location
+    }
+    
 // MARK: - Button Actions
     @objc private func onTapSendLocation() {
+        navigationController?.popViewController(animated: true)
         guard let selectedCoordinate = selectedCoordinate else {
             showNoLocationSelectedAlert()
             return
@@ -62,6 +73,12 @@ class LocationPickerViewController: UIViewController {
     }
     
 // MARK: - Helper Methods
+    private func setupLocationFromPreviousLocation(locationFromPreviousScreen: LocationItem) {
+        let pin = MKPointAnnotation()
+        pin.coordinate = locationFromPreviousScreen.location.coordinate
+        mapView.addAnnotation(pin)
+    }
+    
     private func setMarkAtLocation(_ coordinate: CLLocationCoordinate2D) {
         mapView.annotations.forEach { annotation in
             mapView.removeAnnotation(annotation)
