@@ -20,6 +20,9 @@
 		AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */; };
 		AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */; };
 		AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */; };
+		AE224B67268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE224B66268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard */; };
+		AE224B69268FB2BA003CE3E2 /* VoiceRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE224B68268FB2BA003CE3E2 /* VoiceRecordingViewController.swift */; };
+		AE224B6B268FB64A003CE3E2 /* VoiceRecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE224B6A268FB64A003CE3E2 /* VoiceRecordingViewModel.swift */; };
 		AE27EB44264EE66000C34CBD /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB43264EE66000C34CBD /* StringUtility.swift */; };
 		AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB45264EE6A000C34CBD /* StringConstants.swift */; };
 		AE3F86A8267BBA1100B4D814 /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F86A6267BBA1100B4D814 /* ImageViewerViewController.swift */; };
@@ -115,6 +118,9 @@
 		AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgerMenuView.xib; sourceTree = "<group>"; };
 		AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewModel.swift; sourceTree = "<group>"; };
 		AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerViewModel.swift; sourceTree = "<group>"; };
+		AE224B66268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VoiceRecordingViewController.storyboard; sourceTree = "<group>"; };
+		AE224B68268FB2BA003CE3E2 /* VoiceRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecordingViewController.swift; sourceTree = "<group>"; };
+		AE224B6A268FB64A003CE3E2 /* VoiceRecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecordingViewModel.swift; sourceTree = "<group>"; };
 		AE27EB43264EE66000C34CBD /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		AE27EB45264EE6A000C34CBD /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		AE3F86A6267BBA1100B4D814 /* ImageViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +260,16 @@
 				AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */,
 			);
 			path = HamburgerMenuTableViewCell;
+			sourceTree = "<group>";
+		};
+		AE224B65268FB287003CE3E2 /* VoiceRecordingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE224B66268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard */,
+				AE224B6A268FB64A003CE3E2 /* VoiceRecordingViewModel.swift */,
+				AE224B68268FB2BA003CE3E2 /* VoiceRecordingViewController.swift */,
+			);
+			path = VoiceRecordingViewController;
 			sourceTree = "<group>";
 		};
 		AE3F86A5267BBA1100B4D814 /* ImageViewerController */ = {
@@ -433,6 +449,7 @@
 				AE6B944526542E17006463E1 /* ProfilePage */,
 				AE3F86A5267BBA1100B4D814 /* ImageViewerController */,
 				AE8AE514267D118E009065E2 /* LocationPickerViewController */,
+				AE224B65268FB287003CE3E2 /* VoiceRecordingViewController */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -624,6 +641,7 @@
 				AEA1976A2649933000D0D181 /* Frameworks */,
 				AEA1976B2649933000D0D181 /* Resources */,
 				E8196463E8EFCD05CF84DEE2 /* [CP] Embed Pods Frameworks */,
+				AE036EB5267F29720001E005 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -679,6 +697,7 @@
 				AE3F86A9267BBA1100B4D814 /* ImageViewerViewController.storyboard in Resources */,
 				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
 				AE1177B5266CD57F0031FEBA /* Color-Palette.xcassets in Resources */,
+				AE224B67268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard in Resources */,
 				AE94E071265306360020CB95 /* HamburgermenuTableViewCell.xib in Resources */,
 				AE9D234F266B6E6F005B5C55 /* PullDownTopBarView.xib in Resources */,
 				AEA1977D2649933400D0D181 /* LaunchScreen.storyboard in Resources */,
@@ -734,6 +753,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AE036EB5267F29720001E005 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		E8196463E8EFCD05CF84DEE2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -762,8 +798,10 @@
 				AE8AE51A267D1242009065E2 /* LocationPickerViewModel.swift in Sources */,
 				AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */,
 				AE94D9172667FFEF00D6E921 /* ChatListViewController.swift in Sources */,
+				AE224B69268FB2BA003CE3E2 /* VoiceRecordingViewController.swift in Sources */,
 				AEC7744026791CE200EEEED0 /* ChatViewController.swift in Sources */,
 				AE9D2345266B698B005B5C55 /* ChatListViewModel.swift in Sources */,
+				AE224B6B268FB64A003CE3E2 /* VoiceRecordingViewModel.swift in Sources */,
 				AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */,
 				AEA197712649933000D0D181 /* AppDelegate.swift in Sources */,
 				AE0E3CD126713046002D2D29 /* ChatListTableViewCell.swift in Sources */,
@@ -871,7 +909,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

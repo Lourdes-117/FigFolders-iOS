@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Voice Recording View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="VoiceRecordingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="VoiceRecordingViewController" customModule="FigFolders" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJY-8Z-4V5">
+                                <rect key="frame" x="157" y="696" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dJY-8Z-4V5" secondAttribute="height" multiplier="1:1" id="47h-8V-WhZ"/>
+                                    <constraint firstAttribute="width" constant="100" id="tby-M3-eLr"/>
+                                </constraints>
+                                <state key="normal" title="Record">
+                                    <color key="titleShadowColor" name="Greyscale4"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTapRecordButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NHC-tW-R9d"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cq5-Ea-SqS">
+                                <rect key="frame" x="97" y="616" width="220" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiL-Pf-ds3">
+                                        <rect key="frame" x="160" y="0.0" width="60" height="60"/>
+                                        <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="CiL-Pf-ds3" secondAttribute="height" multiplier="1:1" id="mER-jx-ofB"/>
+                                        </constraints>
+                                        <state key="normal" image="trash.circle" catalog="system">
+                                            <color key="titleShadowColor" name="Greyscale5"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTapDeleteButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5x7-5Q-H78"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmJ-nt-Alg">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="nmJ-nt-Alg" secondAttribute="height" id="rYl-TB-Guw"/>
+                                        </constraints>
+                                        <state key="normal" image="play" catalog="system"/>
+                                        <connections>
+                                            <action selector="onTapPlayPauseButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ChX-ON-rYo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nmJ-nt-Alg" firstAttribute="top" secondItem="Cq5-Ea-SqS" secondAttribute="top" id="36i-t0-H09"/>
+                                    <constraint firstItem="nmJ-nt-Alg" firstAttribute="leading" secondItem="Cq5-Ea-SqS" secondAttribute="leading" id="6DT-Ya-thd"/>
+                                    <constraint firstAttribute="trailing" secondItem="CiL-Pf-ds3" secondAttribute="trailing" id="9CI-Cy-7T4"/>
+                                    <constraint firstItem="CiL-Pf-ds3" firstAttribute="leading" secondItem="nmJ-nt-Alg" secondAttribute="trailing" constant="100" id="P4T-mC-rhl"/>
+                                    <constraint firstAttribute="height" constant="60" id="WGA-Q8-3ql"/>
+                                    <constraint firstItem="CiL-Pf-ds3" firstAttribute="top" secondItem="Cq5-Ea-SqS" secondAttribute="top" id="ZTY-eu-Icl"/>
+                                    <constraint firstAttribute="bottom" secondItem="nmJ-nt-Alg" secondAttribute="bottom" id="g79-1s-UGN"/>
+                                    <constraint firstAttribute="bottom" secondItem="CiL-Pf-ds3" secondAttribute="bottom" id="rcY-OE-bMP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dJY-8Z-4V5" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="9lb-XP-zbR"/>
+                            <constraint firstItem="dJY-8Z-4V5" firstAttribute="top" secondItem="Cq5-Ea-SqS" secondAttribute="bottom" constant="20" id="IW4-JC-ogm"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dJY-8Z-4V5" secondAttribute="bottom" constant="66" id="NNu-5g-pkr"/>
+                            <constraint firstItem="Cq5-Ea-SqS" firstAttribute="centerX" secondItem="dJY-8Z-4V5" secondAttribute="centerX" id="Tt9-q9-S7A"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="deleteButton" destination="CiL-Pf-ds3" id="pXP-2x-VPs"/>
+                        <outlet property="playButton" destination="nmJ-nt-Alg" id="l52-2s-tdQ"/>
+                        <outlet property="playbackControlsContainerView" destination="Cq5-Ea-SqS" id="f1O-BX-c66"/>
+                        <outlet property="recordButton" destination="dJY-8Z-4V5" id="FUk-he-aED"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="81.696428571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="play" catalog="system" width="120" height="128"/>
+        <image name="trash.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="Greyscale4">
+            <color red="0.3919999897480011" green="0.40799999237060547" blue="0.42699998617172241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Greyscale5">
+            <color red="0.14100000262260437" green="0.15700000524520874" blue="0.17599999904632568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

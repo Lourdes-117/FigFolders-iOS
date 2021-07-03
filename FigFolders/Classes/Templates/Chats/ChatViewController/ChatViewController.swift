@@ -69,8 +69,8 @@ class ChatViewController: MessagesViewController {
         actionSheet.addAction(UIAlertAction(title: viewModel.video, style: .default, handler: { [weak self] _ in
             self?.presentVideoInputActionSheet()
         }))
-        actionSheet.addAction(UIAlertAction(title: viewModel.audio, style: .default, handler: { _ in
-            
+        actionSheet.addAction(UIAlertAction(title: viewModel.audio, style: .default, handler: { [weak self] _ in
+            self?.presentVoiceRecordingViewController()
         }))
         actionSheet.addAction(UIAlertAction(title: viewModel.location, style: .default, handler: { [weak self] _ in
             self?.presentLocationInputViewController()
@@ -140,6 +140,13 @@ class ChatViewController: MessagesViewController {
         guard let locationPickerViewController = LocationPickerViewController.initiateVC() else { return }
         locationPickerViewController.delegate = self
         navigationController?.pushViewController(locationPickerViewController, animated: true)
+    }
+    
+    // Send Location
+    private func presentVoiceRecordingViewController() {
+        guard let voiceRecordingViewController = VoiceRecordingViewController.initiateVC() else { return }
+        voiceRecordingViewController.delegate = self
+        navigationController?.pushViewController(voiceRecordingViewController, animated: true)
     }
     
     // MARK: - Helper Methods
@@ -423,6 +430,21 @@ extension ChatViewController: LocationPickerDelegate {
             } else {
                 debugPrint("Location Message Sending Failure")
             }
+        }
+    }
+}
+
+
+// MARK: - Voice Recording Delegate
+extension ChatViewController: VoiceRecordingDelegate {
+    func sendAudioWithFileUrl(url: URL?) {
+        guard let fileUrl = url else { return }
+        let audioData: Data?
+        do {
+            audioData = try Data(contentsOf: fileUrl)
+        } catch {
+            debugPrint("Cant Get Voice Recorded File \(error)")
+            return
         }
     }
 }
