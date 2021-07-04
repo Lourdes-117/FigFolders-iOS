@@ -113,7 +113,12 @@ class ChatViewControllerViewModel {
     // Selected Message
     var selectedImageUrl: URL?
     var selectedVideoUrl: URL?
-    
+    var selectedAudioDuration: TimeInterval?
+    var audioDurationPlayed: TimeInterval?
+    var audioProgress: TimeInterval {
+        (audioDurationPlayed ?? 0)/(selectedAudioDuration ?? 0)
+    }
+        
     var selectedAudioCell: AudioMessageCell?
     
     // Accounts

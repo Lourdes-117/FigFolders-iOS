@@ -18,7 +18,8 @@ class ChatViewController: MessagesViewController {
     
     private var messages = [Message]()
     
-    var audioPlayer: AVAudioPlayer?
+    private var audioPlayer: AVAudioPlayer?
+    private var audioProgressUpdateTimer: Timer?
     private var activityBackgroundView: UIView?
     private var activityView: NVActivityIndicatorView?
     
@@ -195,6 +196,12 @@ class ChatViewController: MessagesViewController {
                     self?.audioPlayer?.delegate = self
                     self?.audioPlayer?.volume = 10
                     self?.audioPlayer?.play()
+                    self?.viewModel.audioDurationPlayed = 1
+                    self?.viewModel.selectedAudioDuration = self?.audioPlayer?.duration
+                    self?.audioProgressUpdateTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+                        self?.viewModel.audioDurationPlayed = (self?.viewModel.audioDurationPlayed ?? 0) + 1
+                        self?.viewModel.selectedAudioCell?.progressView.setProgress(Float(self?.viewModel.audioProgress ?? 0), animated: true)
+                    }
                 } catch {
                     debugPrint("Error Setting up Audio Player \(error)")
                 }
@@ -297,23 +304,22 @@ extension ChatViewController: MessageCellDelegate {
     
     func didTapPlayButton(in cell: AudioMessageCell) {
         if audioPlayer?.isPlaying ?? false {
+            audioProgressUpdateTimer?.invalidate()
             if viewModel.selectedAudioCell == cell {
                 audioPlayer?.stop()
+                cell.progressView.setProgress(0, animated: false)
                 cell.playButton.isSelected = false
                 return
             } else {
                 audioPlayer?.stop()
                 viewModel.selectedAudioCell?.playButton.isSelected = false
+                viewModel.selectedAudioCell?.progressView.setProgress(0, animated: false)
             }
         }
         viewModel.selectedAudioCell = cell
         guard let index = messagesCollectionView.indexPath(for: cell)?.section else { return }
         setupAudioPlayer(cell: cell, messageID: messages[index].messageId)
-        cell.playButton.isSelected.toggle()
-    }
-    
-    func didStopAudio(in cell: AudioMessageCell) {
-        debugPrint("Again")
+        cell.playButton.isSelected = true
     }
 }
 
@@ -520,6 +526,9 @@ extension ChatViewController: VoiceRecordingDelegate {
 extension ChatViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         debugPrint("Audio Finished Playing")
-        viewModel.selectedAudioCell?.playButton.isSelected.toggle()
+        viewModel.selectedAudioCell?.playButton.isSelected = false
+        viewModel.selectedAudioCell?.progressView.setProgress(1, animated: true)
+        audioProgressUpdateTimer?.invalidate()
+        viewModel.selectedAudioCell?.progressView.setProgress(0, animated: false)
     }
 }
