@@ -439,7 +439,7 @@ final class DatabaseManager {
                     messageKind = .location(location)
                 } else if messageType == StringConstants.shared.messageKind.audio {
                     guard let url = URL(string: content) else { return nil}
-                    let audioItem = Audio(duration: 3, size: CGSize(width: 200, height: 50), url: url)
+                    let audioItem = Audio(duration: 0, size: CGSize(width: 200, height: 50), url: url)
                     messageKind = .audio(audioItem)
                 }
                 

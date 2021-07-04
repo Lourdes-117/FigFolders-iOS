@@ -114,6 +114,8 @@ class ChatViewControllerViewModel {
     var selectedImageUrl: URL?
     var selectedVideoUrl: URL?
     
+    var selectedAudioCell: AudioMessageCell?
+    
     // Accounts
     var receiverName: String = ""
     var receiverEmail: String = ""

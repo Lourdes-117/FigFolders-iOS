@@ -182,20 +182,22 @@ class ChatViewController: MessagesViewController {
         StorageManager.shared.downloadAudioWithName(messageID) { [weak self] audioFileData, error in
             DispatchQueue.main.async {
                 cell.removeDownloadingIndicator()
-            }
-            guard error == nil,
-                  let audioFileData = audioFileData else {
-                debugPrint("Error Downloading Audio \(String(describing: error))")
-                return
-            }
-            do {
-                self?.audioPlayer = try AVAudioPlayer(data: audioFileData)
-                self?.audioPlayer?.delegate = self
-                self?.audioPlayer?.prepareToPlay()
-                self?.audioPlayer?.volume = 10
-                self?.audioPlayer?.play()
-            } catch {
-                debugPrint("Error Setting up Audio Player \(error)")
+                
+                guard error == nil,
+                      let audioFileData = audioFileData else {
+                    debugPrint("Error Downloading Audio \(String(describing: error))")
+                    return
+                }
+                do {
+                    try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+                    self?.audioPlayer = try AVAudioPlayer(data: audioFileData)
+                    self?.audioPlayer?.prepareToPlay()
+                    self?.audioPlayer?.delegate = self
+                    self?.audioPlayer?.volume = 10
+                    self?.audioPlayer?.play()
+                } catch {
+                    debugPrint("Error Setting up Audio Player \(error)")
+                }
             }
         }
     }
@@ -294,8 +296,20 @@ extension ChatViewController: MessageCellDelegate {
     }
     
     func didTapPlayButton(in cell: AudioMessageCell) {
+        if audioPlayer?.isPlaying ?? false {
+            if viewModel.selectedAudioCell == cell {
+                audioPlayer?.stop()
+                cell.playButton.isSelected = false
+                return
+            } else {
+                audioPlayer?.stop()
+                viewModel.selectedAudioCell?.playButton.isSelected = false
+            }
+        }
+        viewModel.selectedAudioCell = cell
         guard let index = messagesCollectionView.indexPath(for: cell)?.section else { return }
         setupAudioPlayer(cell: cell, messageID: messages[index].messageId)
+        cell.playButton.isSelected.toggle()
     }
     
     func didStopAudio(in cell: AudioMessageCell) {
@@ -417,19 +431,19 @@ extension ChatViewController {
         activityBackgroundView = UIView(frame: view.frame)
         activityBackgroundView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
         activityView = NVActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-50,
-                                                                 y: (view.frame.height/2)-50,
-                                                                 width: 100,
-                                                                 height: 100),
-                                                   type: type,
-                                                   color: color,
-                                                   padding: 0)
+                                                             y: (view.frame.height/2)-50,
+                                                             width: 100,
+                                                             height: 100),
+                                               type: type,
+                                               color: color,
+                                               padding: 0)
         guard let activityBackgroundView = activityBackgroundView,
               let activityView = activityView else { return }
         // Blur
         let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
-            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.frame = self.view.bounds
-            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         activityBackgroundView.addSubview(blurEffectView)
         activityBackgroundView.addSubview(activityView)
         activityView.startAnimating()
@@ -506,5 +520,6 @@ extension ChatViewController: VoiceRecordingDelegate {
 extension ChatViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         debugPrint("Audio Finished Playing")
+        viewModel.selectedAudioCell?.playButton.isSelected.toggle()
     }
 }
