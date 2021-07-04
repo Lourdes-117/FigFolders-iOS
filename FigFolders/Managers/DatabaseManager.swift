@@ -437,6 +437,10 @@ final class DatabaseManager {
                           let longitude = Double(locationComponents.last ?? "") else { return nil }
                     let location = Location(location: CLLocation(latitude: latitude, longitude: longitude), size: CGSize(width: 300, height: 300))
                     messageKind = .location(location)
+                } else if messageType == StringConstants.shared.messageKind.audio {
+                    guard let url = URL(string: content) else { return nil}
+                    let audioItem = Audio(duration: 3, size: CGSize(width: 200, height: 50), url: url)
+                    messageKind = .audio(audioItem)
                 }
                 
                 guard let messageKind = messageKind else {
@@ -496,8 +500,8 @@ final class DatabaseManager {
             messageString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
         case .emoji(_):
             break
-        case .audio(_):
-            break
+        case .audio(let mediaItem):
+            messageString = mediaItem.url.absoluteString
         case .contact(_):
             break
         case .linkPreview(_):

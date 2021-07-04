@@ -18,6 +18,7 @@ class ChatViewController: MessagesViewController {
     
     private var messages = [Message]()
     
+    var audioPlayer: AVAudioPlayer?
     private var activityBackgroundView: UIView?
     private var activityView: NVActivityIndicatorView?
     
@@ -176,6 +177,29 @@ class ChatViewController: MessagesViewController {
         }
     }
     
+    private func setupAudioPlayer(cell: AudioMessageCell, messageID: String) {
+        cell.addDownloadingIndicator()
+        StorageManager.shared.downloadAudioWithName(messageID) { [weak self] audioFileData, error in
+            DispatchQueue.main.async {
+                cell.removeDownloadingIndicator()
+            }
+            guard error == nil,
+                  let audioFileData = audioFileData else {
+                debugPrint("Error Downloading Audio \(String(describing: error))")
+                return
+            }
+            do {
+                self?.audioPlayer = try AVAudioPlayer(data: audioFileData)
+                self?.audioPlayer?.delegate = self
+                self?.audioPlayer?.prepareToPlay()
+                self?.audioPlayer?.volume = 10
+                self?.audioPlayer?.play()
+            } catch {
+                debugPrint("Error Setting up Audio Player \(error)")
+            }
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? ImageViewerViewController {
             viewController.imageUrl = viewModel.selectedImageUrl
@@ -264,6 +288,19 @@ extension ChatViewController: MessageCellDelegate {
             break
         }
     }
+    
+    func configureAudioCell(_ cell: AudioMessageCell, message: MessageType) {
+        cell.durationLabel.isHidden = true
+    }
+    
+    func didTapPlayButton(in cell: AudioMessageCell) {
+        guard let index = messagesCollectionView.indexPath(for: cell)?.section else { return }
+        setupAudioPlayer(cell: cell, messageID: messages[index].messageId)
+    }
+    
+    func didStopAudio(in cell: AudioMessageCell) {
+        debugPrint("Again")
+    }
 }
 
 // MARK: - Input Bar Delegate
@@ -350,7 +387,7 @@ extension ChatViewController: UIImagePickerControllerDelegate {
                   let senderEmail = viewModel.senderEmail,
                   let conversationID = viewModel.conversationID  {
             let fileName = "\(messageID)\(StringConstants.shared.storage.videoExtension)"
-            StorageManager.shared.uploadMessageVideo(with: videoUrl, fileName: fileName) { [weak self ] result in
+            StorageManager.shared.uploadMessageVideo(from: videoUrl, fileName: fileName) { [weak self ] result in
                 guard let strongSelf = self else { return }
                 switch result {
                 case .success(let urlString):
@@ -437,14 +474,37 @@ extension ChatViewController: LocationPickerDelegate {
 
 // MARK: - Voice Recording Delegate
 extension ChatViewController: VoiceRecordingDelegate {
-    func sendAudioWithFileUrl(url: URL?) {
-        guard let fileUrl = url else { return }
-        let audioData: Data?
-        do {
-            audioData = try Data(contentsOf: fileUrl)
-        } catch {
-            debugPrint("Cant Get Voice Recorded File \(error)")
-            return
+    func sendAudioWithFileUrl(url: URL?, length: TimeInterval?) {
+        guard let messageID = viewModel.generateMessageID(),
+              let conversationID = viewModel.conversationID,
+              let selfSender = viewModel.selfSender,
+              let senderEmail = viewModel.senderEmail,
+              let audioLength = length,
+              let fileUrl = url else { return }
+        
+        let receiverEmail = viewModel.receiverEmail
+        let senderName = viewModel.senderName
+        let receiverName = viewModel.receiverName
+        
+        StorageManager.shared.uploadMessageAudio(from: fileUrl, fileName: messageID) { result in
+            switch result {
+            case .success(let url):
+                guard let cloudUrl = URL(string: url) else { return }
+                let audioItem = Audio(duration: Float(audioLength), size: .zero, url: cloudUrl)
+                let message = Message(sender: selfSender, messageId: messageID, sentDate: Date(), kind: .audio(audioItem))
+                DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: senderEmail, senderName: senderName, message: message, receiverEmailId: receiverEmail, receiverName: receiverName, existingConversationID: conversationID) { success in
+                    debugPrint(success)
+                }
+            case .failure(let error):
+                debugPrint("Error Uploading AudioFile \(error)")
+            }
         }
+    }
+}
+
+// MARK: AVAudioPlayer Delegate
+extension ChatViewController: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        debugPrint("Audio Finished Playing")
     }
 }

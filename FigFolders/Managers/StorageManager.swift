@@ -18,10 +18,10 @@ class StorageManager {
     
     private let storage: StorageReference = Storage.storage().reference()
     
-    typealias UploadPictureCompletion = (Result<String, Error>) -> Void
+    typealias UploadFileCompletion = (Result<String, Error>) -> Void
     
     /// Upload Profile Picture
-    func uploadProfilePicture(username: String, image: UIImage, completion: @escaping UploadPictureCompletion) {
+    func uploadProfilePicture(username: String, image: UIImage, completion: @escaping UploadFileCompletion) {
         let filePath = "\(StringConstants.shared.storage.profilePicturePath)\(username)"
         guard let data = image.jpegData(compressionQuality: JPEGQuality.high.rawValue) else { return }
         uploadImageAtPath(filePath: filePath, imageData: data, completion: completion)
@@ -29,7 +29,7 @@ class StorageManager {
     
     
     /// Upload Any Picture To Particular Path
-    fileprivate func uploadImageAtPath(filePath: String, imageData: Data, completion: @escaping UploadPictureCompletion) {
+    fileprivate func uploadImageAtPath(filePath: String, imageData: Data, completion: @escaping UploadFileCompletion) {
         storage.child(filePath).putData(imageData, metadata: nil) { [weak self] _, error in
             guard error == nil else {
                 completion(.failure(StorageErrors.failedToUpload))
@@ -49,9 +49,8 @@ class StorageManager {
         }
     }
     
-    /// Uploadd Video With URL
-    fileprivate func uploadVideoWithURL(filePath: String, fileURL: URL, completion: @escaping UploadPictureCompletion) {
-        
+    /// Upload Video With URL
+    fileprivate func uploadFileWithUrl(filePath: String, fileURL: URL, completion: @escaping UploadFileCompletion) {
         storage.child(filePath).putFile(from: fileURL, metadata: nil) { [weak self] _, error in
             guard error == nil else {
                 //failed
@@ -73,14 +72,30 @@ class StorageManager {
     }
     
     /// Upload Message Photo
-    public func uploadMessagePhoto(with data: Data, fileName: String, completion: @escaping UploadPictureCompletion) {
+    func uploadMessagePhoto(with data: Data, fileName: String, completion: @escaping UploadFileCompletion) {
         let filePath = "\(StringConstants.shared.storage.messageImagesPath)\(fileName)"
         uploadImageAtPath(filePath: filePath, imageData: data, completion: completion)
     }
     
     /// Upload Video Or File With URL
-    public func uploadMessageVideo(with url: URL, fileName: String, completion: @escaping UploadPictureCompletion) {
+    func uploadMessageVideo(from url: URL, fileName: String, completion: @escaping UploadFileCompletion) {
         let filePath = "\(StringConstants.shared.storage.messageVideosPath)\(fileName)"
-        uploadVideoWithURL(filePath: filePath, fileURL: url, completion: completion)
+        uploadFileWithUrl(filePath: filePath, fileURL: url, completion: completion)
+    }
+    
+    /// Upload Audio Message
+    func uploadMessageAudio(from url: URL, fileName: String, completion: @escaping UploadFileCompletion) {
+        let filePath = "\(StringConstants.shared.storage.messageAudioPath)\(fileName)"
+        uploadFileWithUrl(filePath: filePath, fileURL: url, completion: completion)
+    }
+    
+    /// Download File With Url
+    func downloadFileWithUrl(_ url: URL, completion: @escaping (Data?, Error?) -> Void) {
+        let reference = Storage.storage().reference(forURL: url.absoluteString)
+        reference.getData(maxSize: 1 * 1024 * 1024, completion: completion)
+    }
+    
+    func downloadAudioWithName(_ name: String, completion: @escaping (Data?, Error?) -> Void) {
+        storage.child("\(StringConstants.shared.storage.messageAudioPath)\(name)").getData(maxSize: 2 * 1024 * 1024, completion: completion)
     }
 }

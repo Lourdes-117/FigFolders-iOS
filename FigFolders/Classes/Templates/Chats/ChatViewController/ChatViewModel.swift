@@ -8,6 +8,7 @@
 import Foundation
 import MessageKit
 import CoreLocation
+import AVFoundation
 
 struct Message: MessageType {
     var sender: SenderType
@@ -41,6 +42,19 @@ extension MessageKind {
             return StringConstants.shared.messageKind.custom
         }
     }
+    
+    var mediaUrl: String? {
+        switch self {
+        case .audio(let audioItem):
+            return audioItem.url.absoluteString
+        case .video(let videoItem):
+            return videoItem.url?.absoluteString
+        case .photo(let mediaItem):
+            return mediaItem.url?.absoluteString
+        default:
+            return nil
+        }
+    }
 }
 
 struct Location: LocationItem {
@@ -62,6 +76,12 @@ struct Media: MediaItem {
     var placeholderImage: UIImage
     
     var size: CGSize
+}
+
+struct Audio: AudioItem {
+    var duration: Float
+    var size: CGSize
+    var url: URL
 }
 
 class ChatViewControllerViewModel {

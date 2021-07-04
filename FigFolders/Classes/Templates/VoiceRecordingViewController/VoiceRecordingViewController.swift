@@ -20,7 +20,7 @@ class VoiceRecordingViewController: UIViewController {
     var delegate: VoiceRecordingDelegate?
     
     var audioRecorder: AVAudioRecorder?
-    var soundPlayer: AVAudioPlayer?
+    var audioPlayer: AVAudioPlayer?
     let recordingSession = AVAudioSession.sharedInstance()
     
 // MARK: - Lifecycle Methods
@@ -83,10 +83,10 @@ class VoiceRecordingViewController: UIViewController {
     private func setupAudioPlayer() {
         do {
             guard let fileUrl = viewModel.fileUrl else { return }
-            soundPlayer = try AVAudioPlayer(contentsOf: fileUrl)
-            soundPlayer?.delegate = self
-            soundPlayer?.prepareToPlay()
-            soundPlayer?.volume = 10
+            audioPlayer = try AVAudioPlayer(contentsOf: fileUrl)
+            audioPlayer?.delegate = self
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.volume = 10
         } catch {
             debugPrint("Error Setting up Audio Player \(error)")
         }
@@ -103,7 +103,8 @@ class VoiceRecordingViewController: UIViewController {
     }
     
     private func sendAudio() {
-        delegate?.sendAudioWithFileUrl(url: viewModel.fileUrl)
+        setupAudioPlayer()
+        delegate?.sendAudioWithFileUrl(url: viewModel.fileUrl, length: audioPlayer?.duration)
         navigationController?.popViewController(animated: true)
     }
 
@@ -125,9 +126,9 @@ class VoiceRecordingViewController: UIViewController {
         viewModel.isAudioPlaying.toggle()
         if viewModel.isAudioPlaying {
             setupAudioPlayer()
-            soundPlayer?.play()
+            audioPlayer?.play()
         } else {
-            soundPlayer?.pause()
+            audioPlayer?.pause()
         }
         setViewForRecordingState()
     }
@@ -142,7 +143,7 @@ class VoiceRecordingViewController: UIViewController {
             }
         }
         viewModel.recordingState = .readyToRecord
-        soundPlayer?.stop()
+        audioPlayer?.stop()
         viewModel.isAudioPlaying = false
         setViewForRecordingState()
     }

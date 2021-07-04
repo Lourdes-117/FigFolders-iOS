@@ -57,6 +57,7 @@ struct StorageConstants {
     let profilePicturePath = "profile_picture/"
     let messageImagesPath = "messages/images/"
     let messageVideosPath = "messages/videos/"
+    let messageAudioPath = "messages/audios/"
     let videoExtension = ".mp4"
 }
 
