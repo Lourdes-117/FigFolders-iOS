@@ -9,6 +9,7 @@ import MessageKit
 import InputBarAccessoryView
 import UIKit
 import AVKit
+import MapKit
 import NVActivityIndicatorView
 import CoreLocation
 
@@ -245,7 +246,6 @@ extension ChatViewController: MessagesDataSource {
     }
 }
 
-
 // MARK: - Message Delegate
 extension ChatViewController: MessagesLayoutDelegate {
     
@@ -260,6 +260,19 @@ extension ChatViewController: MessagesDisplayDelegate {
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         avatarView.initials = message.sender.displayName[viewModel.avatarStringStartingIndexForAvatar ..< viewModel.avatarStringEndingIndexForAvatar].capitalized
     }
+    
+    func animationBlockForLocation(message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> ((UIImageView) -> Void)? {
+        return { view in
+            view.layer.transform = CATransform3DMakeScale(2, 2, 2)
+            UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0, options: [], animations: {
+                view.layer.transform = CATransform3DIdentity
+            }, completion: nil)
+        }
+    }
+    
+    func snapshotOptionsForLocation(message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> LocationMessageSnapshotOptions {
+        return LocationMessageSnapshotOptions(showsBuildings: true, showsPointsOfInterest: true, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+    }
 }
 
 // MARK: - Message Cell Delegate
@@ -270,9 +283,7 @@ extension ChatViewController: MessageCellDelegate {
         let message = messages[section]
         switch message.kind {
         case .location(let location):
-            guard let locationViewController = LocationPickerViewController.initiateVC() else { return }
-            locationViewController.setupLocationMarker(location: location)
-            navigationController?.pushViewController(locationViewController, animated: true)
+            openAppleMapsWithLocation(location)
         default:
             break
         }
