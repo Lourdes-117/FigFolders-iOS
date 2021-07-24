@@ -43,6 +43,7 @@ enum LabelColorPalette {
     case labelColorTertiary
     case labelColorLink
     case labelColorRed
+    case labelColorGreen
     
     var color: UIColor? {
         switch self {
@@ -56,6 +57,8 @@ enum LabelColorPalette {
             return UIColor(named: "LabelColorLink")
         case .labelColorRed:
             return UIColor(named: "LabelColorRed")
+        case .labelColorGreen:
+            return UIColor(named: "LabelColorGreen")
         }
     }
 }

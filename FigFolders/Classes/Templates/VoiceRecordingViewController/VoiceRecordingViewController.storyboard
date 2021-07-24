@@ -6,9 +6,19 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Voice Recording View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -18,75 +28,134 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJY-8Z-4V5">
-                                <rect key="frame" x="157" y="696" width="100" height="100"/>
-                                <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="dJY-8Z-4V5" secondAttribute="height" multiplier="1:1" id="47h-8V-WhZ"/>
-                                    <constraint firstAttribute="width" constant="100" id="tby-M3-eLr"/>
-                                </constraints>
-                                <state key="normal" title="Record">
-                                    <color key="titleShadowColor" name="Greyscale4"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTapRecordButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NHC-tW-R9d"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cq5-Ea-SqS">
-                                <rect key="frame" x="97" y="616" width="220" height="60"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4A-kk-xJf">
+                                <rect key="frame" x="0.0" y="642" width="414" height="155"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiL-Pf-ds3">
-                                        <rect key="frame" x="160" y="0.0" width="60" height="60"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJY-8Z-4V5">
+                                        <rect key="frame" x="169.5" y="80" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="CiL-Pf-ds3" secondAttribute="height" multiplier="1:1" id="mER-jx-ofB"/>
+                                            <constraint firstAttribute="width" secondItem="dJY-8Z-4V5" secondAttribute="height" multiplier="1:1" id="47h-8V-WhZ"/>
+                                            <constraint firstAttribute="width" constant="75" id="tby-M3-eLr"/>
                                         </constraints>
-                                        <state key="normal" image="trash.circle" catalog="system">
+                                        <state key="normal" image="microphone_icon">
+                                            <color key="titleShadowColor" name="Greyscale4"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTapRecordButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NHC-tW-R9d"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to start recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MH2-5p-xiu">
+                                        <rect key="frame" x="96.5" y="38" width="221.5" height="27"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="23"/>
+                                        <color key="textColor" name="Primary-Green"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dJY-8Z-4V5" secondAttribute="bottom" id="N2B-p9-AaW"/>
+                                    <constraint firstItem="dJY-8Z-4V5" firstAttribute="top" secondItem="MH2-5p-xiu" secondAttribute="bottom" constant="15" id="OuM-OQ-jWE"/>
+                                    <constraint firstItem="MH2-5p-xiu" firstAttribute="centerX" secondItem="w4A-kk-xJf" secondAttribute="centerX" id="miW-7W-7Sd"/>
+                                    <constraint firstItem="dJY-8Z-4V5" firstAttribute="centerX" secondItem="w4A-kk-xJf" secondAttribute="centerX" id="v8O-nn-QEu"/>
+                                    <constraint firstItem="MH2-5p-xiu" firstAttribute="top" secondItem="w4A-kk-xJf" secondAttribute="top" constant="38" id="veb-4B-gn9"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cq5-Ea-SqS">
+                                <rect key="frame" x="0.0" y="44" width="414" height="753"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiL-Pf-ds3">
+                                        <rect key="frame" x="248.5" y="699" width="124" height="54"/>
+                                        <color key="backgroundColor" name="Primary-Green"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="rnq-qh-zbE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
+                                        <state key="normal" title="Send">
                                             <color key="titleShadowColor" name="Greyscale5"/>
                                         </state>
                                         <connections>
-                                            <action selector="onTapDeleteButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5x7-5Q-H78"/>
+                                            <action selector="onTapSendButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PCQ-Ht-qMh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmJ-nt-Alg">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                        <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="nmJ-nt-Alg" secondAttribute="height" id="rYl-TB-Guw"/>
-                                        </constraints>
-                                        <state key="normal" image="play" catalog="system"/>
+                                        <rect key="frame" x="41.5" y="699" width="124" height="54"/>
+                                        <color key="backgroundColor" name="Greyscale5"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" name="Greyscale1"/>
+                                        </state>
                                         <connections>
-                                            <action selector="onTapPlayPauseButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ChX-ON-rYo"/>
+                                            <action selector="onTapDeleteButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Afh-sc-O3v"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6K-ND-kgr">
+                                        <rect key="frame" x="164" y="333.5" width="86" height="86"/>
+                                        <color key="backgroundColor" name="Primary-Green"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="X6K-ND-kgr" secondAttribute="height" multiplier="1:1" id="PF6-hw-cEU"/>
+                                            <constraint firstAttribute="width" constant="86" id="QhE-3A-4Xw"/>
+                                        </constraints>
+                                        <state key="normal" image="play_icon"/>
+                                        <connections>
+                                            <action selector="onTapPlayPauseButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="e88-Na-wzs"/>
+                                        </connections>
+                                    </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tdy-tm-aOJ">
+                                        <rect key="frame" x="33" y="624" width="334" height="31"/>
+                                        <connections>
+                                            <action selector="onSliderValueChange:" destination="Y6W-OH-hqX" eventType="valueChanged" id="hCi-8w-2uI"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLu-9b-qtx">
+                                        <rect key="frame" x="373" y="630" width="21" height="18"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                        <color key="textColor" name="LabelColorPrimary"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="nmJ-nt-Alg" firstAttribute="top" secondItem="Cq5-Ea-SqS" secondAttribute="top" id="36i-t0-H09"/>
-                                    <constraint firstItem="nmJ-nt-Alg" firstAttribute="leading" secondItem="Cq5-Ea-SqS" secondAttribute="leading" id="6DT-Ya-thd"/>
-                                    <constraint firstAttribute="trailing" secondItem="CiL-Pf-ds3" secondAttribute="trailing" id="9CI-Cy-7T4"/>
-                                    <constraint firstItem="CiL-Pf-ds3" firstAttribute="leading" secondItem="nmJ-nt-Alg" secondAttribute="trailing" constant="100" id="P4T-mC-rhl"/>
-                                    <constraint firstAttribute="height" constant="60" id="WGA-Q8-3ql"/>
-                                    <constraint firstItem="CiL-Pf-ds3" firstAttribute="top" secondItem="Cq5-Ea-SqS" secondAttribute="top" id="ZTY-eu-Icl"/>
+                                    <constraint firstItem="nmJ-nt-Alg" firstAttribute="centerX" secondItem="Cq5-Ea-SqS" secondAttribute="centerX" multiplier="0.5" id="1jy-m6-PKh"/>
+                                    <constraint firstItem="nmJ-nt-Alg" firstAttribute="top" secondItem="tdy-tm-aOJ" secondAttribute="bottom" constant="45" id="6N6-GI-hpQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="TLu-9b-qtx" secondAttribute="trailing" constant="20" id="CkX-nA-9mv"/>
+                                    <constraint firstItem="CiL-Pf-ds3" firstAttribute="width" secondItem="Cq5-Ea-SqS" secondAttribute="width" multiplier="0.3" id="Eur-4h-zgr"/>
+                                    <constraint firstItem="TLu-9b-qtx" firstAttribute="leading" secondItem="tdy-tm-aOJ" secondAttribute="trailing" constant="8" id="LbM-VM-6jp"/>
+                                    <constraint firstItem="nmJ-nt-Alg" firstAttribute="height" secondItem="CiL-Pf-ds3" secondAttribute="height" id="MOZ-d2-o69"/>
+                                    <constraint firstItem="tdy-tm-aOJ" firstAttribute="leading" secondItem="Cq5-Ea-SqS" secondAttribute="leading" constant="35" id="MYq-8s-7Yv"/>
+                                    <constraint firstItem="X6K-ND-kgr" firstAttribute="centerY" secondItem="Cq5-Ea-SqS" secondAttribute="centerY" id="MhP-9T-4MZ"/>
+                                    <constraint firstItem="X6K-ND-kgr" firstAttribute="centerX" secondItem="Cq5-Ea-SqS" secondAttribute="centerX" id="dnh-GR-Ysu"/>
+                                    <constraint firstItem="TLu-9b-qtx" firstAttribute="centerY" secondItem="tdy-tm-aOJ" secondAttribute="centerY" id="feS-e9-IMw"/>
                                     <constraint firstAttribute="bottom" secondItem="nmJ-nt-Alg" secondAttribute="bottom" id="g79-1s-UGN"/>
+                                    <constraint firstItem="nmJ-nt-Alg" firstAttribute="width" secondItem="CiL-Pf-ds3" secondAttribute="width" id="mIR-0i-ybA"/>
                                     <constraint firstAttribute="bottom" secondItem="CiL-Pf-ds3" secondAttribute="bottom" id="rcY-OE-bMP"/>
+                                    <constraint firstItem="CiL-Pf-ds3" firstAttribute="centerX" secondItem="Cq5-Ea-SqS" secondAttribute="centerX" multiplier="1.5" id="w9U-ag-IaM"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Greyscale1"/>
                         <constraints>
-                            <constraint firstItem="dJY-8Z-4V5" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="9lb-XP-zbR"/>
-                            <constraint firstItem="dJY-8Z-4V5" firstAttribute="top" secondItem="Cq5-Ea-SqS" secondAttribute="bottom" constant="20" id="IW4-JC-ogm"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dJY-8Z-4V5" secondAttribute="bottom" constant="66" id="NNu-5g-pkr"/>
-                            <constraint firstItem="Cq5-Ea-SqS" firstAttribute="centerX" secondItem="dJY-8Z-4V5" secondAttribute="centerX" id="Tt9-q9-S7A"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="w4A-kk-xJf" secondAttribute="bottom" constant="65" id="0rS-uS-ebo"/>
+                            <constraint firstItem="w4A-kk-xJf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="4MY-D0-a9X"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Cq5-Ea-SqS" secondAttribute="trailing" id="5V1-CB-7r3"/>
+                            <constraint firstItem="Cq5-Ea-SqS" firstAttribute="bottom" secondItem="w4A-kk-xJf" secondAttribute="bottom" id="6tF-Ec-u5s"/>
+                            <constraint firstItem="Cq5-Ea-SqS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="CVl-G6-zRY"/>
+                            <constraint firstItem="Cq5-Ea-SqS" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="cNq-Ve-Yid"/>
+                            <constraint firstItem="Cq5-Ea-SqS" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="hXJ-l2-erL"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="w4A-kk-xJf" secondAttribute="trailing" id="pcn-47-WfX"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="deleteButton" destination="CiL-Pf-ds3" id="pXP-2x-VPs"/>
-                        <outlet property="playButton" destination="nmJ-nt-Alg" id="l52-2s-tdQ"/>
+                        <outlet property="cancelButton" destination="nmJ-nt-Alg" id="Q7N-5l-gtb"/>
+                        <outlet property="playPauseButton" destination="X6K-ND-kgr" id="4gR-9d-4ZM"/>
                         <outlet property="playbackControlsContainerView" destination="Cq5-Ea-SqS" id="f1O-BX-c66"/>
                         <outlet property="recordButton" destination="dJY-8Z-4V5" id="FUk-he-aED"/>
+                        <outlet property="recordContainerView" destination="w4A-kk-xJf" id="y24-FS-iak"/>
+                        <outlet property="recordTitle" destination="MH2-5p-xiu" id="a2s-gV-1G8"/>
+                        <outlet property="sendButton" destination="CiL-Pf-ds3" id="7NG-ck-Ss7"/>
+                        <outlet property="sliderEndTime" destination="TLu-9b-qtx" id="fhT-zd-3ac"/>
+                        <outlet property="timelineSlider" destination="tdy-tm-aOJ" id="k3P-9y-Vi7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -95,16 +164,22 @@
         </scene>
     </scenes>
     <resources>
-        <image name="play" catalog="system" width="120" height="128"/>
-        <image name="trash.circle" catalog="system" width="128" height="121"/>
+        <image name="microphone_icon" width="25" height="39"/>
+        <image name="play_icon" width="27" height="31"/>
+        <namedColor name="Greyscale1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Greyscale4">
             <color red="0.3919999897480011" green="0.40799999237060547" blue="0.42699998617172241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Greyscale5">
             <color red="0.14100000262260437" green="0.15700000524520874" blue="0.17599999904632568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="LabelColorPrimary">
+            <color red="0.093999996781349182" green="0.10199999809265137" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary-Green">
+            <color red="0.14499999582767487" green="0.82700002193450928" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

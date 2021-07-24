@@ -215,6 +215,11 @@ class ChatViewController: MessagesViewController {
             viewController.imageUrl = viewModel.selectedImageUrl
         }
     }
+    
+    deinit {
+        audioProgressUpdateTimer?.invalidate()
+        debugPrint(self.description + "Released From Memory")
+    }
 }
 
 // MARK: - Message Datasource
