@@ -16,9 +16,11 @@ class LocationPickerViewController: UIViewController {
     
 // MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var currentLocationButton: UIButton!
     
     weak var delegate: LocationPickerDelegate?
     var locationFromPreviousScreen: LocationItem?
+    let locationManager = CLLocationManager()
     
     private var selectedCoordinate: CLLocationCoordinate2D?
 
@@ -26,14 +28,17 @@ class LocationPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        currentLocationButton.setRoundedCorners()
     }
     
     private func initialSetup() {
         if let locationFromPreviousScreen = locationFromPreviousScreen { // If User Opens From Chat Tapping A Location, Share Button Should Not Be Available And Selected Location Should Be Annotated
             self.title = viewModel.locationPageLocation
             setupLocationFromPreviousLocation(locationFromPreviousScreen: locationFromPreviousScreen)
+            currentLocationButton.isHidden = true
         } else { // No Location Should Be Annotated, Share Button Should Be Available
             self.title = viewModel.sendLocationPageLocation
+            currentLocationButton.isHidden = false
             setupBarButtonItems()
             setupMap()
         }
@@ -68,11 +73,30 @@ class LocationPickerViewController: UIViewController {
     @objc private func onTapMap(_ gesture: UITapGestureRecognizer) {
         let tappedLocationInView = gesture.location(in: mapView)
         let coordinate = mapView.convert(tappedLocationInView, toCoordinateFrom: mapView)
-        self.selectedCoordinate = coordinate
         setMarkAtLocation(coordinate)
     }
     
-// MARK: - Helper Methods
+    @IBAction func onTapCurrentLocation(_ sender: Any) {
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            if CLLocationManager.authorizationStatus() == .denied {
+                if let bundleId = Bundle.main.bundleIdentifier,
+                    let url = URL(string: "\(UIApplication.openSettingsURLString)&path=LOCATION/\(bundleId)") {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    // MARK: - Helper Methods
     private func setupLocationFromPreviousLocation(locationFromPreviousScreen: LocationItem) {
         let pin = MKPointAnnotation()
         pin.coordinate = locationFromPreviousScreen.location.coordinate
@@ -80,6 +104,7 @@ class LocationPickerViewController: UIViewController {
     }
     
     private func setMarkAtLocation(_ coordinate: CLLocationCoordinate2D) {
+        self.selectedCoordinate = coordinate
         mapView.annotations.forEach { annotation in
             mapView.removeAnnotation(annotation)
         }
@@ -93,5 +118,22 @@ class LocationPickerViewController: UIViewController {
         let okAction = UIAlertAction(title: viewModel.okText, style: .cancel, handler: nil)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showOnMap(location: CLLocation ) {
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        mapView.setRegion(region, animated: true)
+    }
+}
+
+// MARK: - CLLocation Manager Delegate
+extension LocationPickerViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        setMarkAtLocation(locValue)
+        let currentLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+        showOnMap(location: currentLocation)
+        locationManager.delegate = nil
     }
 }

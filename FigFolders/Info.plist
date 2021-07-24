@@ -78,5 +78,11 @@
 	<string>Please Allow Access To Record A Video</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Pleaes Allow Access To Pick A Photo From your Camera Roll</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Please Allow Access To Send Your Location</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Do you want to send your location</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Allow access to location when using app for better performance</string>
 </dict>
 </plist>
