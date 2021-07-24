@@ -29,10 +29,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4A-kk-xJf">
-                                <rect key="frame" x="0.0" y="642" width="414" height="155"/>
+                                <rect key="frame" x="0.0" y="637" width="414" height="160"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJY-8Z-4V5">
-                                        <rect key="frame" x="169.5" y="80" width="75" height="75"/>
+                                        <rect key="frame" x="169.5" y="85" width="75" height="75"/>
                                         <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dJY-8Z-4V5" secondAttribute="height" multiplier="1:1" id="47h-8V-WhZ"/>
@@ -55,7 +55,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="dJY-8Z-4V5" secondAttribute="bottom" id="N2B-p9-AaW"/>
-                                    <constraint firstItem="dJY-8Z-4V5" firstAttribute="top" secondItem="MH2-5p-xiu" secondAttribute="bottom" constant="15" id="OuM-OQ-jWE"/>
+                                    <constraint firstItem="dJY-8Z-4V5" firstAttribute="top" secondItem="MH2-5p-xiu" secondAttribute="bottom" constant="20" id="OuM-OQ-jWE"/>
                                     <constraint firstItem="MH2-5p-xiu" firstAttribute="centerX" secondItem="w4A-kk-xJf" secondAttribute="centerX" id="miW-7W-7Sd"/>
                                     <constraint firstItem="dJY-8Z-4V5" firstAttribute="centerX" secondItem="w4A-kk-xJf" secondAttribute="centerX" id="v8O-nn-QEu"/>
                                     <constraint firstItem="MH2-5p-xiu" firstAttribute="top" secondItem="w4A-kk-xJf" secondAttribute="top" constant="38" id="veb-4B-gn9"/>

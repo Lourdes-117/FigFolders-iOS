@@ -469,6 +469,7 @@ final class DatabaseManager {
         newConversationData.otherUserEmailID = otherUserEmail
         
         let latestMessage = UserLatestConversationModel()
+        latestMessage.type = message.kind.rawValue
         latestMessage.date = messageDate
         latestMessage.isRead = false
         latestMessage.message = messageString
@@ -580,6 +581,7 @@ final class DatabaseManager {
             
             let latestMesageUpdated = UserLatestConversationModel()
             latestMesageUpdated.message = self?.getMessageString(message) ?? ""
+            latestMesageUpdated.type = message.kind.rawValue
             latestMesageUpdated.isRead = false
             latestMesageUpdated.date = message.sentDate.toDateString()
             

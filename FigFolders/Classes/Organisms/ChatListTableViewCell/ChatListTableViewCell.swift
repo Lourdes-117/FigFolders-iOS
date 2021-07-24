@@ -28,7 +28,7 @@ class ChatListTableViewCell: UITableViewCell {
         
         guard let userNameString = userNameString else { return }
         userName.text = userNameString
-        recentMessage.text = latestMessage?.message
+        recentMessage.text = latestMessage?.recentMessageString
         DatabaseManager.shared.getUserDetailsForUsername(username: userNameString) { [weak self] userDetailsModel in
             guard let userDetails = userDetailsModel else { return }
             let profilePicUrl = URL(string: userDetails.profilePicUrl)

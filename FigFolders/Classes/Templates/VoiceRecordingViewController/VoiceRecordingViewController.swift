@@ -20,6 +20,8 @@ class VoiceRecordingViewController: UIViewController {
     @IBOutlet weak var timelineSlider: UISlider!
     @IBOutlet weak var sliderEndTime: UILabel!
     
+    let recordingMaxLengthAnimation = CAShapeLayer()
+    
     let viewModel = VoiceRecordingViewModel()
     
     var delegate: VoiceRecordingDelegate?
@@ -144,6 +146,34 @@ class VoiceRecordingViewController: UIViewController {
         sendButton.setTitleColor(viewModel.getSendTextColor(for: theme), for: .normal)
         playPauseButton.backgroundColor = viewModel.getAccentColor(for: theme)
     }
+    
+    private func startMaxRecordingLengthAnimation() {
+        let center = CGPoint(x: recordButton.bounds.width/2, y: recordButton.bounds.height/2)
+        recordingMaxLengthAnimation.frame = recordButton.layer.bounds
+        let radius = (recordButton.bounds.width / 2) + 10
+        let startAngle = -CGFloat.pi / 2
+        let endAngle = CGFloat.pi * 1.5
+        let circularPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        recordingMaxLengthAnimation.path = circularPath.cgPath
+        recordingMaxLengthAnimation.lineWidth = 5
+        recordingMaxLengthAnimation.fillColor = UIColor.clear.cgColor
+        recordingMaxLengthAnimation.strokeColor = UIColor.red.cgColor
+        recordingMaxLengthAnimation.strokeEnd = 0
+        recordingMaxLengthAnimation.lineCap = .round
+        recordButton.layer.addSublayer(recordingMaxLengthAnimation)
+        
+        let recordButtonCircularAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        recordButtonCircularAnimation.fromValue = 0
+        recordButtonCircularAnimation.toValue = 1
+        recordButtonCircularAnimation.duration = viewModel.maxRecordingTimeLimit
+        recordButtonCircularAnimation.fillMode = .forwards
+        recordButtonCircularAnimation.isRemovedOnCompletion = false
+        recordingMaxLengthAnimation.add(recordButtonCircularAnimation, forKey: "basicAnimation")
+    }
+    
+    private func stopMaxRecordingLengthAnimation() {
+        recordingMaxLengthAnimation.removeFromSuperlayer()
+    }
 
 // MARK: - Button Tap Actions
     @IBAction func onTapRecordButton(_ sender: Any?) {
@@ -151,6 +181,7 @@ class VoiceRecordingViewController: UIViewController {
         switch viewModel.recordingState {
         case .recording:
             audioRecorder?.record()
+            startMaxRecordingLengthAnimation()
             audioRecordingMaxLengthTimer = Timer.scheduledTimer(withTimeInterval: viewModel.maxRecordingTimeLimit, repeats: false) { [weak self] _ in
                 if self?.viewModel.recordingState != .recording { return }
                 self?.onTapRecordButton(nil)
@@ -159,6 +190,7 @@ class VoiceRecordingViewController: UIViewController {
         case .readyToSend:
             audioRecordingMaxLengthTimer?.invalidate()
             audioRecorder?.stop()
+            stopMaxRecordingLengthAnimation()
             setupAudioPlayer()
         case .readyToRecord:
             break

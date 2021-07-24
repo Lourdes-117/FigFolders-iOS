@@ -47,9 +47,20 @@ class UserConversationsModel: Encodable, Decodable {
 }
 
 class UserLatestConversationModel: Encodable, Decodable {
+    var type: String?
     var date: String?
     var isRead: Bool?
     var message: String?
+    
+    var recentMessageString: String? {
+        guard let messageType = type else { return message }
+        if messageType == MessageKindConstant().text { return message }
+        else if messageType == MessageKindConstant().audio { return MessageKindConstant().audio }
+        else if messageType == MessageKindConstant().video { return MessageKindConstant().video }
+        else if messageType == MessageKindConstant().photo { return MessageKindConstant().photo }
+        else if messageType == MessageKindConstant().location { return MessageKindConstant().location }
+        return message
+    }
 }
 
 class MessageModel: Encodable, Decodable {
