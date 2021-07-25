@@ -9,15 +9,16 @@ import UIKit
 import FirebaseAuth
 import NVActivityIndicatorView
 
-class OnboardingRegisterStepTwoViewController: UIViewController {
+class OnboardingRegisterStepTwoViewController: ViewControllerWithLoading {
     
 // MARK: - Outlets
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var emailIDTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: PasswordTextField!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var usernameTakenLabel: UILabel!
+    @IBOutlet weak var emailIDTakenLabel: UILabel!
     
     let viewModel = OnboardingRegisterStepTwoViewModel()
     
@@ -60,7 +61,8 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
     
     private func setupViews() {
         usernameTakenLabel.isHidden = true
-        view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
+        emailIDTakenLabel.isHidden = true
+        view.addGradient(from: viewModel.gradientStartColor, to: viewModel.gradientEndColor, direction: .topToBottom)
         userNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         userNameTextField.layer.cornerRadius = viewModel.borderRadius
         emailIDTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
@@ -69,6 +71,7 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
         passwordTextField.layer.cornerRadius = viewModel.borderRadius
         registerButton.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         registerButton.layer.cornerRadius = viewModel.borderRadius
+        passwordTextField.setupView()
     }
     
     private func setupDelegates() {
@@ -91,81 +94,102 @@ class OnboardingRegisterStepTwoViewController: UIViewController {
     
     private func isUsernameAvailable(completion: @escaping (Bool) -> Void) {
         guard let username = userNameTextField.text else { return }
-        DatabaseManager.shared.isUsernameAvailable(username: username, completion: completion)
+        DatabaseManager.shared.isUsernameAvailable(username: username) { [weak self] isUsernameAvailable in
+            self?.configureUsernameAvailable(isUsernameAvailable)
+            completion(isUsernameAvailable)
+        }
+    }
+    
+    private func isEmailIDAvailable(completion: @escaping (Bool) -> Void) {
+        guard let emailID = emailIDTextField.text else { return }
+        let safeEmail = UserDetailsModel.getSafeEmail(email: emailID)
+        DatabaseManager.shared.getUsernameForEmail(emailID: safeEmail) { username in
+            let isEmailIDAvailable = username == nil
+            self.configureEmailIDAvailable(isEmailIDAvailable)
+            completion(isEmailIDAvailable)
+        }
     }
     
     private func configureUsernameAvailable(_ isAvailable: Bool) {
+        usernameTakenLabel.isHidden = false
         if isAvailable {
             userNameTextField.addBorder(color: viewModel.fieldValidColor, width: viewModel.borderWidth)
-            usernameTakenLabel.isHidden = true
+            usernameTakenLabel.text = viewModel.usernameAvailable
+            usernameTakenLabel.textColor = viewModel.fieldValidColor
         } else {
             userNameTextField.addBorder(color: viewModel.fieldInvalidColor, width: viewModel.borderWidth)
-            usernameTakenLabel.isHidden = false
+            usernameTakenLabel.text = viewModel.usernameNotAvailable
+            usernameTakenLabel.textColor = viewModel.fieldInvalidColor
+        }
+    }
+    
+    private func configureEmailIDAvailable(_ isAvailable: Bool) {
+        emailIDTakenLabel.isHidden = false
+        if isAvailable {
+            emailIDTextField.addBorder(color: viewModel.fieldValidColor, width: viewModel.borderWidth)
+            emailIDTakenLabel.text = viewModel.emailIDAvailable
+            emailIDTakenLabel.textColor = viewModel.fieldValidColor
+        } else {
+            emailIDTextField.addBorder(color: viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+            emailIDTakenLabel.text = viewModel.emailIDNotAvailable
+            emailIDTakenLabel.textColor = viewModel.fieldInvalidColor
         }
     }
     
     private func registerUser() {
+        view.endEditing(true)
         guard isAllFieldsValid() else { return }
         // Activity Indicator
-        let activityBackgroundView = UIView(frame: view.frame)
-        activityBackgroundView.backgroundColor = viewModel.activityIndicatorBackgroundColor
-        let activityView = NVActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-50,
-                                                                 y: (view.frame.height/2)-50,
-                                                                 width: 100,
-                                                                 height: 100),
-                                                   type: .triangleSkewSpin,
-                                                   color: UIColor.blue,
-                                                   padding: 0)
-        activityBackgroundView.addSubview(activityView)
-        activityView.startAnimating()
-        view.addSubview(activityBackgroundView)
+        showLoadingIndicator()
         
-        // Check If Username Is Available
-        
-        isUsernameAvailable { [weak self] isAvailable in
+        // Check If Username and EmailID Is Available
+        isEmailIDAvailable { [weak self] isEmailIDAvailable in
             guard let strongSelf = self else { return }
-            strongSelf.configureUsernameAvailable(isAvailable)
-            if isAvailable {
-                // Authentication
-                FirebaseAuth.Auth.auth().createUser(withEmail: strongSelf.emailIDTextField.text ?? "", password: strongSelf.passwordTextField.text ?? "") { [weak self] _, error in
-                    guard error == nil,
-                          let strongSelf = self else {
-                        activityView.stopAnimating()
-                        activityBackgroundView.removeFromSuperview()
-                        return
-                    }
-                    let userDetails = UserDetailsModel(firstNameString: strongSelf.firstName ?? "",
-                                                       lastNameString: strongSelf.lastName ?? "",
-                                                       dateOfBirthString: strongSelf.dateOfBirth ?? "",
-                                                       phoneNumberString: strongSelf.phoneNumber ?? "",
-                                                       emailIDString: strongSelf.emailIDTextField.text ?? "",
-                                                       usernameString: strongSelf.userNameTextField.text ?? "")
-                    
-                    DatabaseManager.shared.saveUsersData(userDetails: userDetails) { success in
-                        if success {
-                            FirebaseAuth.Auth.auth().signIn(withEmail: strongSelf.emailIDTextField.text ?? "", password: strongSelf.passwordTextField.text ?? "") { _, error in
-                                guard error == nil else {
-                                    activityView.stopAnimating()
-                                    activityBackgroundView.removeFromSuperview()
-                                    return
+            strongSelf.configureEmailIDAvailable(isEmailIDAvailable)
+            strongSelf.isUsernameAvailable { [weak self] isUsernameAvailable in
+                strongSelf.configureUsernameAvailable(isUsernameAvailable)
+                if isUsernameAvailable && isEmailIDAvailable {
+                    // Authentication
+                    FirebaseAuth.Auth.auth().createUser(withEmail: strongSelf.emailIDTextField.text ?? "", password: strongSelf.passwordTextField.text ?? "") { [weak self] _, error in
+                        guard error == nil,
+                              let strongSelf = self else {
+                            self?.hideLoadingIndicatorView()
+                            return
+                        }
+                        let userDetails = UserDetailsModel(firstNameString: strongSelf.firstName ?? "",
+                                                           lastNameString: strongSelf.lastName ?? "",
+                                                           dateOfBirthString: strongSelf.dateOfBirth ?? "",
+                                                           phoneNumberString: strongSelf.phoneNumber ?? "",
+                                                           emailIDString: strongSelf.emailIDTextField.text ?? "",
+                                                           usernameString: strongSelf.userNameTextField.text ?? "",
+                                                           profilePicUrlString: "")
+                        
+                        DatabaseManager.shared.saveUsersData(userDetails: userDetails) { success in
+                            if success {
+                                FirebaseAuth.Auth.auth().signIn(withEmail: strongSelf.emailIDTextField.text ?? "", password: strongSelf.passwordTextField.text ?? "") { _, error in
+                                    guard error == nil else {
+                                        self?.hideLoadingIndicatorView()
+                                        return
+                                    }
+                                    debugPrint("Created User In Database")
+                                    UserDefaults.standard.setValue(strongSelf.firstName, forKey: StringConstants.shared.userDefaults.firstName)
+                                    UserDefaults.standard.setValue(strongSelf.lastName, forKey: StringConstants.shared.userDefaults.lastName)
+                                    UserDefaults.standard.setValue(UserDetailsModel.getSafeEmail(email:strongSelf.emailIDTextField.text ?? ""), forKey: StringConstants.shared.userDefaults.emailID)
+                                    UserDefaults.standard.setValue(strongSelf.phoneNumber, forKey: StringConstants.shared.userDefaults.phoneNumber)
+                                    UserDefaults.standard.setValue(strongSelf.dateOfBirth, forKey: StringConstants.shared.userDefaults.dateOfBirth)
+                                    UserDefaults.standard.setValue(strongSelf.userNameTextField.text ?? "", forKey: StringConstants.shared.userDefaults.userName)
+                                    
+                                    self?.hideLoadingIndicatorView()
+                                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(HomeTabBarController.initiateVC())
+                                    debugPrint("Login Successful")
                                 }
-                                debugPrint("Created User In Database")
-                                UserDefaults.standard.setValue(strongSelf.firstName, forKey: StringConstants.shared.userDefaults.firstName)
-                                UserDefaults.standard.setValue(strongSelf.lastName, forKey: StringConstants.shared.userDefaults.lastName)
-                                UserDefaults.standard.setValue(UserDetailsModel.getSafeEmail(email:strongSelf.emailIDTextField.text ?? ""), forKey: StringConstants.shared.userDefaults.emailID)
-                                UserDefaults.standard.setValue(strongSelf.phoneNumber, forKey: StringConstants.shared.userDefaults.phoneNumber)
-                                UserDefaults.standard.setValue(strongSelf.dateOfBirth, forKey: StringConstants.shared.userDefaults.dateOfBirth)
-                                UserDefaults.standard.setValue(strongSelf.userNameTextField.text ?? "", forKey: StringConstants.shared.userDefaults.userName)
                                 
-                                activityView.stopAnimating()
-                                activityBackgroundView.removeFromSuperview()
-                                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(HomeTabBarController.initiateVC())
-                                debugPrint("Login Successful")
+                                debugPrint("Register Successful")
                             }
-                            
-                            debugPrint("Register Successful")
                         }
                     }
+                } else {
+                    self?.hideLoadingIndicatorView()
                 }
             }
         }
@@ -202,7 +226,7 @@ extension OnboardingRegisterStepTwoViewController: UITextFieldDelegate {
         if userNameTextField.isFirstResponder {
             emailIDTextField.becomeFirstResponder()
         } else if emailIDTextField.isFirstResponder {
-            passwordTextField.becomeFirstResponder()
+            _ = passwordTextField.becomeFirstResponder()
         } else if passwordTextField.isFirstResponder {
             passwordTextField.resignFirstResponder()
             registerUser()
@@ -211,8 +235,16 @@ extension OnboardingRegisterStepTwoViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        isUsernameAvailable { [weak self] isAvailable in
-            self?.configureUsernameAvailable(isAvailable)
+        if textField == userNameTextField {
+            if !viewModel.isUsernameValid(username: userNameTextField.text) { return }
+            isUsernameAvailable { [weak self] isAvailable in
+                self?.configureUsernameAvailable(isAvailable)
+            }
+        } else if textField == emailIDTextField {
+            if !viewModel.isEmailValid(email: emailIDTextField.text) { return }
+            isEmailIDAvailable { [weak self] isAvailable in
+                self?.configureEmailIDAvailable(isAvailable)
+            }
         }
     }
 }

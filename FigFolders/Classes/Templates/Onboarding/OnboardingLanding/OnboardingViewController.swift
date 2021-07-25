@@ -36,7 +36,7 @@ class OnboardingViewController: UIViewController {
     }
     
     private func setupViews() {
-        view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
+        view.addGradient(from: viewModel.gradientStartColor, to: viewModel.gradientEndColor, direction: .topToBottom)
         loginButton.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         loginButton.layer.cornerRadius = viewModel.borderRadius
         signupButton.layer.cornerRadius = viewModel.borderRadius

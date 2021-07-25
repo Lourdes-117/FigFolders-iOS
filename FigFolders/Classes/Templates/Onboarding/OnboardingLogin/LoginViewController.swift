@@ -9,13 +9,15 @@ import UIKit
 import FirebaseAuth
 import NVActivityIndicatorView
 
-class LoginViewController: UIViewController {
+class LoginViewController: ViewControllerWithLoading {
 // MARK: - Outlets
     @IBOutlet weak var emailIDTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: PasswordTextField!
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var forgotPasswordContentView: UIView!
+    @IBOutlet weak var errorSigningInLabel: UILabel!
+    
     var isUserVerified = false
     
     weak var delegate: UserVerificationDelegate?
@@ -66,16 +68,18 @@ class LoginViewController: UIViewController {
     fileprivate func initialSetup() {
         setupView()
         navigationController?.navigationBar.isHidden = false
+        view.addGradient(from: viewModel.gradientStartColor, to: viewModel.gradientEndColor, direction: .topToBottom)
     }
     
     fileprivate func setupView() {
         if shouldActAsVerificationScreen {
             forgotPasswordContentView.isHidden = true
         }
-        view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
+        errorSigningInLabel.isHidden = true
         emailIDTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         emailIDTextField.layer.cornerRadius = viewModel.borderRadius
         passwordTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
+        passwordTextField.setupView()
         passwordTextField.layer.cornerRadius = viewModel.borderRadius
         signinButton.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         signinButton.layer.cornerRadius = viewModel.borderRadius
@@ -126,32 +130,24 @@ class LoginViewController: UIViewController {
     }
     
     fileprivate func authenticateUser(email: String?, password: String?) {
+        errorSigningInLabel.isHidden = true
         guard validateInputs() else { return }
         
         // Activity Indicator
-        let activityBackgroundView = UIView(frame: view.frame)
-        activityBackgroundView.backgroundColor = viewModel.activityIndicatorBackgroundColor
-        let activityView = NVActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-50,
-                                                                 y: (view.frame.height/2)-50,
-                                                                 width: 100,
-                                                                 height: 100),
-                                                   type: .triangleSkewSpin,
-                                                   color: UIColor.blue,
-                                                   padding: 0)
-        activityBackgroundView.addSubview(activityView)
-        activityView.startAnimating()
-        view.addSubview(activityBackgroundView)
+        showLoadingIndicator()
         
         // Authenticate
         FirebaseAuth.Auth.auth().signIn(withEmail: emailIDTextField.text ?? "", password: passwordTextField.text ?? "") { [weak self] _, error in
             guard error == nil else {
-                activityView.stopAnimating()
-                activityBackgroundView.removeFromSuperview()
+                guard let strongSelf = self else { return }
+                strongSelf.errorSigningInLabel.isHidden = false
+                strongSelf.emailIDTextField.addBorder(color: strongSelf.viewModel.borderColor, width: strongSelf.viewModel.borderWidth)
+                strongSelf.passwordTextField.addBorder(color: strongSelf.viewModel.borderColor, width: strongSelf.viewModel.borderWidth)
+                self?.hideLoadingIndicatorView()
                 return
             }
             self?.isUserVerified = true
-            activityView.stopAnimating()
-            activityBackgroundView.removeFromSuperview()
+            self?.hideLoadingIndicatorView()
             if self?.shouldActAsVerificationScreen ?? false {
                 self?.dismiss(animated: true, completion: {
                     self?.delegate?.verificationSuccessful()
@@ -177,7 +173,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if emailIDTextField.isFirstResponder {
-            passwordTextField.becomeFirstResponder()
+            _ = passwordTextField.becomeFirstResponder()
         } else if passwordTextField.isFirstResponder {
             authenticateUser(email: emailIDTextField.text, password: passwordTextField.text)
             view.endEditing(true)

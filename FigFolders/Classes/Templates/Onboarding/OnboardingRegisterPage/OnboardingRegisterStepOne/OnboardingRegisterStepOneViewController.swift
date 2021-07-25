@@ -39,6 +39,7 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     private func initialSetup() {
         navigationController?.navigationBar.isHidden = false
         setupViews()
+        view.addGradient(from: viewModel.gradientStartColor, to: viewModel.gradientEndColor, direction: .topToBottom)
         setupDelegates()
     }
     
@@ -53,7 +54,6 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     
     private func setupViews() {
         datePicker.maximumDate = Date()
-        view.addGradient(from: UIColor.white, to: UIColor.systemGreen, direction: .topToBottom)
         firstNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         firstNameTextField.layer.cornerRadius = viewModel.borderRadius
         lastNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)

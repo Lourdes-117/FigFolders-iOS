@@ -8,12 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		2DA5B53E39413BB4E715138D /* Pods_FigFolders.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */; };
+		AE0E3CD126713046002D2D29 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E3CCF26713046002D2D29 /* ChatListTableViewCell.swift */; };
+		AE0E3CD226713046002D2D29 /* ChatListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE0E3CD026713046002D2D29 /* ChatListTableViewCell.xib */; };
+		AE0E3CD426714AC8002D2D29 /* StructIterationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E3CD326714AC8002D2D29 /* StructIterationProtocol.swift */; };
+		AE0E3CD626715053002D2D29 /* ChatListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E3CD526715053002D2D29 /* ChatListTableViewModel.swift */; };
+		AE0E3CD826715252002D2D29 /* NSLayoutConstraintUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E3CD726715252002D2D29 /* NSLayoutConstraintUtility.swift */; };
+		AE1177B5266CD57F0031FEBA /* Color-Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */; };
+		AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */; };
+		AE1177B9266CEC930031FEBA /* HomeTabControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */; };
 		AE16D8922652DA4D00000BB5 /* HamburgerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */; };
 		AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */; };
 		AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */; };
 		AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */; };
+		AE224B67268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE224B66268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard */; };
+		AE224B69268FB2BA003CE3E2 /* VoiceRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE224B68268FB2BA003CE3E2 /* VoiceRecordingViewController.swift */; };
+		AE224B6B268FB64A003CE3E2 /* VoiceRecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE224B6A268FB64A003CE3E2 /* VoiceRecordingViewModel.swift */; };
 		AE27EB44264EE66000C34CBD /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB43264EE66000C34CBD /* StringUtility.swift */; };
 		AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27EB45264EE6A000C34CBD /* StringConstants.swift */; };
+		AE3F86A8267BBA1100B4D814 /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F86A6267BBA1100B4D814 /* ImageViewerViewController.swift */; };
+		AE3F86A9267BBA1100B4D814 /* ImageViewerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3F86A7267BBA1100B4D814 /* ImageViewerViewController.storyboard */; };
+		AE3F86AB267BBC0C00B4D814 /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F86AA267BBC0C00B4D814 /* ImageZoomView.swift */; };
 		AE66557126580B76004DA48A /* DecodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE66557026580B76004DA48A /* DecodableUtility.swift */; };
 		AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6B944626542E90006463E1 /* ProfileViewController.swift */; };
 		AE6B944B26542EAF006463E1 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE6B944A26542EAF006463E1 /* ProfileViewController.storyboard */; };
@@ -22,16 +36,31 @@
 		AE7A26C1265056390057D454 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A26C0265056390057D454 /* HomeTabBarController.swift */; };
 		AE7A26C3265056FE0057D454 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */; };
 		AE7A26C5265057120057D454 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A26C4265057120057D454 /* HomeViewController.swift */; };
+		AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85160F26A0A3310093E732 /* TimeIntervalUtility.swift */; };
 		AE861B25264FB75D00E708D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE861B24264FB75D00E708D7 /* GoogleService-Info.plist */; };
 		AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B26264FBCF400E708D7 /* DateUtility.swift */; };
 		AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */; };
 		AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */; };
+		AE89D4CB2665581000CF0439 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE89D4CA2665581000CF0439 /* PasswordTextField.swift */; };
+		AE8AE516267D11AE009065E2 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8AE515267D11AE009065E2 /* LocationPickerViewController.swift */; };
+		AE8AE518267D11E5009065E2 /* LocationPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8AE517267D11E5009065E2 /* LocationPickerViewController.storyboard */; };
+		AE8AE51A267D1242009065E2 /* LocationPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8AE519267D1242009065E2 /* LocationPickerViewModel.swift */; };
+		AE94D9152667FFDF00D6E921 /* ChatListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE94D9142667FFDF00D6E921 /* ChatListViewController.storyboard */; };
+		AE94D9172667FFEF00D6E921 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94D9162667FFEF00D6E921 /* ChatListViewController.swift */; };
 		AE94E070265306360020CB95 /* HamburgermenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */; };
 		AE94E071265306360020CB95 /* HamburgermenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE94E06F265306360020CB95 /* HamburgermenuTableViewCell.xib */; };
 		AE94E07326530FC80020CB95 /* UILabelUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE94E07226530FC80020CB95 /* UILabelUtility.swift */; };
 		AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE987711264AFE4700064A7D /* LoginViewController.swift */; };
 		AE987714264AFE5400064A7D /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE987713264AFE5400064A7D /* LoginViewController.storyboard */; };
 		AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */; };
+		AE9D2345266B698B005B5C55 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D2344266B698B005B5C55 /* ChatListViewModel.swift */; };
+		AE9D2348266B6C56005B5C55 /* SearchChatViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9D2347266B6C56005B5C55 /* SearchChatViewController.storyboard */; };
+		AE9D234A266B6C81005B5C55 /* SearchChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D2349266B6C81005B5C55 /* SearchChatViewController.swift */; };
+		AE9D234D266B6E60005B5C55 /* PullDownTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D234C266B6E60005B5C55 /* PullDownTopBarView.swift */; };
+		AE9D234F266B6E6F005B5C55 /* PullDownTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9D234E266B6E6F005B5C55 /* PullDownTopBarView.xib */; };
+		AE9D2351266B7D2A005B5C55 /* SearchChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D2350266B7D2A005B5C55 /* SearchChatViewModel.swift */; };
+		AE9DC66A2662DA42001B9392 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DC6692662DA42001B9392 /* StorageManager.swift */; };
+		AE9DC66C2662E695001B9392 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DC66B2662E695001B9392 /* UIImageExtension.swift */; };
 		AEA197712649933000D0D181 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197702649933000D0D181 /* AppDelegate.swift */; };
 		AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197722649933000D0D181 /* SceneDelegate.swift */; };
 		AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197742649933000D0D181 /* OnboardingViewController.swift */; };
@@ -45,7 +74,11 @@
 		AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197952649A07E00D0D181 /* OnboardingCollectionViewCell.swift */; };
 		AEA197982649A07E00D0D181 /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA197962649A07E00D0D181 /* OnboardingCollectionViewCell.xib */; };
 		AEBB86812656EB4400D2476B /* ViewControllerWithLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB86802656EB4400D2476B /* ViewControllerWithLoading.swift */; };
+		AEC7743E26791CCD00EEEED0 /* ChatViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC7743D26791CCD00EEEED0 /* ChatViewController.storyboard */; };
+		AEC7744026791CE200EEEED0 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC7743F26791CE200EEEED0 /* ChatViewController.swift */; };
+		AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC774412679270300EEEED0 /* ChatViewModel.swift */; };
 		AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */; };
+		AEE25F5226922E080021ABDB /* AudioMessageCellUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */; };
 		AEF84243264D83CF00FB8003 /* ResetPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF84242264D83CF00FB8003 /* ResetPasswordViewController.storyboard */; };
 		AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF84244264D83ED00FB8003 /* ResetPasswordViewController.swift */; };
 		AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84261264D8EAF00FB8003 /* Roboto-Medium.ttf */; };
@@ -75,12 +108,26 @@
 		00592EEACF6E3FE38EB02F8F /* Pods_FigFolders.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FigFolders.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F27D2551E5368249C37D5ED /* Pods-FigFolders.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FigFolders.debug.xcconfig"; path = "Target Support Files/Pods-FigFolders/Pods-FigFolders.debug.xcconfig"; sourceTree = "<group>"; };
 		6534D6FF9EF3121470874BD9 /* Pods-FigFolders.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FigFolders.release.xcconfig"; path = "Target Support Files/Pods-FigFolders/Pods-FigFolders.release.xcconfig"; sourceTree = "<group>"; };
+		AE0E3CCF26713046002D2D29 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
+		AE0E3CD026713046002D2D29 /* ChatListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListTableViewCell.xib; sourceTree = "<group>"; };
+		AE0E3CD326714AC8002D2D29 /* StructIterationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructIterationProtocol.swift; sourceTree = "<group>"; };
+		AE0E3CD526715053002D2D29 /* ChatListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewModel.swift; sourceTree = "<group>"; };
+		AE0E3CD726715252002D2D29 /* NSLayoutConstraintUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NSLayoutConstraintUtility.swift; path = ../../../../../../NSLayoutConstraintUtility.swift; sourceTree = "<group>"; };
+		AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color-Palette.xcassets"; sourceTree = "<group>"; };
+		AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabControllerViewModel.swift; sourceTree = "<group>"; };
 		AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuView.swift; sourceTree = "<group>"; };
 		AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgerMenuView.xib; sourceTree = "<group>"; };
 		AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewModel.swift; sourceTree = "<group>"; };
 		AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerViewModel.swift; sourceTree = "<group>"; };
+		AE224B66268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VoiceRecordingViewController.storyboard; sourceTree = "<group>"; };
+		AE224B68268FB2BA003CE3E2 /* VoiceRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecordingViewController.swift; sourceTree = "<group>"; };
+		AE224B6A268FB64A003CE3E2 /* VoiceRecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecordingViewModel.swift; sourceTree = "<group>"; };
 		AE27EB43264EE66000C34CBD /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		AE27EB45264EE6A000C34CBD /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		AE3F86A6267BBA1100B4D814 /* ImageViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
+		AE3F86A7267BBA1100B4D814 /* ImageViewerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewerViewController.storyboard; sourceTree = "<group>"; };
+		AE3F86AA267BBC0C00B4D814 /* ImageZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
 		AE66557026580B76004DA48A /* DecodableUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableUtility.swift; sourceTree = "<group>"; };
 		AE6B944626542E90006463E1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AE6B944A26542EAF006463E1 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
@@ -89,16 +136,31 @@
 		AE7A26C0265056390057D454 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		AE7A26C4265057120057D454 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AE85160F26A0A3310093E732 /* TimeIntervalUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalUtility.swift; sourceTree = "<group>"; };
 		AE861B24264FB75D00E708D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AE861B26264FBCF400E708D7 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModel.swift; sourceTree = "<group>"; };
 		AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		AE89D4CA2665581000CF0439 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		AE8AE515267D11AE009065E2 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
+		AE8AE517267D11E5009065E2 /* LocationPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationPickerViewController.storyboard; sourceTree = "<group>"; };
+		AE8AE519267D1242009065E2 /* LocationPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewModel.swift; sourceTree = "<group>"; };
+		AE94D9142667FFDF00D6E921 /* ChatListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatListViewController.storyboard; sourceTree = "<group>"; };
+		AE94D9162667FFEF00D6E921 /* ChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgermenuTableViewCell.swift; sourceTree = "<group>"; };
 		AE94E06F265306360020CB95 /* HamburgermenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgermenuTableViewCell.xib; sourceTree = "<group>"; };
 		AE94E07226530FC80020CB95 /* UILabelUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelUtility.swift; sourceTree = "<group>"; };
 		AE987711264AFE4700064A7D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AE987713264AFE5400064A7D /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtility.swift; sourceTree = "<group>"; };
+		AE9D2344266B698B005B5C55 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		AE9D2347266B6C56005B5C55 /* SearchChatViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchChatViewController.storyboard; sourceTree = "<group>"; };
+		AE9D2349266B6C81005B5C55 /* SearchChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChatViewController.swift; sourceTree = "<group>"; };
+		AE9D234C266B6E60005B5C55 /* PullDownTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullDownTopBarView.swift; sourceTree = "<group>"; };
+		AE9D234E266B6E6F005B5C55 /* PullDownTopBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullDownTopBarView.xib; sourceTree = "<group>"; };
+		AE9D2350266B7D2A005B5C55 /* SearchChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChatViewModel.swift; sourceTree = "<group>"; };
+		AE9DC6692662DA42001B9392 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		AE9DC66B2662E695001B9392 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		AEA1976D2649933000D0D181 /* FigFolders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FigFolders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA197702649933000D0D181 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEA197722649933000D0D181 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +176,11 @@
 		AEA197952649A07E00D0D181 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		AEA197962649A07E00D0D181 /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		AEBB86802656EB4400D2476B /* ViewControllerWithLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWithLoading.swift; sourceTree = "<group>"; };
+		AEC7743D26791CCD00EEEED0 /* ChatViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatViewController.storyboard; sourceTree = "<group>"; };
+		AEC7743F26791CE200EEEED0 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		AEC774412679270300EEEED0 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableUtility.swift; sourceTree = "<group>"; };
+		AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessageCellUtility.swift; sourceTree = "<group>"; };
 		AEF84242264D83CF00FB8003 /* ResetPasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResetPasswordViewController.storyboard; sourceTree = "<group>"; };
 		AEF84244264D83ED00FB8003 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		AEF84261264D8EAF00FB8003 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -160,6 +226,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AE0E3CCE26712F42002D2D29 /* ChatListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE0E3CD026713046002D2D29 /* ChatListTableViewCell.xib */,
+				AE0E3CD526715053002D2D29 /* ChatListTableViewModel.swift */,
+				AE0E3CCF26713046002D2D29 /* ChatListTableViewCell.swift */,
+			);
+			path = ChatListTableViewCell;
+			sourceTree = "<group>";
+		};
+		AE1177B3266CD54B0031FEBA /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				AEA197792649933400D0D181 /* Assets.xcassets */,
+				AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */,
+				AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		AE16D8902652DA1A00000BB5 /* HamburgerMenuView */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +266,25 @@
 			path = HamburgerMenuTableViewCell;
 			sourceTree = "<group>";
 		};
+		AE224B65268FB287003CE3E2 /* VoiceRecordingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE224B66268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard */,
+				AE224B6A268FB64A003CE3E2 /* VoiceRecordingViewModel.swift */,
+				AE224B68268FB2BA003CE3E2 /* VoiceRecordingViewController.swift */,
+			);
+			path = VoiceRecordingViewController;
+			sourceTree = "<group>";
+		};
+		AE3F86A5267BBA1100B4D814 /* ImageViewerController */ = {
+			isa = PBXGroup;
+			children = (
+				AE3F86A7267BBA1100B4D814 /* ImageViewerViewController.storyboard */,
+				AE3F86A6267BBA1100B4D814 /* ImageViewerViewController.swift */,
+			);
+			path = ImageViewerController;
+			sourceTree = "<group>";
+		};
 		AE6B944526542E17006463E1 /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +300,7 @@
 			children = (
 				AE7A26BD265055770057D454 /* HomeViewController */,
 				AE7A26BE265055EA0057D454 /* HomeTabBarController.storyboard */,
+				AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */,
 				AE7A26C0265056390057D454 /* HomeTabBarController.swift */,
 			);
 			path = HomeTabBar;
@@ -222,8 +328,39 @@
 			isa = PBXGroup;
 			children = (
 				AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */,
+				AE9DC6692662DA42001B9392 /* StorageManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		AE8AE514267D118E009065E2 /* LocationPickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE8AE517267D11E5009065E2 /* LocationPickerViewController.storyboard */,
+				AE8AE519267D1242009065E2 /* LocationPickerViewModel.swift */,
+				AE8AE515267D11AE009065E2 /* LocationPickerViewController.swift */,
+			);
+			path = LocationPickerViewController;
+			sourceTree = "<group>";
+		};
+		AE94D9122667FF9500D6E921 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				AE94D9132667FFBF00D6E921 /* ChatListScreen */,
+				AE9D2346266B6C0C005B5C55 /* SearchChatScreen */,
+				AEC7743C26791CB600EEEED0 /* ChatViewController */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		AE94D9132667FFBF00D6E921 /* ChatListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AE94D9142667FFDF00D6E921 /* ChatListViewController.storyboard */,
+				AE94D9162667FFEF00D6E921 /* ChatListViewController.swift */,
+				AE9D2344266B698B005B5C55 /* ChatListViewModel.swift */,
+			);
+			path = ChatListScreen;
 			sourceTree = "<group>";
 		};
 		AE98770F264AFDC900064A7D /* OnboardingLanding */ = {
@@ -244,6 +381,25 @@
 				AE987711264AFE4700064A7D /* LoginViewController.swift */,
 			);
 			path = OnboardingLogin;
+			sourceTree = "<group>";
+		};
+		AE9D2346266B6C0C005B5C55 /* SearchChatScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AE9D2347266B6C56005B5C55 /* SearchChatViewController.storyboard */,
+				AE9D2349266B6C81005B5C55 /* SearchChatViewController.swift */,
+				AE9D2350266B7D2A005B5C55 /* SearchChatViewModel.swift */,
+			);
+			name = SearchChatScreen;
+			sourceTree = "<group>";
+		};
+		AE9D234B266B6E1E005B5C55 /* PullDownTopBar */ = {
+			isa = PBXGroup;
+			children = (
+				AE9D234E266B6E6F005B5C55 /* PullDownTopBarView.xib */,
+				AE9D234C266B6E60005B5C55 /* PullDownTopBarView.swift */,
+			);
+			path = PullDownTopBar;
 			sourceTree = "<group>";
 		};
 		AEA197642649933000D0D181 = {
@@ -291,9 +447,13 @@
 		AEA197852649936400D0D181 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				AE94D9122667FF9500D6E921 /* Chats */,
 				AEA1979326499E9E00D0D181 /* Onboarding */,
 				AE7A26BC265055590057D454 /* HomeTabBar */,
 				AE6B944526542E17006463E1 /* ProfilePage */,
+				AE3F86A5267BBA1100B4D814 /* ImageViewerController */,
+				AE8AE514267D118E009065E2 /* LocationPickerViewController */,
+				AE224B65268FB287003CE3E2 /* VoiceRecordingViewController */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -305,7 +465,7 @@
 				AEF84246264D84B200FB8003 /* Fonts */,
 				AEA1979026499AC600D0D181 /* Utilities */,
 				AEBB867F2656EB2700D2476B /* CustomClasses */,
-				AEA197792649933400D0D181 /* Assets.xcassets */,
+				AE1177B3266CD54B0031FEBA /* Assets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -322,6 +482,8 @@
 		AEA19788264995EB00D0D181 /* Organisms */ = {
 			isa = PBXGroup;
 			children = (
+				AE0E3CCE26712F42002D2D29 /* ChatListTableViewCell */,
+				AE9D234B266B6E1E005B5C55 /* PullDownTopBar */,
 				AEA19789264995FB00D0D181 /* OnboardingCollectionView */,
 				AE16D8902652DA1A00000BB5 /* HamburgerMenuView */,
 			);
@@ -349,6 +511,11 @@
 				AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */,
 				AE66557026580B76004DA48A /* DecodableUtility.swift */,
 				AE94E07226530FC80020CB95 /* UILabelUtility.swift */,
+				AE9DC66B2662E695001B9392 /* UIImageExtension.swift */,
+				AE0E3CD326714AC8002D2D29 /* StructIterationProtocol.swift */,
+				AE0E3CD726715252002D2D29 /* NSLayoutConstraintUtility.swift */,
+				AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */,
+				AE85160F26A0A3310093E732 /* TimeIntervalUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -377,8 +544,20 @@
 			isa = PBXGroup;
 			children = (
 				AEBB86802656EB4400D2476B /* ViewControllerWithLoading.swift */,
+				AE89D4CA2665581000CF0439 /* PasswordTextField.swift */,
+				AE3F86AA267BBC0C00B4D814 /* ImageZoomView.swift */,
 			);
 			path = CustomClasses;
+			sourceTree = "<group>";
+		};
+		AEC7743C26791CB600EEEED0 /* ChatViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AEC7743D26791CCD00EEEED0 /* ChatViewController.storyboard */,
+				AEC774412679270300EEEED0 /* ChatViewModel.swift */,
+				AEC7743F26791CE200EEEED0 /* ChatViewController.swift */,
+			);
+			path = ChatViewController;
 			sourceTree = "<group>";
 		};
 		AEF2E270264C49C80004B8BB /* OnboardingPasswordReset */ = {
@@ -468,6 +647,7 @@
 				AEA1976A2649933000D0D181 /* Frameworks */,
 				AEA1976B2649933000D0D181 /* Resources */,
 				E8196463E8EFCD05CF84DEE2 /* [CP] Embed Pods Frameworks */,
+				AE036EB5267F29720001E005 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -516,11 +696,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEF84271264D8EAF00FB8003 /* Roboto-ThinItalic.ttf in Resources */,
+				AEC7743E26791CCD00EEEED0 /* ChatViewController.storyboard in Resources */,
+				AE94D9152667FFDF00D6E921 /* ChatListViewController.storyboard in Resources */,
 				AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */,
 				AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */,
+				AE3F86A9267BBA1100B4D814 /* ImageViewerViewController.storyboard in Resources */,
 				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
+				AE1177B5266CD57F0031FEBA /* Color-Palette.xcassets in Resources */,
+				AE224B67268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard in Resources */,
 				AE94E071265306360020CB95 /* HamburgermenuTableViewCell.xib in Resources */,
+				AE9D234F266B6E6F005B5C55 /* PullDownTopBarView.xib in Resources */,
 				AEA1977D2649933400D0D181 /* LaunchScreen.storyboard in Resources */,
+				AE0E3CD226713046002D2D29 /* ChatListTableViewCell.xib in Resources */,
 				AEF8426F264D8EAF00FB8003 /* Roboto-Regular.ttf in Resources */,
 				AEF84289264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard in Resources */,
 				AEF84272264D8EAF00FB8003 /* Roboto-BoldItalic.ttf in Resources */,
@@ -538,10 +725,12 @@
 				AEF84278264D8EAF00FB8003 /* Roboto-Black.ttf in Resources */,
 				AEA1978D2649970800D0D181 /* OnboardingCollectionView.xib in Resources */,
 				AEA197982649A07E00D0D181 /* OnboardingCollectionViewCell.xib in Resources */,
+				AE9D2348266B6C56005B5C55 /* SearchChatViewController.storyboard in Resources */,
 				AE7A26C3265056FE0057D454 /* HomeViewController.storyboard in Resources */,
 				AE861B25264FB75D00E708D7 /* GoogleService-Info.plist in Resources */,
 				AEF84270264D8EAF00FB8003 /* Roboto-MediumItalic.ttf in Resources */,
 				AEF8426E264D8EAF00FB8003 /* Roboto-Light.ttf in Resources */,
+				AE8AE518267D11E5009065E2 /* LocationPickerViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +759,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AE036EB5267F29720001E005 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		E8196463E8EFCD05CF84DEE2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -595,35 +803,59 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE7A26C5265057120057D454 /* HomeViewController.swift in Sources */,
+				AE8AE51A267D1242009065E2 /* LocationPickerViewModel.swift in Sources */,
 				AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */,
+				AEE25F5226922E080021ABDB /* AudioMessageCellUtility.swift in Sources */,
+				AE94D9172667FFEF00D6E921 /* ChatListViewController.swift in Sources */,
+				AE224B69268FB2BA003CE3E2 /* VoiceRecordingViewController.swift in Sources */,
+				AEC7744026791CE200EEEED0 /* ChatViewController.swift in Sources */,
+				AE9D2345266B698B005B5C55 /* ChatListViewModel.swift in Sources */,
+				AE224B6B268FB64A003CE3E2 /* VoiceRecordingViewModel.swift in Sources */,
 				AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */,
 				AEA197712649933000D0D181 /* AppDelegate.swift in Sources */,
+				AE0E3CD126713046002D2D29 /* ChatListTableViewCell.swift in Sources */,
+				AE9D2351266B7D2A005B5C55 /* SearchChatViewModel.swift in Sources */,
 				AEF8428D264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift in Sources */,
 				AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */,
 				AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */,
 				AEA1979226499AD800D0D181 /* UIViewUtility.swift in Sources */,
+				AE8AE516267D11AE009065E2 /* LocationPickerViewController.swift in Sources */,
 				AEBB86812656EB4400D2476B /* ViewControllerWithLoading.swift in Sources */,
 				AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */,
+				AE0E3CD826715252002D2D29 /* NSLayoutConstraintUtility.swift in Sources */,
 				AE94E07326530FC80020CB95 /* UILabelUtility.swift in Sources */,
 				AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */,
+				AE9D234A266B6C81005B5C55 /* SearchChatViewController.swift in Sources */,
 				AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */,
 				AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */,
+				AE3F86AB267BBC0C00B4D814 /* ImageZoomView.swift in Sources */,
 				AE66557126580B76004DA48A /* DecodableUtility.swift in Sources */,
 				AEA1978F26499A0B00D0D181 /* OnboardingCollectionViewModel.swift in Sources */,
 				AE6B944D26542EC4006463E1 /* ProfileViewModel.swift in Sources */,
+				AE0E3CD426714AC8002D2D29 /* StructIterationProtocol.swift in Sources */,
+				AE9DC66A2662DA42001B9392 /* StorageManager.swift in Sources */,
 				AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */,
+				AE3F86A8267BBA1100B4D814 /* ImageViewerViewController.swift in Sources */,
 				AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */,
 				AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */,
+				AE89D4CB2665581000CF0439 /* PasswordTextField.swift in Sources */,
+				AE1177B9266CEC930031FEBA /* HomeTabControllerViewModel.swift in Sources */,
 				AEF8427C264D936500FB8003 /* LoginViewModel.swift in Sources */,
 				AEF8427E264D940800FB8003 /* ResetPasswordViewModel.swift in Sources */,
+				AE9DC66C2662E695001B9392 /* UIImageExtension.swift in Sources */,
 				AEF84286264DA15300FB8003 /* OnboardingRegisterStepOneViewModel.swift in Sources */,
 				AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */,
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
+				AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */,
+				AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */,
+				AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */,
 				AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */,
+				AE9D234D266B6E60005B5C55 /* PullDownTopBarView.swift in Sources */,
 				AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */,
 				AE7A26C1265056390057D454 /* HomeTabBarController.swift in Sources */,
 				AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */,
+				AE0E3CD626715053002D2D29 /* ChatListTableViewModel.swift in Sources */,
 				AEA1978B264996E500D0D181 /* OnboardingCollectionView.swift in Sources */,
 				AE94E070265306360020CB95 /* HamburgermenuTableViewCell.swift in Sources */,
 				AE16D8922652DA4D00000BB5 /* HamburgerMenuView.swift in Sources */,
@@ -687,7 +919,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

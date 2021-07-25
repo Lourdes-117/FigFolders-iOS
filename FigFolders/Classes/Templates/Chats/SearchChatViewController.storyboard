@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Chat View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SearchChatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="SearchChatViewController" customModule="FigFolders" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TqZ-So-7ed">
+                                <rect key="frame" x="0.0" y="111" width="414" height="751"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVJ-6c-pAc" customClass="PullDownTopBarView" customModule="FigFolders" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="eB3-H8-oYM"/>
+                                </constraints>
+                            </view>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for a Username" translatesAutoresizingMaskIntoConstraints="NO" id="iDB-U3-Vhv">
+                                <rect key="frame" x="0.0" y="55" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TqZ-So-7ed" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="OFR-Hs-UKA"/>
+                            <constraint firstItem="iDB-U3-Vhv" firstAttribute="top" secondItem="iVJ-6c-pAc" secondAttribute="bottom" id="PIE-ZH-6DI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="TqZ-So-7ed" secondAttribute="bottom" id="VKd-JL-B9q"/>
+                            <constraint firstItem="iVJ-6c-pAc" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="ZBy-yS-Fdx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TqZ-So-7ed" secondAttribute="trailing" id="c4c-jl-wVu"/>
+                            <constraint firstItem="iDB-U3-Vhv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gDe-ue-r8e"/>
+                            <constraint firstItem="iDB-U3-Vhv" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="gpN-nM-6d3"/>
+                            <constraint firstItem="TqZ-So-7ed" firstAttribute="top" secondItem="iDB-U3-Vhv" secondAttribute="bottom" id="iUv-GO-Tdt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iVJ-6c-pAc" secondAttribute="trailing" id="lgy-6r-5Xk"/>
+                            <constraint firstItem="iVJ-6c-pAc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="n77-uH-R5M"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pullDownTopBarView" destination="iVJ-6c-pAc" id="vWt-2g-OyM"/>
+                        <outlet property="searchView" destination="iDB-U3-Vhv" id="Mzm-Ox-olA"/>
+                        <outlet property="tableView" destination="TqZ-So-7ed" id="80f-1a-g4B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7.2463768115942031" y="99.776785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

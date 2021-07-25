@@ -6,6 +6,13 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
+import MessageKit
+
+func getProfilePicPathFromUsername(_ username: String) -> String {
+    return "\(StringConstants.shared.storage.profilePicturePath)/\(username)"
+}
 
 extension UIViewController {
     
@@ -25,5 +32,17 @@ extension UIViewController {
         let storyBoard = UIStoryboard(name: String(describing: self), bundle: Bundle.main)
 
         return storyBoard.instantiateInitialViewController() as? UINavigationController
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    func openAppleMapsWithLocation(_ location: (LocationItem)) {
+        let source = MKMapItem(placemark: MKPlacemark(coordinate: location.location.coordinate))
+        source.name = "\(location.location.coordinate.latitude),\(location.location.coordinate.longitude)"
+        MKMapItem.openMaps(
+            with: [source]
+        )
     }
 }

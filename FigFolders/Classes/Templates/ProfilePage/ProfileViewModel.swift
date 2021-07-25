@@ -11,16 +11,16 @@ class ProfileViewModel {
     var isEditEnabled = false
     
     let pageTitle = "My Profile"
-    let editButtonShadowColor = UIColor.lightGray.cgColor
+    let editButtonShadowColor = ColorPalette.greyscale3.color?.cgColor
     let editButtonDhadowOpacity: Float = 1
     let editButtonShadowRadius: CGFloat = 10
     let editButtonCornerRadius: CGFloat = 5
     
     let logOutButtonTitle = "Log Out"
-    let logOutButtonColor = UIColor(red: 255, green: 0, blue: 0, alpha: 1)
+    let logOutButtonColor = LabelColorPalette.labelColorRed.color
     
     let saveButtonTitle = "Save"
-    let saveButtonColor = UIColor(red: 0, green: 0, blue: 255, alpha: 1)
+    let saveButtonColor = LabelColorPalette.labelColorLink.color
     let editButtonTitle = "Edit"
     let cancelButtonTitle = "Cancel"
     
@@ -35,6 +35,12 @@ class ProfileViewModel {
     let ok = "Okay"
     let yes = "Yes"
     let no = "No"
+    
+    let profilePicSelectionTitle = "Profile Picture"
+    let profilePicSelectionMessage = "How Would You Like To Select Your Picture"
+    let cancel = "Cancel"
+    let takePhoto = "Take Photo"
+    let choosePhoto = "Choose Photo"
     
     var alertTitle: String {
         isEditEnabled ? saveConfirmationTitle: logOutConfirmationTitle
@@ -54,6 +60,11 @@ class ProfileViewModel {
     var userName: String? {
         UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String
     }
+    
+    var profilePicUrl: String? {
+        UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) as? String
+    }
+    
     var dateOfBirth: Date {
         guard let dateString = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.dateOfBirth) as? String else { return Date() }
         let dateFormatter = DateFormatter()
@@ -75,9 +86,11 @@ class ProfileViewModel {
     let borderWidth: CGFloat = 1
     let borderColor = UIColor.clear
     let inputViewCornerRadius: CGFloat = 5
+    let navigationTitleColor = LabelColorPalette.labelColorPrimary.color ?? UIColor()
+    let navigationBarColor = ColorPalette.primary_green.color
     
     let fieldValidColor = UIColor.green
-    let fieldInvalidColor = UIColor.red
+    let fieldInvalidColor = LabelColorPalette.labelColorRed.color ?? UIColor()
     
     func isEmailValid(email: String?) -> Bool {
         guard let email = email,

@@ -12,8 +12,17 @@ class OnboardingRegisterStepTwoViewModel {
     let borderWidth: CGFloat = 2
     let borderColor = UIColor.black
     
+    let gradientStartColor = UIColor.white
+    let gradientEndColor = UIColor(red: 162, green: 227, blue: 196, alpha: 0)
+    
     let fieldValidColor = UIColor.green
-    let fieldInvalidColor = UIColor.red
+    let fieldInvalidColor = LabelColorPalette.labelColorRed.color ?? UIColor()
+    
+    let usernameNotAvailable = "Username Not Available"
+    let usernameAvailable = "Username Available"
+    
+    let emailIDNotAvailable = "Email-ID Not Available"
+    let emailIDAvailable = "Email-ID Available"
     
     let activityIndicatorBackgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
     
