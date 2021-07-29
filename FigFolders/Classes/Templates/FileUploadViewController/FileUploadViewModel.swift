@@ -7,6 +7,23 @@
 
 import UIKit
 
+enum TextLengthValidation {
+    case short
+    case long
+    case valid
+    
+    var errorText: String {
+        switch self {
+        case .short:
+            return "Too Short"
+        case .long:
+            return "Too Long"
+        case .valid:
+            return  "Valid"
+        }
+    }
+}
+
 class FileUploadViewModel {
     var isFree = true
     let screenTitle = "Upload File"
@@ -18,24 +35,27 @@ class FileUploadViewModel {
         return !isFree
     }
     
-    func isFileNameValid(_ fileName: String?) -> Bool {
+    func isFileNameValid(_ fileName: String?) -> TextLengthValidation {
         let minNumberOfCharsInFileName = 1
         let maxNumberOfCharsInFileName = 30
-        guard let fileName = fileName else { return false }
+        guard let fileName = fileName else { return .short }
         let numberOfChars = fileName.trimmingCharacters(in: .whitespacesAndNewlines).count
-        if numberOfChars >= minNumberOfCharsInFileName && numberOfChars <= maxNumberOfCharsInFileName {
-            return true
+        if numberOfChars <= minNumberOfCharsInFileName {
+            return .short
+        } else if numberOfChars >= maxNumberOfCharsInFileName {
+            return .long
+        } else {
+            return .valid
         }
-        return false
     }
     
-    func isDescriptionValid(_ description: String?) -> Bool {
+    func isFileDescriptionValid(_ description: String?) -> TextLengthValidation {
         let maxNumberOfCharsInDescription = 150
-        guard let description = description else { return false }
+        guard let description = description else { return .short }
         let numberOfChars = description.trimmingCharacters(in: .whitespacesAndNewlines).count
-        if numberOfChars <= maxNumberOfCharsInDescription {
-            return true
+        if numberOfChars >= maxNumberOfCharsInDescription {
+            return .long
         }
-        return false
+        return .valid
     }
 }

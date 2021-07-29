@@ -19,6 +19,9 @@ class FileUploadViewController: UIViewController {
     @IBOutlet weak var titleBackgroundView: UIView!
     @IBOutlet weak var screenTitle: UILabel!
     
+    @IBOutlet weak var fileNameError: UILabel!
+    @IBOutlet weak var fileDescriptionError: UILabel!
+    
     let viewModel = FileUploadViewModel()
 
 // MARK: - Lifecycle Methods
@@ -34,6 +37,7 @@ class FileUploadViewController: UIViewController {
     
     private func initialSetup() {
         addObservers()
+        resetErrorTexts()
         screenTitle.text = viewModel.screenTitle
         selectFileButton.setRoundedCorners()
         
@@ -46,8 +50,6 @@ class FileUploadViewController: UIViewController {
         backgroundView.roundCorners(corners: [.topLeft, .topRight], radius: viewModel.cornerRadius)
         titleBackgroundView.roundCorners(corners: [.topLeft, .topRight], radius: viewModel.cornerRadius)
         priceOfFile.isEnabled = viewModel.isPriceEnabled
-        
-        uploadButton.isEnabled = false
     }
     
     private func setupDelegates() {
@@ -75,17 +77,34 @@ class FileUploadViewController: UIViewController {
         }
     }
     
-// MARK: Button Tap Actions
-    @IBAction private func onTapSelectFileButton() {
-        if viewModel.isFileNameValid(fileName.text) && viewModel.isFileNameValid(fileDescription.text) {
-            // ToDo: - Upload
-        }
+    private func resetErrorTexts() {
+        fileNameError.isHidden = true
+        fileDescriptionError.isHidden = true
     }
     
+// MARK: Button Tap Actions
+    @IBAction private func onTapSelectFileButton() {
+        
+    }
     
     @IBAction private func onTapUploadButton() {
-        if viewModel.isFileNameValid(fileName.text) && viewModel.isFileNameValid(fileDescription.text) {
-            // ToDo: - Upload
+        resetErrorTexts()
+        let isFileNameValid = viewModel.isFileNameValid(fileName.text)
+        let isFileDescriptionValid = viewModel.isFileDescriptionValid(fileDescription.text)
+        if isFileNameValid == .valid && isFileDescriptionValid == .valid {
+            // FileName and Description Valid
+            
+        } else {
+            // Filename or Description Invalid
+            if isFileNameValid != .valid {
+                fileNameError.isHidden = false
+            }
+            if isFileDescriptionValid != .valid {
+                fileDescriptionError.isHidden = false
+            }
+            
+            fileNameError.text = isFileNameValid.errorText
+            fileDescriptionError.text = isFileDescriptionValid.errorText
         }
     }
     

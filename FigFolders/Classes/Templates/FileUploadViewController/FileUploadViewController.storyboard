@@ -13,6 +13,9 @@
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
         </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--File Upload View Controller-->
@@ -24,11 +27,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daO-jN-8Zi">
-                                <rect key="frame" x="0.0" y="500" width="414" height="396"/>
+                                <rect key="frame" x="0.0" y="492" width="414" height="404"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLG-HW-Qka">
-                                        <rect key="frame" x="41.5" y="352" width="331" height="34"/>
+                                        <rect key="frame" x="41.5" y="349" width="331" height="40"/>
                                         <color key="backgroundColor" name="Primary-Green"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="WX6-gp-Vn8"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                         <state key="normal" title="Upload">
                                             <color key="titleColor" name="LabelColorPrimary"/>
@@ -50,7 +56,7 @@
                                         </connections>
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IIl-1a-DKc">
-                                        <rect key="frame" x="41.5" y="306" width="149" height="32"/>
+                                        <rect key="frame" x="41.5" y="303" width="149" height="32"/>
                                         <segments>
                                             <segment title="Free"/>
                                             <segment title="Paid"/>
@@ -61,13 +67,13 @@
                                         </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K5n-R2-u9g">
-                                        <rect key="frame" x="223.5" y="304.5" width="149" height="34"/>
+                                        <rect key="frame" x="223.5" y="301.5" width="149" height="34"/>
                                         <color key="textColor" name="LabelColorPrimary"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TOA-LS-6qs" customClass="TextViewWithPlaceholder" customModule="FigFolders" customModuleProvider="target">
-                                        <rect key="frame" x="41.5" y="211" width="331" height="75"/>
+                                        <rect key="frame" x="41.5" y="208" width="331" height="75"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="gZB-Ho-4qS"/>
@@ -110,13 +116,27 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Too Long" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5q-42-j5H">
+                                        <rect key="frame" x="310" y="102" width="62.5" height="18"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                        <color key="textColor" name="LabelColorRed"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Too Long" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-61-Dc0">
+                                        <rect key="frame" x="310" y="182" width="62.5" height="18"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                        <color key="textColor" name="LabelColorRed"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="8Yh-xI-NTe" firstAttribute="leading" secondItem="TOA-LS-6qs" secondAttribute="leading" id="5C3-uu-H78"/>
                                     <constraint firstItem="AN1-Dq-Gt3" firstAttribute="leading" secondItem="TOA-LS-6qs" secondAttribute="leading" id="6rE-Pe-0Ws"/>
                                     <constraint firstItem="IIl-1a-DKc" firstAttribute="width" secondItem="lLG-HW-Qka" secondAttribute="width" multiplier="0.45" id="8Sc-Tj-Vua"/>
+                                    <constraint firstItem="TNO-61-Dc0" firstAttribute="trailing" secondItem="TOA-LS-6qs" secondAttribute="trailing" id="B4h-4l-QVw"/>
                                     <constraint firstItem="TOA-LS-6qs" firstAttribute="leading" secondItem="IIl-1a-DKc" secondAttribute="leading" id="CWy-dc-57v"/>
+                                    <constraint firstItem="D5q-42-j5H" firstAttribute="trailing" secondItem="AN1-Dq-Gt3" secondAttribute="trailing" id="DjS-zY-Yy6"/>
                                     <constraint firstItem="8oC-3p-A5s" firstAttribute="leading" secondItem="AN1-Dq-Gt3" secondAttribute="leading" id="Fhy-mV-Gue"/>
                                     <constraint firstItem="K5n-R2-u9g" firstAttribute="width" secondItem="IIl-1a-DKc" secondAttribute="width" id="G8S-l5-0Ou"/>
                                     <constraint firstItem="K5n-R2-u9g" firstAttribute="trailing" secondItem="lLG-HW-Qka" secondAttribute="trailing" id="Ges-3E-Faq"/>
@@ -128,16 +148,18 @@
                                     <constraint firstItem="8oC-3p-A5s" firstAttribute="top" secondItem="Msr-eD-MAN" secondAttribute="bottom" constant="15" id="R5u-HO-pMS"/>
                                     <constraint firstItem="TOA-LS-6qs" firstAttribute="trailing" secondItem="K5n-R2-u9g" secondAttribute="trailing" id="SCV-rJ-PgO"/>
                                     <constraint firstItem="Msr-eD-MAN" firstAttribute="trailing" secondItem="lLG-HW-Qka" secondAttribute="trailing" id="Sg9-ch-je2"/>
-                                    <constraint firstAttribute="bottom" secondItem="lLG-HW-Qka" secondAttribute="bottom" constant="10" id="UQP-C3-dFr"/>
+                                    <constraint firstAttribute="bottom" secondItem="lLG-HW-Qka" secondAttribute="bottom" constant="15" id="UQP-C3-dFr"/>
                                     <constraint firstItem="Msr-eD-MAN" firstAttribute="leading" secondItem="lLG-HW-Qka" secondAttribute="leading" id="Vfu-K3-4bY"/>
                                     <constraint firstItem="GzX-ka-kGW" firstAttribute="top" secondItem="daO-jN-8Zi" secondAttribute="top" id="W8W-sb-nFv"/>
+                                    <constraint firstItem="D5q-42-j5H" firstAttribute="top" secondItem="8oC-3p-A5s" secondAttribute="top" id="Zf1-ZM-gRJ"/>
                                     <constraint firstItem="Msr-eD-MAN" firstAttribute="top" secondItem="GzX-ka-kGW" secondAttribute="bottom" constant="15" id="Zwh-UL-Zhe"/>
                                     <constraint firstAttribute="trailing" secondItem="GzX-ka-kGW" secondAttribute="trailing" id="aLf-Jw-SjQ"/>
                                     <constraint firstItem="GzX-ka-kGW" firstAttribute="leading" secondItem="daO-jN-8Zi" secondAttribute="leading" id="bfc-q5-jC6"/>
                                     <constraint firstItem="AN1-Dq-Gt3" firstAttribute="trailing" secondItem="TOA-LS-6qs" secondAttribute="trailing" id="gVd-Oq-lkN"/>
-                                    <constraint firstItem="TOA-LS-6qs" firstAttribute="top" secondItem="8Yh-xI-NTe" secondAttribute="bottom" constant="8" id="hWt-Nh-hz5"/>
+                                    <constraint firstItem="TOA-LS-6qs" firstAttribute="top" secondItem="8Yh-xI-NTe" secondAttribute="bottom" constant="5" id="hWt-Nh-hz5"/>
                                     <constraint firstItem="lLG-HW-Qka" firstAttribute="top" secondItem="IIl-1a-DKc" secondAttribute="bottom" constant="15" id="jF1-XN-6JX"/>
                                     <constraint firstItem="8Yh-xI-NTe" firstAttribute="top" secondItem="AN1-Dq-Gt3" secondAttribute="bottom" constant="20" id="nwy-vF-rYb"/>
+                                    <constraint firstItem="TNO-61-Dc0" firstAttribute="top" secondItem="8Yh-xI-NTe" secondAttribute="top" id="rqR-9a-q5f"/>
                                     <constraint firstItem="IIl-1a-DKc" firstAttribute="top" secondItem="TOA-LS-6qs" secondAttribute="bottom" constant="20" id="t6d-nJ-uqL"/>
                                 </constraints>
                             </view>
@@ -153,7 +175,9 @@
                     <connections>
                         <outlet property="backgroundView" destination="daO-jN-8Zi" id="dnM-p9-VYw"/>
                         <outlet property="fileDescription" destination="TOA-LS-6qs" id="oeC-59-2y6"/>
+                        <outlet property="fileDescriptionError" destination="TNO-61-Dc0" id="9Fy-y9-ifL"/>
                         <outlet property="fileName" destination="AN1-Dq-Gt3" id="eR4-H1-AGQ"/>
+                        <outlet property="fileNameError" destination="D5q-42-j5H" id="GfL-Al-p3y"/>
                         <outlet property="freeOrPaidSegment" destination="IIl-1a-DKc" id="Ue9-iX-oYW"/>
                         <outlet property="priceOfFile" destination="K5n-R2-u9g" id="JVV-uC-GqW"/>
                         <outlet property="screenTitle" destination="IgN-ZK-UW0" id="ob6-wY-9fC"/>
@@ -170,6 +194,9 @@
     <resources>
         <namedColor name="LabelColorPrimary">
             <color red="0.093999996781349182" green="0.10199999809265137" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LabelColorRed">
+            <color red="1" green="0.093999996781349182" blue="0.10999999940395355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Primary-Green">
             <color red="0.14499999582767487" green="0.82700002193450928" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
