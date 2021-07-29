@@ -28,6 +28,7 @@
 		AE3F86A8267BBA1100B4D814 /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F86A6267BBA1100B4D814 /* ImageViewerViewController.swift */; };
 		AE3F86A9267BBA1100B4D814 /* ImageViewerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3F86A7267BBA1100B4D814 /* ImageViewerViewController.storyboard */; };
 		AE3F86AB267BBC0C00B4D814 /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F86AA267BBC0C00B4D814 /* ImageZoomView.swift */; };
+		AE549C7326AF5AD900342E8A /* TextViewWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE549C7226AF5AD900342E8A /* TextViewWithPlaceholder.swift */; };
 		AE66557126580B76004DA48A /* DecodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE66557026580B76004DA48A /* DecodableUtility.swift */; };
 		AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6B944626542E90006463E1 /* ProfileViewController.swift */; };
 		AE6B944B26542EAF006463E1 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE6B944A26542EAF006463E1 /* ProfileViewController.storyboard */; };
@@ -102,6 +103,9 @@
 		AEF84289264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF84288264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard */; };
 		AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8428A264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift */; };
 		AEF8428D264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8428C264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift */; };
+		AEF98F7526AD30F700FFD5DA /* FileUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF98F7426AD30F700FFD5DA /* FileUploadViewController.swift */; };
+		AEF98F7726AD310400FFD5DA /* FileUploadViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF98F7626AD310400FFD5DA /* FileUploadViewController.storyboard */; };
+		AEF98F7926AD31F700FFD5DA /* FileUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF98F7826AD31F700FFD5DA /* FileUploadViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +132,7 @@
 		AE3F86A6267BBA1100B4D814 /* ImageViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
 		AE3F86A7267BBA1100B4D814 /* ImageViewerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewerViewController.storyboard; sourceTree = "<group>"; };
 		AE3F86AA267BBC0C00B4D814 /* ImageZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
+		AE549C7226AF5AD900342E8A /* TextViewWithPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewWithPlaceholder.swift; sourceTree = "<group>"; };
 		AE66557026580B76004DA48A /* DecodableUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableUtility.swift; sourceTree = "<group>"; };
 		AE6B944626542E90006463E1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AE6B944A26542EAF006463E1 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
@@ -204,6 +209,9 @@
 		AEF84288264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingRegisterStepTwoViewController.storyboard; sourceTree = "<group>"; };
 		AEF8428A264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRegisterStepTwoViewController.swift; sourceTree = "<group>"; };
 		AEF8428C264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRegisterStepTwoViewModel.swift; sourceTree = "<group>"; };
+		AEF98F7426AD30F700FFD5DA /* FileUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadViewController.swift; sourceTree = "<group>"; };
+		AEF98F7626AD310400FFD5DA /* FileUploadViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FileUploadViewController.storyboard; sourceTree = "<group>"; };
+		AEF98F7826AD31F700FFD5DA /* FileUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,6 +462,7 @@
 				AE3F86A5267BBA1100B4D814 /* ImageViewerController */,
 				AE8AE514267D118E009065E2 /* LocationPickerViewController */,
 				AE224B65268FB287003CE3E2 /* VoiceRecordingViewController */,
+				AEF98F7326AD30C700FFD5DA /* FileUploadViewController */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -546,6 +555,7 @@
 				AEBB86802656EB4400D2476B /* ViewControllerWithLoading.swift */,
 				AE89D4CA2665581000CF0439 /* PasswordTextField.swift */,
 				AE3F86AA267BBC0C00B4D814 /* ImageZoomView.swift */,
+				AE549C7226AF5AD900342E8A /* TextViewWithPlaceholder.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -626,6 +636,16 @@
 			path = OnboardingRegisterStepTwo;
 			sourceTree = "<group>";
 		};
+		AEF98F7326AD30C700FFD5DA /* FileUploadViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AEF98F7626AD310400FFD5DA /* FileUploadViewController.storyboard */,
+				AEF98F7826AD31F700FFD5DA /* FileUploadViewModel.swift */,
+				AEF98F7426AD30F700FFD5DA /* FileUploadViewController.swift */,
+			);
+			path = FileUploadViewController;
+			sourceTree = "<group>";
+		};
 		AF03CF8B2CBD88D8065AC6B8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -647,7 +667,7 @@
 				AEA1976A2649933000D0D181 /* Frameworks */,
 				AEA1976B2649933000D0D181 /* Resources */,
 				E8196463E8EFCD05CF84DEE2 /* [CP] Embed Pods Frameworks */,
-				AE036EB5267F29720001E005 /* ShellScript */,
+				AE036EB5267F29720001E005 /* Firebase Run Script */,
 			);
 			buildRules = (
 			);
@@ -709,6 +729,7 @@
 				AEA1977D2649933400D0D181 /* LaunchScreen.storyboard in Resources */,
 				AE0E3CD226713046002D2D29 /* ChatListTableViewCell.xib in Resources */,
 				AEF8426F264D8EAF00FB8003 /* Roboto-Regular.ttf in Resources */,
+				AEF98F7726AD310400FFD5DA /* FileUploadViewController.storyboard in Resources */,
 				AEF84289264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard in Resources */,
 				AEF84272264D8EAF00FB8003 /* Roboto-BoldItalic.ttf in Resources */,
 				AEF84276264D8EAF00FB8003 /* Roboto-Bold.ttf in Resources */,
@@ -759,7 +780,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AE036EB5267F29720001E005 /* ShellScript */ = {
+		AE036EB5267F29720001E005 /* Firebase Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -770,6 +791,7 @@
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
 				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
+			name = "Firebase Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -807,6 +829,7 @@
 				AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */,
 				AEE25F5226922E080021ABDB /* AudioMessageCellUtility.swift in Sources */,
 				AE94D9172667FFEF00D6E921 /* ChatListViewController.swift in Sources */,
+				AEF98F7926AD31F700FFD5DA /* FileUploadViewModel.swift in Sources */,
 				AE224B69268FB2BA003CE3E2 /* VoiceRecordingViewController.swift in Sources */,
 				AEC7744026791CE200EEEED0 /* ChatViewController.swift in Sources */,
 				AE9D2345266B698B005B5C55 /* ChatListViewModel.swift in Sources */,
@@ -843,6 +866,7 @@
 				AEF8427C264D936500FB8003 /* LoginViewModel.swift in Sources */,
 				AEF8427E264D940800FB8003 /* ResetPasswordViewModel.swift in Sources */,
 				AE9DC66C2662E695001B9392 /* UIImageExtension.swift in Sources */,
+				AEF98F7526AD30F700FFD5DA /* FileUploadViewController.swift in Sources */,
 				AEF84286264DA15300FB8003 /* OnboardingRegisterStepOneViewModel.swift in Sources */,
 				AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */,
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
@@ -856,6 +880,7 @@
 				AE7A26C1265056390057D454 /* HomeTabBarController.swift in Sources */,
 				AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */,
 				AE0E3CD626715053002D2D29 /* ChatListTableViewModel.swift in Sources */,
+				AE549C7326AF5AD900342E8A /* TextViewWithPlaceholder.swift in Sources */,
 				AEA1978B264996E500D0D181 /* OnboardingCollectionView.swift in Sources */,
 				AE94E070265306360020CB95 /* HamburgermenuTableViewCell.swift in Sources */,
 				AE16D8922652DA4D00000BB5 /* HamburgerMenuView.swift in Sources */,
