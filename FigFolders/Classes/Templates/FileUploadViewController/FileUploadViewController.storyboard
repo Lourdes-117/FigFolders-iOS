@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -40,7 +40,7 @@
                                             <color key="titleColor" name="LabelColorPrimary"/>
                                         </state>
                                         <connections>
-                                            <action selector="onTapUploadButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2tR-Xb-M8n"/>
+                                            <action selector="onTapUploadButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7HR-pt-4Tk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msr-eD-MAN">
@@ -51,8 +51,7 @@
                                             <color key="titleColor" name="LabelColorPrimary"/>
                                         </state>
                                         <connections>
-                                            <action selector="onTapSelectFileButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cVx-YE-oNn"/>
-                                            <action selector="onTapUploadButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bzF-Za-sQp"/>
+                                            <action selector="onTapSelectFileButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1fX-zx-yQ8"/>
                                         </connections>
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IIl-1a-DKc">

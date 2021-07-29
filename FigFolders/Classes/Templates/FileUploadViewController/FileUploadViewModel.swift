@@ -30,6 +30,14 @@ class FileUploadViewModel {
     let fileDescriptionPlaceholderText = "Add a description of your file here"
     let cornerRadius: CGFloat = 38
     let selectFileBorderColor = ColorPalette.primary_green.color
+    let attachMediaTitle = "Select File To Upload"
+    let attachMediaMessage = "Select where you want to upload file from"
+    let photosAndVideos = "Photos and Videos"
+    let cancel = "Cancel"
+    let mediaTypeForVideo = "public.movie"
+    let mediaTypeForImage = "public.image"
+    let videoQualityType: UIImagePickerController.QualityType = .typeMedium
+    let videoMaxLength = TimeInterval(600)
     
     var isPriceEnabled: Bool {
         return !isFree

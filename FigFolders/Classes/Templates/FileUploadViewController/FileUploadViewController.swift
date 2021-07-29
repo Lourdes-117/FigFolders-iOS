@@ -59,7 +59,7 @@ class FileUploadViewController: UIViewController {
     
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
 // MARK: Helper Methods
@@ -84,8 +84,19 @@ class FileUploadViewController: UIViewController {
     
 // MARK: Button Tap Actions
     @IBAction private func onTapSelectFileButton() {
+        let actionSheet = UIAlertController(title: viewModel.attachMediaTitle, message: viewModel.attachMediaMessage, preferredStyle: .actionSheet)
         
+        actionSheet.addAction(UIAlertAction(title: viewModel.photosAndVideos, style: .default, handler: { [weak self] _ in
+            self?.presentPhotoVideoInput()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: viewModel.cancel, style: .cancel, handler: { _ in
+            
+        }))
+        present(actionSheet, animated: true, completion: nil)
     }
+    
+    
     
     @IBAction private func onTapUploadButton() {
         resetErrorTexts()
@@ -106,6 +117,17 @@ class FileUploadViewController: UIViewController {
             fileNameError.text = isFileNameValid.errorText
             fileDescriptionError.text = isFileDescriptionValid.errorText
         }
+    }
+    
+    private func presentPhotoVideoInput() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = false
+        picker.mediaTypes = [viewModel.mediaTypeForVideo, viewModel.mediaTypeForImage]
+        picker.videoQuality = viewModel.videoQualityType
+        picker.videoMaximumDuration = viewModel.videoMaxLength
+        self.present(picker, animated: false, completion: nil)
     }
     
     @IBAction func onSegmentValueChange(_ sender: Any) {
@@ -135,5 +157,27 @@ extension FileUploadViewController: UITextFieldDelegate {
 
 // MARK: - TextView Extension
 extension FileUploadViewController: UITextViewDelegate {
+    
+}
+
+// MARK: - ImagePicker ViewController Delegate
+extension FileUploadViewController: UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+           let imageData = image.jpeg(.high) {
+            debugPrint("It's an image")
+        } else if let videoUrl = info[.mediaURL] as? URL {
+            debugPrint("It's a video")
+        }
+    }
+}
+
+// MARK: - NavigationController Delegate
+extension FileUploadViewController: UINavigationControllerDelegate {
     
 }
