@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MobileCoreServices
 
 class FileUploadViewController: UIViewController {
 // MARK: - Outlets
@@ -87,7 +88,11 @@ class FileUploadViewController: UIViewController {
         let actionSheet = UIAlertController(title: viewModel.attachMediaTitle, message: viewModel.attachMediaMessage, preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(title: viewModel.photosAndVideos, style: .default, handler: { [weak self] _ in
-            self?.presentPhotoVideoInput()
+            self?.presentImageAndVideoPicker()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: viewModel.documents, style: .default, handler: { [weak self] _ in
+            self?.presentDocumentPicker()
         }))
         
         actionSheet.addAction(UIAlertAction(title: viewModel.cancel, style: .cancel, handler: { _ in
@@ -99,6 +104,14 @@ class FileUploadViewController: UIViewController {
     
     
     @IBAction private func onTapUploadButton() {
+        guard let selectedFileUrl = viewModel.selectedFileUrl else {
+            let alert = UIAlertController(title: viewModel.fileNotSelectedTitle, message: viewModel.fileNotSelectedMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: viewModel.okay, style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        // Fields Validation
         resetErrorTexts()
         let isFileNameValid = viewModel.isFileNameValid(fileName.text)
         let isFileDescriptionValid = viewModel.isFileDescriptionValid(fileDescription.text)
@@ -117,17 +130,27 @@ class FileUploadViewController: UIViewController {
             fileNameError.text = isFileNameValid.errorText
             fileDescriptionError.text = isFileDescriptionValid.errorText
         }
+        
+        // TODO: - File Upload
     }
     
-    private func presentPhotoVideoInput() {
+    private func presentImageAndVideoPicker() {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.delegate = self
         picker.allowsEditing = false
-        picker.mediaTypes = [viewModel.mediaTypeForVideo, viewModel.mediaTypeForImage]
+        picker.mediaTypes = viewModel.getMediaTypes(source: .gallery)
         picker.videoQuality = viewModel.videoQualityType
         picker.videoMaximumDuration = viewModel.videoMaxLength
-        self.present(picker, animated: false, completion: nil)
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+    private func presentDocumentPicker() {
+        let documentPicker = UIDocumentPickerViewController(documentTypes: viewModel.getMediaTypes(source: .documents), in: .import)
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        documentPicker.shouldShowFileExtensions = true
+        self.present(documentPicker, animated: true, completion: nil)
     }
     
     @IBAction func onSegmentValueChange(_ sender: Any) {
@@ -168,12 +191,30 @@ extension FileUploadViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
-           let imageData = image.jpeg(.high) {
-            debugPrint("It's an image")
+        if let imageUrl = info[.imageURL] as? URL {
+            debugPrint("Picked an image")
+            viewModel.selectedFileUrl = imageUrl
+            selectFileButton.setTitle("Image", for: .normal)
+            selectFileButton.backgroundColor = viewModel.selectFileBorderColor
         } else if let videoUrl = info[.mediaURL] as? URL {
-            debugPrint("It's a video")
+            debugPrint("Picked a video")
+            viewModel.selectedFileUrl = videoUrl
+            selectFileButton.setTitle("Video", for: .normal)
+            selectFileButton.backgroundColor = viewModel.selectFileBorderColor
         }
+    }
+}
+
+// MARK: - DocumentPicker Delegate
+extension FileUploadViewController: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        debugPrint("Document Picked")
+        guard let fileUrl = urls.first else { return }
+        viewModel.selectedFileUrl = fileUrl
+        let fileType = DocumentPickerDocumentType.fileTypeOfFileAtUrl(fileUrl)
+        
+        selectFileButton.setTitle(fileUrl.lastPathComponent, for: .normal)
+        selectFileButton.backgroundColor = viewModel.selectFileBorderColor
     }
 }
 
