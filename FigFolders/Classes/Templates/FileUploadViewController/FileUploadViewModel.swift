@@ -93,6 +93,7 @@ enum FileImportSource {
 
 class FileUploadViewModel {
     var selectedFileUrl: URL?
+    var selectedFileType: DocumentPickerDocumentType?
     var isFree = true
     let cornerRadius: CGFloat = 38
     let selectFileBorderColor = ColorPalette.primary_green.color

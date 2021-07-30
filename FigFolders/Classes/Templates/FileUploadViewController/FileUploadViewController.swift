@@ -125,7 +125,9 @@ class FileUploadViewController: UIViewController {
     }
     
     @IBAction private func onTapUploadButton() {
-        guard let selectedFileUrl = viewModel.selectedFileUrl else {
+        guard let selectedFileUrl = viewModel.selectedFileUrl,
+              let selecteddFileType = viewModel.selectedFileType else {
+            // Show alert to user asking to select a file
             let alert = UIAlertController(title: viewModel.fileNotSelectedTitle, message: viewModel.fileNotSelectedMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: viewModel.okay, style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -196,11 +198,13 @@ extension FileUploadViewController: UIImagePickerControllerDelegate {
         picker.dismiss(animated: true, completion: nil)
         if let imageUrl = info[.imageURL] as? URL {
             debugPrint("Picked an image")
+            viewModel.selectedFileType = .image
             viewModel.selectedFileUrl = imageUrl
             selectFileButton.setTitle("Image", for: .normal)
             selectFileButton.backgroundColor = viewModel.selectFileBorderColor
         } else if let videoUrl = info[.mediaURL] as? URL {
             debugPrint("Picked a video")
+            viewModel.selectedFileType = .video
             viewModel.selectedFileUrl = videoUrl
             selectFileButton.setTitle("Video", for: .normal)
             selectFileButton.backgroundColor = viewModel.selectFileBorderColor
@@ -215,7 +219,7 @@ extension FileUploadViewController: UIDocumentPickerDelegate {
         guard let fileUrl = urls.first else { return }
         viewModel.selectedFileUrl = fileUrl
         let fileType = DocumentPickerDocumentType.fileTypeOfFileAtUrl(fileUrl)
-        
+        viewModel.selectedFileType = fileType
         selectFileButton.setTitle(fileUrl.lastPathComponent, for: .normal)
         selectFileButton.backgroundColor = viewModel.selectFileBorderColor
     }
