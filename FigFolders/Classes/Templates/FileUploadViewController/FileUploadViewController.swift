@@ -83,6 +83,29 @@ class FileUploadViewController: UIViewController {
         fileDescriptionError.isHidden = true
     }
     
+    private func validateAllFields() -> Bool {
+        // Fields Validation
+        resetErrorTexts()
+        let isFileNameValid = viewModel.isFileNameValid(fileName.text)
+        let isFileDescriptionValid = viewModel.isFileDescriptionValid(fileDescription.text)
+        if isFileNameValid == .valid && isFileDescriptionValid == .valid {
+            return true
+            
+        } else {
+            // Filename or Description Invalid
+            if isFileNameValid != .valid {
+                fileNameError.isHidden = false
+            }
+            if isFileDescriptionValid != .valid {
+                fileDescriptionError.isHidden = false
+            }
+            
+            fileNameError.text = isFileNameValid.errorText
+            fileDescriptionError.text = isFileDescriptionValid.errorText
+            return false
+        }
+    }
+    
 // MARK: Button Tap Actions
     @IBAction private func onTapSelectFileButton() {
         let actionSheet = UIAlertController(title: viewModel.attachMediaTitle, message: viewModel.attachMediaMessage, preferredStyle: .actionSheet)
@@ -101,8 +124,6 @@ class FileUploadViewController: UIViewController {
         present(actionSheet, animated: true, completion: nil)
     }
     
-    
-    
     @IBAction private func onTapUploadButton() {
         guard let selectedFileUrl = viewModel.selectedFileUrl else {
             let alert = UIAlertController(title: viewModel.fileNotSelectedTitle, message: viewModel.fileNotSelectedMessage, preferredStyle: .alert)
@@ -111,27 +132,9 @@ class FileUploadViewController: UIViewController {
             return
         }
         
-        // Fields Validation
-        resetErrorTexts()
-        let isFileNameValid = viewModel.isFileNameValid(fileName.text)
-        let isFileDescriptionValid = viewModel.isFileDescriptionValid(fileDescription.text)
-        if isFileNameValid == .valid && isFileDescriptionValid == .valid {
-            // FileName and Description Valid
-            
-        } else {
-            // Filename or Description Invalid
-            if isFileNameValid != .valid {
-                fileNameError.isHidden = false
-            }
-            if isFileDescriptionValid != .valid {
-                fileDescriptionError.isHidden = false
-            }
-            
-            fileNameError.text = isFileNameValid.errorText
-            fileDescriptionError.text = isFileDescriptionValid.errorText
+        if validateAllFields() {
+            // TODO: - File Upload
         }
-        
-        // TODO: - File Upload
     }
     
     private func presentImageAndVideoPicker() {
