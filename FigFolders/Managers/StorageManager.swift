@@ -20,6 +20,8 @@ class StorageManager {
     
     typealias UploadFileCompletion = (Result<String, Error>) -> Void
     
+// MARK: - Message Attachments
+    
     /// Upload Profile Picture
     func uploadProfilePicture(username: String, image: UIImage, completion: @escaping UploadFileCompletion) {
         let filePath = "\(StringConstants.shared.storage.profilePicturePath)\(username)"
@@ -97,5 +99,14 @@ class StorageManager {
     
     func downloadAudioWithName(_ name: String, completion: @escaping (Data?, Error?) -> Void) {
         storage.child("\(StringConstants.shared.storage.messageAudioPath)\(name)").getData(maxSize: 2 * 1024 * 1024, completion: completion)
+    }
+    
+// MARK: - File Upload
+    func uploadFigFile(localUrl: URL, fileName: String, fileType: DocumentPickerDocumentType, completion: @escaping UploadFileCompletion) {
+        guard let filePath = fileType.pathToUpload?.appending(fileName) else {
+            completion(.failure(StorageErrors.failedToUpload))
+            return
+        }
+        uploadFileWithUrl(filePath: filePath, fileURL: localUrl, completion: completion)
     }
 }

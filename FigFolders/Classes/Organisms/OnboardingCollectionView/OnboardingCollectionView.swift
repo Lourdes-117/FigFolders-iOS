@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol OnboardingCollectionViewDelegate: NSObjectProtocol {
+protocol OnboardingCollectionViewDelegate: AnyObject {
     func didFinishOnboarding()
 }
 

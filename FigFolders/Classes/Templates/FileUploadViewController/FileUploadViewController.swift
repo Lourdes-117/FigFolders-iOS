@@ -23,6 +23,8 @@ class FileUploadViewController: UIViewController {
     @IBOutlet weak var fileNameError: UILabel!
     @IBOutlet weak var fileDescriptionError: UILabel!
     
+    weak var delegate: FileUploadSelectionDelegate?
+    
     let viewModel = FileUploadViewModel()
 
 // MARK: - Lifecycle Methods
@@ -125,8 +127,8 @@ class FileUploadViewController: UIViewController {
     }
     
     @IBAction private func onTapUploadButton() {
-        guard let selectedFileUrl = viewModel.selectedFileUrl,
-              let selecteddFileType = viewModel.selectedFileType else {
+        guard var selectedFileUrlString = viewModel.selectedFileUrl?.absoluteString,
+              let selectedFileType = viewModel.selectedFileType else {
             // Show alert to user asking to select a file
             let alert = UIAlertController(title: viewModel.fileNotSelectedTitle, message: viewModel.fileNotSelectedMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: viewModel.okay, style: .default, handler: nil))
@@ -135,7 +137,23 @@ class FileUploadViewController: UIViewController {
         }
         
         if validateAllFields() {
-            // TODO: - File Upload
+            let filePrice = Float(priceOfFile.text ?? "0")
+            let figFileModel = FigFileModel(ownerUsername: currentUserUsername,
+                                            fileName: fileName.text,
+                                            fileType: selectedFileType.rawValue,
+                                            fileDescription: fileDescription.text,
+                                            likedUsers: [],
+                                            fileUrl: "",
+                                            filePrice: filePrice,
+                                            comments: [])
+            selectedFileUrlString.removeFirst(7) // To remove "File://" from the local file directory url string
+            let selectedFileUrl = URL(fileURLWithPath: selectedFileUrlString)
+            var fileName: String? = nil
+            if selectFileButton.currentTitle != viewModel.imageButtonTitle && selectFileButton.currentTitle != viewModel.videoButtonTitle {
+                fileName = selectFileButton.currentTitle
+            }
+            delegate?.uploadFile(fileLocalUrl: selectedFileUrl, fileNameForDocumentPicker: fileName, figFileModel: figFileModel)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -200,13 +218,13 @@ extension FileUploadViewController: UIImagePickerControllerDelegate {
             debugPrint("Picked an image")
             viewModel.selectedFileType = .image
             viewModel.selectedFileUrl = imageUrl
-            selectFileButton.setTitle("Image", for: .normal)
+            selectFileButton.setTitle(viewModel.imageButtonTitle, for: .normal)
             selectFileButton.backgroundColor = viewModel.selectFileBorderColor
         } else if let videoUrl = info[.mediaURL] as? URL {
             debugPrint("Picked a video")
             viewModel.selectedFileType = .video
             viewModel.selectedFileUrl = videoUrl
-            selectFileButton.setTitle("Video", for: .normal)
+            selectFileButton.setTitle(viewModel.videoButtonTitle, for: .normal)
             selectFileButton.backgroundColor = viewModel.selectFileBorderColor
         }
     }

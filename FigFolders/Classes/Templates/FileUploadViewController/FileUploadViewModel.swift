@@ -8,6 +8,11 @@
 import UIKit
 import MobileCoreServices
 
+protocol FileUploadSelectionDelegate: AnyObject {
+    func uploadFile(fileLocalUrl: URL, fileNameForDocumentPicker: String?, figFileModel: FigFileModel)
+}
+
+// MARK: - Text Validation Enum
 enum TextLengthValidation {
     case short
     case long
@@ -25,6 +30,7 @@ enum TextLengthValidation {
     }
 }
 
+// MARK: - Document Picker Enum
 enum DocumentPickerDocumentType: String {
     // NOTE: Please add case to allIdentifiers and in fileTypeOfFileAtUrl(_ url: URL) when new case is added here
     case pdf = "pdf"
@@ -33,6 +39,7 @@ enum DocumentPickerDocumentType: String {
     case video = "video"
     case text = "text"
     case html = "html"
+    case plainText = "plainText"
     
     var cfStringValue: CFString {
         switch self {
@@ -42,6 +49,7 @@ enum DocumentPickerDocumentType: String {
         case .video: return kUTTypeVideo
         case .text: return kUTTypeText
         case .html: return kUTTypeHTML
+        case .plainText: return kUTTypePlainText
         }
     }
     
@@ -71,6 +79,8 @@ enum DocumentPickerDocumentType: String {
             return .text
         } else if fileUti == DocumentPickerDocumentType.html.cfStringValue {
             return .html
+        } else if fileUti == DocumentPickerDocumentType.plainText.cfStringValue {
+            return .plainText
         }
         
         return nil
@@ -82,15 +92,22 @@ enum DocumentPickerDocumentType: String {
          DocumentPickerDocumentType.image.identifierString,
          DocumentPickerDocumentType.video.identifierString,
          DocumentPickerDocumentType.text.identifierString,
-         DocumentPickerDocumentType.html.identifierString]
+         DocumentPickerDocumentType.html.identifierString,
+         DocumentPickerDocumentType.plainText.identifierString]
+    }
+    
+    var pathToUpload: String? {
+        return "\(StringConstants.shared.figFiles.currentUserFigFilesPath)\(self.rawValue)/"
     }
 }
 
+// MARK: - File Import Source Enum
 enum FileImportSource {
     case gallery
     case documents
 }
 
+// MARK: - File Upload ViewModel
 class FileUploadViewModel {
     var selectedFileUrl: URL?
     var selectedFileType: DocumentPickerDocumentType?
@@ -105,6 +122,9 @@ class FileUploadViewModel {
     let photosAndVideos = "Photos and Videos"
     let documents = "Browse"
     let cancel = "Cancel"
+    
+    let imageButtonTitle = "Image"
+    let videoButtonTitle = "Video"
     
     // Filetypes allowed in Image picker. Note:- They'll be addded in return array of getMediaTypes(source: FileImportSource)
     private let mediaTypeMovieGallery = "public.movie"

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-protocol SearchChatSelectionDelegate: NSObjectProtocol {
+protocol SearchChatSelectionDelegate: AnyObject {
     func didSelectUser(_ emailID: String, _ username: String)
 }
 

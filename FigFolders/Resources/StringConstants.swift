@@ -16,6 +16,7 @@ class StringConstants {
     let database = DatabaseConstants()
     let storage = StorageConstants()
     let messageKind = MessageKindConstant()
+    let figFiles = FigFilesConstants()
 }
 
 ///Use Through StringConstants shared Instance
@@ -50,6 +51,15 @@ struct DatabaseConstants {
     let date = "date"
     let isRead = "isRead"
     let message = "message"
+}
+
+///Use Through StringConstants shared Instance
+struct FigFilesConstants {
+    let figFilesPath = "FigFiles/"
+    
+    var currentUserFigFilesPath: String {
+        return "\(figFilesPath)\(currentUserUsername ?? "")/"
+    }
 }
 
 ///Use Through StringConstants shared Instance

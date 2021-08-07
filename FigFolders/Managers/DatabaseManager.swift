@@ -609,6 +609,24 @@ final class DatabaseManager {
             })
         })
     }
+    
+// MARK: - File Upload Methods
+    func uploadFigFile(figFileModel: FigFileModel, completion: @escaping (Bool)-> Void) {
+        let databaseReference = database.child(StringConstants.shared.figFiles.currentUserFigFilesPath)
+            databaseReference.observeSingleEvent(of: .value) { snapshot in
+            if snapshot.exists(),
+               var userFigFilesArray = snapshot.value as? [[String: Any]],
+               let newEntry = figFileModel.toDictionary {
+                // User has file array. Append values to it
+                userFigFilesArray.append(newEntry)
+                databaseReference.setValue(userFigFilesArray)
+            } else {
+                // User does not have array available. Create one
+                databaseReference.setValue([figFileModel.toDictionary])
+            }
+        }
+    }
+
 }
 
 // MARK:- Database Errors

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol UserVerificationDelegate: NSObjectProtocol {
+protocol UserVerificationDelegate: AnyObject {
     func verificationSuccessful()
     func verificationFailed()
 }

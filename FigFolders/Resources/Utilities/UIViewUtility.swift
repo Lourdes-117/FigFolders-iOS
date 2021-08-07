@@ -24,6 +24,20 @@ enum GradientDirection {
 
 let kAnimationDuration = TimeInterval(0.25)
 
+/// Returns Current User's email ID
+var currentUserEmail: String? {
+    get {
+        return UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String
+    }
+}
+
+/// Returns Current User's Username
+var currentUserUsername: String? {
+    get {
+        return UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String
+    }
+}
+
 extension UIView {
     
     func addAsSubViewWithEqualConstraintTo(_ containerView: UIView) {

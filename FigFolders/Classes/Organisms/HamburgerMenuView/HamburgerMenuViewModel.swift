@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol HamburgerMenuDelegate: NSObjectProtocol {
+protocol HamburgerMenuDelegate: AnyObject {
     func onSelectHamburgerMenu(type: HamburgerMenuItemType)
     func onTapViewProfile()
 }
