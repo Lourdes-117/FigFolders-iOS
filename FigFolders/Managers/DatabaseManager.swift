@@ -611,7 +611,7 @@ final class DatabaseManager {
     }
     
 // MARK: - File Upload Methods
-    func uploadFigFile(figFileModel: FigFileModel, sizeOfFile: Float, completion: @escaping (Bool)-> Void) {
+    func uploadFigFile(figFileModel: FigFileModel, completion: @escaping (Bool)-> Void) {
         let databaseReference = database.child(StringConstants.shared.figFiles.currentUserFigFilesPath)
             databaseReference.observeSingleEvent(of: .value) { snapshot in
             if snapshot.exists(),
@@ -624,6 +624,15 @@ final class DatabaseManager {
                 // User does not have array available. Create one
                 databaseReference.setValue([figFileModel.toDictionary])
             }
+        }
+    }
+    
+    func updateStorageSpaceUsedByUserWithNewFileSize(newFileSize: Float) {
+        getUserDetailsForUsername(username: currentUserUsername ?? "") { [weak self] userDetails in
+            var userDetailsModel = userDetails
+            userDetailsModel?.addNewFileSize(newFileSize: newFileSize)
+            let userDetailsModelDictionary = userDetailsModel?.toDictionary
+            self?.database.child(currentUserUsername ?? "").setValue(userDetailsModelDictionary)
         }
     }
 

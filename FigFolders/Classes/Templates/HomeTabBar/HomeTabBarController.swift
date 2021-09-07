@@ -8,12 +8,12 @@
 import UIKit
 
 class HomeTabBarController: UITabBarController {
-    // MARK: - Outlets
+// MARK: - Outlets
     let uploadFileCenterButton = UIButton()
     
     let viewModel = HomeTabControllerViewModel()
     
-    // MARK: - Lifecycle Methods
+// MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -45,7 +45,7 @@ class HomeTabBarController: UITabBarController {
                                          radius: viewModel.shadowRadius)
     }
     
-    // MARK: - Button Tap Actions
+// MARK: - Button Tap Actions
     @objc func onTapUploadButton() {
         guard let fileUploadViewController = FileUploadViewController.initiateVC() else { return }
         fileUploadViewController.delegate = self
@@ -110,8 +110,10 @@ extension HomeTabBarController: FileUploadSelectionDelegate {
                                                                 filePrice: figFileModel.filePrice,
                                                                 comments: figFileModel.comments,
                                                                 fileSizeBytes: fileSizeInBytes)
+                        // Update Used Storage
+                        DatabaseManager.shared.updateStorageSpaceUsedByUserWithNewFileSize(newFileSize: selectedFileSize)
                         // Update In Database
-                        DatabaseManager.shared.uploadFigFile(figFileModel: figFileModelToUpload, sizeOfFile: 0.000343) { isSuccess in
+                        DatabaseManager.shared.uploadFigFile(figFileModel: figFileModelToUpload) { isSuccess in
                             return
                         }
                     case .failure(let error):

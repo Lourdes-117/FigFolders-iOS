@@ -40,6 +40,10 @@ struct UserDetailsModel: Encodable, Decodable {
         let edittedEmail = safeEmail.replacingOccurrences(of: "^", with: "@")
         return edittedEmail.replacingOccurrences(of: "~", with: ".")
     }
+    
+    mutating func addNewFileSize(newFileSize: Float) {
+        figFilesStorageUsed = (figFilesStorageUsed ?? 0) + newFileSize
+    }
 }
 
 // MARK: - User Conversations Model
