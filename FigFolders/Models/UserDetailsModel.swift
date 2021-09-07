@@ -19,6 +19,7 @@ struct UserDetailsModel: Encodable, Decodable {
         profilePicUrl = profilePicUrlString
     }
     
+    var maxStorateInMegabytes: Int = 300
     var firstName: String
     var lastName: String
     var dateOfBirth: String
