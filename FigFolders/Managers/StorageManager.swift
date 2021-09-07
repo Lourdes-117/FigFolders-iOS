@@ -109,4 +109,12 @@ class StorageManager {
         }
         uploadFileWithUrl(filePath: filePath, fileURL: localUrl, completion: completion)
     }
+    
+    func getSizeOfFile(url: String, completion: @escaping ((Float?) -> Void)) {
+        storage.child(url).getMetadata { metaData, error in
+            let sizeInBytes: Float = Float(metaData?.size ?? 0)
+            let sizeInMB: Float = sizeInBytes / 1000000
+            completion(sizeInMB)
+        }
+    }
 }

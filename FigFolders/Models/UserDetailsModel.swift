@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - User Details Model
 struct UserDetailsModel: Encodable, Decodable {
-    init(firstNameString: String, lastNameString: String, dateOfBirthString: String, phoneNumberString: String, emailIDString: String, usernameString: String, profilePicUrlString: String) {
+    init(figFilesStorageUsed: Float = 0.0, maxStorateInMegabytes: Float = 300.0, firstNameString: String, lastNameString: String, dateOfBirthString: String, phoneNumberString: String, emailIDString: String, usernameString: String, profilePicUrlString: String) {
         firstName = firstNameString
         lastName = lastNameString
         dateOfBirth = dateOfBirthString
@@ -19,7 +19,8 @@ struct UserDetailsModel: Encodable, Decodable {
         profilePicUrl = profilePicUrlString
     }
     
-    var maxStorateInMegabytes: Int = 300
+    var figFilesStorageUsed: Float? = 0.0
+    var maxStorateInMegabytes: Float? = 300.0
     var firstName: String
     var lastName: String
     var dateOfBirth: String

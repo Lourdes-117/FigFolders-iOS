@@ -611,7 +611,7 @@ final class DatabaseManager {
     }
     
 // MARK: - File Upload Methods
-    func uploadFigFile(figFileModel: FigFileModel, completion: @escaping (Bool)-> Void) {
+    func uploadFigFile(figFileModel: FigFileModel, sizeOfFile: Float, completion: @escaping (Bool)-> Void) {
         let databaseReference = database.child(StringConstants.shared.figFiles.currentUserFigFilesPath)
             databaseReference.observeSingleEvent(of: .value) { snapshot in
             if snapshot.exists(),

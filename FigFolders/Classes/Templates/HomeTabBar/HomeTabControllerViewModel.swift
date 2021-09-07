@@ -8,6 +8,10 @@
 import UIKit
 
 class HomeTabControllerViewModel {
+    let errorString = "Error"
+    let okayString = "Okay"
+    let pleaseTryAgainString = "Please Try Again"
+    let notEnoughSpaceAvailable = "Not Enough Space Available. Please Purchase More Space"
     let navigationTitleColor = LabelColorPalette.labelColorPrimary.color ?? UIColor()
     let navigationBarColor = ColorPalette.primary_green.color
     let centerButtonBackgroundColor = ColorPalette.primary_green.color
