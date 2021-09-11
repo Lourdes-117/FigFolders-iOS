@@ -89,10 +89,10 @@ struct FigFileModel: Encodable, Decodable {
     let fileName: String?
     let fileType: String?
     let fileDescription: String?
-    let likedUsers: [String?]
+    let likedUsers: [String?]?
     var fileUrl: String?
     let filePrice: Float?
-    let comments: [FigFilesCommentsModel?]
+    let comments: [FigFilesCommentsModel?]?
     var fileSizeBytes: Int?
     
     

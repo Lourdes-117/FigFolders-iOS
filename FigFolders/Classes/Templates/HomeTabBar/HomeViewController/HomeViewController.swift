@@ -13,6 +13,7 @@ class HomeViewController: ViewControllerWithLoading {
     @IBOutlet weak var hamburgerMenuView: HamburgerMenuView!
     @IBOutlet weak var hamburgerMenuLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var hamburgerMenuOverflowView: UIView!
+    @IBOutlet weak var figFilesTableView: FigFilesTableView!
     
     let viewModel = HomeViewControllerViewModel()
     
@@ -27,6 +28,7 @@ class HomeViewController: ViewControllerWithLoading {
         setupView()
         setupGestures()
         setupDelegate()
+        figFilesTableView.initialSetup()
     }
     
     override func viewDidAppear(_ animated: Bool) {

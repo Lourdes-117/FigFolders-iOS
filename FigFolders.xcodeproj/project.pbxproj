@@ -103,6 +103,15 @@
 		AEF84289264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF84288264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard */; };
 		AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8428A264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift */; };
 		AEF8428D264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8428C264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift */; };
+		AEF8800026ECEF2C007BF7E9 /* FigFilesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF87FFF26ECEF2C007BF7E9 /* FigFilesTableViewCell.xib */; };
+		AEF8800226ECEF49007BF7E9 /* FigFilesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8800126ECEF49007BF7E9 /* FigFilesTableViewCell.swift */; };
+		AEF8800426ECF277007BF7E9 /* FigFilesTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF8800326ECF277007BF7E9 /* FigFilesTableView.xib */; };
+		AEF8800726ECF2A1007BF7E9 /* FigFilesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8800626ECF2A1007BF7E9 /* FigFilesTableView.swift */; };
+		AEF8800926ECF435007BF7E9 /* FigFilesTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8800826ECF435007BF7E9 /* FigFilesTableViewViewModel.swift */; };
+		AEF8800C26ED048C007BF7E9 /* LikeCommentShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8800B26ED048C007BF7E9 /* LikeCommentShareView.swift */; };
+		AEF8800E26ED049C007BF7E9 /* LikeCommentShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF8800D26ED049C007BF7E9 /* LikeCommentShareView.xib */; };
+		AEF8801026ED1495007BF7E9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8800F26ED1494007BF7E9 /* NetworkManager.swift */; };
+		AEF8801226ED250A007BF7E9 /* FigFilesTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF8801126ED2509007BF7E9 /* FigFilesTableViewCellViewModel.swift */; };
 		AEF98F7526AD30F700FFD5DA /* FileUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF98F7426AD30F700FFD5DA /* FileUploadViewController.swift */; };
 		AEF98F7726AD310400FFD5DA /* FileUploadViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF98F7626AD310400FFD5DA /* FileUploadViewController.storyboard */; };
 		AEF98F7926AD31F700FFD5DA /* FileUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF98F7826AD31F700FFD5DA /* FileUploadViewModel.swift */; };
@@ -209,6 +218,15 @@
 		AEF84288264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingRegisterStepTwoViewController.storyboard; sourceTree = "<group>"; };
 		AEF8428A264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRegisterStepTwoViewController.swift; sourceTree = "<group>"; };
 		AEF8428C264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRegisterStepTwoViewModel.swift; sourceTree = "<group>"; };
+		AEF87FFF26ECEF2C007BF7E9 /* FigFilesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FigFilesTableViewCell.xib; sourceTree = "<group>"; };
+		AEF8800126ECEF49007BF7E9 /* FigFilesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesTableViewCell.swift; sourceTree = "<group>"; };
+		AEF8800326ECF277007BF7E9 /* FigFilesTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FigFilesTableView.xib; sourceTree = "<group>"; };
+		AEF8800626ECF2A1007BF7E9 /* FigFilesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesTableView.swift; sourceTree = "<group>"; };
+		AEF8800826ECF435007BF7E9 /* FigFilesTableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesTableViewViewModel.swift; sourceTree = "<group>"; };
+		AEF8800B26ED048C007BF7E9 /* LikeCommentShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCommentShareView.swift; sourceTree = "<group>"; };
+		AEF8800D26ED049C007BF7E9 /* LikeCommentShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeCommentShareView.xib; sourceTree = "<group>"; };
+		AEF8800F26ED1494007BF7E9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		AEF8801126ED2509007BF7E9 /* FigFilesTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		AEF98F7426AD30F700FFD5DA /* FileUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadViewController.swift; sourceTree = "<group>"; };
 		AEF98F7626AD310400FFD5DA /* FileUploadViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FileUploadViewController.storyboard; sourceTree = "<group>"; };
 		AEF98F7826AD31F700FFD5DA /* FileUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadViewModel.swift; sourceTree = "<group>"; };
@@ -337,6 +355,7 @@
 			children = (
 				AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */,
 				AE9DC6692662DA42001B9392 /* StorageManager.swift */,
+				AEF8800F26ED1494007BF7E9 /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -491,6 +510,9 @@
 		AEA19788264995EB00D0D181 /* Organisms */ = {
 			isa = PBXGroup;
 			children = (
+				AEF8800A26ED046C007BF7E9 /* LikeCommentShareView */,
+				AEF8800526ECF27F007BF7E9 /* FigFilesTableView */,
+				AEF87FFE26ECC784007BF7E9 /* FigFileTableViewCell */,
 				AE0E3CCE26712F42002D2D29 /* ChatListTableViewCell */,
 				AE9D234B266B6E1E005B5C55 /* PullDownTopBar */,
 				AEA19789264995FB00D0D181 /* OnboardingCollectionView */,
@@ -636,6 +658,35 @@
 			path = OnboardingRegisterStepTwo;
 			sourceTree = "<group>";
 		};
+		AEF87FFE26ECC784007BF7E9 /* FigFileTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AEF87FFF26ECEF2C007BF7E9 /* FigFilesTableViewCell.xib */,
+				AEF8801126ED2509007BF7E9 /* FigFilesTableViewCellViewModel.swift */,
+				AEF8800126ECEF49007BF7E9 /* FigFilesTableViewCell.swift */,
+			);
+			path = FigFileTableViewCell;
+			sourceTree = "<group>";
+		};
+		AEF8800526ECF27F007BF7E9 /* FigFilesTableView */ = {
+			isa = PBXGroup;
+			children = (
+				AEF8800326ECF277007BF7E9 /* FigFilesTableView.xib */,
+				AEF8800626ECF2A1007BF7E9 /* FigFilesTableView.swift */,
+				AEF8800826ECF435007BF7E9 /* FigFilesTableViewViewModel.swift */,
+			);
+			path = FigFilesTableView;
+			sourceTree = "<group>";
+		};
+		AEF8800A26ED046C007BF7E9 /* LikeCommentShareView */ = {
+			isa = PBXGroup;
+			children = (
+				AEF8800B26ED048C007BF7E9 /* LikeCommentShareView.swift */,
+				AEF8800D26ED049C007BF7E9 /* LikeCommentShareView.xib */,
+			);
+			path = LikeCommentShareView;
+			sourceTree = "<group>";
+		};
 		AEF98F7326AD30C700FFD5DA /* FileUploadViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -720,6 +771,7 @@
 				AE94D9152667FFDF00D6E921 /* ChatListViewController.storyboard in Resources */,
 				AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */,
 				AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */,
+				AEF8800426ECF277007BF7E9 /* FigFilesTableView.xib in Resources */,
 				AE3F86A9267BBA1100B4D814 /* ImageViewerViewController.storyboard in Resources */,
 				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
 				AE1177B5266CD57F0031FEBA /* Color-Palette.xcassets in Resources */,
@@ -735,7 +787,9 @@
 				AEF84276264D8EAF00FB8003 /* Roboto-Bold.ttf in Resources */,
 				AEA1977A2649933400D0D181 /* Assets.xcassets in Resources */,
 				AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */,
+				AEF8800026ECEF2C007BF7E9 /* FigFilesTableViewCell.xib in Resources */,
 				AEF84277264D8EAF00FB8003 /* Roboto-Thin.ttf in Resources */,
+				AEF8800E26ED049C007BF7E9 /* LikeCommentShareView.xib in Resources */,
 				AEF84282264D9D9800FB8003 /* OnboardingRegisterStepOneViewController.storyboard in Resources */,
 				AE6B944B26542EAF006463E1 /* ProfileViewController.storyboard in Resources */,
 				AEF84275264D8EAF00FB8003 /* Roboto-BlackItalic.ttf in Resources */,
@@ -838,6 +892,7 @@
 				AEA197712649933000D0D181 /* AppDelegate.swift in Sources */,
 				AE0E3CD126713046002D2D29 /* ChatListTableViewCell.swift in Sources */,
 				AE9D2351266B7D2A005B5C55 /* SearchChatViewModel.swift in Sources */,
+				AEF8801226ED250A007BF7E9 /* FigFilesTableViewCellViewModel.swift in Sources */,
 				AEF8428D264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift in Sources */,
 				AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */,
 				AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */,
@@ -862,6 +917,8 @@
 				AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */,
 				AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */,
 				AE89D4CB2665581000CF0439 /* PasswordTextField.swift in Sources */,
+				AEF8800C26ED048C007BF7E9 /* LikeCommentShareView.swift in Sources */,
+				AEF8800926ECF435007BF7E9 /* FigFilesTableViewViewModel.swift in Sources */,
 				AE1177B9266CEC930031FEBA /* HomeTabControllerViewModel.swift in Sources */,
 				AEF8427C264D936500FB8003 /* LoginViewModel.swift in Sources */,
 				AEF8427E264D940800FB8003 /* ResetPasswordViewModel.swift in Sources */,
@@ -870,14 +927,17 @@
 				AEF84286264DA15300FB8003 /* OnboardingRegisterStepOneViewModel.swift in Sources */,
 				AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */,
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
+				AEF8801026ED1495007BF7E9 /* NetworkManager.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
 				AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */,
+				AEF8800226ECEF49007BF7E9 /* FigFilesTableViewCell.swift in Sources */,
 				AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */,
 				AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */,
 				AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */,
 				AE9D234D266B6E60005B5C55 /* PullDownTopBarView.swift in Sources */,
 				AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */,
 				AE7A26C1265056390057D454 /* HomeTabBarController.swift in Sources */,
+				AEF8800726ECF2A1007BF7E9 /* FigFilesTableView.swift in Sources */,
 				AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */,
 				AE0E3CD626715053002D2D29 /* ChatListTableViewModel.swift in Sources */,
 				AE549C7326AF5AD900342E8A /* TextViewWithPlaceholder.swift in Sources */,

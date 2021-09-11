@@ -101,6 +101,13 @@ class StorageManager {
         storage.child("\(StringConstants.shared.storage.messageAudioPath)\(name)").getData(maxSize: 2 * 1024 * 1024, completion: completion)
     }
     
+    func getProfilePicUrlForUser(userName: String, completion: @escaping (URL?) -> Void) {
+        let profilePicPath = "\(StringConstants.shared.storage.profilePicturePath)\(userName)"
+        storage.child(profilePicPath).downloadURL { url, error in
+            completion(url)
+        }
+    }
+    
 // MARK: - File Upload
     func uploadFigFile(localUrl: URL, fileName: String, fileType: DocumentPickerDocumentType, completion: @escaping UploadFileCompletion) {
         guard let filePath = fileType.pathToUpload?.appending(fileName) else {
