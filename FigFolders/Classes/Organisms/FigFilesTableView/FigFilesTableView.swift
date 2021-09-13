@@ -13,6 +13,8 @@ class FigFilesTableView: UIView {
     
     @IBOutlet weak var tableView: UITableView!
     
+    weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         commonInit(nibName)
@@ -64,6 +66,7 @@ extension FigFilesTableView: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.setupCell(figFile: viewModel.figFiles[indexPath.row], indexPath: indexPath)
+        cell.delegate = figFilesTableViewCellDelegate
         return cell
     }
     

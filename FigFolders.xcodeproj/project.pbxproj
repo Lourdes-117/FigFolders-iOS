@@ -80,6 +80,12 @@
 		AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC774412679270300EEEED0 /* ChatViewModel.swift */; };
 		AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */; };
 		AEE25F5226922E080021ABDB /* AudioMessageCellUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */; };
+		AEF4A27C26EFABC80053DA78 /* UserProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A27B26EFABC80053DA78 /* UserProfileViewController.storyboard */; };
+		AEF4A27E26EFABD50053DA78 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A27D26EFABD50053DA78 /* UserProfileViewController.swift */; };
+		AEF4A28026EFACB00053DA78 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A27F26EFACB00053DA78 /* UserProfileViewModel.swift */; };
+		AEF4A28426EFAED60053DA78 /* UserDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A28326EFAED60053DA78 /* UserDetailsTableViewCell.xib */; };
+		AEF4A28626EFAF810053DA78 /* UserDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A28526EFAF810053DA78 /* UserDetailsTableViewCell.swift */; };
+		AEF4A28826EFAFF70053DA78 /* UserDetailsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A28726EFAFF70053DA78 /* UserDetailsTableViewCellViewModel.swift */; };
 		AEF84243264D83CF00FB8003 /* ResetPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF84242264D83CF00FB8003 /* ResetPasswordViewController.storyboard */; };
 		AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF84244264D83ED00FB8003 /* ResetPasswordViewController.swift */; };
 		AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84261264D8EAF00FB8003 /* Roboto-Medium.ttf */; };
@@ -195,6 +201,12 @@
 		AEC774412679270300EEEED0 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableUtility.swift; sourceTree = "<group>"; };
 		AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessageCellUtility.swift; sourceTree = "<group>"; };
+		AEF4A27B26EFABC80053DA78 /* UserProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileViewController.storyboard; sourceTree = "<group>"; };
+		AEF4A27D26EFABD50053DA78 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		AEF4A27F26EFACB00053DA78 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		AEF4A28326EFAED60053DA78 /* UserDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		AEF4A28526EFAF810053DA78 /* UserDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		AEF4A28726EFAFF70053DA78 /* UserDetailsTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		AEF84242264D83CF00FB8003 /* ResetPasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResetPasswordViewController.storyboard; sourceTree = "<group>"; };
 		AEF84244264D83ED00FB8003 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		AEF84261264D8EAF00FB8003 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -474,6 +486,7 @@
 		AEA197852649936400D0D181 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				AEF4A27A26EFABAD0053DA78 /* UserProfileViewController */,
 				AE94D9122667FF9500D6E921 /* Chats */,
 				AEA1979326499E9E00D0D181 /* Onboarding */,
 				AE7A26BC265055590057D454 /* HomeTabBar */,
@@ -510,6 +523,7 @@
 		AEA19788264995EB00D0D181 /* Organisms */ = {
 			isa = PBXGroup;
 			children = (
+				AEF4A28126EFAEB10053DA78 /* UserDetailsTableViewCell */,
 				AEF8800A26ED046C007BF7E9 /* LikeCommentShareView */,
 				AEF8800526ECF27F007BF7E9 /* FigFilesTableView */,
 				AEF87FFE26ECC784007BF7E9 /* FigFileTableViewCell */,
@@ -600,6 +614,26 @@
 				AEF84244264D83ED00FB8003 /* ResetPasswordViewController.swift */,
 			);
 			path = OnboardingPasswordReset;
+			sourceTree = "<group>";
+		};
+		AEF4A27A26EFABAD0053DA78 /* UserProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AEF4A27B26EFABC80053DA78 /* UserProfileViewController.storyboard */,
+				AEF4A27F26EFACB00053DA78 /* UserProfileViewModel.swift */,
+				AEF4A27D26EFABD50053DA78 /* UserProfileViewController.swift */,
+			);
+			path = UserProfileViewController;
+			sourceTree = "<group>";
+		};
+		AEF4A28126EFAEB10053DA78 /* UserDetailsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AEF4A28326EFAED60053DA78 /* UserDetailsTableViewCell.xib */,
+				AEF4A28526EFAF810053DA78 /* UserDetailsTableViewCell.swift */,
+				AEF4A28726EFAFF70053DA78 /* UserDetailsTableViewCellViewModel.swift */,
+			);
+			path = UserDetailsTableViewCell;
 			sourceTree = "<group>";
 		};
 		AEF84246264D84B200FB8003 /* Fonts */ = {
@@ -772,6 +806,7 @@
 				AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */,
 				AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */,
 				AEF8800426ECF277007BF7E9 /* FigFilesTableView.xib in Resources */,
+				AEF4A27C26EFABC80053DA78 /* UserProfileViewController.storyboard in Resources */,
 				AE3F86A9267BBA1100B4D814 /* ImageViewerViewController.storyboard in Resources */,
 				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
 				AE1177B5266CD57F0031FEBA /* Color-Palette.xcassets in Resources */,
@@ -794,6 +829,7 @@
 				AE6B944B26542EAF006463E1 /* ProfileViewController.storyboard in Resources */,
 				AEF84275264D8EAF00FB8003 /* Roboto-BlackItalic.ttf in Resources */,
 				AEF84274264D8EAF00FB8003 /* Roboto-Italic.ttf in Resources */,
+				AEF4A28426EFAED60053DA78 /* UserDetailsTableViewCell.xib in Resources */,
 				AEA197782649933000D0D181 /* OnboardingViewController.storyboard in Resources */,
 				AE987714264AFE5400064A7D /* LoginViewController.storyboard in Resources */,
 				AEF84243264D83CF00FB8003 /* ResetPasswordViewController.storyboard in Resources */,
@@ -883,6 +919,7 @@
 				AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */,
 				AEE25F5226922E080021ABDB /* AudioMessageCellUtility.swift in Sources */,
 				AE94D9172667FFEF00D6E921 /* ChatListViewController.swift in Sources */,
+				AEF4A27E26EFABD50053DA78 /* UserProfileViewController.swift in Sources */,
 				AEF98F7926AD31F700FFD5DA /* FileUploadViewModel.swift in Sources */,
 				AE224B69268FB2BA003CE3E2 /* VoiceRecordingViewController.swift in Sources */,
 				AEC7744026791CE200EEEED0 /* ChatViewController.swift in Sources */,
@@ -900,6 +937,7 @@
 				AE8AE516267D11AE009065E2 /* LocationPickerViewController.swift in Sources */,
 				AEBB86812656EB4400D2476B /* ViewControllerWithLoading.swift in Sources */,
 				AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */,
+				AEF4A28026EFACB00053DA78 /* UserProfileViewModel.swift in Sources */,
 				AE0E3CD826715252002D2D29 /* NSLayoutConstraintUtility.swift in Sources */,
 				AE94E07326530FC80020CB95 /* UILabelUtility.swift in Sources */,
 				AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */,
@@ -911,6 +949,7 @@
 				AEA1978F26499A0B00D0D181 /* OnboardingCollectionViewModel.swift in Sources */,
 				AE6B944D26542EC4006463E1 /* ProfileViewModel.swift in Sources */,
 				AE0E3CD426714AC8002D2D29 /* StructIterationProtocol.swift in Sources */,
+				AEF4A28826EFAFF70053DA78 /* UserDetailsTableViewCellViewModel.swift in Sources */,
 				AE9DC66A2662DA42001B9392 /* StorageManager.swift in Sources */,
 				AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */,
 				AE3F86A8267BBA1100B4D814 /* ImageViewerViewController.swift in Sources */,
@@ -929,6 +968,7 @@
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
 				AEF8801026ED1495007BF7E9 /* NetworkManager.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
+				AEF4A28626EFAF810053DA78 /* UserDetailsTableViewCell.swift in Sources */,
 				AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */,
 				AEF8800226ECEF49007BF7E9 /* FigFilesTableViewCell.swift in Sources */,
 				AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */,

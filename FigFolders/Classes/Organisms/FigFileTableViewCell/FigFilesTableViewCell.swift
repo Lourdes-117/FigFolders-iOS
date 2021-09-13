@@ -15,7 +15,9 @@ class FigFilesTableViewCell: UITableViewCell {
     @IBOutlet weak var fileOwnerNameLabel: UILabel!
     @IBOutlet weak var fileTitleLabel: UILabel!
     
-    let viewModel = FigFilesTableViewCellViewModel()
+    private let viewModel = FigFilesTableViewCellViewModel()
+    
+    weak var delegate: FigFilesTableViewCellDelegate?
     
     func setupCell(figFile: FigFileModel, indexPath: IndexPath) {
         viewModel.figFile = figFile
@@ -37,6 +39,10 @@ class FigFilesTableViewCell: UITableViewCell {
     
     private func setupDelegate() {
         likeCommetShareView.delegate = self
+    }
+    
+    @IBAction func onTapProfileInfo() {
+        delegate?.openProfileDetailsPage(userNameToPopulate: viewModel.ownerName)
     }
     
     @IBAction func onTapFollowButton(_ sender: Any) {

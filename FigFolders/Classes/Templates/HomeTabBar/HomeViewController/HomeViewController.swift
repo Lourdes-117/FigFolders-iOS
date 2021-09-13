@@ -105,6 +105,7 @@ class HomeViewController: ViewControllerWithLoading {
     
     private func setupDelegate() {
         hamburgerMenuView.delegate = self
+        figFilesTableView.figFilesTableViewCellDelegate = self
     }
     
 // MARK: - Button Actions
@@ -165,5 +166,13 @@ extension HomeViewController: HamburgerMenuDelegate {
         expandOrCollapseHamburgerMenu { [weak self] in
             self?.navigationController?.pushViewController(profileViewController, animated: true)
         }
+    }
+}
+
+extension HomeViewController: FigFilesTableViewCellDelegate {
+    func openProfileDetailsPage(userNameToPopulate: String) {
+        guard let profileDetailsPage = UserProfileViewController.initiateVC() else { return }
+        profileDetailsPage.userNameToPopulate = userNameToPopulate
+        navigationController?.pushViewController(profileDetailsPage, animated: true)
     }
 }

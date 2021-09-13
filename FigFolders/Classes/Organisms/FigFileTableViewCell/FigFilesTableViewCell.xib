@@ -50,15 +50,25 @@
                                     <action selector="onTapFollowButton:" destination="Il7-Uq-rUT" eventType="touchUpInside" id="1Lq-jn-ZUu"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUz-s6-dQI">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="65"/>
+                                <connections>
+                                    <action selector="onTapProfileInfo" destination="Il7-Uq-rUT" eventType="touchUpInside" id="qVO-7P-Rnl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="65" id="563-hb-OUd"/>
+                            <constraint firstItem="sUz-s6-dQI" firstAttribute="top" secondItem="d1F-On-uCd" secondAttribute="top" id="5mU-Gd-eks"/>
                             <constraint firstItem="4lX-V1-bwZ" firstAttribute="top" secondItem="EFY-gv-GXJ" secondAttribute="top" id="5yL-BO-yQR"/>
                             <constraint firstAttribute="trailing" secondItem="3gf-qZ-uyd" secondAttribute="trailing" constant="15" id="DSA-8M-IHt"/>
+                            <constraint firstItem="sUz-s6-dQI" firstAttribute="trailing" secondItem="4lX-V1-bwZ" secondAttribute="trailing" id="Huq-c3-BeM"/>
                             <constraint firstItem="4lX-V1-bwZ" firstAttribute="leading" secondItem="EFY-gv-GXJ" secondAttribute="trailing" constant="15" id="Z9H-NX-Tna"/>
+                            <constraint firstAttribute="bottom" secondItem="sUz-s6-dQI" secondAttribute="bottom" id="gB5-H9-3EE"/>
                             <constraint firstItem="EFY-gv-GXJ" firstAttribute="leading" secondItem="d1F-On-uCd" secondAttribute="leading" constant="15" id="hC2-xS-0gH"/>
                             <constraint firstItem="3gf-qZ-uyd" firstAttribute="centerY" secondItem="d1F-On-uCd" secondAttribute="centerY" id="liL-ci-Id4"/>
+                            <constraint firstItem="sUz-s6-dQI" firstAttribute="leading" secondItem="d1F-On-uCd" secondAttribute="leading" id="nvR-84-lK5"/>
                             <constraint firstItem="EFY-gv-GXJ" firstAttribute="centerY" secondItem="d1F-On-uCd" secondAttribute="centerY" id="yNr-iE-7qD"/>
                         </constraints>
                     </view>

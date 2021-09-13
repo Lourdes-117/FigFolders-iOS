@@ -28,6 +28,8 @@ struct UserDetailsModel: Encodable, Decodable {
     var username: String
     var safeEmail: String
     var profilePicUrl: String
+    var followers: [String?]?
+    var following: [String?]?
     
     var conversations: [UserConversationsModel?]?
     
@@ -43,6 +45,22 @@ struct UserDetailsModel: Encodable, Decodable {
     
     mutating func addNewFileSize(newFileSize: Float) {
         figFilesStorageUsed = (figFilesStorageUsed ?? 0) + newFileSize
+    }
+    
+    var profilePicUrlAsUrl: URL? {
+        URL(string: profilePicUrl)
+    }
+    
+    var fullName: String? {
+        return (firstName + " " + lastName)
+    }
+    
+    var followersString: String {
+        return "\(followers?.count ?? 0) Followers"
+    }
+    
+    var followingString: String {
+        return "\(following?.count ?? 0) Following"
     }
 }
 
