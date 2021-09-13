@@ -618,7 +618,7 @@ final class DatabaseManager {
                var userFigFilesArray = snapshot.value as? [[String: Any]],
                let newEntry = figFileModel.toDictionary {
                 // User has file array. Append values to it
-                userFigFilesArray.append(newEntry)
+                userFigFilesArray.insert(newEntry, at: 0)
                 databaseReference.setValue(userFigFilesArray)
             } else {
                 // User does not have array available. Create one
