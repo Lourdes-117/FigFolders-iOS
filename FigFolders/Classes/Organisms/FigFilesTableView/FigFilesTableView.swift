@@ -27,7 +27,7 @@ class FigFilesTableView: UIView {
     }
     
     private func getRandomFilesInitial() {
-        viewModel.fetchRandomFigFiles { [weak self] in
+        viewModel.fetchRandomFigFiles { [weak self] _ in
             self?.tableView.reloadData()
         }
     }
@@ -43,9 +43,9 @@ class FigFilesTableView: UIView {
     }
     
     private func startPagination() {
-        let numberOfFilesBeforeUpdate = viewModel.numberOfFiles
-        viewModel.fetchRandomFigFiles { [weak self] in
+        viewModel.fetchRandomFigFiles { [weak self] numberOfNewCells in
             guard let strongSelf = self else { return }
+            let numberOfFilesBeforeUpdate = strongSelf.viewModel.numberOfFiles -  numberOfNewCells
             let numberOfFilesAfterUpdate = strongSelf.viewModel.numberOfFiles
             let indexPathsToUpdate = strongSelf.viewModel.getIndexPathBetweenNumbers(numberOfItemsBeforeUpdate: numberOfFilesBeforeUpdate, numberOfItemsAfterUpdate: numberOfFilesAfterUpdate)
             strongSelf.tableView.beginUpdates()

@@ -47,13 +47,13 @@ class UserProfileViewModel {
         }
     }
     
-    func fetchFigFilesWithPagination(completion: @escaping () -> Void) {
+    func fetchFigFilesWithPagination(completion: @escaping (_ numberOfNewFiles: Int) -> Void) {
         DatabaseManager.shared.getFigFilesOfUser(username: userNameToPopulate ?? "", paginationIndex: paginationIndex) { [weak self] result in
             guard let strongSelf = self else { return }
             switch result {
             case .success(let fetchedFigFiles):
                 strongSelf.figFiles.append(contentsOf: fetchedFigFiles)
-                completion()
+                completion(fetchedFigFiles.count)
             case .failure(let error):
                 debugPrint("Error Fetching Random FigFiles \(error)")
             }

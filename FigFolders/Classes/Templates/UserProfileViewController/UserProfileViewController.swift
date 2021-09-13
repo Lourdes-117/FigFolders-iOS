@@ -43,15 +43,15 @@ class UserProfileViewController: UIViewController {
     }
     
     private func getFigFilesInitial() {
-        viewModel.fetchFigFilesWithPagination { [weak self] in
+        viewModel.fetchFigFilesWithPagination { [weak self] _ in
             self?.tableView.reloadData()
         }
     }
     
     private func startPagination() {
-        let numberOfFilesBeforeUpdate = viewModel.numberOfFigFiles
-        viewModel.fetchFigFilesWithPagination { [weak self] in
+        viewModel.fetchFigFilesWithPagination { [weak self] numberOfNewCells in
             guard let strongSelf = self else { return }
+            let numberOfFilesBeforeUpdate = strongSelf.viewModel.numberOfFigFiles - numberOfNewCells
             let numberOfFilesAfterUpdate = strongSelf.viewModel.numberOfFigFiles
             let indexPathsToUpdate = strongSelf.viewModel.getIndexPathBetweenNumbers(numberOfItemsBeforeUpdate: numberOfFilesBeforeUpdate, numberOfItemsAfterUpdate: numberOfFilesAfterUpdate)
             strongSelf.tableView.beginUpdates()
