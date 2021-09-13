@@ -30,7 +30,7 @@ class FigFilesTableViewViewModel {
                 strongSelf.figFiles.append(contentsOf: fetchedFigFiles)
                 completion(fetchedFigFiles.count)
             case .failure(let error):
-                debugPrint("Error Fetching Random FigFiles \(error)")
+                debugPrint("Error Fetching User's FigFiles \(error)")
             }
         }
     }
