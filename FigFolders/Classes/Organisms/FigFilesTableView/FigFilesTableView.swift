@@ -42,7 +42,7 @@ class FigFilesTableView: UIView {
         tableView.delegate = self
     }
     
-    private func appendRandomFiles() {
+    private func startPagination() {
         let numberOfFilesBeforeUpdate = viewModel.numberOfFiles
         viewModel.fetchRandomFigFiles { [weak self] in
             guard let strongSelf = self else { return }
@@ -88,7 +88,7 @@ extension FigFilesTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row >= (viewModel.numberOfFiles-1) {
-            appendRandomFiles()
+            startPagination()
         }
     }
 }

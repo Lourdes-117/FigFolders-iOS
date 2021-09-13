@@ -23,8 +23,10 @@ class UserProfileViewController: UIViewController {
     
     private func initialSetup() {
         viewModel.userNameToPopulate = userNameToPopulate
+        self.title = viewModel.userNameToPopulate
         registerCells()
         setupDatasourceDelegate()
+        getFigFilesInitial()
     }
     
     private func registerCells() {
@@ -38,6 +40,24 @@ class UserProfileViewController: UIViewController {
     private func setupDatasourceDelegate() {
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    private func getFigFilesInitial() {
+        viewModel.fetchFigFilesWithPagination { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func startPagination() {
+        let numberOfFilesBeforeUpdate = viewModel.numberOfFigFiles
+        viewModel.fetchFigFilesWithPagination { [weak self] in
+            guard let strongSelf = self else { return }
+            let numberOfFilesAfterUpdate = strongSelf.viewModel.numberOfFigFiles
+            let indexPathsToUpdate = strongSelf.viewModel.getIndexPathBetweenNumbers(numberOfItemsBeforeUpdate: numberOfFilesBeforeUpdate, numberOfItemsAfterUpdate: numberOfFilesAfterUpdate)
+            strongSelf.tableView.beginUpdates()
+            strongSelf.tableView.insertRows(at: indexPathsToUpdate, with: .fade)
+            strongSelf.tableView.endUpdates()
+        }
     }
 }
 
@@ -58,5 +78,9 @@ extension UserProfileViewController: UITableViewDataSource {
 
 // MARK: - TableView Delegate
 extension UserProfileViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard indexPath.section == 1,
+              indexPath.row >= (viewModel.numberOfFigFiles - 1) else { return } // This should Not Run For User Details Cell. Only For Fig Files
+        startPagination()
+    }
 }

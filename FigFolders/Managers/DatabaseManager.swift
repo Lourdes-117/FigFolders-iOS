@@ -643,6 +643,14 @@ final class DatabaseManager {
             completion(result)
         }
     }
+    
+    func getFigFilesOfUser(username: String, paginationIndex: Int, completion: @escaping ((Result<[FigFileModel], Error>) -> Void) ) {
+        let templateUrl = "http://127.0.0.1:5001/figfolders/us-central1/getRandomFigFilesForUsername?userName=%@"
+        let urlString = "https://run.mocky.io/v3/ba3f5ee6-d57c-4f9d-8c75-688ba23344e5" //String(format: templateUrl, username, paginationIndex)
+        NetworkManager.getData(urlString, [FigFileModel].self) { result in
+            completion(result)
+        }
+    }
 }
 
 // MARK:- Database Errors

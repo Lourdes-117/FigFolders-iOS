@@ -706,8 +706,8 @@
 			isa = PBXGroup;
 			children = (
 				AEF8800326ECF277007BF7E9 /* FigFilesTableView.xib */,
-				AEF8800626ECF2A1007BF7E9 /* FigFilesTableView.swift */,
 				AEF8800826ECF435007BF7E9 /* FigFilesTableViewViewModel.swift */,
+				AEF8800626ECF2A1007BF7E9 /* FigFilesTableView.swift */,
 			);
 			path = FigFilesTableView;
 			sourceTree = "<group>";

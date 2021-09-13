@@ -26,7 +26,6 @@ class UserDetailsTableViewCell: UITableViewCell {
     func setupCell(userName: String) {
         viewModel.userName = userName
         setValues()
-        
     }
     
     private func setValues() {
@@ -40,6 +39,7 @@ class UserDetailsTableViewCell: UITableViewCell {
         StorageManager.shared.getProfilePicUrlForUser(userName: viewModel.userName ?? "") { [weak self] url in
             guard let strongSelf = self else { return }
             strongSelf.profilePictureImageView.sd_setImage(with: url, placeholderImage: strongSelf.viewModel.profilePicPlaceholder, options: .forceTransition, completed: nil)
+            strongSelf.profilePictureImageView.setRoundedCorners()
         }
     }
 }
