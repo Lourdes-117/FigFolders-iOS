@@ -53,9 +53,13 @@ class StorageManager {
     
     /// Upload Video With URL
     fileprivate func uploadFileWithUrl(filePath: String, fileURL: URL, completion: @escaping UploadFileCompletion) {
-        storage.child(filePath).putFile(from: fileURL, metadata: nil) { [weak self] _, error in
+        guard let data = try? Data(contentsOf: fileURL) else {
+            completion(.failure(StorageErrors.failedToUpload))
+            return
+        }
+        storage.child(filePath).putData(data, metadata: nil) { [weak self] _, error in
             guard error == nil else {
-                //failed
+                // failed
                 completion(.failure(StorageErrors.failedToUpload))
                 return
             }

@@ -78,6 +78,9 @@
 		AEC7743E26791CCD00EEEED0 /* ChatViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC7743D26791CCD00EEEED0 /* ChatViewController.storyboard */; };
 		AEC7744026791CE200EEEED0 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC7743F26791CE200EEEED0 /* ChatViewController.swift */; };
 		AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC774412679270300EEEED0 /* ChatViewModel.swift */; };
+		AEC8312026F0E3F9002E3732 /* FigFileDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8311F26F0E3F9002E3732 /* FigFileDisplayView.swift */; };
+		AEC8312226F0E40A002E3732 /* FigFileDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC8312126F0E40A002E3732 /* FigFileDisplayView.xib */; };
+		AEC8312426F0E554002E3732 /* FigFileDisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8312326F0E554002E3732 /* FigFileDisplayViewModel.swift */; };
 		AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */; };
 		AEE25F5226922E080021ABDB /* AudioMessageCellUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */; };
 		AEF4A27C26EFABC80053DA78 /* UserProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A27B26EFABC80053DA78 /* UserProfileViewController.storyboard */; };
@@ -200,6 +203,9 @@
 		AEC7743D26791CCD00EEEED0 /* ChatViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatViewController.storyboard; sourceTree = "<group>"; };
 		AEC7743F26791CE200EEEED0 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		AEC774412679270300EEEED0 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		AEC8311F26F0E3F9002E3732 /* FigFileDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFileDisplayView.swift; sourceTree = "<group>"; };
+		AEC8312126F0E40A002E3732 /* FigFileDisplayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FigFileDisplayView.xib; sourceTree = "<group>"; };
+		AEC8312326F0E554002E3732 /* FigFileDisplayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFileDisplayViewModel.swift; sourceTree = "<group>"; };
 		AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableUtility.swift; sourceTree = "<group>"; };
 		AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessageCellUtility.swift; sourceTree = "<group>"; };
 		AEF4A27B26EFABC80053DA78 /* UserProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileViewController.storyboard; sourceTree = "<group>"; };
@@ -525,6 +531,7 @@
 		AEA19788264995EB00D0D181 /* Organisms */ = {
 			isa = PBXGroup;
 			children = (
+				AEC8311E26F0E3CF002E3732 /* FigFilesDisplayView */,
 				AEF4A28126EFAEB10053DA78 /* UserDetailsTableViewCell */,
 				AEF8800A26ED046C007BF7E9 /* LikeCommentShareView */,
 				AEF8800526ECF27F007BF7E9 /* FigFilesTableView */,
@@ -607,6 +614,16 @@
 				AEC7743F26791CE200EEEED0 /* ChatViewController.swift */,
 			);
 			path = ChatViewController;
+			sourceTree = "<group>";
+		};
+		AEC8311E26F0E3CF002E3732 /* FigFilesDisplayView */ = {
+			isa = PBXGroup;
+			children = (
+				AEC8312126F0E40A002E3732 /* FigFileDisplayView.xib */,
+				AEC8312326F0E554002E3732 /* FigFileDisplayViewModel.swift */,
+				AEC8311F26F0E3F9002E3732 /* FigFileDisplayView.swift */,
+			);
+			path = FigFilesDisplayView;
 			sourceTree = "<group>";
 		};
 		AEF2E270264C49C80004B8BB /* OnboardingPasswordReset */ = {
@@ -837,6 +854,7 @@
 				AE987714264AFE5400064A7D /* LoginViewController.storyboard in Resources */,
 				AEF84243264D83CF00FB8003 /* ResetPasswordViewController.storyboard in Resources */,
 				AEF84278264D8EAF00FB8003 /* Roboto-Black.ttf in Resources */,
+				AEC8312226F0E40A002E3732 /* FigFileDisplayView.xib in Resources */,
 				AEA1978D2649970800D0D181 /* OnboardingCollectionView.xib in Resources */,
 				AEA197982649A07E00D0D181 /* OnboardingCollectionViewCell.xib in Resources */,
 				AE9D2348266B6C56005B5C55 /* SearchChatViewController.storyboard in Resources */,
@@ -921,6 +939,7 @@
 				AE7A26C5265057120057D454 /* HomeViewController.swift in Sources */,
 				AE8AE51A267D1242009065E2 /* LocationPickerViewModel.swift in Sources */,
 				AE987712264AFE4700064A7D /* LoginViewController.swift in Sources */,
+				AEC8312026F0E3F9002E3732 /* FigFileDisplayView.swift in Sources */,
 				AEE25F5226922E080021ABDB /* AudioMessageCellUtility.swift in Sources */,
 				AE94D9172667FFEF00D6E921 /* ChatListViewController.swift in Sources */,
 				AEF4A27E26EFABD50053DA78 /* UserProfileViewController.swift in Sources */,
@@ -980,6 +999,7 @@
 				AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */,
 				AE9D234D266B6E60005B5C55 /* PullDownTopBarView.swift in Sources */,
 				AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */,
+				AEC8312426F0E554002E3732 /* FigFileDisplayViewModel.swift in Sources */,
 				AE7A26C1265056390057D454 /* HomeTabBarController.swift in Sources */,
 				AEF8800726ECF2A1007BF7E9 /* FigFilesTableView.swift in Sources */,
 				AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */,

@@ -81,6 +81,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fv-8j-PjN" customClass="FigFileDisplayView" customModule="FigFolders" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="65" width="424" height="240"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="RO7-SR-NqM"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -91,7 +98,11 @@
                             <constraint firstItem="d1F-On-uCd" firstAttribute="leading" secondItem="4Nv-Fj-1GT" secondAttribute="leading" id="MGe-MV-3Nt"/>
                             <constraint firstItem="d1F-On-uCd" firstAttribute="top" secondItem="4Nv-Fj-1GT" secondAttribute="top" id="NR8-IB-Edn"/>
                             <constraint firstItem="j5X-zf-rz3" firstAttribute="leading" secondItem="EFY-gv-GXJ" secondAttribute="leading" id="PSd-RI-hhr"/>
+                            <constraint firstItem="qit-OC-AYx" firstAttribute="top" secondItem="9fv-8j-PjN" secondAttribute="bottom" id="Udz-Bh-dG4"/>
+                            <constraint firstItem="9fv-8j-PjN" firstAttribute="top" secondItem="j5X-zf-rz3" secondAttribute="top" id="b34-Hz-gPI"/>
+                            <constraint firstItem="9fv-8j-PjN" firstAttribute="leading" secondItem="4Nv-Fj-1GT" secondAttribute="leading" id="dtn-wn-Oh8"/>
                             <constraint firstItem="j5X-zf-rz3" firstAttribute="top" secondItem="d1F-On-uCd" secondAttribute="bottom" id="ifC-Gd-t3b"/>
+                            <constraint firstAttribute="trailing" secondItem="9fv-8j-PjN" secondAttribute="trailing" id="oYf-eE-a0E"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -103,6 +114,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="figFileDisplayView" destination="9fv-8j-PjN" id="dxe-lj-U1c"/>
                 <outlet property="fileOwnerNameLabel" destination="4lX-V1-bwZ" id="9Ym-nU-F6o"/>
                 <outlet property="fileTitleLabel" destination="j5X-zf-rz3" id="Nac-Pg-6T5"/>
                 <outlet property="likeCommetShareView" destination="qit-OC-AYx" id="Ju3-dH-n7l"/>

@@ -14,6 +14,7 @@ class FigFilesTableViewCell: UITableViewCell {
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var fileOwnerNameLabel: UILabel!
     @IBOutlet weak var fileTitleLabel: UILabel!
+    @IBOutlet weak var figFileDisplayView: FigFileDisplayView!
     
     private let viewModel = FigFilesTableViewCellViewModel()
     
@@ -35,6 +36,7 @@ class FigFilesTableViewCell: UITableViewCell {
 
         }
         fileTitleLabel.text = viewModel.fileTitle
+        figFileDisplayView.setupView(figFileModel: viewModel.figFile)
     }
     
     private func setupDelegate() {
