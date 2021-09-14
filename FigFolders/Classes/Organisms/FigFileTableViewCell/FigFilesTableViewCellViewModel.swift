@@ -23,4 +23,8 @@ class FigFilesTableViewCellViewModel {
     var fileTitle: String {
         figFile?.fileName ?? ""
     }
+    
+    var fileUrl: URL? {
+        figFile?.fileUrlAsUrl
+    }
 }

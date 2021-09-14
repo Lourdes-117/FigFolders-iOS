@@ -117,6 +117,10 @@ struct FigFileModel: Encodable, Decodable {
     var isFree: Bool {
         return filePrice ?? 0 <= 0
     }
+    
+    var fileUrlAsUrl: URL? {
+        URL(string: fileUrl ?? "")
+    }
 }
 
 // MARK: - Fig File Comment
