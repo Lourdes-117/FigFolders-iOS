@@ -232,7 +232,7 @@ final class DatabaseManager {
             if success {
                 self?.createNewConversationForUser(currentUserName, messageToSend, otherUserEmail, otherUserName) {
                     success in
-                    completion(success)
+                    self?.sendMessage(conversationID: messageToSend.messageId, senderEmail: currentUserEmail, senderName: currentUserName, message: messageToSend, receiverEmailId: otherUserEmail, receiverName: otherUserName, existingConversationID: messageToSend.messageId, completion: completion)
                 }
             } else {
                 completion(success)
@@ -247,10 +247,11 @@ final class DatabaseManager {
         let conversationPath = "\(StringConstants.shared.database.conversations)/\(conversationID)/\(StringConstants.shared.database.messagesArray)"
         database.child(conversationPath).observeSingleEvent(of: .value) { [weak self] snapshot in
             guard var currentMessagesAnyValue = snapshot.value as? [Any?],
-                snapshot.exists() else {
-                completion(false)
-                return
-            }
+                  snapshot.exists() else {
+                      completion(false)
+                      self?.finishCreatingConversation(message: message, currentUserName: senderName, otherUserName: receiverName, completion: completion)
+                      return
+                  }
             
             currentMessagesAnyValue.removeAll(where: { $0 == nil })
             
@@ -377,14 +378,14 @@ final class DatabaseManager {
                 userNode[StringConstants.shared.database.conversations] = [
                     self?.createConversationNode(messageToSend, otherUserEmail, otherUserName)
                 ]
-                reference.setValue(userNode) { [weak self] error, _ in
+                reference.setValue(userNode) { error, _ in
                     guard error == nil else {
                         debugPrint("Error In Writing Message To Database")
                         completion(false)
                         return
                     }
-                    self?.finishCreatingConversation(message: messageToSend, currentUserName: currentUserName, otherUserName: otherUserName, completion: completion)
                 }
+                completion(true)
             }
         }
     }
@@ -519,8 +520,8 @@ final class DatabaseManager {
         messageModel.date = message.sentDate.toDateString()
         messageModel.isRead = false
         messageModel.messageID = message.messageId
-        messageModel.otherUserName = otherUserName
-        messageModel.senderName = currentUserName
+        messageModel.otherUserName = ((currentUserUsername ?? "") == currentUserName) ? otherUserName : currentUserUsername ?? ""
+        messageModel.senderName = currentUserUsername ?? ""
         messageModel.type = message.kind.rawValue
         
         let messageDict = messageModel.toDictionary
