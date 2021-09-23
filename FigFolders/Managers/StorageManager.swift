@@ -84,9 +84,15 @@ class StorageManager {
     }
     
     /// Upload Video Or File With URL
-    func uploadMessageVideo(from url: URL, fileName: String, completion: @escaping UploadFileCompletion) {
+    func uploadMessageVideo(from localUrl: URL, fileName: String, completion: @escaping UploadFileCompletion) {
         let filePath = "\(StringConstants.shared.storage.messageVideosPath)\(fileName)"
-        uploadFileWithUrl(filePath: filePath, fileURL: url, completion: completion)
+        VideoEncoder.encodeVideo(at: localUrl) { [weak self] url, error in
+            guard let mp4EncodedFileUrl = url else {
+                completion(.failure(StorageErrors.failedToUpload))
+                return
+            }
+            self?.uploadFileWithUrl(filePath: "\(filePath).mp4", fileURL: mp4EncodedFileUrl, completion: completion)
+        }
     }
     
     /// Upload Audio Message
@@ -117,6 +123,15 @@ class StorageManager {
         guard let filePath = fileType.pathToUpload?.appending(fileName) else {
             completion(.failure(StorageErrors.failedToUpload))
             return
+        }
+        if fileType == .video {
+            VideoEncoder.encodeVideo(at: localUrl) { [weak self] url, error in
+                guard let mp4EncodedFileUrl = url else {
+                    completion(.failure(StorageErrors.failedToUpload))
+                    return
+                }
+                self?.uploadFileWithUrl(filePath: "\(filePath).mp4", fileURL: mp4EncodedFileUrl, completion: completion)
+            }
         }
         uploadFileWithUrl(filePath: filePath, fileURL: localUrl, completion: completion)
     }

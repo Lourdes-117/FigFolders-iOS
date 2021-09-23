@@ -16,6 +16,7 @@
 		AE1177B5266CD57F0031FEBA /* Color-Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */; };
 		AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */; };
 		AE1177B9266CEC930031FEBA /* HomeTabControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */; };
+		AE11F00C26FD135600D83BA9 /* VideoEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE11F00B26FD135600D83BA9 /* VideoEncoder.swift */; };
 		AE16D8922652DA4D00000BB5 /* HamburgerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */; };
 		AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */; };
 		AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */; };
@@ -139,6 +140,7 @@
 		AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color-Palette.xcassets"; sourceTree = "<group>"; };
 		AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabControllerViewModel.swift; sourceTree = "<group>"; };
+		AE11F00B26FD135600D83BA9 /* VideoEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoEncoder.swift; path = ../../../../../../Desktop/VideoEncoder.swift; sourceTree = "<group>"; };
 		AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuView.swift; sourceTree = "<group>"; };
 		AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgerMenuView.xib; sourceTree = "<group>"; };
 		AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewModel.swift; sourceTree = "<group>"; };
@@ -558,6 +560,7 @@
 		AEA1979026499AC600D0D181 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				AE11F00B26FD135600D83BA9 /* VideoEncoder.swift */,
 				AE27EB43264EE66000C34CBD /* StringUtility.swift */,
 				AEA1979126499AD800D0D181 /* UIViewUtility.swift */,
 				AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */,
@@ -993,6 +996,7 @@
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
 				AEF4A28626EFAF810053DA78 /* UserDetailsTableViewCell.swift in Sources */,
 				AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */,
+				AE11F00C26FD135600D83BA9 /* VideoEncoder.swift in Sources */,
 				AEF8800226ECEF49007BF7E9 /* FigFilesTableViewCell.swift in Sources */,
 				AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */,
 				AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */,
