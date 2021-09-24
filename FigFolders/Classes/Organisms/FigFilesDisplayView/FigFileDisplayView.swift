@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class FigFileDisplayView: UIView {
     let kNibName = "FigFileDisplayView"
@@ -25,7 +26,7 @@ class FigFileDisplayView: UIView {
 // MARK: - Methods
     func setupView(figFileModel: FigFileModel?) {
         viewModel.figFile = figFileModel
-        let figFileView = viewModel.getView()
+        let figFileView = viewModel.getView(frame: backgroundView.bounds)
         backgroundView.addSubview(figFileView)
         
         figFileView.translatesAutoresizingMaskIntoConstraints = false

@@ -306,7 +306,7 @@ extension ChatViewController: MessageCellDelegate {
             viewModel.selectedVideoUrl = media.url
             let videoController = AVPlayerViewController()
             guard let videoUrl = viewModel.selectedVideoUrl else { return }
-            videoController.player = AVPlayer(url: videoUrl)
+            videoController.player = AVPlayer(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/figfolders.appspot.com/o/messages%2FScreen%20Recording%202021-09-23%20at%2011.30.15%20PM.mp4?alt=media&token=f21b3c85-507e-4abb-bd22-6832ffe6ac72")!)
             videoController.player?.play()
             present(videoController, animated: true)
         default:
