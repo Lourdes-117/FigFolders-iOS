@@ -8,13 +8,19 @@
 import UIKit
 
 protocol LikeCommentShareDelegate: AnyObject {
-    func onTapLike()
+    func onTapLike(shouldLike: Bool)
     func onTapComment()
     func onTapShare()
 }
 
 class LikeCommentShareView: UIView {
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    
     private let nibName = "LikeCommentShareView"
+    
+    let viewModel = LikeCommentShareViewModel()
     
     weak var delegate: LikeCommentShareDelegate?
     
@@ -23,8 +29,21 @@ class LikeCommentShareView: UIView {
         commonInit(nibName)
     }
     
+    var isLiked: Bool {
+        set {
+            viewModel.isLiked = newValue
+            likeButton.setImage(viewModel.likeButtonImage, for: .normal)
+        }
+        
+        get {
+            viewModel.isLiked
+        }
+    }
+    
     @IBAction func onTapLikeButton(_ sender: Any) {
-        delegate?.onTapLike()
+        viewModel.isLiked.toggle()
+        isLiked = viewModel.isLiked
+        delegate?.onTapLike(shouldLike: viewModel.isLiked)
     }
     
     @IBAction func onTapCommentButton(_ sender: Any) {

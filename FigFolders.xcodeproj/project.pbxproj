@@ -26,6 +26,7 @@
 		AE2002F626FE46A60096D899 /* AVPlayerOnUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2002F526FE46A60096D899 /* AVPlayerOnUIView.swift */; };
 		AE2002F826FE5B440096D899 /* AVPlayerOnUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2002F726FE5B440096D899 /* AVPlayerOnUIViewModel.swift */; };
 		AE2002FA26FE67510096D899 /* VideoEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2002F926FE67510096D899 /* VideoEncoder.swift */; };
+		AE2002FC26FE6EAD0096D899 /* LikeCommentShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2002FB26FE6EAD0096D899 /* LikeCommentShareViewModel.swift */; };
 		AE224B67268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE224B66268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard */; };
 		AE224B69268FB2BA003CE3E2 /* VoiceRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE224B68268FB2BA003CE3E2 /* VoiceRecordingViewController.swift */; };
 		AE224B6B268FB64A003CE3E2 /* VoiceRecordingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE224B6A268FB64A003CE3E2 /* VoiceRecordingViewModel.swift */; };
@@ -155,6 +156,7 @@
 		AE2002F526FE46A60096D899 /* AVPlayerOnUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerOnUIView.swift; sourceTree = "<group>"; };
 		AE2002F726FE5B440096D899 /* AVPlayerOnUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerOnUIViewModel.swift; sourceTree = "<group>"; };
 		AE2002F926FE67510096D899 /* VideoEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEncoder.swift; sourceTree = "<group>"; };
+		AE2002FB26FE6EAD0096D899 /* LikeCommentShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCommentShareViewModel.swift; sourceTree = "<group>"; };
 		AE224B66268FB2A7003CE3E2 /* VoiceRecordingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VoiceRecordingViewController.storyboard; sourceTree = "<group>"; };
 		AE224B68268FB2BA003CE3E2 /* VoiceRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecordingViewController.swift; sourceTree = "<group>"; };
 		AE224B6A268FB64A003CE3E2 /* VoiceRecordingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceRecordingViewModel.swift; sourceTree = "<group>"; };
@@ -769,8 +771,9 @@
 		AEF8800A26ED046C007BF7E9 /* LikeCommentShareView */ = {
 			isa = PBXGroup;
 			children = (
-				AEF8800B26ED048C007BF7E9 /* LikeCommentShareView.swift */,
 				AEF8800D26ED049C007BF7E9 /* LikeCommentShareView.xib */,
+				AEF8800B26ED048C007BF7E9 /* LikeCommentShareView.swift */,
+				AE2002FB26FE6EAD0096D899 /* LikeCommentShareViewModel.swift */,
 			);
 			path = LikeCommentShareView;
 			sourceTree = "<group>";
@@ -1003,6 +1006,7 @@
 				AE9D234A266B6C81005B5C55 /* SearchChatViewController.swift in Sources */,
 				AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */,
 				AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */,
+				AE2002FC26FE6EAD0096D899 /* LikeCommentShareViewModel.swift in Sources */,
 				AE3F86AB267BBC0C00B4D814 /* ImageZoomView.swift in Sources */,
 				AE66557126580B76004DA48A /* DecodableUtility.swift in Sources */,
 				AEA1978F26499A0B00D0D181 /* OnboardingCollectionViewModel.swift in Sources */,

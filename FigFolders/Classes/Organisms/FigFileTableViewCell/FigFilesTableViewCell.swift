@@ -10,6 +10,7 @@ import UIKit
 class FigFilesTableViewCell: UITableViewCell {
     static let kCellId = "FigFilesTableViewCell"
     
+// MARK: - Outlets
     @IBOutlet weak var likeCommetShareView: LikeCommentShareView!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var fileOwnerNameLabel: UILabel!
@@ -19,12 +20,14 @@ class FigFilesTableViewCell: UITableViewCell {
     private let viewModel = FigFilesTableViewCellViewModel()
     
     weak var delegate: FigFilesTableViewCellDelegate?
-    
+
+// MARK: - Lifecycle Methods
     func setupCell(figFile: FigFileModel, indexPath: IndexPath) {
         viewModel.figFile = figFile
         viewModel.indexPath = indexPath
         setDetails()
         setupDelegate()
+        setupLikeCommentShare()
     }
     
     private func setDetails() {
@@ -33,7 +36,7 @@ class FigFilesTableViewCell: UITableViewCell {
         StorageManager.shared.getProfilePicUrlForUser(userName: viewModel.ownerName) { [weak self] ownerProfilePicUrl in
             guard let strongSelf = self else { return }
             self?.profilePicture.sd_setImage(with: ownerProfilePicUrl, placeholderImage: strongSelf.viewModel.profilePicPlaceholder, options: .forceTransition, completed: nil)
-
+            
         }
         fileTitleLabel.text = viewModel.fileTitle
         figFileDisplayView.setupView(figFileModel: viewModel.figFile)
@@ -43,6 +46,11 @@ class FigFilesTableViewCell: UITableViewCell {
         likeCommetShareView.delegate = self
     }
     
+    private func setupLikeCommentShare() {
+        likeCommetShareView.isLiked = viewModel.isFileLikedByUser
+    }
+    
+// MARK: - Button Tap Functions
     @IBAction func onTapProfileInfo() {
         delegate?.openProfileDetailsPage(userNameToPopulate: viewModel.ownerName)
     }
@@ -52,7 +60,7 @@ class FigFilesTableViewCell: UITableViewCell {
 }
 
 extension FigFilesTableViewCell: LikeCommentShareDelegate {
-    func onTapLike() {
+    func onTapLike(shouldLike: Bool) {
         
     }
     
