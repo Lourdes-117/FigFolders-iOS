@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -27,10 +27,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daO-jN-8Zi">
-                                <rect key="frame" x="0.0" y="492" width="414" height="404"/>
+                                <rect key="frame" x="0.0" y="493" width="414" height="403"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLG-HW-Qka">
-                                        <rect key="frame" x="41.5" y="349" width="331" height="40"/>
+                                        <rect key="frame" x="41.5" y="348" width="331" height="40"/>
                                         <color key="backgroundColor" name="Primary-Green"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="WX6-gp-Vn8"/>
@@ -43,8 +43,20 @@
                                             <action selector="onTapUploadButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7HR-pt-4Tk"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GY-MI-NR3">
+                                        <rect key="frame" x="41.5" y="348" width="331" height="40"/>
+                                        <color key="backgroundColor" name="Greyscale1"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                                        <state key="normal" title="I Own This File">
+                                            <color key="titleColor" name="LabelColorPrimary"/>
+                                            <color key="titleShadowColor" name="Greyscale4"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTapIOwnThisFileButton" destination="Y6W-OH-hqX" eventType="touchUpInside" id="anM-hp-iN4"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msr-eD-MAN">
-                                        <rect key="frame" x="41.5" y="53" width="331" height="34"/>
+                                        <rect key="frame" x="41.5" y="53" width="331" height="33"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                                         <state key="normal" title="Select a file">
@@ -55,7 +67,7 @@
                                         </connections>
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IIl-1a-DKc">
-                                        <rect key="frame" x="41.5" y="303" width="149" height="32"/>
+                                        <rect key="frame" x="41.5" y="302" width="149" height="32"/>
                                         <segments>
                                             <segment title="Free"/>
                                             <segment title="Paid"/>
@@ -66,13 +78,13 @@
                                         </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K5n-R2-u9g">
-                                        <rect key="frame" x="223.5" y="301.5" width="149" height="34"/>
+                                        <rect key="frame" x="223.5" y="300.5" width="149" height="34"/>
                                         <color key="textColor" name="LabelColorPrimary"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TOA-LS-6qs" customClass="TextViewWithPlaceholder" customModule="FigFolders" customModuleProvider="target">
-                                        <rect key="frame" x="41.5" y="208" width="331" height="75"/>
+                                        <rect key="frame" x="41.5" y="207" width="331" height="75"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="gZB-Ho-4qS"/>
@@ -82,13 +94,13 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Yh-xI-NTe">
-                                        <rect key="frame" x="41.5" y="182" width="88" height="21"/>
+                                        <rect key="frame" x="41.5" y="181" width="88" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give a name for your file" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AN1-Dq-Gt3">
-                                        <rect key="frame" x="41.5" y="128" width="331" height="34"/>
+                                        <rect key="frame" x="41.5" y="127" width="331" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -96,7 +108,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload File" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgN-ZK-UW0">
-                                                <rect key="frame" x="157" y="7.5" width="100" height="23.5"/>
+                                                <rect key="frame" x="156.5" y="7.5" width="101.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -110,19 +122,19 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Name*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oC-3p-A5s">
-                                        <rect key="frame" x="41.5" y="102" width="83" height="21"/>
+                                        <rect key="frame" x="41.5" y="101" width="83" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Too Long" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5q-42-j5H">
-                                        <rect key="frame" x="310" y="102" width="62.5" height="18"/>
+                                        <rect key="frame" x="310" y="101" width="62.5" height="18"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" name="LabelColorRed"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Too Long" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-61-Dc0">
-                                        <rect key="frame" x="310" y="182" width="62.5" height="18"/>
+                                        <rect key="frame" x="310" y="181" width="62.5" height="18"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                         <color key="textColor" name="LabelColorRed"/>
                                         <nil key="highlightedColor"/>
@@ -130,6 +142,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="4GY-MI-NR3" firstAttribute="trailing" secondItem="lLG-HW-Qka" secondAttribute="trailing" id="0oU-6i-a0l"/>
                                     <constraint firstItem="8Yh-xI-NTe" firstAttribute="leading" secondItem="TOA-LS-6qs" secondAttribute="leading" id="5C3-uu-H78"/>
                                     <constraint firstItem="AN1-Dq-Gt3" firstAttribute="leading" secondItem="TOA-LS-6qs" secondAttribute="leading" id="6rE-Pe-0Ws"/>
                                     <constraint firstItem="IIl-1a-DKc" firstAttribute="width" secondItem="lLG-HW-Qka" secondAttribute="width" multiplier="0.45" id="8Sc-Tj-Vua"/>
@@ -141,6 +154,7 @@
                                     <constraint firstItem="K5n-R2-u9g" firstAttribute="trailing" secondItem="lLG-HW-Qka" secondAttribute="trailing" id="Ges-3E-Faq"/>
                                     <constraint firstItem="IIl-1a-DKc" firstAttribute="leading" secondItem="lLG-HW-Qka" secondAttribute="leading" id="Hsi-7Z-TCC"/>
                                     <constraint firstItem="lLG-HW-Qka" firstAttribute="centerX" secondItem="daO-jN-8Zi" secondAttribute="centerX" id="Jpr-II-dQD"/>
+                                    <constraint firstItem="4GY-MI-NR3" firstAttribute="leading" secondItem="lLG-HW-Qka" secondAttribute="leading" id="K8Z-mJ-mf5"/>
                                     <constraint firstItem="K5n-R2-u9g" firstAttribute="firstBaseline" secondItem="IIl-1a-DKc" secondAttribute="firstBaseline" id="Nha-Z9-ElQ"/>
                                     <constraint firstItem="AN1-Dq-Gt3" firstAttribute="top" secondItem="8oC-3p-A5s" secondAttribute="bottom" constant="5" id="P4X-bW-jUH"/>
                                     <constraint firstItem="lLG-HW-Qka" firstAttribute="width" secondItem="daO-jN-8Zi" secondAttribute="width" multiplier="0.8" id="Pc8-OX-A9t"/>
@@ -150,10 +164,12 @@
                                     <constraint firstAttribute="bottom" secondItem="lLG-HW-Qka" secondAttribute="bottom" constant="15" id="UQP-C3-dFr"/>
                                     <constraint firstItem="Msr-eD-MAN" firstAttribute="leading" secondItem="lLG-HW-Qka" secondAttribute="leading" id="Vfu-K3-4bY"/>
                                     <constraint firstItem="GzX-ka-kGW" firstAttribute="top" secondItem="daO-jN-8Zi" secondAttribute="top" id="W8W-sb-nFv"/>
+                                    <constraint firstItem="4GY-MI-NR3" firstAttribute="top" secondItem="lLG-HW-Qka" secondAttribute="top" id="ZAi-4j-ZxP"/>
                                     <constraint firstItem="D5q-42-j5H" firstAttribute="top" secondItem="8oC-3p-A5s" secondAttribute="top" id="Zf1-ZM-gRJ"/>
                                     <constraint firstItem="Msr-eD-MAN" firstAttribute="top" secondItem="GzX-ka-kGW" secondAttribute="bottom" constant="15" id="Zwh-UL-Zhe"/>
                                     <constraint firstAttribute="trailing" secondItem="GzX-ka-kGW" secondAttribute="trailing" id="aLf-Jw-SjQ"/>
                                     <constraint firstItem="GzX-ka-kGW" firstAttribute="leading" secondItem="daO-jN-8Zi" secondAttribute="leading" id="bfc-q5-jC6"/>
+                                    <constraint firstItem="4GY-MI-NR3" firstAttribute="bottom" secondItem="lLG-HW-Qka" secondAttribute="bottom" id="dqv-Cf-U5v"/>
                                     <constraint firstItem="AN1-Dq-Gt3" firstAttribute="trailing" secondItem="TOA-LS-6qs" secondAttribute="trailing" id="gVd-Oq-lkN"/>
                                     <constraint firstItem="TOA-LS-6qs" firstAttribute="top" secondItem="8Yh-xI-NTe" secondAttribute="bottom" constant="5" id="hWt-Nh-hz5"/>
                                     <constraint firstItem="lLG-HW-Qka" firstAttribute="top" secondItem="IIl-1a-DKc" secondAttribute="bottom" constant="15" id="jF1-XN-6JX"/>
@@ -178,6 +194,9 @@
                         <outlet property="fileName" destination="AN1-Dq-Gt3" id="eR4-H1-AGQ"/>
                         <outlet property="fileNameError" destination="D5q-42-j5H" id="GfL-Al-p3y"/>
                         <outlet property="freeOrPaidSegment" destination="IIl-1a-DKc" id="Ue9-iX-oYW"/>
+                        <outlet property="iOwnThisFileButton" destination="4GY-MI-NR3" id="qa4-5e-LQq"/>
+                        <outlet property="iOwnThisFileButtonLeadingConstraint" destination="K8Z-mJ-mf5" id="zbM-Gx-E1U"/>
+                        <outlet property="iOwnThisFileTrailingConstraint" destination="0oU-6i-a0l" id="o46-B4-FiN"/>
                         <outlet property="priceOfFile" destination="K5n-R2-u9g" id="JVV-uC-GqW"/>
                         <outlet property="screenTitle" destination="IgN-ZK-UW0" id="ob6-wY-9fC"/>
                         <outlet property="selectFileButton" destination="Msr-eD-MAN" id="7wc-jI-1Te"/>
@@ -191,6 +210,12 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="Greyscale1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Greyscale4">
+            <color red="0.3919999897480011" green="0.40799999237060547" blue="0.42699998617172241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="LabelColorPrimary">
             <color red="0.093999996781349182" green="0.10199999809265137" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

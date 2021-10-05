@@ -12,6 +12,7 @@ class FileUploadViewController: UIViewController {
 // MARK: - Outlets
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var selectFileButton: UIButton!
+    @IBOutlet weak var iOwnThisFileButton: UIButton!
     @IBOutlet weak var fileName: UITextField!
     @IBOutlet weak var fileDescription: TextViewWithPlaceholder!
     @IBOutlet weak var freeOrPaidSegment: UISegmentedControl!
@@ -22,6 +23,8 @@ class FileUploadViewController: UIViewController {
     
     @IBOutlet weak var fileNameError: UILabel!
     @IBOutlet weak var fileDescriptionError: UILabel!
+    @IBOutlet weak var iOwnThisFileButtonLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var iOwnThisFileTrailingConstraint: NSLayoutConstraint!
     
     weak var delegate: FileUploadSelectionDelegate?
     
@@ -47,12 +50,15 @@ class FileUploadViewController: UIViewController {
         selectFileButton.addBorder(color: viewModel.selectFileBorderColor!, width: 1)
         
         fileDescription.placeholder = viewModel.fileDescriptionPlaceholderText
+        iOwnThisFileButton.setRoundedCorners()
         uploadButton.setRoundedCorners()
         fileDescription.layer.cornerRadius = 5
         fileDescription.addBorder(color: UIColor.gray.withAlphaComponent(0.5) , width: 0.5)
+        iOwnThisFileButton.addBorder(color: viewModel.selectFileBorderColor ?? UIColor(), width: 1)
         backgroundView.roundCorners(corners: [.topLeft, .topRight], radius: viewModel.cornerRadius)
         titleBackgroundView.roundCorners(corners: [.topLeft, .topRight], radius: viewModel.cornerRadius)
         priceOfFile.isEnabled = viewModel.isPriceEnabled
+        iOwnThisFileTrailingConstraint.constant = -uploadButton.frame.width
     }
     
     private func setupDelegates() {
@@ -109,6 +115,28 @@ class FileUploadViewController: UIViewController {
     }
     
 // MARK: Button Tap Actions
+    @IBAction private func onTapIOwnThisFileButton() {
+        guard viewModel.selectedFileUrl?.absoluteString != nil,
+              viewModel.selectedFileType != nil else {
+            // Show alert to user asking to select a file
+            let alert = UIAlertController(title: viewModel.fileNotSelectedTitle, message: viewModel.fileNotSelectedMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: viewModel.okay, style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        UIView.animate(withDuration: kAnimationDuration) { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.iOwnThisFileButtonLeadingConstraint.constant = strongSelf.uploadButton.frame.width
+            strongSelf.view.layoutIfNeeded()
+        } completion: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.iOwnThisFileButtonLeadingConstraint.constant = 0
+            strongSelf.iOwnThisFileTrailingConstraint.constant = -strongSelf.uploadButton.frame.width
+        }
+
+    }
+    
     @IBAction private func onTapSelectFileButton() {
         let actionSheet = UIAlertController(title: viewModel.attachMediaTitle, message: viewModel.attachMediaMessage, preferredStyle: .actionSheet)
         
@@ -182,8 +210,18 @@ class FileUploadViewController: UIViewController {
         priceOfFile.text = ""
         if !viewModel.isPriceEnabled {
             view.endEditing(true)
+            UIView.animate(withDuration: kAnimationDuration) { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.iOwnThisFileTrailingConstraint.constant = -strongSelf.uploadButton.frame.width
+                strongSelf.view.layoutIfNeeded()
+            }
         } else {
             priceOfFile.becomeFirstResponder()
+            UIView.animate(withDuration: kAnimationDuration) { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.iOwnThisFileTrailingConstraint.constant = 0
+                strongSelf.view.layoutIfNeeded()
+            }
         }
     }
     
