@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>830323164819-8h5b6957jqvh2a8iramrg17jq9lum23v.apps.googleusercontent.com</string>
+	<string>542357872789-fmuf4lcdc1q56r71oje9tba0sf651oun.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.830323164819-8h5b6957jqvh2a8iramrg17jq9lum23v</string>
+	<string>com.googleusercontent.apps.542357872789-fmuf4lcdc1q56r71oje9tba0sf651oun</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBma8AHWY7iZnyT_QaomA6QRK67lzJT3Jk</string>
+	<string>AIzaSyAv8AzPCNDrxcdMs06f9qPRe2Zm0kYpcME</string>
 	<key>GCM_SENDER_ID</key>
-	<string>830323164819</string>
+	<string>542357872789</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.lourdes.figfoldersapp</string>
+	<string>com.figfolders.general</string>
 	<key>PROJECT_ID</key>
-	<string>figfolders</string>
+	<string>figfolders-30b48</string>
 	<key>STORAGE_BUCKET</key>
-	<string>figfolders.appspot.com</string>
+	<string>figfolders-30b48.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:830323164819:ios:73e70b0bccd7fb7aebef66</string>
+	<string>1:542357872789:ios:c25298df9c3b9fdb7ebb9c</string>
+	<key>DATABASE_URL</key>
+	<string>https://figfolders-30b48-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

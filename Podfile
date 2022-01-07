@@ -14,4 +14,5 @@ target 'FigFolders' do
   pod 'Firebase/Storage'
   pod 'SDWebImage'
   pod 'MessageKit'
+  pod 'Alamofire'
 end

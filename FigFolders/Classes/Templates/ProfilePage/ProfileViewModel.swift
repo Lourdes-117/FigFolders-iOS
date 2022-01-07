@@ -79,6 +79,9 @@ class ProfileViewModel {
         let safeEmail = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String
         return UserDetailsModel.getProperEmail(safeEmail: safeEmail ?? "")
     }
+    var safeEmail: String? {
+        return UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String
+    }
     var fullname: String? {
         return (firstName ?? "") + " " + (lastName ?? "")
     }

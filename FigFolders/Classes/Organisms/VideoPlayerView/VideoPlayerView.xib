@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoPlayerView" customModule="FigFolders" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundView" destination="5AM-kK-rsd" id="Ady-YY-0f3"/>
+                <outlet property="playPauseButton" destination="ita-qU-zI2" id="SlU-QR-Chb"/>
+                <outlet property="videoControlsView" destination="Mwl-0j-G6J" id="5FB-N8-zfR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5oW-VJ-Pm3">
+            <rect key="frame" x="0.0" y="0.0" width="485" height="301"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5AM-kK-rsd">
+                    <rect key="frame" x="0.0" y="0.0" width="485" height="301"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mwl-0j-G6J">
+                    <rect key="frame" x="0.0" y="0.0" width="485" height="301"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ita-qU-zI2">
+                            <rect key="frame" x="229" y="135" width="27" height="31"/>
+                            <state key="normal" image="play_icon"/>
+                            <connections>
+                                <action selector="onTapButton:" destination="-1" eventType="touchUpInside" id="n79-Qq-cZ1"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="overlay50"/>
+                    <constraints>
+                        <constraint firstItem="ita-qU-zI2" firstAttribute="centerX" secondItem="Mwl-0j-G6J" secondAttribute="centerX" id="AwC-fJ-VCO"/>
+                        <constraint firstItem="ita-qU-zI2" firstAttribute="centerY" secondItem="Mwl-0j-G6J" secondAttribute="centerY" id="VK3-cr-tJG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="Greyscale1"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Mwl-0j-G6J" secondAttribute="bottom" id="0yO-0D-B2Z"/>
+                <constraint firstItem="5AM-kK-rsd" firstAttribute="top" secondItem="5oW-VJ-Pm3" secondAttribute="top" id="3fl-oc-Io1"/>
+                <constraint firstAttribute="bottom" secondItem="5AM-kK-rsd" secondAttribute="bottom" id="920-5q-N9x"/>
+                <constraint firstAttribute="trailing" secondItem="5AM-kK-rsd" secondAttribute="trailing" id="9rm-0J-eZ2"/>
+                <constraint firstItem="Mwl-0j-G6J" firstAttribute="leading" secondItem="5oW-VJ-Pm3" secondAttribute="leading" id="Lvb-rG-8rW"/>
+                <constraint firstAttribute="trailing" secondItem="Mwl-0j-G6J" secondAttribute="trailing" id="ZQF-fL-Fbf"/>
+                <constraint firstItem="Mwl-0j-G6J" firstAttribute="top" secondItem="5oW-VJ-Pm3" secondAttribute="top" id="fgG-QN-sQd"/>
+                <constraint firstItem="5AM-kK-rsd" firstAttribute="leading" secondItem="5oW-VJ-Pm3" secondAttribute="leading" id="oTF-3B-QiD"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="133" y="-1"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="play_icon" width="27" height="31"/>
+        <namedColor name="Greyscale1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="overlay50">
+            <color red="0.035294117647058823" green="0.039215686274509803" blue="0.043137254901960784" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

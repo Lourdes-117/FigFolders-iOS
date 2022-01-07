@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import CoreLocation
 
-protocol LocationPickerDelegate: NSObjectProtocol {
+protocol LocationPickerDelegate: AnyObject {
     func selectedLocationToSend(_ location: CLLocationCoordinate2D)
 }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PullDownTopBarViewDelegate: NSObjectProtocol {
+protocol PullDownTopBarViewDelegate: AnyObject {
     func onTapDismissButton()
 }
 

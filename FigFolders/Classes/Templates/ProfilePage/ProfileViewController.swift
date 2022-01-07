@@ -231,8 +231,8 @@ class ProfileViewController: ViewControllerWithLoading {
                                            profilePicUrlString: profilePicUrl)
         showLoadingIndicator()
         
-        DatabaseManager.shared.getUsernameForEmail(emailID: viewModel.userName ?? "") { [weak self] username in
-            guard username == nil else {
+        DatabaseManager.shared.getUsernameForEmail(emailID: viewModel.safeEmail ?? "") { [weak self] username in
+            guard username != nil else {
                 // TODO: - Add User Notification here
                 self?.hideLoadingIndicatorView()
                 return

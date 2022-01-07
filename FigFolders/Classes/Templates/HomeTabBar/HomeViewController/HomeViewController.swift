@@ -13,6 +13,7 @@ class HomeViewController: ViewControllerWithLoading {
     @IBOutlet weak var hamburgerMenuView: HamburgerMenuView!
     @IBOutlet weak var hamburgerMenuLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var hamburgerMenuOverflowView: UIView!
+    @IBOutlet weak var figFilesTableView: FigFilesTableView!
     
     let viewModel = HomeViewControllerViewModel()
     
@@ -27,6 +28,7 @@ class HomeViewController: ViewControllerWithLoading {
         setupView()
         setupGestures()
         setupDelegate()
+        figFilesTableView.initialSetup()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,6 +105,7 @@ class HomeViewController: ViewControllerWithLoading {
     
     private func setupDelegate() {
         hamburgerMenuView.delegate = self
+        figFilesTableView.figFilesTableViewCellDelegate = self
     }
     
 // MARK: - Button Actions
@@ -163,5 +166,13 @@ extension HomeViewController: HamburgerMenuDelegate {
         expandOrCollapseHamburgerMenu { [weak self] in
             self?.navigationController?.pushViewController(profileViewController, animated: true)
         }
+    }
+}
+
+extension HomeViewController: FigFilesTableViewCellDelegate {
+    func openProfileDetailsPage(userNameToPopulate: String) {
+        guard let profileDetailsPage = UserProfileViewController.initiateVC() else { return }
+        profileDetailsPage.userNameToPopulate = userNameToPopulate
+        navigationController?.pushViewController(profileDetailsPage, animated: true)
     }
 }

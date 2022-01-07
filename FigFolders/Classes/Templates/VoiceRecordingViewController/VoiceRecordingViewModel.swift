@@ -6,7 +6,7 @@
 //
 
 import UIKit
-protocol VoiceRecordingDelegate: NSObjectProtocol {
+protocol VoiceRecordingDelegate: AnyObject {
     func sendAudioWithFileUrl(url: URL?, length: TimeInterval?)
 }
 

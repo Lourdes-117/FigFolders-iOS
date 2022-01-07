@@ -16,6 +16,17 @@ enum ColorPalette {
     case greyscale5
     case greyscale6
     
+    case overlay10
+    case overlay20
+    case overlay50
+    case overlay60
+    case overlay80
+    case overlayAgnostic001
+    case overlayAgnostic002
+    case overlayAgnostic003
+    case overlaygradient
+    case overlaygradient2
+    
     var color: UIColor? {
         switch self {
         case .primary_green:
@@ -32,6 +43,26 @@ enum ColorPalette {
             return UIColor(named: "Greyscale5")
         case .greyscale6:
             return UIColor(named: "Greyscale6")
+        case .overlay10:
+            return UIColor(named: "overlay10")
+        case .overlay20:
+            return UIColor(named: "overlay20")
+        case .overlay50:
+            return UIColor(named: "overlay50")
+        case .overlay60:
+            return UIColor(named: "overlay60")
+        case .overlay80:
+            return UIColor(named: "overlay80")
+        case .overlayAgnostic001:
+            return UIColor(named: "overlayAgnostic001")
+        case .overlayAgnostic002:
+            return UIColor(named: "overlayAgnostic002")
+        case .overlayAgnostic003:
+            return UIColor(named: "overlayAgnostic003")
+        case .overlaygradient:
+            return UIColor(named: "overlaygradient")
+        case .overlaygradient2:
+            return UIColor(named: "overlaygradient2")
         }
     }
 }

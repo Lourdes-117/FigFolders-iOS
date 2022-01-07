@@ -119,6 +119,22 @@ extension ChatListViewController: UITableViewDataSource {
         cell.configureCell(userNameString: conversation.otherUserName, cellType: .chatList, latestMessage: conversation.latestMessage)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            tableView.beginUpdates()
+            viewModel.conversations.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
+            tableView.endUpdates()
+        default:
+            debugPrint("Swipe Not Supported")
+        }
+    }
 }
 
 // MARK: - Table View Delegate

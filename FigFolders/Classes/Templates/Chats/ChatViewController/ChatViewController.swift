@@ -306,7 +306,7 @@ extension ChatViewController: MessageCellDelegate {
             viewModel.selectedVideoUrl = media.url
             let videoController = AVPlayerViewController()
             guard let videoUrl = viewModel.selectedVideoUrl else { return }
-            videoController.player = AVPlayer(url: videoUrl)
+            videoController.player = AVPlayer(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/figfolders.appspot.com/o/messages%2FScreen%20Recording%202021-09-23%20at%2011.30.15%20PM.mp4?alt=media&token=f21b3c85-507e-4abb-bd22-6832ffe6ac72")!)
             videoController.player?.play()
             present(videoController, animated: true)
         default:
@@ -390,11 +390,11 @@ extension ChatViewController: UIImagePickerControllerDelegate {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
            let imageData = image.jpeg(.low) {
             guard let messageID = viewModel.generateMessageID(),
-                  let conversationID = viewModel.conversationID,
                   let selfSender = viewModel.selfSender,
                   let senderEmail = viewModel.senderEmail,
                   let lowResImageData = image.jpeg(.lowest),
                   let lowResImage = UIImage(data: lowResImageData) else { return }
+                  let conversationID = viewModel.conversationID ?? messageID
             
             // Upload Image
             let fileName = messageID
@@ -406,11 +406,24 @@ extension ChatViewController: UIImagePickerControllerDelegate {
                     let media = Media(url: url, image: image, placeholderImage: lowResImage, size: .zero)
                     let message = Message(sender: selfSender, messageId: messageID, sentDate: Date(), kind: .photo(media))
                     // Sending Message
-                    DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: senderEmail, senderName: strongSelf.viewModel.senderName, message: message, receiverEmailId: strongSelf.viewModel.receiverEmail, receiverName: strongSelf.viewModel.receiverName, existingConversationID: strongSelf.viewModel.conversationID) { success in
-                        if success {
-                            debugPrint("Image Message Sent")
-                        } else {
-                            debugPrint("Image Message Sending Failure")
+                    if strongSelf.viewModel.isNewConversation {
+                        DatabaseManager.shared.createNewConversation(with: strongSelf.viewModel.receiverEmail, messageToSend : message, otherUserName: strongSelf.viewModel.receiverName) { [weak self] success in
+                            if success {
+                                self?.messagesCollectionView.reloadData()
+                                self?.viewModel.conversationID = conversationID
+                                self?.listenForMessage()
+                                debugPrint("Message Sent")
+                            } else {
+                                debugPrint("Failed To Send")
+                            }
+                        }
+                    } else {
+                        DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: senderEmail, senderName: strongSelf.viewModel.senderName, message: message, receiverEmailId: strongSelf.viewModel.receiverEmail, receiverName: strongSelf.viewModel.receiverName, existingConversationID: strongSelf.viewModel.conversationID) { success in
+                            if success {
+                                debugPrint("Image Message Sent")
+                            } else {
+                                debugPrint("Image Message Sending Failure")
+                            }
                         }
                     }
                 case .failure(let error):
@@ -420,8 +433,8 @@ extension ChatViewController: UIImagePickerControllerDelegate {
         } else if let videoUrl = info[.mediaURL] as? URL,
                   let messageID = viewModel.generateMessageID(),
                   let selfSender = viewModel.selfSender,
-                  let senderEmail = viewModel.senderEmail,
-                  let conversationID = viewModel.conversationID  {
+                  let senderEmail = viewModel.senderEmail {
+            let conversationID = viewModel.conversationID ?? messageID
             let fileName = "\(messageID)\(StringConstants.shared.storage.videoExtension)"
             StorageManager.shared.uploadMessageVideo(from: videoUrl, fileName: fileName) { [weak self ] result in
                 guard let strongSelf = self else { return }
@@ -432,13 +445,27 @@ extension ChatViewController: UIImagePickerControllerDelegate {
                     let media = Media(url: url, image: nil, placeholderImage: UIImage(), size: .zero)
                     let message = Message(sender: selfSender, messageId: messageID, sentDate: Date(), kind: .video(media))
                     //Sending Message
-                    DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: senderEmail, senderName: strongSelf.viewModel.senderName, message: message, receiverEmailId: strongSelf.viewModel.receiverEmail, receiverName: strongSelf.viewModel.receiverName, existingConversationID: strongSelf.viewModel.conversationID) { success in
-                        if success {
-                            debugPrint("Video Message Sent")
-                        } else {
-                            debugPrint("Video Message Sending Failure")
+                    if strongSelf.viewModel.isNewConversation {
+                        // Create Convo in DB
+                        DatabaseManager.shared.createNewConversation(with: strongSelf.viewModel.receiverEmail, messageToSend : message, otherUserName: strongSelf.viewModel.receiverName) { [weak self] success in
+                            if success {
+                                self?.messagesCollectionView.reloadData()
+                                self?.viewModel.conversationID = conversationID
+                                self?.listenForMessage()
+                                debugPrint("Message Sent")
+                            } else {
+                                debugPrint("Failed To Send")
+                            }
                         }
-                    }
+                    } else {
+                        DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: senderEmail, senderName: strongSelf.viewModel.senderName, message: message, receiverEmailId: strongSelf.viewModel.receiverEmail, receiverName: strongSelf.viewModel.receiverName, existingConversationID: strongSelf.viewModel.conversationID) { success in
+                            if success {
+                                debugPrint("Video Message Sent")
+                            } else {
+                                debugPrint("Video Message Sending Failure")
+                            }
+                        }
+                }
                 case .failure(let error):
                     debugPrint("Video Upload Failed \(error)")
                 }
@@ -490,18 +517,32 @@ extension ChatViewController: LocationPickerDelegate {
         debugPrint("Selected Location To Send: \(location.latitude), \(location.longitude)")
         // Send Location
         guard let messageID = viewModel.generateMessageID(),
-              let conversationID = viewModel.conversationID,
               let selfSender = viewModel.selfSender,
               let senderEmail = viewModel.senderEmail  else { return }
+        let conversationID = viewModel.conversationID ?? messageID
         
         let media = Location(location: CLLocation(latitude: location.latitude, longitude: location.longitude), size: .zero)
         let message = Message(sender: selfSender, messageId: messageID, sentDate: Date(), kind: .location(media))
         // Sending Message
-        DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: senderEmail, senderName: viewModel.senderName, message: message, receiverEmailId: viewModel.receiverEmail, receiverName: viewModel.receiverName, existingConversationID: viewModel.conversationID) { success in
-            if success {
-                debugPrint("Location Message Sent")
-            } else {
-                debugPrint("Location Message Sending Failure")
+        if viewModel.isNewConversation {
+            // Create Convo in DB
+            DatabaseManager.shared.createNewConversation(with: viewModel.receiverEmail, messageToSend : message, otherUserName: viewModel.receiverName) { [weak self] success in
+                if success {
+                    self?.messagesCollectionView.reloadData()
+                    self?.viewModel.conversationID = conversationID
+                    self?.listenForMessage()
+                    debugPrint("Message Sent")
+                } else {
+                    debugPrint("Failed To Send")
+                }
+            }
+        } else {
+            DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: senderEmail, senderName: viewModel.senderName, message: message, receiverEmailId: viewModel.receiverEmail, receiverName: viewModel.receiverName, existingConversationID: viewModel.conversationID) { success in
+                if success {
+                    debugPrint("Location Message Sent")
+                } else {
+                    debugPrint("Location Message Sending Failure")
+                }
             }
         }
     }
@@ -512,24 +553,39 @@ extension ChatViewController: LocationPickerDelegate {
 extension ChatViewController: VoiceRecordingDelegate {
     func sendAudioWithFileUrl(url: URL?, length: TimeInterval?) {
         guard let messageID = viewModel.generateMessageID(),
-              let conversationID = viewModel.conversationID,
               let selfSender = viewModel.selfSender,
               let senderEmail = viewModel.senderEmail,
               let audioLength = length,
               let fileUrl = url else { return }
+        let conversationID = viewModel.conversationID ?? messageID
         
         let receiverEmail = viewModel.receiverEmail
         let senderName = viewModel.senderName
         let receiverName = viewModel.receiverName
         
-        StorageManager.shared.uploadMessageAudio(from: fileUrl, fileName: messageID) { result in
+        StorageManager.shared.uploadMessageAudio(from: fileUrl, fileName: messageID) { [weak self] result in
             switch result {
             case .success(let url):
-                guard let cloudUrl = URL(string: url) else { return }
+                guard let cloudUrl = URL(string: url),
+                let strongSelf = self else { return }
                 let audioItem = Audio(duration: Float(audioLength), size: .zero, url: cloudUrl)
                 let message = Message(sender: selfSender, messageId: messageID, sentDate: Date(), kind: .audio(audioItem))
-                DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: senderEmail, senderName: senderName, message: message, receiverEmailId: receiverEmail, receiverName: receiverName, existingConversationID: conversationID) { success in
-                    debugPrint(success)
+                if strongSelf.viewModel.isNewConversation {
+                    // Create Convo in DB
+                    DatabaseManager.shared.createNewConversation(with: strongSelf.viewModel.receiverEmail, messageToSend : message, otherUserName: strongSelf.viewModel.receiverName) { [weak self] success in
+                        if success {
+                            self?.messagesCollectionView.reloadData()
+                            self?.viewModel.conversationID = conversationID
+                            self?.listenForMessage()
+                            debugPrint("Message Sent")
+                        } else {
+                            debugPrint("Failed To Send")
+                        }
+                    }
+                } else {
+                    DatabaseManager.shared.sendMessage(conversationID: conversationID, senderEmail: senderEmail, senderName: senderName, message: message, receiverEmailId: receiverEmail, receiverName: receiverName, existingConversationID: conversationID) { success in
+                        debugPrint(success)
+                    }
                 }
             case .failure(let error):
                 debugPrint("Error Uploading AudioFile \(error)")

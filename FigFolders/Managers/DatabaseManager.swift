@@ -12,7 +12,7 @@ import MessageKit
 
 final class DatabaseManager {
     private init() {
-        let databaseRef = Database.database(url: "https://figfolders-default-rtdb.asia-southeast1.firebasedatabase.app")
+        let databaseRef = Database.database(url: "https://figfolders-30b48-default-rtdb.firebaseio.com/")
         databaseRef.isPersistenceEnabled = true
         self.database = databaseRef.reference()
     }
@@ -100,7 +100,13 @@ final class DatabaseManager {
         
         let userReference = database.child(userDetails.username)
         userReference.observeSingleEvent(of: .value) { snapshot in
-            guard (snapshot.value as? [String: String])?.decodeDictAsClass(type: UserDetailsModel.self) != nil else {
+            var oldUserDetails: UserDetailsModel?
+            do {
+                oldUserDetails = try JSONDecoder().decode(UserDetailsModel.self, from: JSONSerialization.data(withJSONObject: snapshot.value, options: .fragmentsAllowed))
+            } catch {
+                completion(false)
+            }
+            guard oldUserDetails != nil else {
                 completion(false)
                 return
             }
@@ -232,7 +238,7 @@ final class DatabaseManager {
             if success {
                 self?.createNewConversationForUser(currentUserName, messageToSend, otherUserEmail, otherUserName) {
                     success in
-                    completion(success)
+                    self?.sendMessage(conversationID: messageToSend.messageId, senderEmail: currentUserEmail, senderName: currentUserName, message: messageToSend, receiverEmailId: otherUserEmail, receiverName: otherUserName, existingConversationID: messageToSend.messageId, completion: completion)
                 }
             } else {
                 completion(success)
@@ -247,10 +253,11 @@ final class DatabaseManager {
         let conversationPath = "\(StringConstants.shared.database.conversations)/\(conversationID)/\(StringConstants.shared.database.messagesArray)"
         database.child(conversationPath).observeSingleEvent(of: .value) { [weak self] snapshot in
             guard var currentMessagesAnyValue = snapshot.value as? [Any?],
-                snapshot.exists() else {
-                completion(false)
-                return
-            }
+                  snapshot.exists() else {
+                      completion(false)
+                      self?.finishCreatingConversation(message: message, currentUserName: senderName, otherUserName: receiverName, completion: completion)
+                      return
+                  }
             
             currentMessagesAnyValue.removeAll(where: { $0 == nil })
             
@@ -377,14 +384,14 @@ final class DatabaseManager {
                 userNode[StringConstants.shared.database.conversations] = [
                     self?.createConversationNode(messageToSend, otherUserEmail, otherUserName)
                 ]
-                reference.setValue(userNode) { [weak self] error, _ in
+                reference.setValue(userNode) { error, _ in
                     guard error == nil else {
                         debugPrint("Error In Writing Message To Database")
                         completion(false)
                         return
                     }
-                    self?.finishCreatingConversation(message: messageToSend, currentUserName: currentUserName, otherUserName: otherUserName, completion: completion)
                 }
+                completion(true)
             }
         }
     }
@@ -519,8 +526,8 @@ final class DatabaseManager {
         messageModel.date = message.sentDate.toDateString()
         messageModel.isRead = false
         messageModel.messageID = message.messageId
-        messageModel.otherUserName = otherUserName
-        messageModel.senderName = currentUserName
+        messageModel.otherUserName = ((currentUserUsername ?? "") == currentUserName) ? otherUserName : currentUserUsername ?? ""
+        messageModel.senderName = currentUserUsername ?? ""
         messageModel.type = message.kind.rawValue
         
         let messageDict = messageModel.toDictionary
@@ -608,6 +615,48 @@ final class DatabaseManager {
                 completion(true)
             })
         })
+    }
+    
+// MARK: - File Upload Methods
+    func uploadFigFile(figFileModel: FigFileModel, completion: @escaping (Bool)-> Void) {
+        let databaseReference = database.child(StringConstants.shared.figFiles.currentUserFigFilesPath)
+            databaseReference.observeSingleEvent(of: .value) { snapshot in
+            if snapshot.exists(),
+               var userFigFilesArray = snapshot.value as? [[String: Any]],
+               let newEntry = figFileModel.toDictionary {
+                // User has file array. Append values to it
+                userFigFilesArray.insert(newEntry, at: 0)
+                databaseReference.setValue(userFigFilesArray)
+            } else {
+                // User does not have array available. Create one
+                databaseReference.setValue([figFileModel.toDictionary])
+            }
+        }
+    }
+    
+    func updateStorageSpaceUsedByUserWithNewFileSize(newFileSize: Float) {
+        getUserDetailsForUsername(username: currentUserUsername ?? "") { [weak self] userDetails in
+            var userDetailsModel = userDetails
+            userDetailsModel?.addNewFileSize(newFileSize: newFileSize)
+            let userDetailsModelDictionary = userDetailsModel?.toDictionary
+            self?.database.child(currentUserUsername ?? "").setValue(userDetailsModelDictionary)
+        }
+    }
+    
+    func getRandomFigFiles(completion: @escaping ((Result<[FigFileModel], Error>) -> Void)) {
+        let templateUrl = "http://127.0.0.1:5001/figfolders/us-central1/getRandomFigFilesForUsername?userName=%@"
+        let urlString = "https://run.mocky.io/v3/06cc8a59-47db-42ad-8358-375bd90c1a95" //String(format: templateUrl, currentUserUsername ?? "")
+        NetworkManager.getData(urlString, [FigFileModel].self) { result in
+            completion(result)
+        }
+    }
+    
+    func getFigFilesOfUser(username: String, paginationIndex: Int, completion: @escaping ((Result<[FigFileModel], Error>) -> Void) ) {
+        let templateUrl = "http://127.0.0.1:5001/figfolders/us-central1/getRandomFigFilesForUsername?userName=%@"
+        let urlString = "https://run.mocky.io/v3/06cc8a59-47db-42ad-8358-375bd90c1a95" //String(format: templateUrl, username, paginationIndex)
+        NetworkManager.getData(urlString, [FigFileModel].self) { result in
+            completion(result)
+        }
     }
 }
 
