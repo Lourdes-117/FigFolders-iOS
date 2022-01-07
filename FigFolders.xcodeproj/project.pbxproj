@@ -15,7 +15,6 @@
 		AE0E3CD226713046002D2D29 /* ChatListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE0E3CD026713046002D2D29 /* ChatListTableViewCell.xib */; };
 		AE0E3CD426714AC8002D2D29 /* StructIterationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E3CD326714AC8002D2D29 /* StructIterationProtocol.swift */; };
 		AE0E3CD626715053002D2D29 /* ChatListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E3CD526715053002D2D29 /* ChatListTableViewModel.swift */; };
-		AE0E3CD826715252002D2D29 /* NSLayoutConstraintUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0E3CD726715252002D2D29 /* NSLayoutConstraintUtility.swift */; };
 		AE1177B5266CD57F0031FEBA /* Color-Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */; };
 		AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */; };
 		AE1177B9266CEC930031FEBA /* HomeTabControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */; };
@@ -45,7 +44,6 @@
 		AE7A26C3265056FE0057D454 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */; };
 		AE7A26C5265057120057D454 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A26C4265057120057D454 /* HomeViewController.swift */; };
 		AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85160F26A0A3310093E732 /* TimeIntervalUtility.swift */; };
-		AE861B25264FB75D00E708D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE861B24264FB75D00E708D7 /* GoogleService-Info.plist */; };
 		AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B26264FBCF400E708D7 /* DateUtility.swift */; };
 		AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */; };
 		AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */; };
@@ -97,6 +95,7 @@
 		AEF4A28626EFAF810053DA78 /* UserDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A28526EFAF810053DA78 /* UserDetailsTableViewCell.swift */; };
 		AEF4A28826EFAFF70053DA78 /* UserDetailsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A28726EFAFF70053DA78 /* UserDetailsTableViewCellViewModel.swift */; };
 		AEF4A28A26EFDF180053DA78 /* ArrayUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A28926EFDF180053DA78 /* ArrayUtility.swift */; };
+		AEF552DC27882F7F004A433D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEF552DB27882F7F004A433D /* GoogleService-Info.plist */; };
 		AEF84243264D83CF00FB8003 /* ResetPasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF84242264D83CF00FB8003 /* ResetPasswordViewController.storyboard */; };
 		AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF84244264D83ED00FB8003 /* ResetPasswordViewController.swift */; };
 		AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEF84261264D8EAF00FB8003 /* Roboto-Medium.ttf */; };
@@ -132,6 +131,7 @@
 		AEF98F7526AD30F700FFD5DA /* FileUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF98F7426AD30F700FFD5DA /* FileUploadViewController.swift */; };
 		AEF98F7726AD310400FFD5DA /* FileUploadViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF98F7626AD310400FFD5DA /* FileUploadViewController.storyboard */; };
 		AEF98F7926AD31F700FFD5DA /* FileUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF98F7826AD31F700FFD5DA /* FileUploadViewModel.swift */; };
+		AEFFCFB9272C91A00069A577 /* NSLayoutConstraintUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFCFB8272C91A00069A577 /* NSLayoutConstraintUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,7 +145,6 @@
 		AE0E3CD026713046002D2D29 /* ChatListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatListTableViewCell.xib; sourceTree = "<group>"; };
 		AE0E3CD326714AC8002D2D29 /* StructIterationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructIterationProtocol.swift; sourceTree = "<group>"; };
 		AE0E3CD526715053002D2D29 /* ChatListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewModel.swift; sourceTree = "<group>"; };
-		AE0E3CD726715252002D2D29 /* NSLayoutConstraintUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NSLayoutConstraintUtility.swift; path = ../../../../../../NSLayoutConstraintUtility.swift; sourceTree = "<group>"; };
 		AE1177B4266CD57F0031FEBA /* Color-Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Color-Palette.xcassets"; sourceTree = "<group>"; };
 		AE1177B6266CDD4E0031FEBA /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabControllerViewModel.swift; sourceTree = "<group>"; };
@@ -175,7 +174,6 @@
 		AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		AE7A26C4265057120057D454 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AE85160F26A0A3310093E732 /* TimeIntervalUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalUtility.swift; sourceTree = "<group>"; };
-		AE861B24264FB75D00E708D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AE861B26264FBCF400E708D7 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModel.swift; sourceTree = "<group>"; };
 		AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -229,6 +227,7 @@
 		AEF4A28526EFAF810053DA78 /* UserDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		AEF4A28726EFAFF70053DA78 /* UserDetailsTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		AEF4A28926EFDF180053DA78 /* ArrayUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtility.swift; sourceTree = "<group>"; };
+		AEF552DB27882F7F004A433D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AEF84242264D83CF00FB8003 /* ResetPasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ResetPasswordViewController.storyboard; sourceTree = "<group>"; };
 		AEF84244264D83ED00FB8003 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		AEF84261264D8EAF00FB8003 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -264,6 +263,7 @@
 		AEF98F7426AD30F700FFD5DA /* FileUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadViewController.swift; sourceTree = "<group>"; };
 		AEF98F7626AD310400FFD5DA /* FileUploadViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FileUploadViewController.storyboard; sourceTree = "<group>"; };
 		AEF98F7826AD31F700FFD5DA /* FileUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadViewModel.swift; sourceTree = "<group>"; };
+		AEFFCFB8272C91A00069A577 /* NSLayoutConstraintUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -510,7 +510,7 @@
 				AE861B2B264FBE7600E708D7 /* Managers */,
 				AEA197862649937A00D0D181 /* Resources */,
 				AEA1977E2649933400D0D181 /* Info.plist */,
-				AE861B24264FB75D00E708D7 /* GoogleService-Info.plist */,
+				AEF552DB27882F7F004A433D /* GoogleService-Info.plist */,
 			);
 			path = FigFolders;
 			sourceTree = "<group>";
@@ -593,6 +593,7 @@
 		AEA1979026499AC600D0D181 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				AEFFCFB8272C91A00069A577 /* NSLayoutConstraintUtility.swift */,
 				AE27EB43264EE66000C34CBD /* StringUtility.swift */,
 				AEA1979126499AD800D0D181 /* UIViewUtility.swift */,
 				AE987715264AFFDC00064A7D /* UIViewControllerUtility.swift */,
@@ -602,7 +603,6 @@
 				AE94E07226530FC80020CB95 /* UILabelUtility.swift */,
 				AE9DC66B2662E695001B9392 /* UIImageExtension.swift */,
 				AE0E3CD326714AC8002D2D29 /* StructIterationProtocol.swift */,
-				AE0E3CD726715252002D2D29 /* NSLayoutConstraintUtility.swift */,
 				AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */,
 				AE85160F26A0A3310093E732 /* TimeIntervalUtility.swift */,
 				AEF4A28926EFDF180053DA78 /* ArrayUtility.swift */,
@@ -897,8 +897,8 @@
 				AEA197982649A07E00D0D181 /* OnboardingCollectionViewCell.xib in Resources */,
 				AE9D2348266B6C56005B5C55 /* SearchChatViewController.storyboard in Resources */,
 				AE7A26C3265056FE0057D454 /* HomeViewController.storyboard in Resources */,
-				AE861B25264FB75D00E708D7 /* GoogleService-Info.plist in Resources */,
 				AEF84270264D8EAF00FB8003 /* Roboto-MediumItalic.ttf in Resources */,
+				AEF552DC27882F7F004A433D /* GoogleService-Info.plist in Resources */,
 				AEF8426E264D8EAF00FB8003 /* Roboto-Light.ttf in Resources */,
 				AE8AE518267D11E5009065E2 /* LocationPickerViewController.storyboard in Resources */,
 			);
@@ -1000,7 +1000,6 @@
 				AEBB86812656EB4400D2476B /* ViewControllerWithLoading.swift in Sources */,
 				AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */,
 				AEF4A28026EFACB00053DA78 /* UserProfileViewModel.swift in Sources */,
-				AE0E3CD826715252002D2D29 /* NSLayoutConstraintUtility.swift in Sources */,
 				AE94E07326530FC80020CB95 /* UILabelUtility.swift in Sources */,
 				AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */,
 				AE9D234A266B6C81005B5C55 /* SearchChatViewController.swift in Sources */,
@@ -1036,6 +1035,7 @@
 				AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */,
 				AEF8800226ECEF49007BF7E9 /* FigFilesTableViewCell.swift in Sources */,
 				AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */,
+				AEFFCFB9272C91A00069A577 /* NSLayoutConstraintUtility.swift in Sources */,
 				AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */,
 				AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */,
 				AE9D234D266B6E60005B5C55 /* PullDownTopBarView.swift in Sources */,
@@ -1201,14 +1201,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8C4BXC8Z6S;
+				DEVELOPMENT_TEAM = D2P9XDG372;
 				INFOPLIST_FILE = FigFolders/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lourdes.figfoldersapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.figfolders.general;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1221,16 +1221,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8C4BXC8Z6S;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 3M5G6V8PQA;
 				INFOPLIST_FILE = FigFolders/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lourdes.figfoldersapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.figfolders.general;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "IOS Development profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

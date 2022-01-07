@@ -112,7 +112,7 @@ struct FigFileModel: Encodable, Decodable {
     let filePrice: Float?
     let comments: [FigFilesCommentsModel?]?
     var fileSizeBytes: Int?
-    
+    var purchasedUsers: [String?]?
     
     var isFree: Bool {
         return filePrice ?? 0 <= 0

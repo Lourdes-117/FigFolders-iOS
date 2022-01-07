@@ -12,7 +12,7 @@ import MessageKit
 
 final class DatabaseManager {
     private init() {
-        let databaseRef = Database.database(url: "https://figfolders-default-rtdb.asia-southeast1.firebasedatabase.app")
+        let databaseRef = Database.database(url: "https://figfolders-30b48-default-rtdb.firebaseio.com/")
         databaseRef.isPersistenceEnabled = true
         self.database = databaseRef.reference()
     }
@@ -100,7 +100,13 @@ final class DatabaseManager {
         
         let userReference = database.child(userDetails.username)
         userReference.observeSingleEvent(of: .value) { snapshot in
-            guard (snapshot.value as? [String: String])?.decodeDictAsClass(type: UserDetailsModel.self) != nil else {
+            var oldUserDetails: UserDetailsModel?
+            do {
+                oldUserDetails = try JSONDecoder().decode(UserDetailsModel.self, from: JSONSerialization.data(withJSONObject: snapshot.value, options: .fragmentsAllowed))
+            } catch {
+                completion(false)
+            }
+            guard oldUserDetails != nil else {
                 completion(false)
                 return
             }
