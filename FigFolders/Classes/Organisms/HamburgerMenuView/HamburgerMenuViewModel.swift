@@ -64,4 +64,5 @@ class HamburgerMenuViewModel {
     var fullName: String? {
         return (firstName ?? "") + " " + (lastName ?? "")
     }
+    let profilePicDefaultImageName = "person.circle"
 }

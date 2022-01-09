@@ -102,7 +102,11 @@ final class DatabaseManager {
         userReference.observeSingleEvent(of: .value) { snapshot in
             var oldUserDetails: UserDetailsModel?
             do {
-                oldUserDetails = try JSONDecoder().decode(UserDetailsModel.self, from: JSONSerialization.data(withJSONObject: snapshot.value, options: .fragmentsAllowed))
+                guard let snapshotValue = snapshot.value else {
+                    completion(false)
+                    return
+                }
+                oldUserDetails = try JSONDecoder().decode(UserDetailsModel.self, from: JSONSerialization.data(withJSONObject: snapshotValue, options: .fragmentsAllowed))
             } catch {
                 completion(false)
             }
@@ -135,6 +139,22 @@ final class DatabaseManager {
     func isUsernameAvailable(username: String, completion: @escaping (Bool) -> Void) {
         database.child(username).observeSingleEvent(of: .value) { snapshot in
             completion(!snapshot.exists())
+        }
+    }
+    
+    func removeProfilePicUrlForCurrentUser() {
+        guard let username = currentUserUsername else { return }
+        database.child(username).observeSingleEvent(of: .value) { [weak self] snapshot in
+            guard let value = snapshot.value else { return }
+            var userDetails: UserDetailsModel?
+            do {
+                let data = try JSONSerialization.data(withJSONObject: value, options: [])
+                userDetails = try JSONDecoder().decode(UserDetailsModel.self, from: data)
+            } catch {
+                return
+            }
+            userDetails?.profilePicUrl = ""
+            self?.database.child(username).setValue(userDetails?.toDictionary)
         }
     }
     

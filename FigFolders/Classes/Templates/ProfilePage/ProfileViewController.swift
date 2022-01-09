@@ -355,6 +355,11 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         actionSheet.addAction(UIAlertAction(title: viewModel.choosePhoto, style: .default, handler: {[weak self] _ in
             self?.presentPhotoPicker()
         }))
+        if let _ = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) { // Show delete button only if image already available
+            actionSheet.addAction(UIAlertAction(title: viewModel.deleteProfilePic, style: .destructive, handler: {[weak self] _ in
+                self?.removeProfilePicture()
+            }))
+        }
         
         present(actionSheet, animated: true, completion: nil)
     }
@@ -373,6 +378,16 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func removeProfilePicture() {
+        DatabaseManager.shared.removeProfilePicUrlForCurrentUser()
+        StorageManager.shared.removeProfilePicForCurrentUser()
+        profilePictureView.image = UIImage(systemName: viewModel.profilePicDefaultImageName)
+        // Remove from url from user defaults and image from cache
+        guard let profilePictureUrl = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) as? String else { return }
+        SDImageCache.shared.removeImage(forKey: profilePictureUrl, withCompletion: nil )
+        UserDefaults.standard.removeObject(forKey: StringConstants.shared.userDefaults.profilePicUrl)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

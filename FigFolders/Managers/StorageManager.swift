@@ -20,7 +20,7 @@ class StorageManager {
     
     typealias UploadFileCompletion = (Result<String, Error>) -> Void
     
-// MARK: - Message Attachments
+// MARK: - User Account Methods
     
     /// Upload Profile Picture
     func uploadProfilePicture(username: String, image: UIImage, completion: @escaping UploadFileCompletion) {
@@ -29,6 +29,12 @@ class StorageManager {
         uploadImageAtPath(filePath: filePath, imageData: data, completion: completion)
     }
     
+    func removeProfilePicForCurrentUser() {
+        let filePath = "\(StringConstants.shared.storage.profilePicturePath)\(currentUserUsername ?? "")"
+        storage.child(filePath).delete { _ in }
+    }
+    
+// MARK: - Message Attachments
     
     /// Upload Any Picture To Particular Path
     fileprivate func uploadImageAtPath(filePath: String, imageData: Data, completion: @escaping UploadFileCompletion) {

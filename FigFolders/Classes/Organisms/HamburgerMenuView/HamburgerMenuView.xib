@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
         <array key="Roboto-Medium.ttf">
             <string>Roboto-Medium</string>
         </array>
@@ -38,14 +41,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peter Paul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8N-hI-Iz2">
-                            <rect key="frame" x="22" y="11" width="115" height="30"/>
+                            <rect key="frame" x="22" y="11" width="302" height="30"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="25"/>
                             <color key="textColor" name="LabelColorPrimary"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKI-TO-dSm">
-                            <rect key="frame" x="22" y="41" width="115" height="30"/>
-                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                            <rect key="frame" x="22" y="41" width="302" height="30"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                             <state key="normal" title="View Profile">
                                 <color key="titleColor" name="LabelColorPrimary"/>
                             </state>
@@ -66,6 +69,7 @@
                         <constraint firstItem="YKI-TO-dSm" firstAttribute="trailing" secondItem="W8N-hI-Iz2" secondAttribute="trailing" id="0zv-ux-l1J"/>
                         <constraint firstAttribute="height" constant="75" id="3df-IP-cHY"/>
                         <constraint firstAttribute="trailing" secondItem="FYm-u4-vgo" secondAttribute="trailing" constant="22" id="7Rz-U3-P4O"/>
+                        <constraint firstItem="FYm-u4-vgo" firstAttribute="leading" secondItem="W8N-hI-Iz2" secondAttribute="trailing" constant="8" id="K0h-J8-f6w"/>
                         <constraint firstItem="FYm-u4-vgo" firstAttribute="height" secondItem="jhN-16-yxe" secondAttribute="height" multiplier="0.8" id="VZk-ie-Beg"/>
                         <constraint firstItem="W8N-hI-Iz2" firstAttribute="leading" secondItem="jhN-16-yxe" secondAttribute="leading" constant="22" id="dYX-db-E8d"/>
                         <constraint firstItem="FYm-u4-vgo" firstAttribute="centerY" secondItem="jhN-16-yxe" secondAttribute="centerY" id="dyx-i7-YY0"/>

@@ -52,6 +52,8 @@ class HamburgerMenuView: UIView {
            let url = URL(string: profilePictureUrl) {
             
             profilePictureImage.sd_setImage(with: url, completed: nil)
+        } else {
+            profilePictureImage.image = UIImage(systemName: viewModel.profilePicDefaultImageName)
         }
     }
     

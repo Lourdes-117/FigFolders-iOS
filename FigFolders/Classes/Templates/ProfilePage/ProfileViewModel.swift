@@ -41,6 +41,8 @@ class ProfileViewModel {
     let cancel = "Cancel"
     let takePhoto = "Take Photo"
     let choosePhoto = "Choose Photo"
+    let deleteProfilePic = "Remove Profile Picture"
+    let profilePicDefaultImageName = "person.circle"
     
     var alertTitle: String {
         isEditEnabled ? saveConfirmationTitle: logOutConfirmationTitle
