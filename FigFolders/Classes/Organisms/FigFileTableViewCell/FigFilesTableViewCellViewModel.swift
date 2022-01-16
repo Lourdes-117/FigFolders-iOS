@@ -28,6 +28,10 @@ class FigFilesTableViewCellViewModel {
         figFile?.fileUrlAsUrl
     }
     
+    var fileUrlString: String? {
+        figFile?.fileUrl
+    }
+    
     var isFileLikedByUser: Bool {
         return figFile?.likedUsers?.contains(currentUserUsername) ?? false
     }

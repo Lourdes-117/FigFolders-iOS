@@ -17,6 +17,7 @@ class StringConstants {
     let storage = StorageConstants()
     let messageKind = MessageKindConstant()
     let figFiles = FigFilesConstants()
+    let httpMethodConstants = HttpMethodConstants()
 }
 
 ///Use Through StringConstants shared Instance
@@ -84,6 +85,11 @@ struct MessageKindConstant {
     let custom = "custom"
 }
 
+struct HttpMethodConstants {
+    let applicationJson = "application/json"
+    let contentType = "Content-Type"
+    let postMethod = "POST"
+}
 
 func deleteAllUserDefaults() {
     var userDefaultsDict: [String: Any]? = nil
