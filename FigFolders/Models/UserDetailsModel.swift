@@ -125,6 +125,8 @@ struct FigFileModel: Encodable, Decodable {
 
 // MARK: - Fig File Comment
 struct FigFilesCommentsModel: Encodable, Decodable {
-    var username: String?
-    var comment: String?
+    var userName: String?
+    var commentString: String?
+    var commentAddedDate: String?
+    var commentId: String?
 }

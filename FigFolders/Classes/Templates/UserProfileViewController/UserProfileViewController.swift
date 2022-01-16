@@ -53,6 +53,7 @@ class UserProfileViewController: UIViewController {
             guard let strongSelf = self else { return }
             let numberOfFilesBeforeUpdate = strongSelf.viewModel.numberOfFigFiles - numberOfNewCells
             let numberOfFilesAfterUpdate = strongSelf.viewModel.numberOfFigFiles
+            if numberOfFilesBeforeUpdate == numberOfFilesAfterUpdate { return }
             let indexPathsToUpdate = strongSelf.viewModel.getIndexPathBetweenNumbers(numberOfItemsBeforeUpdate: numberOfFilesBeforeUpdate, numberOfItemsAfterUpdate: numberOfFilesAfterUpdate)
             strongSelf.tableView.beginUpdates()
             strongSelf.tableView.insertRows(at: indexPathsToUpdate, with: .fade)

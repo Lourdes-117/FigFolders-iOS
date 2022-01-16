@@ -88,6 +88,7 @@
 		AEC8312426F0E554002E3732 /* FigFileDisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8312326F0E554002E3732 /* FigFileDisplayViewModel.swift */; };
 		AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */; };
 		AEE25F5226922E080021ABDB /* AudioMessageCellUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */; };
+		AEE4ABCB27941425008E941A /* UrlEndpoints.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4ABCA27941425008E941A /* UrlEndpoints.swift.swift */; };
 		AEF4A27C26EFABC80053DA78 /* UserProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A27B26EFABC80053DA78 /* UserProfileViewController.storyboard */; };
 		AEF4A27E26EFABD50053DA78 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A27D26EFABD50053DA78 /* UserProfileViewController.swift */; };
 		AEF4A28026EFACB00053DA78 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4A27F26EFACB00053DA78 /* UserProfileViewModel.swift */; };
@@ -220,6 +221,7 @@
 		AEC8312326F0E554002E3732 /* FigFileDisplayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFileDisplayViewModel.swift; sourceTree = "<group>"; };
 		AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableUtility.swift; sourceTree = "<group>"; };
 		AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessageCellUtility.swift; sourceTree = "<group>"; };
+		AEE4ABCA27941425008E941A /* UrlEndpoints.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEndpoints.swift.swift; sourceTree = "<group>"; };
 		AEF4A27B26EFABC80053DA78 /* UserProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileViewController.storyboard; sourceTree = "<group>"; };
 		AEF4A27D26EFABD50053DA78 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		AEF4A27F26EFACB00053DA78 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 				AEA1979026499AC600D0D181 /* Utilities */,
 				AEBB867F2656EB2700D2476B /* CustomClasses */,
 				AE1177B3266CD54B0031FEBA /* Assets */,
+				AEE4ABCA27941425008E941A /* UrlEndpoints.swift.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1037,6 +1040,7 @@
 				AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */,
 				AEFFCFB9272C91A00069A577 /* NSLayoutConstraintUtility.swift in Sources */,
 				AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */,
+				AEE4ABCB27941425008E941A /* UrlEndpoints.swift.swift in Sources */,
 				AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */,
 				AE9D234D266B6E60005B5C55 /* PullDownTopBarView.swift in Sources */,
 				AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */,

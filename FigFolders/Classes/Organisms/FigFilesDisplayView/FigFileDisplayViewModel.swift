@@ -10,8 +10,6 @@ import AVKit
 
 class FigFileDisplayViewModel {
     var figFile: FigFileModel?
-    let temporaryUrl = URL(string: "https://firebasestorage.googleapis.com/v0/b/figfolders.appspot.com/o/FigFiles%2Flour_din%2Fimage%2Fsecond?alt=media&token=d771e427-21d1-4007-891f-40252f6ecadb")!
-    let videoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/figfolders.appspot.com/o/messages%2Fvideos%2Fconversation_test_usertwo_1632426600301431_lour_din.mp4.mp4?alt=media&token=5063032b-4881-4f0f-ba2d-5f51b3cfd3d2")!
     
     var fileType: DocumentPickerDocumentType? {
         DocumentPickerDocumentType(rawValue: figFile?.fileType ?? "")
@@ -20,10 +18,17 @@ class FigFileDisplayViewModel {
     func getView(frame: CGRect) -> UIView {
         guard let fileType = fileType else { return UIView() }
         switch fileType {
-        default:
+        case .image:
+            let imageView = UIImageView()
+            imageView.contentMode = .scaleAspectFit
+            imageView.sd_setImage(with: figFile?.fileUrlAsUrl, completed: nil)
+            return imageView
+        case .video:
             let videoPlayer = VideoPlayerView(frame: frame)
-            videoPlayer.setupVideoPlayer(videoUrl: videoURL, thumbnailUrl: nil)
+            videoPlayer.setupVideoPlayer(videoUrl: figFile?.fileUrlAsUrl, thumbnailUrl: nil)
             return videoPlayer
+        default:
+            return UIView()
         }
     }
 }

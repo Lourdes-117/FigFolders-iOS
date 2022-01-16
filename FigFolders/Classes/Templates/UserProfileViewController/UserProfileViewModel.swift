@@ -8,7 +8,7 @@
 import UIKit
 
 class UserProfileViewModel {
-    var paginationIndex = 0
+    var paginationIndex = 1
     var userNameToPopulate: String?
     let numberOfSections: Int = 2
     var figFiles: [FigFileModel?] = []
@@ -54,6 +54,7 @@ class UserProfileViewModel {
             case .success(let fetchedFigFiles):
                 strongSelf.figFiles.append(contentsOf: fetchedFigFiles)
                 completion(fetchedFigFiles.count)
+                strongSelf.paginationIndex += 1
             case .failure(let error):
                 debugPrint("Error Fetching Random FigFiles \(error)")
             }
