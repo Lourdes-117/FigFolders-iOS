@@ -181,7 +181,9 @@ extension HomeViewController: FigFilesTableViewCellDelegate {
         guard let figFile = figFile else { return }
         switch figFile.fileTypeEnum {
         case .pdf:
-            break
+            guard let pdfViewerViewController = PDFViewerViewController.initiateVC() else { return }
+            pdfViewerViewController.fileUrl = figFile.fileUrlAsUrl
+            self.present(pdfViewerViewController, animated: true, completion: nil)
         case .spreadsheet:
             break
         case .image:

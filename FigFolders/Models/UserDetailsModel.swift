@@ -130,7 +130,7 @@ struct FigFileModel: Encodable, Decodable {
     var figFileDisplayCellId: String {
         switch fileTypeEnum {
         case .pdf:
-            return ""
+            return FigFilesDisplayPdfTableViewCell.kCellId
         case .spreadsheet:
             return ""
         case .image:
