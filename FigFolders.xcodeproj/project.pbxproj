@@ -41,6 +41,9 @@
 		AE470AC127969602001AB85C /* FigFilesDisplayImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE470AB727968CE1001AB85C /* FigFilesDisplayImageTableViewCell.xib */; };
 		AE470AC32796A213001AB85C /* FigFilesDisplayImageTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470AC22796A213001AB85C /* FigFilesDisplayImageTableViewModel.swift */; };
 		AE470AC52796A80E001AB85C /* FigFileProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470AC42796A80E001AB85C /* FigFileProfileViewModel.swift */; };
+		AE470AC82796AAC6001AB85C /* FigFilesDisplayVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470AC72796AAC6001AB85C /* FigFilesDisplayVideoTableViewCell.swift */; };
+		AE470ACA2796AADA001AB85C /* FigFilesDisplayVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE470AC92796AADA001AB85C /* FigFilesDisplayVideoTableViewCell.xib */; };
+		AE470ACC2796AAE7001AB85C /* FigFilesDisplayVideoTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470ACB2796AAE7001AB85C /* FigFilesDisplayVideoTableViewModel.swift */; };
 		AE549C7326AF5AD900342E8A /* TextViewWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE549C7226AF5AD900342E8A /* TextViewWithPlaceholder.swift */; };
 		AE66557126580B76004DA48A /* DecodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE66557026580B76004DA48A /* DecodableUtility.swift */; };
 		AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6B944626542E90006463E1 /* ProfileViewController.swift */; };
@@ -181,6 +184,9 @@
 		AE470ABF27968E4A001AB85C /* FigFileProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FigFileProfileView.xib; sourceTree = "<group>"; };
 		AE470AC22796A213001AB85C /* FigFilesDisplayImageTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesDisplayImageTableViewModel.swift; sourceTree = "<group>"; };
 		AE470AC42796A80E001AB85C /* FigFileProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFileProfileViewModel.swift; sourceTree = "<group>"; };
+		AE470AC72796AAC6001AB85C /* FigFilesDisplayVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesDisplayVideoTableViewCell.swift; sourceTree = "<group>"; };
+		AE470AC92796AADA001AB85C /* FigFilesDisplayVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FigFilesDisplayVideoTableViewCell.xib; sourceTree = "<group>"; };
+		AE470ACB2796AAE7001AB85C /* FigFilesDisplayVideoTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesDisplayVideoTableViewModel.swift; sourceTree = "<group>"; };
 		AE549C7226AF5AD900342E8A /* TextViewWithPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewWithPlaceholder.swift; sourceTree = "<group>"; };
 		AE66557026580B76004DA48A /* DecodableUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableUtility.swift; sourceTree = "<group>"; };
 		AE6B944626542E90006463E1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -389,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				AE470AB527968CB6001AB85C /* Image */,
+				AE470AC62796AA47001AB85C /* Video */,
 				AE470ABA27968D00001AB85C /* FigFilesDisplayTableViewCell.swift */,
 			);
 			path = FigFilesDisplayTableViewCell;
@@ -412,6 +419,16 @@
 				AE470ABD27968E38001AB85C /* FigFileProfileView.swift */,
 			);
 			path = FigFIleProfileView;
+			sourceTree = "<group>";
+		};
+		AE470AC62796AA47001AB85C /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				AE470AC92796AADA001AB85C /* FigFilesDisplayVideoTableViewCell.xib */,
+				AE470ACB2796AAE7001AB85C /* FigFilesDisplayVideoTableViewModel.swift */,
+				AE470AC72796AAC6001AB85C /* FigFilesDisplayVideoTableViewCell.swift */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		AE6B944526542E17006463E1 /* ProfilePage */ = {
@@ -918,6 +935,7 @@
 				AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */,
 				AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */,
 				AEF8800426ECF277007BF7E9 /* FigFilesTableView.xib in Resources */,
+				AE470ACA2796AADA001AB85C /* FigFilesDisplayVideoTableViewCell.xib in Resources */,
 				AEF4A27C26EFABC80053DA78 /* UserProfileViewController.storyboard in Resources */,
 				AE3F86A9267BBA1100B4D814 /* ImageViewerViewController.storyboard in Resources */,
 				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
@@ -1038,6 +1056,7 @@
 				AEE25F5226922E080021ABDB /* AudioMessageCellUtility.swift in Sources */,
 				AE94D9172667FFEF00D6E921 /* ChatListViewController.swift in Sources */,
 				AEF4A27E26EFABD50053DA78 /* UserProfileViewController.swift in Sources */,
+				AE470ACC2796AAE7001AB85C /* FigFilesDisplayVideoTableViewModel.swift in Sources */,
 				AEF98F7926AD31F700FFD5DA /* FileUploadViewModel.swift in Sources */,
 				AE224B69268FB2BA003CE3E2 /* VoiceRecordingViewController.swift in Sources */,
 				AEC7744026791CE200EEEED0 /* ChatViewController.swift in Sources */,
@@ -1098,6 +1117,7 @@
 				AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */,
 				AE470AC52796A80E001AB85C /* FigFileProfileViewModel.swift in Sources */,
 				AEFFCFB9272C91A00069A577 /* NSLayoutConstraintUtility.swift in Sources */,
+				AE470AC82796AAC6001AB85C /* FigFilesDisplayVideoTableViewCell.swift in Sources */,
 				AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */,
 				AEE4ABCB27941425008E941A /* UrlEndpoints.swift.swift in Sources */,
 				AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */,

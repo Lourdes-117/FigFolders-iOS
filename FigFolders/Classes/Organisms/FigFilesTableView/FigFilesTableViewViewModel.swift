@@ -46,7 +46,7 @@ class FigFilesTableViewViewModel {
         case .image:
             return FigFilesDisplayImageTableViewCell.kCellId
         case .video:
-            return ""
+            return FigFilesDisplayVideoTableViewCell.kCellId
         case .text:
             return ""
         case .html:
