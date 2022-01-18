@@ -43,7 +43,7 @@ enum DocumentPickerDocumentType: String {
     
     var cfStringValue: CFString {
         switch self {
-        case .pdf: return kUTTypePNG
+        case .pdf: return kUTTypePDF
         case .spreadsheet: return kUTTypeSpreadsheet
         case .image: return kUTTypeImage
         case .video: return kUTTypeVideo
