@@ -21,11 +21,22 @@ class FigFilesDisplayImageTableViewCell: UITableViewCell, FigFilesDisplayTableVi
         super.awakeFromNib()
         // Initialization code
     }
+    
+    private func setupGestureRecognizer() {
+        figFileImageView.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapImageView))
+        figFileImageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func onTapImageView() {
+        figFilesTableViewCellDelegate?.openFigFileLargeView(figFile: viewModel.figFile)
+    }
 }
 
 // MARK:- Extension FigFIlesDisplayImageTableViewCell
 extension FigFilesDisplayImageTableViewCell {
     func setupCell(figFile: FigFileModel) {
+        setupGestureRecognizer()
         viewModel.figFile = figFile
         figFileProfileView.setupView(figFile: figFile)
         figFileImageView.sd_setImage(with: figFile.fileUrlAsUrl, completed: nil)

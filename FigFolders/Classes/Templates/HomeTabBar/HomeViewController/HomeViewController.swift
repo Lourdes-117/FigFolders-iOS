@@ -175,4 +175,29 @@ extension HomeViewController: FigFilesTableViewCellDelegate {
         profileDetailsPage.userNameToPopulate = userNameToPopulate
         navigationController?.pushViewController(profileDetailsPage, animated: true)
     }
+    
+    func openFigFileLargeView(figFile: FigFileModel?) {
+        // TODO:- Add Types Here
+        guard let figFile = figFile else { return }
+        switch figFile.fileTypeEnum {
+        case .pdf:
+            break
+        case .spreadsheet:
+            break
+        case .image:
+            guard let imageViewerViewController = ImageViewerViewController.initiateVC() else { return }
+            imageViewerViewController.imageUrl = figFile.fileUrlAsUrl
+            self.present(imageViewerViewController, animated: true, completion: nil)
+        case .video:
+            break
+        case .text:
+            break
+        case .html:
+            break
+        case .plainText:
+            break
+        case .none:
+            break
+        }
+    }
 }

@@ -122,10 +122,13 @@ struct FigFileModel: Encodable, Decodable {
         URL(string: fileUrl ?? "")
     }
     
+    var fileTypeEnum: DocumentPickerDocumentType? {
+        DocumentPickerDocumentType(rawValue: fileType ?? "")
+    }
+    
     // TODO:- Add Types Here
     var figFileDisplayCellId: String {
-        let fileType = DocumentPickerDocumentType(rawValue: fileType ?? "")
-        switch fileType {
+        switch fileTypeEnum {
         case .pdf:
             return ""
         case .spreadsheet:

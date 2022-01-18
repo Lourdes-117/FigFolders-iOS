@@ -15,4 +15,5 @@ protocol FigFilesDisplayTableViewCell: UITableViewCell {
 
 protocol FigFilesTableViewCellDelegate: AnyObject {
     func openProfileDetailsPage(userNameToPopulate: String)
+    func openFigFileLargeView(figFile: FigFileModel?)
 }
