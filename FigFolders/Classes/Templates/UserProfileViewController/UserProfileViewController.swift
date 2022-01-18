@@ -79,7 +79,9 @@ extension UserProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        viewModel.getCellForSection(tableView: tableView, indexPath: indexPath)
+        guard let cell = viewModel.getCellForSection(tableView: tableView, indexPath: indexPath) as? FigFilesDisplayTableViewCell else { return UITableViewCell() }
+        cell.figFilesTableViewCellDelegate = self
+        return cell
     }
 }
 
@@ -89,5 +91,38 @@ extension UserProfileViewController: UITableViewDelegate {
         guard indexPath.section == 1,
               indexPath.row >= (viewModel.numberOfFigFiles - 1) else { return } // This should Not Run For User Details Cell. Only For Fig Files
         startPagination()
+    }
+}
+
+extension UserProfileViewController: FigFilesTableViewCellDelegate {
+    func openProfileDetailsPage(userNameToPopulate: String) {
+        // Don't have to open profile page from here
+    }
+    
+    func openFigFileLargeView(figFile: FigFileModel?) {
+        // TODO:- Add Types Here
+        guard let figFile = figFile else { return }
+        switch figFile.fileTypeEnum {
+        case .pdf:
+            guard let pdfViewerViewController = PDFViewerViewController.initiateVC() else { return }
+            pdfViewerViewController.fileUrl = figFile.fileUrlAsUrl
+            self.present(pdfViewerViewController, animated: true, completion: nil)
+        case .spreadsheet:
+            break
+        case .image:
+            guard let imageViewerViewController = ImageViewerViewController.initiateVC() else { return }
+            imageViewerViewController.imageUrl = figFile.fileUrlAsUrl
+            self.present(imageViewerViewController, animated: true, completion: nil)
+        case .video:
+            break
+        case .text:
+            break
+        case .html:
+            break
+        case .plainText:
+            break
+        case .none:
+            break
+        }
     }
 }
