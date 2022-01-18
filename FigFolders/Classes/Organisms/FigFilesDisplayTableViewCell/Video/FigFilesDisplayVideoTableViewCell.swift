@@ -9,7 +9,7 @@ import UIKit
 
 class FigFilesDisplayVideoTableViewCell: UITableViewCell, FigFilesDisplayTableViewCell {
     static let kCellId = "FigFilesDisplayVideoTableViewCell"
-    weak var delegate: FigFilesTableViewCellDelegate?
+    weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
     
     @IBOutlet weak var likeCommentShareView: LikeCommentShareView!
     @IBOutlet weak var figFileProfileView: FigFileProfileView!
@@ -24,6 +24,6 @@ extension FigFilesDisplayVideoTableViewCell {
         viewModel.figFile = figFile
         figFileProfileView.setupView(figFile: figFile)
         videoPlayerView.setupVideoPlayer(videoUrl: viewModel.figFile?.fileUrlAsUrl, thumbnailUrl: nil)
-        figFileProfileView.delegate = delegate
+        figFileProfileView.delegate = figFilesTableViewCellDelegate
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 protocol FigFilesDisplayTableViewCell: UITableViewCell {
     func setupCell(figFile: FigFileModel)
-    var delegate: FigFilesTableViewCellDelegate? { get set }
+    var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate? { get set }
 }
 
 protocol FigFilesTableViewCellDelegate: AnyObject {

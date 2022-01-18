@@ -33,8 +33,11 @@ class UserProfileViewController: UIViewController {
         let profileNib = UINib(nibName: UserDetailsTableViewCell.kCellId, bundle: Bundle.main)
         tableView.register(profileNib, forCellReuseIdentifier: UserDetailsTableViewCell.kCellId)
         
-        let figFilesNib = UINib(nibName: FigFilesTableViewCell.kCellId, bundle: Bundle.main)
-        tableView.register(figFilesNib, forCellReuseIdentifier: FigFilesTableViewCell.kCellId)
+        let figFilesImageNib = UINib(nibName: FigFilesDisplayImageTableViewCell.kCellId, bundle: Bundle.main)
+        tableView.register(figFilesImageNib, forCellReuseIdentifier: FigFilesDisplayImageTableViewCell.kCellId)
+        
+        let figFilesVideoNib = UINib(nibName: FigFilesDisplayVideoTableViewCell.kCellId, bundle: Bundle.main)
+        tableView.register(figFilesVideoNib, forCellReuseIdentifier: FigFilesDisplayVideoTableViewCell.kCellId)
     }
     
     private func setupDatasourceDelegate() {

@@ -34,27 +34,4 @@ class FigFilesTableViewViewModel {
             }
         }
     }
-    
-    // TODO:- Add Types Here
-    func getCellIdForFigFile(figFile: FigFileModel) -> String {
-        let fileType = DocumentPickerDocumentType(rawValue: figFile.fileType ?? "")
-        switch fileType {
-        case .pdf:
-            return ""
-        case .spreadsheet:
-            return ""
-        case .image:
-            return FigFilesDisplayImageTableViewCell.kCellId
-        case .video:
-            return FigFilesDisplayVideoTableViewCell.kCellId
-        case .text:
-            return ""
-        case .html:
-            return ""
-        case .plainText:
-            return ""
-        case .none:
-            return ""
-        }
-    }
 }

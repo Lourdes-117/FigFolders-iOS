@@ -9,7 +9,7 @@ import UIKit
 
 class FigFilesDisplayImageTableViewCell: UITableViewCell, FigFilesDisplayTableViewCell {
     static let kCellId = "FigFilesDisplayImageTableViewCell"
-    weak var delegate: FigFilesTableViewCellDelegate?
+    weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
     
     @IBOutlet weak var likeCommentShareView: LikeCommentShareView!
     @IBOutlet weak var figFileProfileView: FigFileProfileView!
@@ -29,7 +29,7 @@ extension FigFilesDisplayImageTableViewCell {
         viewModel.figFile = figFile
         figFileProfileView.setupView(figFile: figFile)
         figFileImageView.sd_setImage(with: figFile.fileUrlAsUrl, completed: nil)
-        figFileProfileView.delegate = delegate
+        figFileProfileView.delegate = figFilesTableViewCellDelegate
     }
 }
 

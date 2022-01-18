@@ -65,9 +65,9 @@ extension FigFilesTableView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellId = viewModel.getCellIdForFigFile(figFile: viewModel.figFiles[indexPath.row])
+        let cellId = viewModel.figFiles[indexPath.row].figFileDisplayCellId
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? FigFilesDisplayTableViewCell else { return UITableViewCell() }
-        cell.delegate = figFilesTableViewCellDelegate
+        cell.figFilesTableViewCellDelegate = figFilesTableViewCellDelegate
         cell.setupCell(figFile: viewModel.figFiles[indexPath.row])
         return cell
     }

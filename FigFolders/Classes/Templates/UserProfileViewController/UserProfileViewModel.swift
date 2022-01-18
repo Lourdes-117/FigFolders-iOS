@@ -39,10 +39,9 @@ class UserProfileViewModel {
             cell.setupCell(userName: userNameToPopulate ?? "")
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: FigFilesTableViewCell.kCellId) as? FigFilesTableViewCell,
-                  indexPath.row < numberOfFigFiles,
-                  let figFile = figFiles[indexPath.row] else { return UITableViewCell() }
-            cell.setupCell(figFile: figFile, indexPath: indexPath)
+            guard let figFile = figFiles[indexPath.row] else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: figFile.figFileDisplayCellId) as? FigFilesDisplayTableViewCell else { return UITableViewCell() }
+            cell.setupCell(figFile: figFile)
             return cell
         }
     }
