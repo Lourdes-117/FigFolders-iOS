@@ -33,8 +33,8 @@ class FigFilesTableView: UIView {
     }
     
     private func registerCells() {
-        let figFilesNib = UINib(nibName: FigFilesTableViewCell.kCellId, bundle: Bundle.main)
-        tableView.register(figFilesNib, forCellReuseIdentifier: FigFilesTableViewCell.kCellId)
+        let figFilesImageNib = UINib(nibName: FigFilesDisplayImageTableViewCell.kCellId, bundle: Bundle.main)
+        tableView.register(figFilesImageNib, forCellReuseIdentifier: FigFilesDisplayImageTableViewCell.kCellId)
     }
     
     private func setupDatasourceDelegate() {
@@ -62,11 +62,10 @@ extension FigFilesTableView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FigFilesTableViewCell.kCellId) as? FigFilesTableViewCell else {
-            return UITableViewCell()
-        }
-        cell.setupCell(figFile: viewModel.figFiles[indexPath.row], indexPath: indexPath)
+        let cellId = viewModel.getCellIdForFigFile(figFile: viewModel.figFiles[indexPath.row])
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? FigFilesDisplayTableViewCell else { return UITableViewCell() }
         cell.delegate = figFilesTableViewCellDelegate
+        cell.setupCell(figFile: viewModel.figFiles[indexPath.row])
         return cell
     }
     

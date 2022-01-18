@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol FigFilesTableViewCellDelegate: AnyObject {
-    func openProfileDetailsPage(userNameToPopulate: String)
-}
-
 class FigFilesTableViewCellViewModel {
     var figFile: FigFileModel?
     var indexPath: IndexPath?
