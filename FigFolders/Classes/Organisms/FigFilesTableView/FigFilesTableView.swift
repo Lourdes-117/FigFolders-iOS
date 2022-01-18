@@ -14,6 +14,7 @@ class FigFilesTableView: UIView {
     @IBOutlet weak var tableView: UITableView!
     
     weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
+    weak var likeCommentShareDelegate: LikeCommentShareDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -71,6 +72,7 @@ extension FigFilesTableView: UITableViewDataSource {
         let cellId = viewModel.figFiles[indexPath.row].figFileDisplayCellId
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? FigFilesDisplayTableViewCell else { return UITableViewCell() }
         cell.figFilesTableViewCellDelegate = figFilesTableViewCellDelegate
+        cell.likeCommentShareDelegate = likeCommentShareDelegate
         cell.setupCell(figFile: viewModel.figFiles[indexPath.row])
         return cell
     }

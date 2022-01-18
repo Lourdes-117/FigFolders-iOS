@@ -10,6 +10,7 @@ import UIKit
 class FigFilesDisplayPdfTableViewCell: UITableViewCell, FigFilesDisplayTableViewCell {
     static let kCellId = "FigFilesDisplayPdfTableViewCell"
     weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
+    weak var likeCommentShareDelegate: LikeCommentShareDelegate?
     
     @IBOutlet weak var likeCommentShareView: LikeCommentShareView!
     @IBOutlet weak var figFileProfileView: FigFileProfileView!
@@ -31,9 +32,11 @@ class FigFilesDisplayPdfTableViewCell: UITableViewCell, FigFilesDisplayTableView
 // MARK:- Extension FigFIlesDisplayImageTableViewCell
 extension FigFilesDisplayPdfTableViewCell {
     func setupCell(figFile: FigFileModel) {
-        setupGestureRecognizer()
         viewModel.figFile = figFile
-        figFileProfileView.setupView(figFile: figFile)
+        likeCommentShareView.figFileModel = viewModel.figFile
+        likeCommentShareView.delegate = likeCommentShareDelegate
         figFileProfileView.delegate = figFilesTableViewCellDelegate
+        setupGestureRecognizer()
+        figFileProfileView.setupView(figFile: figFile)
     }
 }

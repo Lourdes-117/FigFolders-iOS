@@ -106,6 +106,7 @@ class HomeViewController: ViewControllerWithLoading {
     private func setupDelegate() {
         hamburgerMenuView.delegate = self
         figFilesTableView.figFilesTableViewCellDelegate = self
+        figFilesTableView.likeCommentShareDelegate = self
     }
     
 // MARK: - Button Actions
@@ -201,5 +202,21 @@ extension HomeViewController: FigFilesTableViewCellDelegate {
         case .none:
             break
         }
+    }
+}
+
+// Mark:- Like Comment Share Delegate
+extension HomeViewController: LikeCommentShareDelegate {
+    func onTapLike(figFileLikeModel: FigFileLikeModel?) {
+        guard let figfileLikeModel = figFileLikeModel else { return }
+        CloudFunctionsManager.shared.likePostByUser(figFileLikeModel: figfileLikeModel)
+    }
+    
+    func onTapComment(figFileModel: FigFileModel?) {
+        debugPrint("On Tap Comment")
+    }
+    
+    func onTapShare(figFileModel: FigFileModel?) {
+        debugPrint("On Tap Share")
     }
 }

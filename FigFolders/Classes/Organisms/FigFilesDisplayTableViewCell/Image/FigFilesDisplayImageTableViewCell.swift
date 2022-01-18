@@ -8,6 +8,8 @@
 import UIKit
 
 class FigFilesDisplayImageTableViewCell: UITableViewCell, FigFilesDisplayTableViewCell {
+    var likeCommentShareDelegate: LikeCommentShareDelegate?
+    
     static let kCellId = "FigFilesDisplayImageTableViewCell"
     weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
     
@@ -36,29 +38,13 @@ class FigFilesDisplayImageTableViewCell: UITableViewCell, FigFilesDisplayTableVi
 // MARK:- Extension FigFIlesDisplayImageTableViewCell
 extension FigFilesDisplayImageTableViewCell {
     func setupCell(figFile: FigFileModel) {
-        setupGestureRecognizer()
         viewModel.figFile = figFile
+        likeCommentShareView.delegate = likeCommentShareDelegate
+        likeCommentShareView.figFileModel = viewModel.figFile
+        setupGestureRecognizer()
         figFileProfileView.setupView(figFile: figFile)
         figFileImageView.sd_setImage(with: figFile.fileUrlAsUrl, completed: nil)
         figFileProfileView.delegate = figFilesTableViewCellDelegate
-    }
-}
-
-extension FigFilesDisplayImageTableViewCell: LikeCommentShareDelegate {
-    func onTapLike(shouldLike: Bool) {
-        let figFileLikeModel = FigFileLikeModel()
-        figFileLikeModel.currentUser = currentUserUsername
-        figFileLikeModel.fileUrl = viewModel.fileUrlString
-        figFileLikeModel.fileOwner = viewModel.ownerName
-        CloudFunctionsManager.shared.likePostByUser(figFileLikeModel: figFileLikeModel)
-    }
-    
-    func onTapComment() {
-        
-    }
-    
-    func onTapShare() {
-        
     }
 }
 

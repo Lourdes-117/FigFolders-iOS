@@ -41,7 +41,6 @@ class UserProfileViewModel {
         } else {
             guard let figFile = figFiles[indexPath.row] else { return UITableViewCell() }
             guard let cell = tableView.dequeueReusableCell(withIdentifier: figFile.figFileDisplayCellId) as? FigFilesDisplayTableViewCell else { return UITableViewCell() }
-            cell.setupCell(figFile: figFile)
             return cell
         }
     }

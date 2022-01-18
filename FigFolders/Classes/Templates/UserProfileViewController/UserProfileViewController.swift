@@ -79,8 +79,11 @@ extension UserProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = viewModel.getCellForSection(tableView: tableView, indexPath: indexPath) as? FigFilesDisplayTableViewCell else { return UITableViewCell() }
+        guard let cell = viewModel.getCellForSection(tableView: tableView, indexPath: indexPath) as? FigFilesDisplayTableViewCell,
+        let figFile = viewModel.figFiles[indexPath.row] else { return UITableViewCell() }
+        cell.likeCommentShareDelegate = self
         cell.figFilesTableViewCellDelegate = self
+        cell.setupCell(figFile: figFile)
         return cell
     }
 }
@@ -124,5 +127,21 @@ extension UserProfileViewController: FigFilesTableViewCellDelegate {
         case .none:
             break
         }
+    }
+}
+
+// Mark:- Like Comment Share Delegate
+extension UserProfileViewController: LikeCommentShareDelegate {
+    func onTapLike(figFileLikeModel: FigFileLikeModel?) {
+        guard let figfileLikeModel = figFileLikeModel else { return }
+        CloudFunctionsManager.shared.likePostByUser(figFileLikeModel: figfileLikeModel)
+    }
+    
+    func onTapComment(figFileModel: FigFileModel?) {
+        debugPrint("On Tap Comment")
+    }
+    
+    func onTapShare(figFileModel: FigFileModel?) {
+        debugPrint("On Tap Share")
     }
 }

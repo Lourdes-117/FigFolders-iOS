@@ -11,6 +11,7 @@ import UIKit
 protocol FigFilesDisplayTableViewCell: UITableViewCell {
     func setupCell(figFile: FigFileModel)
     var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate? { get set }
+    var likeCommentShareDelegate: LikeCommentShareDelegate? { get set }
 }
 
 protocol FigFilesTableViewCellDelegate: AnyObject {

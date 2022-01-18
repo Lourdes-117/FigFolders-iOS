@@ -8,6 +8,8 @@
 import UIKit
 
 class LikeCommentShareViewModel {
+    var figFileLikeModel: FigFileLikeModel = FigFileLikeModel()
+    var figFileModel: FigFileModel?
     var isLiked = false
     let likedImage = UIImage(systemName: "hand.thumbsup.fill")
     let notLikedImage = UIImage(systemName: "hand.thumbsup")
