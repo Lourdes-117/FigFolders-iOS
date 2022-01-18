@@ -24,15 +24,14 @@ class PDFViewerViewController: ViewControllerWithLoading {
         showLoadingIndicator()
         let pdfView = PDFView(frame: self.view.bounds)
         pdfView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view.addSubview(pdfView)
-        
-        // Fit content in PDFView.
-        pdfView.autoScales = true
-        
         guard let fileUrl = fileUrl else { return }
         StorageManager.shared.downloadFileWithUrl(fileUrl) { [weak self] data, error in
             self?.hideLoadingIndicatorView()
             guard let data = data else { return }
+            self?.view.addSubview(pdfView)
+            
+            // Fit content in PDFView.
+            pdfView.autoScales = true
             pdfView.document = PDFDocument(data: data)
         }
     }
