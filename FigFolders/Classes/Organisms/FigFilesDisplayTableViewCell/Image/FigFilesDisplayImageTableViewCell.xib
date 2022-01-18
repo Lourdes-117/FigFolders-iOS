@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="360" id="KGk-i7-Jjw" customClass="FigFilesDisplayImageTableViewCell" customModule="FigFolders" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="360"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="380" height="360"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0B4-cC-lq6" customClass="FigFileProfileView" customModule="FigFolders" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="380" height="65"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="65" id="GiL-BZ-A6M"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wl0-V4-sla" userLabel="Divider View">
+                        <rect key="frame" x="20" y="65" width="340" height="1"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Ru5-2t-1Wa"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R1R-IC-16g" customClass="LikeCommentShareView" customModule="FigFolders" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="316" width="380" height="45"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="GB1-VM-cqj"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="89h-sY-y0J">
+                        <rect key="frame" x="0.0" y="66" width="380" height="250"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="250" id="Zcy-kL-uEG"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" name="Greyscale1"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="R1R-IC-16g" secondAttribute="bottom" id="0Kw-U8-s8O"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="wl0-V4-sla" secondAttribute="trailing" id="2VX-HT-AEQ"/>
+                    <constraint firstItem="R1R-IC-16g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="74a-j2-DvB"/>
+                    <constraint firstAttribute="trailing" secondItem="0B4-cC-lq6" secondAttribute="trailing" id="8Sg-la-wiA"/>
+                    <constraint firstItem="R1R-IC-16g" firstAttribute="top" secondItem="89h-sY-y0J" secondAttribute="bottom" id="IOj-UV-4LT"/>
+                    <constraint firstAttribute="trailing" secondItem="R1R-IC-16g" secondAttribute="trailing" id="M4W-YY-feI"/>
+                    <constraint firstItem="0B4-cC-lq6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="PPX-mV-gGb"/>
+                    <constraint firstItem="wl0-V4-sla" firstAttribute="top" secondItem="0B4-cC-lq6" secondAttribute="bottom" id="T3L-IQ-IQL"/>
+                    <constraint firstItem="89h-sY-y0J" firstAttribute="top" secondItem="wl0-V4-sla" secondAttribute="bottom" id="WRY-P1-baL"/>
+                    <constraint firstAttribute="trailing" secondItem="89h-sY-y0J" secondAttribute="trailing" id="dTG-bC-lDu"/>
+                    <constraint firstItem="0B4-cC-lq6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kxQ-cR-xmM"/>
+                    <constraint firstItem="wl0-V4-sla" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="nyM-hm-aCQ"/>
+                    <constraint firstItem="89h-sY-y0J" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yrT-D8-Mll"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="figFileImageView" destination="89h-sY-y0J" id="Se4-LC-4fB"/>
+                <outlet property="figFileProfileView" destination="0B4-cC-lq6" id="CbQ-YM-03t"/>
+                <outlet property="likeCommentShareView" destination="R1R-IC-16g" id="bmM-BL-imb"/>
+            </connections>
+            <point key="canvasLocation" x="179.71014492753625" y="205.58035714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Greyscale1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

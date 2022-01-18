@@ -14,6 +14,7 @@ class FigFilesTableView: UIView {
     @IBOutlet weak var tableView: UITableView!
     
     weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
+    weak var likeCommentShareDelegate: LikeCommentShareDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,8 +34,14 @@ class FigFilesTableView: UIView {
     }
     
     private func registerCells() {
-        let figFilesNib = UINib(nibName: FigFilesTableViewCell.kCellId, bundle: Bundle.main)
-        tableView.register(figFilesNib, forCellReuseIdentifier: FigFilesTableViewCell.kCellId)
+        let figFilesImageNib = UINib(nibName: FigFilesDisplayImageTableViewCell.kCellId, bundle: Bundle.main)
+        tableView.register(figFilesImageNib, forCellReuseIdentifier: FigFilesDisplayImageTableViewCell.kCellId)
+        
+        let figFilesVideoNib = UINib(nibName: FigFilesDisplayVideoTableViewCell.kCellId, bundle: Bundle.main)
+        tableView.register(figFilesVideoNib, forCellReuseIdentifier: FigFilesDisplayVideoTableViewCell.kCellId)
+        
+        let figFilesPdfNib = UINib(nibName: FigFilesDisplayPdfTableViewCell.kCellId, bundle: Bundle.main)
+        tableView.register(figFilesPdfNib, forCellReuseIdentifier: FigFilesDisplayPdfTableViewCell.kCellId)
     }
     
     private func setupDatasourceDelegate() {
@@ -62,11 +69,11 @@ extension FigFilesTableView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FigFilesTableViewCell.kCellId) as? FigFilesTableViewCell else {
-            return UITableViewCell()
-        }
-        cell.setupCell(figFile: viewModel.figFiles[indexPath.row], indexPath: indexPath)
-        cell.delegate = figFilesTableViewCellDelegate
+        let cellId = viewModel.figFiles[indexPath.row].figFileDisplayCellId
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? FigFilesDisplayTableViewCell else { return UITableViewCell() }
+        cell.figFilesTableViewCellDelegate = figFilesTableViewCellDelegate
+        cell.likeCommentShareDelegate = likeCommentShareDelegate
+        cell.setupCell(figFile: viewModel.figFiles[indexPath.row])
         return cell
     }
     

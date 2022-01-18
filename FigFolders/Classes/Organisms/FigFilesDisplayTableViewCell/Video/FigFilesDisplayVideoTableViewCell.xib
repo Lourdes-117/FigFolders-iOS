@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="425" id="Yp9-1c-K5G" customClass="FigFilesDisplayVideoTableViewCell" customModule="FigFolders" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="360"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yp9-1c-K5G" id="uBj-zq-cmP">
+                <rect key="frame" x="0.0" y="0.0" width="380" height="360"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqI-mt-mFz" userLabel="Divider View">
+                        <rect key="frame" x="20" y="76" width="340" height="1"/>
+                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="DOs-eG-6Vl"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCO-1q-sS6" customClass="FigFileProfileView" customModule="FigFolders" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="11" width="380" height="65"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="65" id="mDv-HN-QuV"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C82-WN-qb7" customClass="LikeCommentShareView" customModule="FigFolders" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="327" width="380" height="45"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="Pld-SF-h5l"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vE9-hZ-wJ8" customClass="VideoPlayerView" customModule="FigFolders" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="77" width="380" height="250"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="250" id="jkB-Ry-T9G"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="Greyscale1"/>
+                <constraints>
+                    <constraint firstItem="oCO-1q-sS6" firstAttribute="leading" secondItem="uBj-zq-cmP" secondAttribute="leading" id="4fm-v6-DXZ"/>
+                    <constraint firstAttribute="trailing" secondItem="oCO-1q-sS6" secondAttribute="trailing" id="Bkw-EK-rp6"/>
+                    <constraint firstItem="oCO-1q-sS6" firstAttribute="top" secondItem="uBj-zq-cmP" secondAttribute="topMargin" id="FcS-Og-vNO"/>
+                    <constraint firstItem="vE9-hZ-wJ8" firstAttribute="leading" secondItem="uBj-zq-cmP" secondAttribute="leading" id="Kev-W4-J2O"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="bqI-mt-mFz" secondAttribute="trailing" id="MfB-UX-Nds"/>
+                    <constraint firstItem="bqI-mt-mFz" firstAttribute="top" secondItem="oCO-1q-sS6" secondAttribute="bottom" id="Olh-RP-maf"/>
+                    <constraint firstItem="C82-WN-qb7" firstAttribute="top" secondItem="vE9-hZ-wJ8" secondAttribute="bottom" id="Tec-LO-h40"/>
+                    <constraint firstItem="bqI-mt-mFz" firstAttribute="leading" secondItem="uBj-zq-cmP" secondAttribute="leadingMargin" id="TmT-76-m9V"/>
+                    <constraint firstAttribute="trailing" secondItem="C82-WN-qb7" secondAttribute="trailing" id="XRG-kL-Mpv"/>
+                    <constraint firstAttribute="trailing" secondItem="vE9-hZ-wJ8" secondAttribute="trailing" id="cqU-cw-3Ye"/>
+                    <constraint firstAttribute="bottom" secondItem="C82-WN-qb7" secondAttribute="bottom" id="dwB-Jj-1ch"/>
+                    <constraint firstItem="vE9-hZ-wJ8" firstAttribute="top" secondItem="bqI-mt-mFz" secondAttribute="bottom" id="n0k-Dx-7qx"/>
+                    <constraint firstItem="C82-WN-qb7" firstAttribute="leading" secondItem="uBj-zq-cmP" secondAttribute="leading" id="zlP-ho-poz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="figFileProfileView" destination="oCO-1q-sS6" id="Zdu-zb-4Vq"/>
+                <outlet property="likeCommentShareView" destination="C82-WN-qb7" id="TUT-SO-O4j"/>
+                <outlet property="videoPlayerView" destination="vE9-hZ-wJ8" id="cAD-qN-tI0"/>
+            </connections>
+            <point key="canvasLocation" x="63.04347826086957" y="35.15625"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Greyscale1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

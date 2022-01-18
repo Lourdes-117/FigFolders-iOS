@@ -60,7 +60,7 @@ class FigFilesTableViewCell: UITableViewCell {
 }
 
 extension FigFilesTableViewCell: LikeCommentShareDelegate {
-    func onTapLike(shouldLike: Bool) {
+    func onTapLike(figFileLikeModel: FigFileLikeModel?) {
         let figFileLikeModel = FigFileLikeModel()
         figFileLikeModel.currentUser = currentUserUsername
         figFileLikeModel.fileUrl = viewModel.fileUrlString
@@ -68,11 +68,11 @@ extension FigFilesTableViewCell: LikeCommentShareDelegate {
         CloudFunctionsManager.shared.likePostByUser(figFileLikeModel: figFileLikeModel)
     }
     
-    func onTapComment() {
+    func onTapComment(figFileModel: FigFileModel?) {
         
     }
     
-    func onTapShare() {
+    func onTapShare(figFileModel: FigFileModel?) {
         
     }
 }

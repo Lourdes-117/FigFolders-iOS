@@ -34,6 +34,21 @@
 		AE3F86A8267BBA1100B4D814 /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F86A6267BBA1100B4D814 /* ImageViewerViewController.swift */; };
 		AE3F86A9267BBA1100B4D814 /* ImageViewerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3F86A7267BBA1100B4D814 /* ImageViewerViewController.storyboard */; };
 		AE3F86AB267BBC0C00B4D814 /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3F86AA267BBC0C00B4D814 /* ImageZoomView.swift */; };
+		AE470AB827968CE2001AB85C /* FigFilesDisplayImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470AB627968CE1001AB85C /* FigFilesDisplayImageTableViewCell.swift */; };
+		AE470ABB27968D00001AB85C /* FigFilesDisplayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470ABA27968D00001AB85C /* FigFilesDisplayTableViewCell.swift */; };
+		AE470ABE27968E38001AB85C /* FigFileProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470ABD27968E38001AB85C /* FigFileProfileView.swift */; };
+		AE470AC027968E4A001AB85C /* FigFileProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE470ABF27968E4A001AB85C /* FigFileProfileView.xib */; };
+		AE470AC127969602001AB85C /* FigFilesDisplayImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE470AB727968CE1001AB85C /* FigFilesDisplayImageTableViewCell.xib */; };
+		AE470AC32796A213001AB85C /* FigFilesDisplayImageTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470AC22796A213001AB85C /* FigFilesDisplayImageTableViewModel.swift */; };
+		AE470AC52796A80E001AB85C /* FigFileProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470AC42796A80E001AB85C /* FigFileProfileViewModel.swift */; };
+		AE470AC82796AAC6001AB85C /* FigFilesDisplayVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470AC72796AAC6001AB85C /* FigFilesDisplayVideoTableViewCell.swift */; };
+		AE470ACA2796AADA001AB85C /* FigFilesDisplayVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE470AC92796AADA001AB85C /* FigFilesDisplayVideoTableViewCell.xib */; };
+		AE470ACC2796AAE7001AB85C /* FigFilesDisplayVideoTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470ACB2796AAE7001AB85C /* FigFilesDisplayVideoTableViewModel.swift */; };
+		AE470AD02796CB71001AB85C /* FigFilesDisplayPdfTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470ACE2796CB71001AB85C /* FigFilesDisplayPdfTableViewCell.swift */; };
+		AE470AD12796CB71001AB85C /* FigFilesDisplayPdfTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE470ACF2796CB71001AB85C /* FigFilesDisplayPdfTableViewCell.xib */; };
+		AE470AD32796CB92001AB85C /* FigFilesDisplayPdfTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470AD22796CB92001AB85C /* FigFilesDisplayPdfTableViewModel.swift */; };
+		AE470AD62796CFED001AB85C /* PDFViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470AD52796CFED001AB85C /* PDFViewerViewController.swift */; };
+		AE470AD82796D002001AB85C /* PDFViewerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE470AD72796D002001AB85C /* PDFViewerViewController.storyboard */; };
 		AE549C7326AF5AD900342E8A /* TextViewWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE549C7226AF5AD900342E8A /* TextViewWithPlaceholder.swift */; };
 		AE66557126580B76004DA48A /* DecodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE66557026580B76004DA48A /* DecodableUtility.swift */; };
 		AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6B944626542E90006463E1 /* ProfileViewController.swift */; };
@@ -167,6 +182,21 @@
 		AE3F86A6267BBA1100B4D814 /* ImageViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
 		AE3F86A7267BBA1100B4D814 /* ImageViewerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewerViewController.storyboard; sourceTree = "<group>"; };
 		AE3F86AA267BBC0C00B4D814 /* ImageZoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
+		AE470AB627968CE1001AB85C /* FigFilesDisplayImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesDisplayImageTableViewCell.swift; sourceTree = "<group>"; };
+		AE470AB727968CE1001AB85C /* FigFilesDisplayImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FigFilesDisplayImageTableViewCell.xib; sourceTree = "<group>"; };
+		AE470ABA27968D00001AB85C /* FigFilesDisplayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesDisplayTableViewCell.swift; sourceTree = "<group>"; };
+		AE470ABD27968E38001AB85C /* FigFileProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFileProfileView.swift; sourceTree = "<group>"; };
+		AE470ABF27968E4A001AB85C /* FigFileProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FigFileProfileView.xib; sourceTree = "<group>"; };
+		AE470AC22796A213001AB85C /* FigFilesDisplayImageTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesDisplayImageTableViewModel.swift; sourceTree = "<group>"; };
+		AE470AC42796A80E001AB85C /* FigFileProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFileProfileViewModel.swift; sourceTree = "<group>"; };
+		AE470AC72796AAC6001AB85C /* FigFilesDisplayVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesDisplayVideoTableViewCell.swift; sourceTree = "<group>"; };
+		AE470AC92796AADA001AB85C /* FigFilesDisplayVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FigFilesDisplayVideoTableViewCell.xib; sourceTree = "<group>"; };
+		AE470ACB2796AAE7001AB85C /* FigFilesDisplayVideoTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesDisplayVideoTableViewModel.swift; sourceTree = "<group>"; };
+		AE470ACE2796CB71001AB85C /* FigFilesDisplayPdfTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesDisplayPdfTableViewCell.swift; sourceTree = "<group>"; };
+		AE470ACF2796CB71001AB85C /* FigFilesDisplayPdfTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FigFilesDisplayPdfTableViewCell.xib; sourceTree = "<group>"; };
+		AE470AD22796CB92001AB85C /* FigFilesDisplayPdfTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFilesDisplayPdfTableViewModel.swift; sourceTree = "<group>"; };
+		AE470AD52796CFED001AB85C /* PDFViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerViewController.swift; sourceTree = "<group>"; };
+		AE470AD72796D002001AB85C /* PDFViewerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PDFViewerViewController.storyboard; sourceTree = "<group>"; };
 		AE549C7226AF5AD900342E8A /* TextViewWithPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewWithPlaceholder.swift; sourceTree = "<group>"; };
 		AE66557026580B76004DA48A /* DecodableUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableUtility.swift; sourceTree = "<group>"; };
 		AE6B944626542E90006463E1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -371,6 +401,66 @@
 			path = ImageViewerController;
 			sourceTree = "<group>";
 		};
+		AE470AB427968C73001AB85C /* FigFilesDisplayTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE470ACD2796CB4E001AB85C /* Pdf */,
+				AE470AB527968CB6001AB85C /* Image */,
+				AE470AC62796AA47001AB85C /* Video */,
+				AE470ABA27968D00001AB85C /* FigFilesDisplayTableViewCell.swift */,
+			);
+			path = FigFilesDisplayTableViewCell;
+			sourceTree = "<group>";
+		};
+		AE470AB527968CB6001AB85C /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				AE470AB727968CE1001AB85C /* FigFilesDisplayImageTableViewCell.xib */,
+				AE470AC22796A213001AB85C /* FigFilesDisplayImageTableViewModel.swift */,
+				AE470AB627968CE1001AB85C /* FigFilesDisplayImageTableViewCell.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		AE470ABC27968E1D001AB85C /* FigFIleProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				AE470ABF27968E4A001AB85C /* FigFileProfileView.xib */,
+				AE470AC42796A80E001AB85C /* FigFileProfileViewModel.swift */,
+				AE470ABD27968E38001AB85C /* FigFileProfileView.swift */,
+			);
+			path = FigFIleProfileView;
+			sourceTree = "<group>";
+		};
+		AE470AC62796AA47001AB85C /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				AE470AC92796AADA001AB85C /* FigFilesDisplayVideoTableViewCell.xib */,
+				AE470ACB2796AAE7001AB85C /* FigFilesDisplayVideoTableViewModel.swift */,
+				AE470AC72796AAC6001AB85C /* FigFilesDisplayVideoTableViewCell.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		AE470ACD2796CB4E001AB85C /* Pdf */ = {
+			isa = PBXGroup;
+			children = (
+				AE470ACF2796CB71001AB85C /* FigFilesDisplayPdfTableViewCell.xib */,
+				AE470AD22796CB92001AB85C /* FigFilesDisplayPdfTableViewModel.swift */,
+				AE470ACE2796CB71001AB85C /* FigFilesDisplayPdfTableViewCell.swift */,
+			);
+			path = Pdf;
+			sourceTree = "<group>";
+		};
+		AE470AD42796CFB5001AB85C /* PDFViewerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE470AD52796CFED001AB85C /* PDFViewerViewController.swift */,
+				AE470AD72796D002001AB85C /* PDFViewerViewController.storyboard */,
+			);
+			path = PDFViewerViewController;
+			sourceTree = "<group>";
+		};
 		AE6B944526542E17006463E1 /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,6 +632,7 @@
 				AE7A26BC265055590057D454 /* HomeTabBar */,
 				AE6B944526542E17006463E1 /* ProfilePage */,
 				AE3F86A5267BBA1100B4D814 /* ImageViewerController */,
+				AE470AD42796CFB5001AB85C /* PDFViewerViewController */,
 				AE8AE514267D118E009065E2 /* LocationPickerViewController */,
 				AE224B65268FB287003CE3E2 /* VoiceRecordingViewController */,
 				AEF98F7326AD30C700FFD5DA /* FileUploadViewController */,
@@ -575,11 +666,13 @@
 			isa = PBXGroup;
 			children = (
 				AE0C74F926FCC546002724CF /* VideoPlayerView */,
-				AEC8311E26F0E3CF002E3732 /* FigFilesDisplayView */,
+				AEC8311E26F0E3CF002E3732 /* FigFilesDisplayViewToDelete */,
 				AEF4A28126EFAEB10053DA78 /* UserDetailsTableViewCell */,
 				AEF8800A26ED046C007BF7E9 /* LikeCommentShareView */,
 				AEF8800526ECF27F007BF7E9 /* FigFilesTableView */,
-				AEF87FFE26ECC784007BF7E9 /* FigFileTableViewCell */,
+				AE470ABC27968E1D001AB85C /* FigFIleProfileView */,
+				AE470AB427968C73001AB85C /* FigFilesDisplayTableViewCell */,
+				AEF87FFE26ECC784007BF7E9 /* FigFileTableViewCellToDelete */,
 				AE0E3CCE26712F42002D2D29 /* ChatListTableViewCell */,
 				AE9D234B266B6E1E005B5C55 /* PullDownTopBar */,
 				AEA19789264995FB00D0D181 /* OnboardingCollectionView */,
@@ -661,14 +754,14 @@
 			path = ChatViewController;
 			sourceTree = "<group>";
 		};
-		AEC8311E26F0E3CF002E3732 /* FigFilesDisplayView */ = {
+		AEC8311E26F0E3CF002E3732 /* FigFilesDisplayViewToDelete */ = {
 			isa = PBXGroup;
 			children = (
 				AEC8312126F0E40A002E3732 /* FigFileDisplayView.xib */,
 				AEC8312326F0E554002E3732 /* FigFileDisplayViewModel.swift */,
 				AEC8311F26F0E3F9002E3732 /* FigFileDisplayView.swift */,
 			);
-			path = FigFilesDisplayView;
+			path = FigFilesDisplayViewToDelete;
 			sourceTree = "<group>";
 		};
 		AEF2E270264C49C80004B8BB /* OnboardingPasswordReset */ = {
@@ -757,14 +850,14 @@
 			path = OnboardingRegisterStepTwo;
 			sourceTree = "<group>";
 		};
-		AEF87FFE26ECC784007BF7E9 /* FigFileTableViewCell */ = {
+		AEF87FFE26ECC784007BF7E9 /* FigFileTableViewCellToDelete */ = {
 			isa = PBXGroup;
 			children = (
 				AEF87FFF26ECEF2C007BF7E9 /* FigFilesTableViewCell.xib */,
 				AEF8801126ED2509007BF7E9 /* FigFilesTableViewCellViewModel.swift */,
 				AEF8800126ECEF49007BF7E9 /* FigFilesTableViewCell.swift */,
 			);
-			path = FigFileTableViewCell;
+			path = FigFileTableViewCellToDelete;
 			sourceTree = "<group>";
 		};
 		AEF8800526ECF27F007BF7E9 /* FigFilesTableView */ = {
@@ -866,12 +959,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE470AC127969602001AB85C /* FigFilesDisplayImageTableViewCell.xib in Resources */,
 				AEF84271264D8EAF00FB8003 /* Roboto-ThinItalic.ttf in Resources */,
 				AEC7743E26791CCD00EEEED0 /* ChatViewController.storyboard in Resources */,
 				AE94D9152667FFDF00D6E921 /* ChatListViewController.storyboard in Resources */,
 				AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */,
 				AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */,
 				AEF8800426ECF277007BF7E9 /* FigFilesTableView.xib in Resources */,
+				AE470ACA2796AADA001AB85C /* FigFilesDisplayVideoTableViewCell.xib in Resources */,
 				AEF4A27C26EFABC80053DA78 /* UserProfileViewController.storyboard in Resources */,
 				AE3F86A9267BBA1100B4D814 /* ImageViewerViewController.storyboard in Resources */,
 				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
@@ -880,6 +975,7 @@
 				AE94E071265306360020CB95 /* HamburgermenuTableViewCell.xib in Resources */,
 				AE9D234F266B6E6F005B5C55 /* PullDownTopBarView.xib in Resources */,
 				AEA1977D2649933400D0D181 /* LaunchScreen.storyboard in Resources */,
+				AE470AD12796CB71001AB85C /* FigFilesDisplayPdfTableViewCell.xib in Resources */,
 				AE0E3CD226713046002D2D29 /* ChatListTableViewCell.xib in Resources */,
 				AEF8426F264D8EAF00FB8003 /* Roboto-Regular.ttf in Resources */,
 				AEF98F7726AD310400FFD5DA /* FileUploadViewController.storyboard in Resources */,
@@ -890,6 +986,7 @@
 				AEA1977A2649933400D0D181 /* Assets.xcassets in Resources */,
 				AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */,
 				AEF8800026ECEF2C007BF7E9 /* FigFilesTableViewCell.xib in Resources */,
+				AE470AC027968E4A001AB85C /* FigFileProfileView.xib in Resources */,
 				AEF84277264D8EAF00FB8003 /* Roboto-Thin.ttf in Resources */,
 				AEF8800E26ED049C007BF7E9 /* LikeCommentShareView.xib in Resources */,
 				AEF84282264D9D9800FB8003 /* OnboardingRegisterStepOneViewController.storyboard in Resources */,
@@ -900,6 +997,7 @@
 				AEA197782649933000D0D181 /* OnboardingViewController.storyboard in Resources */,
 				AE987714264AFE5400064A7D /* LoginViewController.storyboard in Resources */,
 				AEF84243264D83CF00FB8003 /* ResetPasswordViewController.storyboard in Resources */,
+				AE470AD82796D002001AB85C /* PDFViewerViewController.storyboard in Resources */,
 				AEF84278264D8EAF00FB8003 /* Roboto-Black.ttf in Resources */,
 				AEC8312226F0E40A002E3732 /* FigFileDisplayView.xib in Resources */,
 				AEA1978D2649970800D0D181 /* OnboardingCollectionView.xib in Resources */,
@@ -991,12 +1089,14 @@
 				AEE25F5226922E080021ABDB /* AudioMessageCellUtility.swift in Sources */,
 				AE94D9172667FFEF00D6E921 /* ChatListViewController.swift in Sources */,
 				AEF4A27E26EFABD50053DA78 /* UserProfileViewController.swift in Sources */,
+				AE470ACC2796AAE7001AB85C /* FigFilesDisplayVideoTableViewModel.swift in Sources */,
 				AEF98F7926AD31F700FFD5DA /* FileUploadViewModel.swift in Sources */,
 				AE224B69268FB2BA003CE3E2 /* VoiceRecordingViewController.swift in Sources */,
 				AEC7744026791CE200EEEED0 /* ChatViewController.swift in Sources */,
 				AE9D2345266B698B005B5C55 /* ChatListViewModel.swift in Sources */,
 				AE224B6B268FB64A003CE3E2 /* VoiceRecordingViewModel.swift in Sources */,
 				AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */,
+				AE470AD02796CB71001AB85C /* FigFilesDisplayPdfTableViewCell.swift in Sources */,
 				AEA197712649933000D0D181 /* AppDelegate.swift in Sources */,
 				AE0E3CD126713046002D2D29 /* ChatListTableViewCell.swift in Sources */,
 				AE9D2351266B7D2A005B5C55 /* SearchChatViewModel.swift in Sources */,
@@ -1005,11 +1105,15 @@
 				AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */,
 				AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */,
 				AEA1979226499AD800D0D181 /* UIViewUtility.swift in Sources */,
+				AE470AD62796CFED001AB85C /* PDFViewerViewController.swift in Sources */,
+				AE470AB827968CE2001AB85C /* FigFilesDisplayImageTableViewCell.swift in Sources */,
+				AE470AC32796A213001AB85C /* FigFilesDisplayImageTableViewModel.swift in Sources */,
 				AE8AE516267D11AE009065E2 /* LocationPickerViewController.swift in Sources */,
 				AEBB86812656EB4400D2476B /* ViewControllerWithLoading.swift in Sources */,
 				AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */,
 				AEF4A28026EFACB00053DA78 /* UserProfileViewModel.swift in Sources */,
 				AE94E07326530FC80020CB95 /* UILabelUtility.swift in Sources */,
+				AE470ABE27968E38001AB85C /* FigFileProfileView.swift in Sources */,
 				AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */,
 				AE9D234A266B6C81005B5C55 /* SearchChatViewController.swift in Sources */,
 				AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */,
@@ -1046,7 +1150,9 @@
 				AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */,
 				AEF8800226ECEF49007BF7E9 /* FigFilesTableViewCell.swift in Sources */,
 				AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */,
+				AE470AC52796A80E001AB85C /* FigFileProfileViewModel.swift in Sources */,
 				AEFFCFB9272C91A00069A577 /* NSLayoutConstraintUtility.swift in Sources */,
+				AE470AC82796AAC6001AB85C /* FigFilesDisplayVideoTableViewCell.swift in Sources */,
 				AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */,
 				AEE4ABCB27941425008E941A /* UrlEndpoints.swift.swift in Sources */,
 				AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */,
@@ -1061,6 +1167,8 @@
 				AE0E3CD626715053002D2D29 /* ChatListTableViewModel.swift in Sources */,
 				AE549C7326AF5AD900342E8A /* TextViewWithPlaceholder.swift in Sources */,
 				AEA1978B264996E500D0D181 /* OnboardingCollectionView.swift in Sources */,
+				AE470AD32796CB92001AB85C /* FigFilesDisplayPdfTableViewModel.swift in Sources */,
+				AE470ABB27968D00001AB85C /* FigFilesDisplayTableViewCell.swift in Sources */,
 				AE94E070265306360020CB95 /* HamburgermenuTableViewCell.swift in Sources */,
 				AE2002F826FE5B440096D899 /* AVPlayerOnUIViewModel.swift in Sources */,
 				AE16D8922652DA4D00000BB5 /* HamburgerMenuView.swift in Sources */,

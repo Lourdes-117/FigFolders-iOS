@@ -1,20 +1,15 @@
 //
-//  FigFilesTableViewCellViewModel.swift
+//  FigFilesDisplayVideoTableViewModel.swift
 //  FigFolders
 //
-//  Created by Lourdes on 9/11/21.
+//  Created by Lourdes on 1/18/22.
 //
 
-import UIKit
+import Foundation
 
-protocol FigFilesTableViewCellDelegate: AnyObject {
-    func openProfileDetailsPage(userNameToPopulate: String)
-}
-
-class FigFilesTableViewCellViewModel {
+class FigFilesDisplayVideoTableViewModel {
     var figFile: FigFileModel?
     var indexPath: IndexPath?
-    let profilePicPlaceholder = UIImage(systemName: "person.circle")
     
     var ownerName: String {
         figFile?.ownerUsername ?? ""
