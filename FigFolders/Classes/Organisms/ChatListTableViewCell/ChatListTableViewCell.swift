@@ -34,6 +34,7 @@ class ChatListTableViewCell: UITableViewCell {
             let profilePicUrl = URL(string: userDetails.profilePicUrl)
             self?.profilePic.sd_setImage(with: profilePicUrl, placeholderImage: self?.viewModel.profilePlaceholderImage)
         }
+        setupMessageLabelColor(isRead: latestMessage?.isRead ?? false)
     }
     
     private func setupView() {
@@ -51,10 +52,8 @@ class ChatListTableViewCell: UITableViewCell {
             usernameCenterConstraint = usernameCenterConstraint.getLayoutConstraintWithPriority(viewModel.highPriorityPriority)
         }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
     
+    func setupMessageLabelColor(isRead: Bool) {
+        recentMessage.textColor = viewModel.getMessageLabelColor(isRead: isRead) ?? UIColor()
+    }
 }

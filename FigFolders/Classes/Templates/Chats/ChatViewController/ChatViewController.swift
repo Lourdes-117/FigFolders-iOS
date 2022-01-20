@@ -29,6 +29,7 @@ class ChatViewController: MessagesViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initialSetup()
+        markConversationAsRead()
     }
     
     func setupConversation(name: String, email: String, conversationID: String?) {
@@ -50,6 +51,10 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDisplayDelegate = self
         messageInputBar.delegate = self
         messagesCollectionView.messageCellDelegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        markConversationAsRead()
     }
     
     // MARK: - Adding Media
@@ -208,6 +213,13 @@ class ChatViewController: MessagesViewController {
                 }
             }
         }
+    }
+    
+    private func markConversationAsRead() {
+        let markMessageAsReadModel = MarkMessageAsReadModel()
+        markMessageAsReadModel.conversationId = viewModel.conversationID
+        markMessageAsReadModel.userName = currentUserUsername ?? ""
+        CloudFunctionsManager.shared.markConversationAsRead(markMessageAsReadModel: markMessageAsReadModel)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

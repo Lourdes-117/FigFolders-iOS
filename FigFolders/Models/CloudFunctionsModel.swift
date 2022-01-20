@@ -12,3 +12,8 @@ class FigFileLikeModel: Encodable {
     var fileUrl: String?
     var currentUser: String?
 }
+
+class MarkMessageAsReadModel: Encodable {
+    var conversationId: String?
+    var userName: String?
+}

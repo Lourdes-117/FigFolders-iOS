@@ -24,4 +24,17 @@ class CloudFunctionsManager {
         }
         URLSession.shared.dataTask(with: urlRequest).resume()
     }
+    
+    func markConversationAsRead(markMessageAsReadModel: MarkMessageAsReadModel) {
+        guard let url = URL(string: UrlEndpoints.markMessageAsRead) else { return }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = StringConstants.shared.httpMethodConstants.postMethod
+        urlRequest.addValue(StringConstants.shared.httpMethodConstants.applicationJson, forHTTPHeaderField: StringConstants.shared.httpMethodConstants.contentType)
+        do {
+            urlRequest.httpBody = try JSONEncoder().encode(markMessageAsReadModel)
+        } catch {
+            return
+        }
+        URLSession.shared.dataTask(with: urlRequest).resume()
+    }
 }

@@ -144,5 +144,11 @@ extension ChatListViewController: UITableViewDelegate {
         let username = viewModel.getUsernameAtIndex(indexPath.row),
         let emailId = viewModel.getEmailIDAtIndex(indexPath.row) else { return }
         openChatWithUser(name: username, email: emailId, conversationID: conversationID)
+        
+        // Mark message as read
+        let markMessageAsReadModel = MarkMessageAsReadModel()
+        markMessageAsReadModel.conversationId = conversationID
+        markMessageAsReadModel.userName = currentUserUsername ?? ""
+        CloudFunctionsManager.shared.markConversationAsRead(markMessageAsReadModel: markMessageAsReadModel)
     }
 }
