@@ -86,6 +86,16 @@ enum DocumentPickerDocumentType: String {
         return nil
     }
     
+    static var allRawValues: [String] {
+        [DocumentPickerDocumentType.pdf.rawValue,
+         DocumentPickerDocumentType.spreadsheet.rawValue,
+         DocumentPickerDocumentType.image.rawValue,
+         DocumentPickerDocumentType.video.rawValue,
+         DocumentPickerDocumentType.text.rawValue,
+         DocumentPickerDocumentType.html.rawValue,
+         DocumentPickerDocumentType.plainText.rawValue]
+    }
+    
     static var allIdentifier: [String] {
         [DocumentPickerDocumentType.pdf.identifierString,
          DocumentPickerDocumentType.spreadsheet.identifierString,

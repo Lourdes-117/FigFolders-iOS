@@ -54,6 +54,10 @@
 		AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6B944626542E90006463E1 /* ProfileViewController.swift */; };
 		AE6B944B26542EAF006463E1 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE6B944A26542EAF006463E1 /* ProfileViewController.storyboard */; };
 		AE6B944D26542EC4006463E1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6B944C26542EC4006463E1 /* ProfileViewModel.swift */; };
+		AE7307A6279A852B0097A372 /* FolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7307A5279A852B0097A372 /* FolderViewModel.swift */; };
+		AE7307AA279A8AE40097A372 /* FolderViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7307A8279A8AE40097A372 /* FolderViewCollectionViewCell.swift */; };
+		AE7307AB279A8AE40097A372 /* FolderViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7307A9279A8AE40097A372 /* FolderViewCollectionViewCell.xib */; };
+		AE7307AD279A8AF70097A372 /* FolderViewCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7307AC279A8AF70097A372 /* FolderViewCollectionViewCellViewModel.swift */; };
 		AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7A26BE265055EA0057D454 /* HomeTabBarController.storyboard */; };
 		AE7A26C1265056390057D454 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A26C0265056390057D454 /* HomeTabBarController.swift */; };
 		AE7A26C3265056FE0057D454 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */; };
@@ -82,6 +86,8 @@
 		AE9D2351266B7D2A005B5C55 /* SearchChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D2350266B7D2A005B5C55 /* SearchChatViewModel.swift */; };
 		AE9DC66A2662DA42001B9392 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DC6692662DA42001B9392 /* StorageManager.swift */; };
 		AE9DC66C2662E695001B9392 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9DC66B2662E695001B9392 /* UIImageExtension.swift */; };
+		AE9E6A622799F64F0036EEAE /* FolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9E6A612799F64F0036EEAE /* FolderViewController.swift */; };
+		AE9E6A642799F6590036EEAE /* FolderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE9E6A632799F6590036EEAE /* FolderViewController.storyboard */; };
 		AEA197712649933000D0D181 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197702649933000D0D181 /* AppDelegate.swift */; };
 		AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197722649933000D0D181 /* SceneDelegate.swift */; };
 		AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197742649933000D0D181 /* OnboardingViewController.swift */; };
@@ -202,6 +208,10 @@
 		AE6B944626542E90006463E1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AE6B944A26542EAF006463E1 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		AE6B944C26542EC4006463E1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		AE7307A5279A852B0097A372 /* FolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewModel.swift; sourceTree = "<group>"; };
+		AE7307A8279A8AE40097A372 /* FolderViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE7307A9279A8AE40097A372 /* FolderViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderViewCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE7307AC279A8AF70097A372 /* FolderViewCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		AE7A26BE265055EA0057D454 /* HomeTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTabBarController.storyboard; sourceTree = "<group>"; };
 		AE7A26C0265056390057D454 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		AE7A26C2265056FE0057D454 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
@@ -230,6 +240,8 @@
 		AE9D2350266B7D2A005B5C55 /* SearchChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChatViewModel.swift; sourceTree = "<group>"; };
 		AE9DC6692662DA42001B9392 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		AE9DC66B2662E695001B9392 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		AE9E6A612799F64F0036EEAE /* FolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewController.swift; sourceTree = "<group>"; };
+		AE9E6A632799F6590036EEAE /* FolderViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FolderViewController.storyboard; sourceTree = "<group>"; };
 		AEA1976D2649933000D0D181 /* FigFolders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FigFolders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA197702649933000D0D181 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEA197722649933000D0D181 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -471,10 +483,21 @@
 			path = ProfilePage;
 			sourceTree = "<group>";
 		};
+		AE7307A7279A8ACA0097A372 /* FolderViewCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE7307A9279A8AE40097A372 /* FolderViewCollectionViewCell.xib */,
+				AE7307AC279A8AF70097A372 /* FolderViewCollectionViewCellViewModel.swift */,
+				AE7307A8279A8AE40097A372 /* FolderViewCollectionViewCell.swift */,
+			);
+			path = FolderViewCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		AE7A26BC265055590057D454 /* HomeTabBar */ = {
 			isa = PBXGroup;
 			children = (
 				AE7A26BD265055770057D454 /* HomeViewController */,
+				AE9E6A602799F6300036EEAE /* FolderViewController */,
 				AE7A26BE265055EA0057D454 /* HomeTabBarController.storyboard */,
 				AE1177B8266CEC930031FEBA /* HomeTabControllerViewModel.swift */,
 				AE7A26C0265056390057D454 /* HomeTabBarController.swift */,
@@ -581,6 +604,16 @@
 			path = PullDownTopBar;
 			sourceTree = "<group>";
 		};
+		AE9E6A602799F6300036EEAE /* FolderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE9E6A632799F6590036EEAE /* FolderViewController.storyboard */,
+				AE7307A5279A852B0097A372 /* FolderViewModel.swift */,
+				AE9E6A612799F64F0036EEAE /* FolderViewController.swift */,
+			);
+			path = FolderViewController;
+			sourceTree = "<group>";
+		};
 		AEA197642649933000D0D181 = {
 			isa = PBXGroup;
 			children = (
@@ -665,6 +698,7 @@
 		AEA19788264995EB00D0D181 /* Organisms */ = {
 			isa = PBXGroup;
 			children = (
+				AE7307A7279A8ACA0097A372 /* FolderViewCollectionViewCell */,
 				AE0C74F926FCC546002724CF /* VideoPlayerView */,
 				AEC8311E26F0E3CF002E3732 /* FigFilesDisplayViewToDelete */,
 				AEF4A28126EFAEB10053DA78 /* UserDetailsTableViewCell */,
@@ -965,6 +999,7 @@
 				AE94D9152667FFDF00D6E921 /* ChatListViewController.storyboard in Resources */,
 				AEF8426D264D8EAF00FB8003 /* Roboto-Medium.ttf in Resources */,
 				AE7A26BF265055EA0057D454 /* HomeTabBarController.storyboard in Resources */,
+				AE7307AB279A8AE40097A372 /* FolderViewCollectionViewCell.xib in Resources */,
 				AEF8800426ECF277007BF7E9 /* FigFilesTableView.xib in Resources */,
 				AE470ACA2796AADA001AB85C /* FigFilesDisplayVideoTableViewCell.xib in Resources */,
 				AEF4A27C26EFABC80053DA78 /* UserProfileViewController.storyboard in Resources */,
@@ -982,6 +1017,7 @@
 				AEF84289264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard in Resources */,
 				AEF84272264D8EAF00FB8003 /* Roboto-BoldItalic.ttf in Resources */,
 				AE0C74FB26FCC567002724CF /* VideoPlayerView.xib in Resources */,
+				AE9E6A642799F6590036EEAE /* FolderViewController.storyboard in Resources */,
 				AEF84276264D8EAF00FB8003 /* Roboto-Bold.ttf in Resources */,
 				AEA1977A2649933400D0D181 /* Assets.xcassets in Resources */,
 				AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */,
@@ -1125,6 +1161,7 @@
 				AE6B944D26542EC4006463E1 /* ProfileViewModel.swift in Sources */,
 				AEE4ABCF2794568C008E941A /* CloudFunctionsModel.swift in Sources */,
 				AE0E3CD426714AC8002D2D29 /* StructIterationProtocol.swift in Sources */,
+				AE7307AD279A8AF70097A372 /* FolderViewCollectionViewCellViewModel.swift in Sources */,
 				AEF4A28826EFAFF70053DA78 /* UserDetailsTableViewCellViewModel.swift in Sources */,
 				AE9DC66A2662DA42001B9392 /* StorageManager.swift in Sources */,
 				AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */,
@@ -1146,16 +1183,19 @@
 				AEF8801026ED1495007BF7E9 /* NetworkManager.swift in Sources */,
 				AEE4ABCD27944E0B008E941A /* CloudFunctionsManager.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
+				AE7307A6279A852B0097A372 /* FolderViewModel.swift in Sources */,
 				AEF4A28626EFAF810053DA78 /* UserDetailsTableViewCell.swift in Sources */,
 				AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */,
 				AEF8800226ECEF49007BF7E9 /* FigFilesTableViewCell.swift in Sources */,
 				AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */,
+				AE7307AA279A8AE40097A372 /* FolderViewCollectionViewCell.swift in Sources */,
 				AE470AC52796A80E001AB85C /* FigFileProfileViewModel.swift in Sources */,
 				AEFFCFB9272C91A00069A577 /* NSLayoutConstraintUtility.swift in Sources */,
 				AE470AC82796AAC6001AB85C /* FigFilesDisplayVideoTableViewCell.swift in Sources */,
 				AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */,
 				AEE4ABCB27941425008E941A /* UrlEndpoints.swift.swift in Sources */,
 				AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */,
+				AE9E6A622799F64F0036EEAE /* FolderViewController.swift in Sources */,
 				AE9D234D266B6E60005B5C55 /* PullDownTopBarView.swift in Sources */,
 				AE27EB46264EE6A000C34CBD /* StringConstants.swift in Sources */,
 				AEC8312426F0E554002E3732 /* FigFileDisplayViewModel.swift in Sources */,

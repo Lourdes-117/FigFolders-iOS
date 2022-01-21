@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dig-73-Qxp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dig-73-Qxp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,20 +27,34 @@
             </objects>
             <point key="canvasLocation" x="-344" y="128"/>
         </scene>
-        <!--Item-->
+        <!--Fig Folders-->
         <scene sceneID="fwt-8b-mdA">
             <objects>
                 <navigationController id="gow-Bd-ZMA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bZU-sc-HfB"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I3S-rW-4yS">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <tabBarItem key="tabBarItem" title="Fig Folders" id="bZU-sc-HfB"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="I3S-rW-4yS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="Primary-Green"/>
                         <color key="barTintColor" name="Primary-Green"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="Q1F-68-OGx" kind="relationship" relationship="rootViewController" id="ONO-rj-rMC"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RYF-UB-duS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="470" y="860"/>
+        </scene>
+        <!--FolderViewController-->
+        <scene sceneID="Qsp-qP-cI1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FolderViewController" referencedIdentifier="FolderViewController" id="Q1F-68-OGx" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="s0O-hb-Pam"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ab5-4r-1Iz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1530" y="860"/>
         </scene>
         <!--Home-->
         <scene sceneID="Wxb-jz-40U">
