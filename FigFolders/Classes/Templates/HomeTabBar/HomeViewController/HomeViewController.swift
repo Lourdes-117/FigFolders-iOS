@@ -213,7 +213,9 @@ extension HomeViewController: LikeCommentShareDelegate {
     }
     
     func onTapComment(figFileModel: FigFileModel?) {
-        debugPrint("On Tap Comment")
+        guard let commentViewController = CommentsViewController.initiateVC() else { return }
+        commentViewController.figFileModel = figFileModel
+        self.navigationController?.pushViewController(commentViewController, animated: true)
     }
     
     func onTapShare(figFileModel: FigFileModel?) {

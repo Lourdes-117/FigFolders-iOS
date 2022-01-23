@@ -57,6 +57,9 @@
 		AE6D5D36279D241C00B817A3 /* UserFigFoldersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6D5D35279D241C00B817A3 /* UserFigFoldersViewController.swift */; };
 		AE6D5D38279D242E00B817A3 /* UserFigFoldersViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE6D5D37279D242E00B817A3 /* UserFigFoldersViewController.storyboard */; };
 		AE6D5D3A279D243A00B817A3 /* UserFigFoldersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6D5D39279D243A00B817A3 /* UserFigFoldersViewModel.swift */; };
+		AE6D5D3D279D380F00B817A3 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6D5D3C279D380F00B817A3 /* CommentsViewController.swift */; };
+		AE6D5D3F279D381B00B817A3 /* CommentsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE6D5D3E279D381B00B817A3 /* CommentsViewController.storyboard */; };
+		AE6D5D41279D382700B817A3 /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6D5D40279D382700B817A3 /* CommentsViewModel.swift */; };
 		AE7307A6279A852B0097A372 /* FolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7307A5279A852B0097A372 /* FolderViewModel.swift */; };
 		AE7307AA279A8AE40097A372 /* FolderViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7307A8279A8AE40097A372 /* FolderViewCollectionViewCell.swift */; };
 		AE7307AB279A8AE40097A372 /* FolderViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7307A9279A8AE40097A372 /* FolderViewCollectionViewCell.xib */; };
@@ -214,6 +217,9 @@
 		AE6D5D35279D241C00B817A3 /* UserFigFoldersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFigFoldersViewController.swift; sourceTree = "<group>"; };
 		AE6D5D37279D242E00B817A3 /* UserFigFoldersViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserFigFoldersViewController.storyboard; sourceTree = "<group>"; };
 		AE6D5D39279D243A00B817A3 /* UserFigFoldersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFigFoldersViewModel.swift; sourceTree = "<group>"; };
+		AE6D5D3C279D380F00B817A3 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		AE6D5D3E279D381B00B817A3 /* CommentsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentsViewController.storyboard; sourceTree = "<group>"; };
+		AE6D5D40279D382700B817A3 /* CommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewModel.swift; sourceTree = "<group>"; };
 		AE7307A5279A852B0097A372 /* FolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewModel.swift; sourceTree = "<group>"; };
 		AE7307A8279A8AE40097A372 /* FolderViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE7307A9279A8AE40097A372 /* FolderViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderViewCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -499,6 +505,16 @@
 			path = UserFigFoldersViewController;
 			sourceTree = "<group>";
 		};
+		AE6D5D3B279D37F300B817A3 /* CommentsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE6D5D3E279D381B00B817A3 /* CommentsViewController.storyboard */,
+				AE6D5D40279D382700B817A3 /* CommentsViewModel.swift */,
+				AE6D5D3C279D380F00B817A3 /* CommentsViewController.swift */,
+			);
+			path = CommentsViewController;
+			sourceTree = "<group>";
+		};
 		AE7307A7279A8ACA0097A372 /* FolderViewCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -675,6 +691,7 @@
 		AEA197852649936400D0D181 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				AE6D5D3B279D37F300B817A3 /* CommentsViewController */,
 				AEF4A27A26EFABAD0053DA78 /* UserProfileViewController */,
 				AE94D9122667FF9500D6E921 /* Chats */,
 				AEA1979326499E9E00D0D181 /* Onboarding */,
@@ -1061,6 +1078,7 @@
 				AEF84270264D8EAF00FB8003 /* Roboto-MediumItalic.ttf in Resources */,
 				AEF552DC27882F7F004A433D /* GoogleService-Info.plist in Resources */,
 				AEF8426E264D8EAF00FB8003 /* Roboto-Light.ttf in Resources */,
+				AE6D5D3F279D381B00B817A3 /* CommentsViewController.storyboard in Resources */,
 				AE8AE518267D11E5009065E2 /* LocationPickerViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1157,6 +1175,7 @@
 				AEF8801226ED250A007BF7E9 /* FigFilesTableViewCellViewModel.swift in Sources */,
 				AEF8428D264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift in Sources */,
 				AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */,
+				AE6D5D41279D382700B817A3 /* CommentsViewModel.swift in Sources */,
 				AEA197732649933000D0D181 /* SceneDelegate.swift in Sources */,
 				AEA1979226499AD800D0D181 /* UIViewUtility.swift in Sources */,
 				AE470AD62796CFED001AB85C /* PDFViewerViewController.swift in Sources */,
@@ -1171,6 +1190,7 @@
 				AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */,
 				AE9D234A266B6C81005B5C55 /* SearchChatViewController.swift in Sources */,
 				AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */,
+				AE6D5D3D279D380F00B817A3 /* CommentsViewController.swift in Sources */,
 				AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */,
 				AE2002FC26FE6EAD0096D899 /* LikeCommentShareViewModel.swift in Sources */,
 				AE3F86AB267BBC0C00B4D814 /* ImageZoomView.swift in Sources */,
