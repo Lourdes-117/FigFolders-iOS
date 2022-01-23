@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -126,7 +126,7 @@
                                         <constraints>
                                             <constraint firstItem="BS9-UV-t3B" firstAttribute="top" secondItem="pWM-5T-I71" secondAttribute="bottom" constant="25" id="14D-xZ-cmw"/>
                                             <constraint firstItem="v8S-Z0-jal" firstAttribute="leading" secondItem="0Fy-wF-ZZb" secondAttribute="leading" constant="21" id="1CS-uu-FAo"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ryL-Je-F7F" secondAttribute="bottom" constant="15" id="1Db-Ca-ZjB"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ryL-Je-F7F" secondAttribute="bottom" constant="5" id="1Db-Ca-ZjB"/>
                                             <constraint firstItem="ryL-Je-F7F" firstAttribute="top" secondItem="4Sy-0Z-B7T" secondAttribute="bottom" constant="45" id="4D4-3P-VZ1"/>
                                             <constraint firstItem="BS9-UV-t3B" firstAttribute="leading" secondItem="pWM-5T-I71" secondAttribute="leading" id="4gQ-5J-VNw"/>
                                             <constraint firstItem="HLW-HH-vdW" firstAttribute="top" secondItem="jvn-oL-0zb" secondAttribute="bottom" constant="18" id="4wQ-wo-k6c"/>
