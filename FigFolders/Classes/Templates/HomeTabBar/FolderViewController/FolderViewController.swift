@@ -53,7 +53,11 @@ extension FolderViewController: UICollectionViewDataSource {
 
 // MARK: - CollectionView Delegate
 extension FolderViewController: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let userFigFoldersViewController = UserFigFoldersViewController.initiateVC() else { return }
+        userFigFoldersViewController.documentTypeToPopulate = viewModel.getCellTypeAtIndex(index: indexPath.row)
+        self.navigationController?.pushViewController(userFigFoldersViewController, animated: true)
+    }
 }
 
 extension FolderViewController: UICollectionViewDelegateFlowLayout {
