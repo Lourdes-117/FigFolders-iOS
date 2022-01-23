@@ -18,22 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VX8-9h-R4E">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8FL-QQ-feB" customClass="FigFilesTableView" customModule="FigFolders" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Primary-Green"/>
                         <constraints>
-                            <constraint firstItem="VX8-9h-R4E" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="b56-YL-wLQ"/>
-                            <constraint firstItem="VX8-9h-R4E" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="g4p-j6-QjY"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VX8-9h-R4E" secondAttribute="trailing" id="omo-3D-iQr"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="VX8-9h-R4E" secondAttribute="bottom" id="udG-mH-Fbl"/>
+                            <constraint firstItem="8FL-QQ-feB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="7DI-ow-Hg2"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8FL-QQ-feB" secondAttribute="bottom" id="7OM-Zm-5mv"/>
+                            <constraint firstItem="8FL-QQ-feB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cFe-iL-q6k"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8FL-QQ-feB" secondAttribute="trailing" id="j7J-VW-d2z"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="VX8-9h-R4E" id="wCf-V0-G34"/>
+                        <outlet property="tableView" destination="8FL-QQ-feB" id="zRc-Qg-hdF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

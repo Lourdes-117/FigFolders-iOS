@@ -662,21 +662,6 @@ final class DatabaseManager {
             self?.database.child(currentUserUsername ?? "").setValue(userDetailsModelDictionary)
         }
     }
-    
-    func getRandomFigFiles(completion: @escaping ((Result<[FigFileModel], Error>) -> Void)) {
-        let randomFilesUrl = String(format: UrlEndpoints.randomFilesTemplateUrl, currentUserUsername ?? "")
-        NetworkManager.getData(randomFilesUrl, [FigFileModel].self) { result in
-            completion(result)
-        }
-    }
-    
-    func getFigFilesOfUser(username: String, paginationIndex: Int, completion: @escaping ((Result<[FigFileModel], Error>) -> Void) ) {
-        let figFilesOfUserUrlTemplate = String(format: UrlEndpoints.figFilesOfUserTemplateUrl, currentUserUsername ?? "", paginationIndex)
-        let figFilesOfUserUrl = String(format: figFilesOfUserUrlTemplate, username, paginationIndex)
-        NetworkManager.getData(figFilesOfUserUrl, [FigFileModel].self) { result in
-            completion(result)
-        }
-    }
 }
 
 // MARK:- Database Errors

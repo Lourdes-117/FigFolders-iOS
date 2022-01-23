@@ -16,12 +16,16 @@ class FigFilesTableView: UIView {
     weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
     weak var likeCommentShareDelegate: LikeCommentShareDelegate?
     
+    var documentTypeToPopulate: DocumentPickerDocumentType?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         commonInit(nibName)
     }
     
-    func initialSetup() {
+    func initialSetup(pageBehaviour: FigFilesTableViewBehaviour) {
+        viewModel.figFilesTableViewBehaviour = pageBehaviour
+        viewModel.documentTypeToPopulate = documentTypeToPopulate
         registerCells()
         setupDatasourceDelegate()
         getRandomFilesInitial()
@@ -54,6 +58,7 @@ class FigFilesTableView: UIView {
             guard let strongSelf = self else { return }
             let numberOfFilesBeforeUpdate = strongSelf.viewModel.numberOfFiles -  numberOfNewCells
             let numberOfFilesAfterUpdate = strongSelf.viewModel.numberOfFiles
+            guard numberOfFilesBeforeUpdate != numberOfFilesAfterUpdate else { return } // Pagination Returned No Values
             let indexPathsToUpdate = strongSelf.viewModel.getIndexPathBetweenNumbers(numberOfItemsBeforeUpdate: numberOfFilesBeforeUpdate, numberOfItemsAfterUpdate: numberOfFilesAfterUpdate)
             strongSelf.tableView.beginUpdates()
             strongSelf.tableView.insertRows(at: indexPathsToUpdate, with: .fade)

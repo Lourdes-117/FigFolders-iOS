@@ -28,7 +28,7 @@ class HomeViewController: ViewControllerWithLoading {
         setupView()
         setupGestures()
         setupDelegate()
-        figFilesTableView.initialSetup()
+        figFilesTableView.initialSetup(pageBehaviour: .homePage)
     }
     
     override func viewDidAppear(_ animated: Bool) {
