@@ -115,7 +115,7 @@
 		AEC8312426F0E554002E3732 /* FigFileDisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8312326F0E554002E3732 /* FigFileDisplayViewModel.swift */; };
 		AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */; };
 		AEE25F5226922E080021ABDB /* AudioMessageCellUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */; };
-		AEE4ABCB27941425008E941A /* UrlEndpoints.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4ABCA27941425008E941A /* UrlEndpoints.swift.swift */; };
+		AEE4ABCB27941425008E941A /* UrlEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4ABCA27941425008E941A /* UrlEndpoints.swift */; };
 		AEE4ABCD27944E0B008E941A /* CloudFunctionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4ABCC27944E0B008E941A /* CloudFunctionsManager.swift */; };
 		AEE4ABCF2794568C008E941A /* CloudFunctionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4ABCE2794568C008E941A /* CloudFunctionsModel.swift */; };
 		AEF4A27C26EFABC80053DA78 /* UserProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF4A27B26EFABC80053DA78 /* UserProfileViewController.storyboard */; };
@@ -277,7 +277,7 @@
 		AEC8312326F0E554002E3732 /* FigFileDisplayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFileDisplayViewModel.swift; sourceTree = "<group>"; };
 		AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableUtility.swift; sourceTree = "<group>"; };
 		AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessageCellUtility.swift; sourceTree = "<group>"; };
-		AEE4ABCA27941425008E941A /* UrlEndpoints.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEndpoints.swift.swift; sourceTree = "<group>"; };
+		AEE4ABCA27941425008E941A /* UrlEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEndpoints.swift; sourceTree = "<group>"; };
 		AEE4ABCC27944E0B008E941A /* CloudFunctionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFunctionsManager.swift; sourceTree = "<group>"; };
 		AEE4ABCE2794568C008E941A /* CloudFunctionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFunctionsModel.swift; sourceTree = "<group>"; };
 		AEF4A27B26EFABC80053DA78 /* UserProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileViewController.storyboard; sourceTree = "<group>"; };
@@ -711,7 +711,7 @@
 			isa = PBXGroup;
 			children = (
 				AE27EB45264EE6A000C34CBD /* StringConstants.swift */,
-				AEE4ABCA27941425008E941A /* UrlEndpoints.swift.swift */,
+				AEE4ABCA27941425008E941A /* UrlEndpoints.swift */,
 				AEF84246264D84B200FB8003 /* Fonts */,
 				AEA1979026499AC600D0D181 /* Utilities */,
 				AEBB867F2656EB2700D2476B /* CustomClasses */,
@@ -1231,7 +1231,7 @@
 				AEFFCFB9272C91A00069A577 /* NSLayoutConstraintUtility.swift in Sources */,
 				AE470AC82796AAC6001AB85C /* FigFilesDisplayVideoTableViewCell.swift in Sources */,
 				AE1177B7266CDD4E0031FEBA /* ColorPalette.swift in Sources */,
-				AEE4ABCB27941425008E941A /* UrlEndpoints.swift.swift in Sources */,
+				AEE4ABCB27941425008E941A /* UrlEndpoints.swift in Sources */,
 				AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */,
 				AE9E6A622799F64F0036EEAE /* FolderViewController.swift in Sources */,
 				AE6D5D36279D241C00B817A3 /* UserFigFoldersViewController.swift in Sources */,
