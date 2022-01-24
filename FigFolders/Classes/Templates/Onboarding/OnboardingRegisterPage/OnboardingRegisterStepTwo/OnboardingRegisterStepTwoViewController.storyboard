@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -102,13 +102,13 @@
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username is Taken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsQ-Xa-aFd">
-                                                <rect key="frame" x="249.5" y="200" width="143.5" height="20"/>
+                                                <rect key="frame" x="249.5" y="196" width="143.5" height="20"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email-ID is Taken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0f-Gk-JGd">
-                                                <rect key="frame" x="264" y="314" width="129" height="20"/>
+                                                <rect key="frame" x="264" y="310" width="129" height="20"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -124,7 +124,7 @@
                                             <constraint firstItem="oOY-Ct-fNk" firstAttribute="trailing" secondItem="MUM-qg-juE" secondAttribute="trailing" id="7cq-Do-WBk"/>
                                             <constraint firstItem="4P4-u8-abc" firstAttribute="leading" secondItem="MUM-qg-juE" secondAttribute="leading" id="9bb-bZ-T1z"/>
                                             <constraint firstItem="wdH-xL-L4o" firstAttribute="leading" secondItem="oOY-Ct-fNk" secondAttribute="leading" id="E1M-Ck-fYA"/>
-                                            <constraint firstItem="lsQ-Xa-aFd" firstAttribute="top" secondItem="MUM-qg-juE" secondAttribute="bottom" constant="12" id="Fog-h3-6Js"/>
+                                            <constraint firstItem="lsQ-Xa-aFd" firstAttribute="top" secondItem="MUM-qg-juE" secondAttribute="bottom" constant="8" id="Fog-h3-6Js"/>
                                             <constraint firstItem="lsQ-Xa-aFd" firstAttribute="trailing" secondItem="MUM-qg-juE" secondAttribute="trailing" id="GjY-ew-l8M"/>
                                             <constraint firstItem="bYa-rV-5nh" firstAttribute="top" secondItem="MUM-qg-juE" secondAttribute="bottom" constant="25" id="IMd-6e-bwR"/>
                                             <constraint firstAttribute="trailing" secondItem="MUM-qg-juE" secondAttribute="trailing" constant="21" id="L3O-PA-e2U"/>
@@ -139,7 +139,7 @@
                                             <constraint firstItem="bYa-rV-5nh" firstAttribute="leading" secondItem="oOY-Ct-fNk" secondAttribute="leading" id="j9J-FW-GRi"/>
                                             <constraint firstItem="MUM-qg-juE" firstAttribute="top" secondItem="4P4-u8-abc" secondAttribute="bottom" constant="18" id="kel-Qg-6cD"/>
                                             <constraint firstItem="oOY-Ct-fNk" firstAttribute="top" secondItem="bYa-rV-5nh" secondAttribute="bottom" constant="18" id="mY9-lk-a3C"/>
-                                            <constraint firstItem="F0f-Gk-JGd" firstAttribute="top" secondItem="oOY-Ct-fNk" secondAttribute="bottom" constant="12" id="rdS-y8-yXD"/>
+                                            <constraint firstItem="F0f-Gk-JGd" firstAttribute="top" secondItem="oOY-Ct-fNk" secondAttribute="bottom" constant="8" id="rdS-y8-yXD"/>
                                             <constraint firstItem="FnA-pz-hu1" firstAttribute="top" secondItem="5gl-bQ-Csm" secondAttribute="top" constant="32" id="yOh-Ip-c3N"/>
                                         </constraints>
                                     </view>

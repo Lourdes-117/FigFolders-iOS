@@ -16,6 +16,12 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    // Error Message Textfields
+    @IBOutlet weak var firstNameErrorMessage: UILabel!
+    @IBOutlet weak var lastNameErrorMessage: UILabel!
+    @IBOutlet weak var phoneNumberNameErrorMessage: UILabel!
+    
 
     let viewModel = OnboardingRegisterStepOneViewModel()
     
@@ -52,6 +58,9 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     }
     
     private func setupViews() {
+        firstNameErrorMessage.isHidden = true
+        lastNameErrorMessage.isHidden = true
+        phoneNumberNameErrorMessage.isHidden = true
         datePicker.maximumDate = Date()
         firstNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         datePicker.layer.cornerRadius = viewModel.borderRadius
@@ -93,6 +102,10 @@ class OnboardingRegisterStepOneViewController: UIViewController {
         lastNameTextField.addBorder(color: isLastNameValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
         let isPhoneNumberValid = viewModel.isValidPhoneNumber(number: phoneNumberTextField.text)
         phoneNumberTextField.addBorder(color: isPhoneNumberValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        
+        firstNameErrorMessage.isHidden = isFirstNameValid
+        lastNameErrorMessage.isHidden = isLastNameValid
+        phoneNumberNameErrorMessage.isHidden = isPhoneNumberValid
         
         return isFirstNameValid && isLastNameValid && isPhoneNumberValid
     }
