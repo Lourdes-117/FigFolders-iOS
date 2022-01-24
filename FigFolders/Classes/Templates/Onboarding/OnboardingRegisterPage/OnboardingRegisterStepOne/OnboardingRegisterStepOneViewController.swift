@@ -12,7 +12,6 @@ class OnboardingRegisterStepOneViewController: UIViewController {
 // MARK: - Outlets
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var dateOfBirthTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -55,12 +54,10 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     private func setupViews() {
         datePicker.maximumDate = Date()
         firstNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
+        datePicker.layer.cornerRadius = viewModel.borderRadius
         firstNameTextField.layer.cornerRadius = viewModel.borderRadius
         lastNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         lastNameTextField.layer.cornerRadius = viewModel.borderRadius
-        dateOfBirthTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
-        dateOfBirthTextField.layer.cornerRadius = viewModel.borderRadius
-        dateOfBirthTextField.inputView = datePicker
         phoneNumberTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         phoneNumberTextField.layer.cornerRadius = viewModel.borderRadius
         nextButton.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
@@ -70,7 +67,6 @@ class OnboardingRegisterStepOneViewController: UIViewController {
     private func setupDelegates() {
         firstNameTextField.delegate = self
         lastNameTextField.delegate = self
-        dateOfBirthTextField.delegate = self
         phoneNumberTextField.delegate = self
     }
     
