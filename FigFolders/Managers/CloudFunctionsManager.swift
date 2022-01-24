@@ -46,7 +46,7 @@ class CloudFunctionsManager {
     }
     
     func getFigFilesOfUser(username: String, paginationIndex: Int, completion: @escaping ((Result<[FigFileModel], Error>) -> Void) ) {
-        let figFilesOfUserUrlTemplate = String(format: UrlEndpoints.figFilesOfUserTemplateUrl, currentUserUsername ?? "", paginationIndex)
+        let figFilesOfUserUrlTemplate = String(format: UrlEndpoints.figFilesOfUserTemplateUrl, username, paginationIndex)
         let figFilesOfUserUrl = String(format: figFilesOfUserUrlTemplate, username, paginationIndex)
         NetworkManager.getData(figFilesOfUserUrl, [FigFileModel].self) { result in
             completion(result)
