@@ -31,6 +31,7 @@ class SearchChatViewController: ViewControllerWithLoading {
     }
     
     private func initialSetup() {
+        tableView.isHidden = false
         pullDownTopBarView.delegate = self
         pullDownTopBarView.titleString = viewModel.title
         
@@ -113,7 +114,13 @@ extension SearchChatViewController: UISearchBarDelegate {
 // MARK: - TableView Datasource
 extension SearchChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        searchResults.count
+        let searchText = searchView.text ?? ""
+        if (searchResults.count == 0 && !searchText.isEmpty && searchText.length >= viewModel.autoSearchMinTextLength) {
+            tableView.isHidden = true
+        } else {
+            tableView.isHidden = false
+        }
+        return searchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
