@@ -33,13 +33,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5q-SY-tjH">
-                                <rect key="frame" x="87" y="7" width="49" height="61"/>
+                                <rect key="frame" x="87" y="7" width="325" height="61"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                 <color key="textColor" name="LabelColorPrimary"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9x-yh-Kx2">
-                                <rect key="frame" x="87" y="71" width="325" height="16.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9x-yh-Kx2">
+                                <rect key="frame" x="87" y="71" width="325" height="17"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <color key="textColor" name="LabelColorSecondary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/01/2001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHc-KK-8uy">
+                                <rect key="frame" x="337" y="55" width="75" height="16"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <color key="textColor" name="LabelColorSecondary"/>
                                 <nil key="highlightedColor"/>
@@ -49,8 +55,10 @@
                         <constraints>
                             <constraint firstItem="f9x-yh-Kx2" firstAttribute="leading" secondItem="H5q-SY-tjH" secondAttribute="leading" id="2gQ-e4-Chv"/>
                             <constraint firstItem="OWy-ru-hwZ" firstAttribute="leading" secondItem="apk-FK-l9H" secondAttribute="leading" constant="8" id="3y7-o8-Hto"/>
+                            <constraint firstAttribute="trailing" secondItem="bHc-KK-8uy" secondAttribute="trailing" constant="8" id="7g1-gz-54q"/>
                             <constraint firstAttribute="height" constant="75" id="DgR-0g-TJE"/>
-                            <constraint firstAttribute="trailing" secondItem="f9x-yh-Kx2" secondAttribute="trailing" constant="8" id="XGM-uz-fhQ"/>
+                            <constraint firstItem="f9x-yh-Kx2" firstAttribute="top" secondItem="bHc-KK-8uy" secondAttribute="bottom" id="QxW-GC-hQ0"/>
+                            <constraint firstAttribute="trailing" secondItem="H5q-SY-tjH" secondAttribute="trailing" constant="8" id="TbB-RE-N17"/>
                             <constraint firstAttribute="bottom" secondItem="OWy-ru-hwZ" secondAttribute="bottom" constant="7" id="XRx-5V-3v0"/>
                             <constraint firstItem="f9x-yh-Kx2" firstAttribute="top" secondItem="H5q-SY-tjH" secondAttribute="bottom" constant="3" id="acd-RC-YQB"/>
                             <constraint firstItem="OWy-ru-hwZ" firstAttribute="top" secondItem="apk-FK-l9H" secondAttribute="top" constant="7" id="hXq-JQ-1GK"/>
@@ -62,6 +70,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="apk-FK-l9H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7ah-Xm-Kg0"/>
+                    <constraint firstAttribute="trailing" secondItem="f9x-yh-Kx2" secondAttribute="trailing" constant="8" id="RIz-1T-zZ4"/>
                     <constraint firstAttribute="bottom" secondItem="apk-FK-l9H" secondAttribute="bottom" id="YvU-j8-QAh"/>
                     <constraint firstItem="apk-FK-l9H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dK1-7L-UMG"/>
                     <constraint firstAttribute="trailing" secondItem="apk-FK-l9H" secondAttribute="trailing" id="fCa-8L-dnf"/>
@@ -70,6 +79,7 @@
             <connections>
                 <outlet property="profilePic" destination="OWy-ru-hwZ" id="JNb-Hn-QcK"/>
                 <outlet property="recentMessage" destination="f9x-yh-Kx2" id="BFi-CX-iO5"/>
+                <outlet property="recentMessageDate" destination="bHc-KK-8uy" id="tiW-7p-WQf"/>
                 <outlet property="userName" destination="H5q-SY-tjH" id="Gaq-V0-BZw"/>
                 <outlet property="usernameCenterConstraint" destination="v9i-2E-bd5" id="O3C-Md-Jtq"/>
                 <outlet property="usernameTopConstraint" destination="jYA-fC-IS5" id="ZOe-6q-ceJ"/>

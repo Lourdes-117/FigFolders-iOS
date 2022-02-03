@@ -13,6 +13,7 @@ class ChatListTableViewCell: UITableViewCell {
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var recentMessage: UILabel!
+    @IBOutlet weak var recentMessageDate: UILabel!
     
     @IBOutlet weak var usernameTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var usernameCenterConstraint: NSLayoutConstraint!
@@ -29,6 +30,7 @@ class ChatListTableViewCell: UITableViewCell {
         guard let userNameString = userNameString else { return }
         userName.text = userNameString
         recentMessage.text = latestMessage?.recentMessageString
+        recentMessageDate.text = latestMessage?.date
         DatabaseManager.shared.getUserDetailsForUsername(username: userNameString) { [weak self] userDetailsModel in
             guard let userDetails = userDetailsModel else { return }
             let profilePicUrl = URL(string: userDetails.profilePicUrl)
@@ -48,6 +50,7 @@ class ChatListTableViewCell: UITableViewCell {
             usernameCenterConstraint = usernameCenterConstraint.getLayoutConstraintWithPriority(viewModel.lowPriority)
         case .chatSearch:
             recentMessage.isHidden = true
+            recentMessageDate.isHidden = true
             usernameTopConstraint = usernameTopConstraint.getLayoutConstraintWithPriority(viewModel.lowPriority)
             usernameCenterConstraint = usernameCenterConstraint.getLayoutConstraintWithPriority(viewModel.highPriorityPriority)
         }
@@ -55,5 +58,6 @@ class ChatListTableViewCell: UITableViewCell {
     
     func setupMessageLabelColor(isRead: Bool) {
         recentMessage.textColor = viewModel.getMessageLabelColor(isRead: isRead) ?? UIColor()
+        recentMessageDate.textColor = viewModel.getMessageLabelColor(isRead: isRead) ?? UIColor()
     }
 }
