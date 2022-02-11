@@ -67,6 +67,7 @@ class ChatViewController: MessagesViewController {
         }
         messageInputBar.setLeftStackViewWidthConstant(to: 36, animated: false)
         messageInputBar.setStackViewItems([button], forStack: .left, animated: false)
+        messageInputBar.inputTextView.isImagePasteEnabled = false
     }
     
     private func presentInputActionSheet() {
