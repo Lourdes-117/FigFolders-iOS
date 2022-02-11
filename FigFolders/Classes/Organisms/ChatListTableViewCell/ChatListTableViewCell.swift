@@ -17,6 +17,10 @@ class ChatListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var usernameTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var usernameCenterConstraint: NSLayoutConstraint!
+    @IBOutlet weak var recentMessageContentPreviewImageView: UIImageView!
+    @IBOutlet weak var recentMessageContentPreviewImageAspectRatioConstraint: NSLayoutConstraint!
+    @IBOutlet weak var recentMessageContentAndPreviewImageHorizontalSpace: NSLayoutConstraint!
+    @IBOutlet weak var recentMessageContentPreviewImageWidthConstraint: NSLayoutConstraint!
     let viewModel = ChatListTableViewModel()
     
     override func awakeFromNib() {
@@ -25,8 +29,8 @@ class ChatListTableViewCell: UITableViewCell {
     }
     
     func configureCell(userNameString: String?, cellType: ChatListCellType, latestMessage: UserLatestConversationModel? = nil) {
+        viewModel.latestMessage = latestMessage
         setupCellType(cellType: cellType)
-        
         guard let userNameString = userNameString else { return }
         userName.text = userNameString
         recentMessage.text = latestMessage?.recentMessageString
@@ -36,6 +40,7 @@ class ChatListTableViewCell: UITableViewCell {
             let profilePicUrl = URL(string: userDetails.profilePicUrl)
             self?.profilePic.sd_setImage(with: profilePicUrl, placeholderImage: self?.viewModel.profilePlaceholderImage)
         }
+        setupContentPreviewImage()
         setupMessageLabelColor(isRead: latestMessage?.isRead ?? false)
     }
     
@@ -51,13 +56,29 @@ class ChatListTableViewCell: UITableViewCell {
         case .chatSearch:
             recentMessage.isHidden = true
             recentMessageDate.isHidden = true
+            recentMessageContentPreviewImageView.isHidden = true
             usernameTopConstraint = usernameTopConstraint.getLayoutConstraintWithPriority(viewModel.lowPriority)
             usernameCenterConstraint = usernameCenterConstraint.getLayoutConstraintWithPriority(viewModel.highPriorityPriority)
+        }
+    }
+    
+    private func setupContentPreviewImage() {
+        if viewModel.shouldShowContentPreviewImage {
+            recentMessageContentPreviewImageView.image = UIImage(systemName: viewModel.contentPreviewImageName)
+            recentMessageContentPreviewImageView.isHidden = false
+            recentMessageContentPreviewImageAspectRatioConstraint = recentMessageContentPreviewImageAspectRatioConstraint.getLayoutConstraintWithPriority(1000)
+            recentMessageContentPreviewImageWidthConstraint = recentMessageContentPreviewImageWidthConstraint.getLayoutConstraintWithPriority(1)
+            recentMessageContentAndPreviewImageHorizontalSpace.constant = 5
+        } else {
+            recentMessageContentPreviewImageAspectRatioConstraint = recentMessageContentPreviewImageAspectRatioConstraint.getLayoutConstraintWithPriority(1)
+            recentMessageContentPreviewImageWidthConstraint = recentMessageContentPreviewImageWidthConstraint.getLayoutConstraintWithPriority(1000)
+            recentMessageContentAndPreviewImageHorizontalSpace.constant = 0
         }
     }
     
     func setupMessageLabelColor(isRead: Bool) {
         recentMessage.textColor = viewModel.getMessageLabelColor(isRead: isRead) ?? UIColor()
         recentMessageDate.textColor = viewModel.getMessageLabelColor(isRead: isRead) ?? UIColor()
+        recentMessageContentPreviewImageView.tintColor = viewModel.getMessageLabelColor(isRead: isRead) ?? UIColor()
     }
 }
