@@ -609,7 +609,7 @@ final class DatabaseManager {
             let latestMesageUpdated = UserLatestConversationModel()
             latestMesageUpdated.message = self?.getMessageString(message) ?? ""
             latestMesageUpdated.type = message.kind.rawValue
-            latestMesageUpdated.isRead = false
+            latestMesageUpdated.isRead = (username == currentUserUsername ?? "")
             latestMesageUpdated.date = message.sentDate.toDateString()
             
             targetConversation?.latestMessage = latestMesageUpdated
