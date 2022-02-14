@@ -73,6 +73,8 @@ class LoginViewController: ViewControllerWithLoading {
     
     fileprivate func setupView() {
         if shouldActAsVerificationScreen {
+            emailIDTextField.text = FirebaseAuth.Auth.auth().currentUser?.email
+            emailIDTextField.isEnabled = false
             forgotPasswordContentView.isHidden = true
         }
         errorSigningInLabel.isHidden = true

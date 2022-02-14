@@ -115,7 +115,7 @@ final class DatabaseManager {
                 return
             }
             userReference.setValue(userDetails.toDictionary) { error, _ in
-                guard error != nil else {
+                guard error == nil else {
                     completion(false)
                     return
                 }

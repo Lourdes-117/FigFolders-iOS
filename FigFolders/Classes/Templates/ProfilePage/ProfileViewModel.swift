@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewModel {
     var isEditEnabled = false
@@ -40,7 +41,7 @@ class ProfileViewModel {
     let profilePicSelectionMessage = "How Would You Like To Select Your Picture"
     let cancel = "Cancel"
     let takePhoto = "Take Photo"
-    let choosePhoto = "Choose Photo"
+    let selectPhoto = "Select Photo"
     let deleteProfilePic = "Remove Profile Picture"
     let profilePicDefaultImageName = "person.circle"
     
@@ -78,8 +79,7 @@ class ProfileViewModel {
         UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.phoneNumber) as? String
     }
     var emailID: String {
-        let safeEmail = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String
-        return UserDetailsModel.getProperEmail(safeEmail: safeEmail ?? "")
+        FirebaseAuth.Auth.auth().currentUser?.email ?? ""
     }
     var safeEmail: String? {
         return UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String

@@ -230,16 +230,12 @@ class ProfileViewController: ViewControllerWithLoading {
                                            usernameString: viewModel.userName ?? "",
                                            profilePicUrlString: profilePicUrl)
         showLoadingIndicator()
-        
-        DatabaseManager.shared.getUsernameForEmail(emailID: viewModel.safeEmail ?? "") { [weak self] username in
-            guard username != nil else {
-                // TODO: - Add User Notification here
-                self?.hideLoadingIndicatorView()
-                return
-            }
+        guard let _ = currentUserUsername else {
+            self.hideLoadingIndicatorView()
+            return
+        }
             // Use Email Available. Can be updated in Firebase Auth
-            guard let strongSelf = self else { return }
-            if strongSelf.viewModel.emailID == strongSelf.emailIDTextField.text { // Email ID Not changed
+            if self.viewModel.emailID == self.emailIDTextField.text { // Email ID Not changed
                 DatabaseManager.shared.updateDetailsOfUser(userDetails: userDetails) { [weak self] success in
                     guard let strongSelf = self else { return }
                     strongSelf.hideLoadingIndicatorView()
@@ -253,14 +249,13 @@ class ProfileViewController: ViewControllerWithLoading {
                     }
                 }
             } else { // Email ID Changed
-                strongSelf.viewModel.userDetailToUpdate = userDetails
+                self.viewModel.userDetailToUpdate = userDetails
                 if let loginViewController = LoginViewController.initiateVC() {
                     loginViewController.delegate = self
                     loginViewController.shouldActAsVerificationScreen = true
-                    self?.present(loginViewController, animated: true, completion: nil)
+                    self.present(loginViewController, animated: true, completion: nil)
                 }
             }
-        }
         disableAllInputFields()
     }
     
@@ -352,7 +347,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         actionSheet.addAction(UIAlertAction(title: viewModel.takePhoto, style: .default, handler: {[weak self] _ in
             self?.presentCamera()
         }))
-        actionSheet.addAction(UIAlertAction(title: viewModel.choosePhoto, style: .default, handler: {[weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: viewModel.selectPhoto, style: .default, handler: {[weak self] _ in
             self?.presentPhotoPicker()
         }))
         if let _ = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) { // Show delete button only if image already available
