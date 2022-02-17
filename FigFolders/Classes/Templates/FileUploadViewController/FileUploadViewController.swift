@@ -55,8 +55,8 @@ class FileUploadViewController: UIViewController {
         fileDescription.layer.cornerRadius = 5
         fileDescription.addBorder(color: UIColor.gray.withAlphaComponent(0.5) , width: 0.5)
         iOwnThisFileButton.addBorder(color: viewModel.selectFileBorderColor ?? UIColor(), width: 1)
-        backgroundView.roundCorners(corners: [.topLeft, .topRight], radius: viewModel.cornerRadius)
-        titleBackgroundView.roundCorners(corners: [.topLeft, .topRight], radius: viewModel.cornerRadius)
+        backgroundView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: viewModel.cornerRadius)
+        titleBackgroundView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: viewModel.cornerRadius)
         priceOfFile.isEnabled = viewModel.isPriceEnabled
         iOwnThisFileTrailingConstraint.constant = -uploadButton.frame.width
     }

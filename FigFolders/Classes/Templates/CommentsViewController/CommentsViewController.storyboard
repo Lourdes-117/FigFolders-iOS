@@ -20,7 +20,18 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEr-16-10m">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rfh-gq-m9z">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                    </tableView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Rfh-gq-m9z" secondAttribute="trailing" id="7Xb-V0-Btw"/>
+                                    <constraint firstItem="Rfh-gq-m9z" firstAttribute="top" secondItem="wEr-16-10m" secondAttribute="top" id="JfV-px-gLJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rfh-gq-m9z" secondAttribute="bottom" id="Kc8-MH-VoB"/>
+                                    <constraint firstItem="Rfh-gq-m9z" firstAttribute="leading" secondItem="wEr-16-10m" secondAttribute="leading" id="Rtr-YZ-4ju"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -32,6 +43,9 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="wEr-16-10m" secondAttribute="bottom" id="rie-0X-Lw0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Rfh-gq-m9z" id="7KK-Uw-pWs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

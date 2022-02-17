@@ -21,6 +21,9 @@
 		AE16D8922652DA4D00000BB5 /* HamburgerMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */; };
 		AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */; };
 		AE16D8962652DFBD00000BB5 /* HamburgerMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */; };
+		AE1E17C927BE195500FC5A20 /* CommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE1E17C827BE195500FC5A20 /* CommentsTableViewCell.xib */; };
+		AE1E17CB27BE198500FC5A20 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1E17CA27BE198500FC5A20 /* CommentsTableViewCell.swift */; };
+		AE1E17CD27BE2BA000FC5A20 /* CommentsTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1E17CC27BE2BA000FC5A20 /* CommentsTableViewCellViewModel.swift */; };
 		AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */; };
 		AE2002F626FE46A60096D899 /* AVPlayerOnUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2002F526FE46A60096D899 /* AVPlayerOnUIView.swift */; };
 		AE2002F826FE5B440096D899 /* AVPlayerOnUIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2002F726FE5B440096D899 /* AVPlayerOnUIViewModel.swift */; };
@@ -181,6 +184,9 @@
 		AE16D8912652DA4D00000BB5 /* HamburgerMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuView.swift; sourceTree = "<group>"; };
 		AE16D8932652DA7100000BB5 /* HamburgerMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgerMenuView.xib; sourceTree = "<group>"; };
 		AE16D8952652DFBD00000BB5 /* HamburgerMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuViewModel.swift; sourceTree = "<group>"; };
+		AE1E17C827BE195500FC5A20 /* CommentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsTableViewCell.xib; sourceTree = "<group>"; };
+		AE1E17CA27BE198500FC5A20 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
+		AE1E17CC27BE2BA000FC5A20 /* CommentsTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		AE1E5F62265138C300C905DE /* HomeViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerViewModel.swift; sourceTree = "<group>"; };
 		AE2002F526FE46A60096D899 /* AVPlayerOnUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerOnUIView.swift; sourceTree = "<group>"; };
 		AE2002F726FE5B440096D899 /* AVPlayerOnUIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerOnUIViewModel.swift; sourceTree = "<group>"; };
@@ -395,6 +401,16 @@
 				AE94E06E265306360020CB95 /* HamburgermenuTableViewCell.swift */,
 			);
 			path = HamburgerMenuTableViewCell;
+			sourceTree = "<group>";
+		};
+		AE1E17C727BE192B00FC5A20 /* CommentsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE1E17C827BE195500FC5A20 /* CommentsTableViewCell.xib */,
+				AE1E17CC27BE2BA000FC5A20 /* CommentsTableViewCellViewModel.swift */,
+				AE1E17CA27BE198500FC5A20 /* CommentsTableViewCell.swift */,
+			);
+			path = CommentsTableViewCell;
 			sourceTree = "<group>";
 		};
 		AE2002F426FE468E0096D899 /* AVPlayerOnUIView */ = {
@@ -732,6 +748,7 @@
 		AEA19788264995EB00D0D181 /* Organisms */ = {
 			isa = PBXGroup;
 			children = (
+				AE1E17C727BE192B00FC5A20 /* CommentsTableViewCell */,
 				AE7307A7279A8ACA0097A372 /* FolderViewCollectionViewCell */,
 				AE0C74F926FCC546002724CF /* VideoPlayerView */,
 				AEC8311E26F0E3CF002E3732 /* FigFilesDisplayViewToDelete */,
@@ -1074,6 +1091,7 @@
 				AEA1978D2649970800D0D181 /* OnboardingCollectionView.xib in Resources */,
 				AEA197982649A07E00D0D181 /* OnboardingCollectionViewCell.xib in Resources */,
 				AE9D2348266B6C56005B5C55 /* SearchChatViewController.storyboard in Resources */,
+				AE1E17C927BE195500FC5A20 /* CommentsTableViewCell.xib in Resources */,
 				AE7A26C3265056FE0057D454 /* HomeViewController.storyboard in Resources */,
 				AEF84270264D8EAF00FB8003 /* Roboto-MediumItalic.ttf in Resources */,
 				AEF552DC27882F7F004A433D /* GoogleService-Info.plist in Resources */,
@@ -1210,9 +1228,11 @@
 				AE0C74FD26FCC57D002724CF /* VideoPlayerView.swift in Sources */,
 				AEF8800C26ED048C007BF7E9 /* LikeCommentShareView.swift in Sources */,
 				AEF8800926ECF435007BF7E9 /* FigFilesTableViewViewModel.swift in Sources */,
+				AE1E17CD27BE2BA000FC5A20 /* CommentsTableViewCellViewModel.swift in Sources */,
 				AE1177B9266CEC930031FEBA /* HomeTabControllerViewModel.swift in Sources */,
 				AEF8427C264D936500FB8003 /* LoginViewModel.swift in Sources */,
 				AEF8427E264D940800FB8003 /* ResetPasswordViewModel.swift in Sources */,
+				AE1E17CB27BE198500FC5A20 /* CommentsTableViewCell.swift in Sources */,
 				AE9DC66C2662E695001B9392 /* UIImageExtension.swift in Sources */,
 				AEF98F7526AD30F700FFD5DA /* FileUploadViewController.swift in Sources */,
 				AEF84286264DA15300FB8003 /* OnboardingRegisterStepOneViewModel.swift in Sources */,

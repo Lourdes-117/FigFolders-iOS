@@ -129,19 +129,12 @@ extension UIView {
         }
     }
     
-    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
-         self.layer.cornerRadius = radius
-         self.clipsToBounds = true
-         self.layer.masksToBounds = false
-         if #available(iOS 11.0, *) {
-             self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-         } else {
-             let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-             let mask = CAShapeLayer()
-             mask.path = path.cgPath
-             self.layer.mask = mask
-         }
-     }
+    func roundCorners(corners: CACornerMask, radius: CGFloat) {
+        self.layer.cornerRadius = radius
+        self.clipsToBounds = true
+        self.layer.masksToBounds = false
+        self.layer.maskedCorners = corners
+    }
     
     func updateViewWithAnimation(_ viewUpdateFunc: (() -> Void)? = nil, _ completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: kAnimationDuration, animations: { [weak self] in
