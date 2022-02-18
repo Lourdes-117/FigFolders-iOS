@@ -7,10 +7,11 @@
 
 import UIKit
 
-class CommentsViewController: UIViewController {
+class CommentsViewController: ViewControllerWithLoading {
 
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addCommentButton: UIButton!
     
     let viewModel = CommentsViewModel()
     var figFileModel: FigFileModel?
@@ -24,6 +25,7 @@ class CommentsViewController: UIViewController {
     }
     
     private func setupView() {
+        addCommentButton.setRoundedCorners()
         registerCells()
         setupDatasourceDelegate()
     }
@@ -36,6 +38,12 @@ class CommentsViewController: UIViewController {
     private func setupDatasourceDelegate() {
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    // MARK: - Button Tap Actions
+    @IBAction func onTapAddCommentButton(_ sender: Any) {
+        guard let addCommentViewController = AddCommentViewController.initiateVC() else { return }
+        self.navigationController?.pushViewController(addCommentViewController, animated: true)
     }
 }
 
@@ -67,9 +75,6 @@ extension CommentsViewController: UITableViewDataSource {
 
 // MARK: - TableView Delegate
 extension CommentsViewController: UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.numberOfSections
-    }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
@@ -82,20 +87,11 @@ extension CommentsViewController: UITableViewDelegate {
 // MARK: - Comment ViewController Delegate
 extension CommentsViewController: CommentTableViewDelegate {
     func didBeginEdittingCommentAtIndexpath(indexPath: IndexPath) {
-        if !viewModel.isCommentBeingEditted {
-            viewModel.isCommentBeingEditted = true
-            tableView.beginUpdates()
-            tableView.insertSections(IndexSet(integer: 1), with: .none)
-            tableView.endUpdates()
-        }
-        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        guard let addCommentViewController = AddCommentViewController.initiateVC() else { return }
+        addCommentViewController.comment = viewModel.getCommentModelAtIndexpath(indexPath: indexPath)
+        self.navigationController?.pushViewController(addCommentViewController, animated: true)
     }
     
     func didEndEdittingCommentAtIndexpath(indexPath: IndexPath) {
-        if !viewModel.isCommentBeingEditted { return }
-        tableView.beginUpdates()
-        viewModel.isCommentBeingEditted = false
-        tableView.deleteSections(IndexSet(integer: 1), with: .none)
-        tableView.endUpdates()
     }
 }

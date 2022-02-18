@@ -47,7 +47,6 @@ class CommentsTableViewCell: UITableViewCell {
     }
     
     @IBAction func onTapEditButton(_ sender: Any) {
-        enableCommentTextView()
         delegate?.didBeginEdittingCommentAtIndexpath(indexPath: viewModel.indexPath)
     }
 }

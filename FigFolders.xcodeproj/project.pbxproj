@@ -109,6 +109,9 @@
 		AEA1979226499AD800D0D181 /* UIViewUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA1979126499AD800D0D181 /* UIViewUtility.swift */; };
 		AEA197972649A07E00D0D181 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA197952649A07E00D0D181 /* OnboardingCollectionViewCell.swift */; };
 		AEA197982649A07E00D0D181 /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA197962649A07E00D0D181 /* OnboardingCollectionViewCell.xib */; };
+		AEB3A2A427C0041400C06E88 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3A2A327C0041400C06E88 /* AddCommentViewController.swift */; };
+		AEB3A2A627C0042000C06E88 /* AddCommentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB3A2A527C0042000C06E88 /* AddCommentViewController.storyboard */; };
+		AEB3A2A827C0045900C06E88 /* AddCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB3A2A727C0045900C06E88 /* AddCommentViewModel.swift */; };
 		AEBB86812656EB4400D2476B /* ViewControllerWithLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB86802656EB4400D2476B /* ViewControllerWithLoading.swift */; };
 		AEC7743E26791CCD00EEEED0 /* ChatViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC7743D26791CCD00EEEED0 /* ChatViewController.storyboard */; };
 		AEC7744026791CE200EEEED0 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC7743F26791CE200EEEED0 /* ChatViewController.swift */; };
@@ -274,6 +277,9 @@
 		AEA1979126499AD800D0D181 /* UIViewUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewUtility.swift; sourceTree = "<group>"; };
 		AEA197952649A07E00D0D181 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		AEA197962649A07E00D0D181 /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
+		AEB3A2A327C0041400C06E88 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
+		AEB3A2A527C0042000C06E88 /* AddCommentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCommentViewController.storyboard; sourceTree = "<group>"; };
+		AEB3A2A727C0045900C06E88 /* AddCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewModel.swift; sourceTree = "<group>"; };
 		AEBB86802656EB4400D2476B /* ViewControllerWithLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWithLoading.swift; sourceTree = "<group>"; };
 		AEC7743D26791CCD00EEEED0 /* ChatViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatViewController.storyboard; sourceTree = "<group>"; };
 		AEC7743F26791CE200EEEED0 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -707,6 +713,7 @@
 		AEA197852649936400D0D181 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				AEB3A2A227C003FB00C06E88 /* AddCommentViewController */,
 				AE6D5D3B279D37F300B817A3 /* CommentsViewController */,
 				AEF4A27A26EFABAD0053DA78 /* UserProfileViewController */,
 				AE94D9122667FF9500D6E921 /* Chats */,
@@ -816,6 +823,16 @@
 				AEA197952649A07E00D0D181 /* OnboardingCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		AEB3A2A227C003FB00C06E88 /* AddCommentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AEB3A2A527C0042000C06E88 /* AddCommentViewController.storyboard */,
+				AEB3A2A727C0045900C06E88 /* AddCommentViewModel.swift */,
+				AEB3A2A327C0041400C06E88 /* AddCommentViewController.swift */,
+			);
+			path = AddCommentViewController;
 			sourceTree = "<group>";
 		};
 		AEBB867F2656EB2700D2476B /* CustomClasses */ = {
@@ -1071,6 +1088,7 @@
 				AE9E6A642799F6590036EEAE /* FolderViewController.storyboard in Resources */,
 				AEF84276264D8EAF00FB8003 /* Roboto-Bold.ttf in Resources */,
 				AEA1977A2649933400D0D181 /* Assets.xcassets in Resources */,
+				AEB3A2A627C0042000C06E88 /* AddCommentViewController.storyboard in Resources */,
 				AE16D8942652DA7100000BB5 /* HamburgerMenuView.xib in Resources */,
 				AEF8800026ECEF2C007BF7E9 /* FigFilesTableViewCell.xib in Resources */,
 				AE470AC027968E4A001AB85C /* FigFileProfileView.xib in Resources */,
@@ -1240,6 +1258,7 @@
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
 				AEF8801026ED1495007BF7E9 /* NetworkManager.swift in Sources */,
 				AEE4ABCD27944E0B008E941A /* CloudFunctionsManager.swift in Sources */,
+				AEB3A2A827C0045900C06E88 /* AddCommentViewModel.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
 				AE7307A6279A852B0097A372 /* FolderViewModel.swift in Sources */,
 				AEF4A28626EFAF810053DA78 /* UserDetailsTableViewCell.swift in Sources */,
@@ -1270,6 +1289,7 @@
 				AE470AD32796CB92001AB85C /* FigFilesDisplayPdfTableViewModel.swift in Sources */,
 				AE470ABB27968D00001AB85C /* FigFilesDisplayTableViewCell.swift in Sources */,
 				AE94E070265306360020CB95 /* HamburgermenuTableViewCell.swift in Sources */,
+				AEB3A2A427C0041400C06E88 /* AddCommentViewController.swift in Sources */,
 				AE2002F826FE5B440096D899 /* AVPlayerOnUIViewModel.swift in Sources */,
 				AE16D8922652DA4D00000BB5 /* HamburgerMenuView.swift in Sources */,
 				AE27EB44264EE66000C34CBD /* StringUtility.swift in Sources */,
