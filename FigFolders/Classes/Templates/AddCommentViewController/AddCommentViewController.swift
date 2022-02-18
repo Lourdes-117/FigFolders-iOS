@@ -12,14 +12,29 @@ class AddCommentViewController: ViewControllerWithLoading {
     // MARK: - Outlets
     @IBOutlet weak var commentTextView: UITextView!
     
-    // MARK: - Attributes
+    // MARK: - Properties
+    let viewModel = AddCommentViewModel()
+    
     var comment: FigFilesCommentsModel? {
         didSet {
             viewModel.commentModel = comment
         }
     }
-    
-    let viewModel = AddCommentViewModel()
+    var fileUrl: String? {
+        didSet {
+            viewModel.fileUrl = fileUrl
+        }
+    }
+    var fileOwner: String? {
+        didSet {
+            viewModel.fileOwner = fileOwner
+        }
+    }
+    var indexPath: IndexPath? {
+        didSet {
+            viewModel.indexPath = indexPath
+        }
+    }
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -51,5 +66,11 @@ class AddCommentViewController: ViewControllerWithLoading {
     }
     
     @IBAction func onTapSaveButton(_ sender: Any) {
+        showLoadingIndicator()
+        guard let newComment = commentTextView.text else { return }
+        if viewModel.isCommentEditMode && viewModel.commentString == newComment { return }
+        viewModel.addComment(newCommentString: newComment) { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
 }

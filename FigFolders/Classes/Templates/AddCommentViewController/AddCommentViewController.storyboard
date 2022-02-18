@@ -30,18 +30,18 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Usc-G1-HMg">
-                                <rect key="frame" x="358" y="180" width="56" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <rect key="frame" x="368" y="180" width="34" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="onTapSaveButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ebb-aH-D6w"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYV-03-CtN">
-                                <rect key="frame" x="0.0" y="180" width="69" height="31"/>
+                                <rect key="frame" x="12" y="180" width="48" height="30"/>
                                 <color key="tintColor" name="LabelColorRed"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="onTapCancelButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NZ7-rb-Roh"/>
                                 </connections>
@@ -51,9 +51,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RYV-03-CtN" firstAttribute="top" secondItem="FaN-Yq-EHs" secondAttribute="bottom" constant="8" id="2nb-dK-GHk"/>
-                            <constraint firstItem="RYV-03-CtN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6A4-Ey-HdG"/>
+                            <constraint firstItem="RYV-03-CtN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="12" id="6A4-Ey-HdG"/>
                             <constraint firstItem="Usc-G1-HMg" firstAttribute="top" secondItem="FaN-Yq-EHs" secondAttribute="bottom" constant="8" id="NVc-Ey-cH5"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Usc-G1-HMg" secondAttribute="trailing" id="aoT-du-Ptk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Usc-G1-HMg" secondAttribute="trailing" constant="12" id="aoT-du-Ptk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FaN-Yq-EHs" secondAttribute="trailing" id="bsr-2b-oNd"/>
                             <constraint firstItem="FaN-Yq-EHs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="nRe-vu-Atb"/>
                             <constraint firstItem="FaN-Yq-EHs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="p9Z-pc-1lu"/>

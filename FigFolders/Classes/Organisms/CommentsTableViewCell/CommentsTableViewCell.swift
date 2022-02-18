@@ -27,7 +27,6 @@ class CommentsTableViewCell: UITableViewCell {
         viewModel.indexPath = indexPath
         userNameLabel.text = comment.userName
         commentTextView.text = comment.commentString
-        commentTextView.delegate = self
         commentTextView.roundCorners(corners: [.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner], radius: 10)
         editButton.isHidden = comment.userName != currentUserUsername
         disableCommentTextView()
@@ -48,11 +47,5 @@ class CommentsTableViewCell: UITableViewCell {
     
     @IBAction func onTapEditButton(_ sender: Any) {
         delegate?.didBeginEdittingCommentAtIndexpath(indexPath: viewModel.indexPath)
-    }
-}
-
-extension CommentsTableViewCell: UITextViewDelegate {
-    func textViewDidEndEditing(_ textView: UITextView) {
-        delegate?.didEndEdittingCommentAtIndexpath(indexPath: viewModel.indexPath)
     }
 }

@@ -8,11 +8,33 @@
 import Foundation
 
 class CommentsViewModel {
+    var figFileModel: FigFileModel?
     var pagination = 0
     let pageTitle = "Comments"
-    let numberOfCells = 6
+    var comments: [FigFilesCommentsModel] = [FigFilesCommentsModel]()
+    var numberOfCells: Int {
+        return comments.count
+    }
     
-    func getCommentModelAtIndexpath(indexPath: IndexPath) -> FigFilesCommentsModel {
-        return FigFilesCommentsModel(userName: "bhjhfhvxbgh", commentString: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown pr PageMaker including versions of Lorem Ipsum.", commentAddedDate: "", commentId: "")
+    func getCommentModelAtIndexpath(indexPath: IndexPath) -> FigFilesCommentsModel? {
+        return comments.getObjectSafely(indexPath.row)
+    }
+    
+    func getCommentsWithPagination(completion: @escaping () -> Void) {
+        CloudFunctionsManager.shared.getFigFileComments(fileOwner: figFileModel?.ownerUsername ?? "",
+                                                        fileUrl: figFileModel?.fileUrl ?? "",
+                                                        paginationIndex: pagination) { [weak self] result in
+            switch result {
+            case .success(let commentsReturned):
+                if !commentsReturned.isEmpty {
+                    self?.pagination += 1
+                } else {
+                    self?.comments.append(contentsOf: commentsReturned)
+                }
+            case .failure(_):
+                break
+            }
+            completion()
+        }
     }
 }

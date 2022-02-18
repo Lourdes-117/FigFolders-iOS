@@ -13,4 +13,6 @@ struct UrlEndpoints {
     static let likePostByUser = "https://us-central1-figfolders-30b48.cloudfunctions.net/likePostByUser"
     static let markMessageAsRead = "https://us-central1-figfolders-30b48.cloudfunctions.net/markMessagesAsRead"
     static let userFigFilesWithFolderTypesTemplateurl = "https://us-central1-figfolders-30b48.cloudfunctions.net/getFigFilesOfUserWithType?userName=%@&fileType=%@&pagination=%d"
+    static let getCommentWithPaginationTemplateurl = "https://us-central1-figfolders-30b48.cloudfunctions.net/getCommentWithPagination?pagination=%d"
+    static let addCommentUrl = "https://us-central1-figfolders-30b48.cloudfunctions.net/addCommentsForFile"
 }

@@ -15,5 +15,4 @@ class CommentsTableViewCellViewModel {
 
 protocol CommentTableViewDelegate: AnyObject {
     func didBeginEdittingCommentAtIndexpath(indexPath: IndexPath)
-    func didEndEdittingCommentAtIndexpath(indexPath: IndexPath)
 }
