@@ -76,8 +76,8 @@ extension UserFigFoldersViewController: FigFilesTableViewCellDelegate {
             break
         case .text:
             break
-        case .html:
-            break
+//        case .html:
+//            break
         case .plainText:
             break
         case .none:

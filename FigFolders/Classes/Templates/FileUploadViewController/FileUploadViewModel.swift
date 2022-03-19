@@ -38,7 +38,7 @@ enum DocumentPickerDocumentType: String {
     case image = "image"
     case video = "video"
     case text = "text"
-    case html = "html"
+//    case html = "html"
     case plainText = "plainText"
     
     var cfStringValue: CFString {
@@ -48,7 +48,7 @@ enum DocumentPickerDocumentType: String {
         case .image: return kUTTypeImage
         case .video: return kUTTypeVideo
         case .text: return kUTTypeText
-        case .html: return kUTTypeHTML
+//        case .html: return kUTTypeHTML
         case .plainText: return kUTTypePlainText
         }
     }
@@ -77,9 +77,11 @@ enum DocumentPickerDocumentType: String {
             return .video
         } else if fileUti == DocumentPickerDocumentType.text.cfStringValue {
             return .text
-        } else if fileUti == DocumentPickerDocumentType.html.cfStringValue {
-            return .html
-        } else if fileUti == DocumentPickerDocumentType.plainText.cfStringValue {
+        }
+//        else if fileUti == DocumentPickerDocumentType.html.cfStringValue {
+//            return .html
+//        }
+        else if fileUti == DocumentPickerDocumentType.plainText.cfStringValue {
             return .plainText
         }
         
@@ -92,7 +94,7 @@ enum DocumentPickerDocumentType: String {
          DocumentPickerDocumentType.image.rawValue,
          DocumentPickerDocumentType.video.rawValue,
          DocumentPickerDocumentType.text.rawValue,
-         DocumentPickerDocumentType.html.rawValue,
+//         DocumentPickerDocumentType.html.rawValue,
          DocumentPickerDocumentType.plainText.rawValue]
     }
     
@@ -102,7 +104,7 @@ enum DocumentPickerDocumentType: String {
          DocumentPickerDocumentType.image.identifierString,
          DocumentPickerDocumentType.video.identifierString,
          DocumentPickerDocumentType.text.identifierString,
-         DocumentPickerDocumentType.html.identifierString,
+//         DocumentPickerDocumentType.html.identifierString,
          DocumentPickerDocumentType.plainText.identifierString]
     }
     
