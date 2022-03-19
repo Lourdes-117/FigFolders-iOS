@@ -185,4 +185,18 @@ class FileUploadViewModel {
         }
         return .valid
     }
+    
+    func isPriceValid(price: String?) -> Bool {
+        if isFree {
+            return true
+        } else {
+            guard let priceNonOptional = price,
+                  !priceNonOptional.isEmpty,
+                  let priceString = price as NSString?,
+                  priceString.floatValue > 0.0 else {
+                      return false
+                  }
+            return true
+        }
+    }
 }

@@ -96,16 +96,28 @@ class FileUploadViewController: UIViewController {
         resetErrorTexts()
         let isFileNameValid = viewModel.isFileNameValid(fileName.text)
         let isFileDescriptionValid = viewModel.isFileDescriptionValid(fileDescription.text)
-        if isFileNameValid == .valid && isFileDescriptionValid == .valid {
+        let isPriceValid = viewModel.isPriceValid(price: priceOfFile.text)
+        if isFileNameValid == .valid && isFileDescriptionValid == .valid && isPriceValid {
             return true
             
         } else {
             // Filename or Description Invalid
             if isFileNameValid != .valid {
                 fileNameError.isHidden = false
+            } else {
+                fileNameError.isHidden = true
             }
+            
             if isFileDescriptionValid != .valid {
                 fileDescriptionError.isHidden = false
+            } else {
+                fileDescriptionError.isHidden = true
+            }
+            
+            if isPriceValid {
+                priceOfFile.addBorder(color: .green, width: 1)
+            } else {
+                priceOfFile.addBorder(color: .red, width: 1)
             }
             
             fileNameError.text = isFileNameValid.errorText
