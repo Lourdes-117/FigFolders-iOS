@@ -42,4 +42,11 @@ class CommentsViewModel {
     func isCommentFromCurrentUser(row: Int) -> Bool {
         return comments.getObjectSafely(row)?.userName == currentUserUsername
     }
+    
+    func getIndexOfComment(commentId: String) -> Int? {
+        let index = comments.firstIndex { eachComment in
+            eachComment.commentId == commentId
+        }
+        return index
+    }
 }

@@ -37,16 +37,16 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="66.5" placeholder="YES" id="aAD-3L-emM"/>
                         </constraints>
-                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <color key="textColor" name="LabelColorPrimary"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" keyboardType="numbersAndPunctuation" returnKeyType="done" smartInsertDeleteType="yes" smartQuotesType="yes"/>
                     </textView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XuU-LY-YQ0">
-                        <rect key="frame" x="377" y="109" width="49" height="35"/>
+                        <rect key="frame" x="369" y="109" width="57" height="35"/>
+                        <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="5"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Edit"/>
-                        <buttonConfiguration key="configuration" style="tinted" title="Edit"/>
                         <connections>
                             <action selector="onTapEditButton:" destination="a9G-ub-xFz" eventType="touchUpInside" id="Dek-aE-pAA"/>
                         </connections>

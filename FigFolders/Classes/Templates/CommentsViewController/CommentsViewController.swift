@@ -28,12 +28,21 @@ class CommentsViewController: ViewControllerWithLoading {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.pagination = 0
+        viewModel.comments = []
+        initiageAPICall()
+    }
+    
     private func setupView() {
         showLoadingIndicator()
         addCommentButton.setRoundedCorners()
+        addCommentButton.addShadow(location: .all)
         registerCells()
         setupDatasourceDelegate()
         initiageAPICall()
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
     }
     
     private func registerCells() {
@@ -99,20 +108,11 @@ extension CommentsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if viewModel.isCommentFromCurrentUser(row: indexPath.row) { //Edit only if it's your comment
-            guard let addCommentViewController = AddCommentViewController.initiateVC(),
-            let commentToEdit = viewModel.getCommentModelAtIndexpath(indexPath: indexPath) else { return }
-            addCommentViewController.comment = commentToEdit
-            addCommentViewController.fileUrl = viewModel.figFileModel?.fileUrl
-            addCommentViewController.fileOwner = viewModel.figFileModel?.ownerUsername
-            addCommentViewController.indexPath = indexPath
-            self.navigationController?.pushViewController(addCommentViewController, animated: true)
+            presentEditCommentViewControllerWithCommentAt(indexPath: indexPath)
         } else { return }
     }
-}
-
-// MARK: - Comment ViewController Delegate
-extension CommentsViewController: CommentTableViewDelegate {
-    func didBeginEdittingCommentAtIndexpath(indexPath: IndexPath) {
+    
+    private func presentEditCommentViewControllerWithCommentAt(indexPath: IndexPath) {
         guard let addCommentViewController = AddCommentViewController.initiateVC(),
         let commentToEdit = viewModel.getCommentModelAtIndexpath(indexPath: indexPath) else { return }
         addCommentViewController.comment = commentToEdit
@@ -120,5 +120,21 @@ extension CommentsViewController: CommentTableViewDelegate {
         addCommentViewController.fileOwner = viewModel.figFileModel?.ownerUsername
         addCommentViewController.indexPath = indexPath
         self.navigationController?.pushViewController(addCommentViewController, animated: true)
+    }
+}
+
+// MARK: - Comment ViewController Delegate
+extension CommentsViewController: CommentTableViewDelegate {
+    func didBeginEdittingCommentAtIndexpath(indexPath: IndexPath) {
+        presentEditCommentViewControllerWithCommentAt(indexPath: indexPath)
+    }
+    
+    func deselectSelectedText() {
+        view.endEditing(true)
+    }
+    
+    func editCommentWithCommentId(commentId: String) {
+        guard let indexOfComment = viewModel.getIndexOfComment(commentId: commentId) else { return }
+        presentEditCommentViewControllerWithCommentAt(indexPath: IndexPath(row: indexOfComment, section: 0))
     }
 }
