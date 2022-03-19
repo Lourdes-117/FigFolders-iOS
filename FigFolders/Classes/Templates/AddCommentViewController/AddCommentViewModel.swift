@@ -38,9 +38,17 @@ class AddCommentViewModel {
         return commentModel?.commentString ?? ""
     }
     
-    func addComment(newCommentString: String, completion: @escaping (Bool) -> Void) {
+    func addOrEditComment(newCommentString: String, completion: @escaping (Bool) -> Void) {
         if isCommentEditMode {
+            let addCommentModel = AddCommentModel()
+            addCommentModel.fileUrl = fileUrl
+            addCommentModel.commentString = newCommentString
+            addCommentModel.fileOwner = fileOwner
+            addCommentModel.userName = currentUserUsername
+            addCommentModel.commentId = commentModel?.commentId
+            addCommentModel.commentAddedDate = Date().toDateString()
             
+            CloudFunctionsManager.shared.editCommentsForFiles(editCommentModel: addCommentModel, completion: completion)
         } else {
             let addCommentModel = AddCommentModel()
             addCommentModel.fileUrl = fileUrl

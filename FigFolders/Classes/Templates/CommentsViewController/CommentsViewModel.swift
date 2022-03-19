@@ -28,6 +28,7 @@ class CommentsViewModel {
             case .success(let commentsReturned):
                 if !commentsReturned.isEmpty {
                     self?.pagination += 1
+                    self?.comments.append(contentsOf: commentsReturned)
                 } else {
                     self?.comments.append(contentsOf: commentsReturned)
                 }
@@ -36,5 +37,9 @@ class CommentsViewModel {
             }
             completion()
         }
+    }
+    
+    func isCommentFromCurrentUser(row: Int) -> Bool {
+        return comments.getObjectSafely(row)?.userName == currentUserUsername
     }
 }

@@ -61,6 +61,7 @@
                     </view>
                     <connections>
                         <outlet property="commentTextView" destination="FaN-Yq-EHs" id="QFd-aR-9Hs"/>
+                        <outlet property="saveButton" destination="Usc-G1-HMg" id="tXK-ur-pG4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -101,6 +101,7 @@ class CloudFunctionsManager {
     
     func addCommentsForFile(addCommentModel: AddCommentModel, completion: @escaping (Bool) -> Void) {
         guard let addCommentUrl = URL(string: UrlEndpoints.addCommentUrl) else {
+            completion(false)
             return
         }
         debugPrint("Requested url - \(addCommentUrl.absoluteString)")
@@ -114,6 +115,35 @@ class CloudFunctionsManager {
             return
         }
         URLSession.shared.dataTask(with: urlRequest) { data, _ , error in
+            guard data != nil,
+                  error == nil else {
+                      DispatchQueue.main.async {
+                          completion(false)
+                      }
+                      return
+                  }
+            DispatchQueue.main.async {
+                completion(true)
+            }
+        }.resume()
+    }
+    
+    func editCommentsForFiles(editCommentModel: AddCommentModel, completion: @escaping (Bool) -> Void) {
+        guard let editCommentUrl = URL(string: UrlEndpoints.editCommentUrl) else {
+            completion(false)
+            return
+        }
+        debugPrint("Requested url - \(editCommentUrl.absoluteString)")
+        var urlRequest = URLRequest(url: editCommentUrl)
+        urlRequest.httpMethod = StringConstants.shared.httpMethodConstants.postMethod
+        urlRequest.addValue(StringConstants.shared.httpMethodConstants.applicationJson, forHTTPHeaderField: StringConstants.shared.httpMethodConstants.contentType)
+        do {
+            urlRequest.httpBody = try JSONEncoder().encode(editCommentModel)
+        } catch {
+            completion(false)
+            return
+        }
+        URLSession.shared.dataTask(with: urlRequest) { data, response , error in
             guard data != nil,
                   error == nil else {
                       DispatchQueue.main.async {

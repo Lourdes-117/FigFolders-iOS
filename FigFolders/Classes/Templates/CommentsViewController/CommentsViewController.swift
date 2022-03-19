@@ -96,6 +96,18 @@ extension CommentsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if viewModel.isCommentFromCurrentUser(row: indexPath.row) { //Edit only if it's your comment
+            guard let addCommentViewController = AddCommentViewController.initiateVC(),
+            let commentToEdit = viewModel.getCommentModelAtIndexpath(indexPath: indexPath) else { return }
+            addCommentViewController.comment = commentToEdit
+            addCommentViewController.fileUrl = viewModel.figFileModel?.fileUrl
+            addCommentViewController.fileOwner = viewModel.figFileModel?.ownerUsername
+            addCommentViewController.indexPath = indexPath
+            self.navigationController?.pushViewController(addCommentViewController, animated: true)
+        } else { return }
+    }
 }
 
 // MARK: - Comment ViewController Delegate
