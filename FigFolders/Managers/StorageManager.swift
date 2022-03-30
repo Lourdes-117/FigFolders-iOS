@@ -138,6 +138,7 @@ class StorageManager {
                 }
                 self?.uploadFileWithUrl(filePath: "\(filePath).mp4", fileURL: mp4EncodedFileUrl, completion: completion)
             }
+            return
         }
         uploadFileWithUrl(filePath: filePath, fileURL: localUrl, completion: completion)
     }

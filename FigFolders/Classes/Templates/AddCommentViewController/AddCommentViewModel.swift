@@ -24,9 +24,9 @@ class AddCommentViewModel {
     }
     var areYouSureMessage: String {
         if isCommentEditMode {
-            return "Are You Sure You Want To Abandom Your Changes"
+            return "Are You Sure You Want To Abandon Your Changes"
         } else {
-            return "Are You Sure You Want To Abandom Your Comment"
+            return "Are You Sure You Want To Abandon Your Comment"
         }
     }
     

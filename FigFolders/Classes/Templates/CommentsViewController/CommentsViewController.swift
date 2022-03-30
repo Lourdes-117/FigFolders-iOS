@@ -41,7 +41,6 @@ class CommentsViewController: ViewControllerWithLoading {
         addCommentButton.addShadow(location: .all)
         registerCells()
         setupDatasourceDelegate()
-        initiageAPICall()
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
     }
     

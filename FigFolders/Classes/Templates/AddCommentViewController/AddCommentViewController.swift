@@ -46,6 +46,11 @@ class AddCommentViewController: ViewControllerWithLoading {
         setupDatasourceDelegate()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        commentTextView.becomeFirstResponder()
+    }
+    
     private func setupDatasourceDelegate() {
         commentTextView.delegate = self
     }
@@ -73,6 +78,7 @@ class AddCommentViewController: ViewControllerWithLoading {
     }
     
     @IBAction func onTapSaveButton(_ sender: Any) {
+        commentTextView.text = commentTextView.text.trimmingTrailingSpaces()
         guard let newComment = commentTextView.text else { return }
         if viewModel.isCommentEditMode && viewModel.commentString == newComment { return } // Checking if comment has not been editted
         showLoadingIndicator()
