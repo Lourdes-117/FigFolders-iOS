@@ -12,6 +12,7 @@ class FigFilesDisplayPdfTableViewCell: UITableViewCell, FigFilesDisplayTableView
     weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
     weak var likeCommentShareDelegate: LikeCommentShareDelegate?
     
+    @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var likeCommentShareView: LikeCommentShareView!
     @IBOutlet weak var figFileProfileView: FigFileProfileView!
     @IBOutlet weak var pdfImageView: UIImageView!
@@ -29,9 +30,10 @@ class FigFilesDisplayPdfTableViewCell: UITableViewCell, FigFilesDisplayTableView
     
 }
 
-// MARK:- Extension FigFIlesDisplayImageTableViewCell
+// MARK: - Extension FigFIlesDisplayImageTableViewCell
 extension FigFilesDisplayPdfTableViewCell {
     func setupCell(figFile: FigFileModel) {
+        setupBlurView(isFree: figFile.isFree, ownerUserName: figFile.ownerUsername, purchasedUsers: figFile.purchasedUsers)
         viewModel.figFile = figFile
         likeCommentShareView.figFileModel = viewModel.figFile
         likeCommentShareView.delegate = likeCommentShareDelegate

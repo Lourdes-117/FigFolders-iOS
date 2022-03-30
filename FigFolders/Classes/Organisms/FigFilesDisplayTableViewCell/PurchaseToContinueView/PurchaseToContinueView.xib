@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PurchaseToContinueView" customModule="FigFolders" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="83H-UU-Bue">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="V8i-Or-gtK">
+                    <rect key="frame" x="94" y="116.5" width="62.5" height="61"/>
+                    <color key="tintColor" name="LabelColorGreen"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="V8i-Or-gtK" secondAttribute="height" id="eL3-ot-9BV"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Purchase To View File" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bb5-mB-vZ8">
+                    <rect key="frame" x="8" y="71" width="234" height="20"/>
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                    <color key="textColor" name="LabelColorPrimary"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Qwf-Sq-wLF"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Bb5-mB-vZ8" firstAttribute="centerX" secondItem="Qwf-Sq-wLF" secondAttribute="centerX" id="7ex-5F-2rg"/>
+                <constraint firstItem="Qwf-Sq-wLF" firstAttribute="trailing" secondItem="Bb5-mB-vZ8" secondAttribute="trailing" constant="8" id="9Bm-Pe-b5i"/>
+                <constraint firstItem="V8i-Or-gtK" firstAttribute="top" secondItem="Bb5-mB-vZ8" secondAttribute="bottom" constant="25" id="CAJ-Ez-UCa"/>
+                <constraint firstItem="V8i-Or-gtK" firstAttribute="centerX" secondItem="Qwf-Sq-wLF" secondAttribute="centerX" id="XBJ-r7-gZz"/>
+                <constraint firstItem="V8i-Or-gtK" firstAttribute="centerY" secondItem="Qwf-Sq-wLF" secondAttribute="centerY" id="YZd-Y5-wzO"/>
+                <constraint firstItem="V8i-Or-gtK" firstAttribute="height" secondItem="83H-UU-Bue" secondAttribute="height" multiplier="0.25" id="adi-C2-FtV"/>
+                <constraint firstItem="Bb5-mB-vZ8" firstAttribute="leading" secondItem="Qwf-Sq-wLF" secondAttribute="leading" constant="8" id="jvA-tw-yw7"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="188.40579710144928" y="178.125"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="lock" catalog="system" width="128" height="128"/>
+        <namedColor name="LabelColorGreen">
+            <color red="0.14499999582767487" green="0.70200002193450928" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LabelColorPrimary">
+            <color red="0.093999996781349182" green="0.10199999809265137" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

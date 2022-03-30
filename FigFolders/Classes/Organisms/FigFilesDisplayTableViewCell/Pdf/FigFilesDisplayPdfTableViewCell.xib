@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,24 +44,33 @@
                             <constraint firstAttribute="height" constant="250" id="acl-XY-sl9"/>
                         </constraints>
                     </imageView>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETg-7m-hHB">
+                        <rect key="frame" x="0.0" y="66" width="370" height="295"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="y8B-jZ-cfu" secondAttribute="trailing" id="3BU-Xg-t1a"/>
                     <constraint firstItem="IvZ-HD-sD0" firstAttribute="top" secondItem="2EI-cK-PPa" secondAttribute="bottom" id="4mN-Bv-baP"/>
                     <constraint firstItem="y8B-jZ-cfu" firstAttribute="top" secondItem="vfF-rS-RWW" secondAttribute="bottom" id="5Tw-h9-2ey"/>
+                    <constraint firstItem="ETg-7m-hHB" firstAttribute="trailing" secondItem="2EI-cK-PPa" secondAttribute="trailing" id="BNR-a0-XT9"/>
                     <constraint firstAttribute="trailing" secondItem="vfF-rS-RWW" secondAttribute="trailing" id="FHc-Sn-hXG"/>
+                    <constraint firstItem="ETg-7m-hHB" firstAttribute="top" secondItem="2EI-cK-PPa" secondAttribute="top" id="FjP-rg-ded"/>
                     <constraint firstItem="vfF-rS-RWW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IB6-a8-tlw"/>
                     <constraint firstItem="2EI-cK-PPa" firstAttribute="top" secondItem="y8B-jZ-cfu" secondAttribute="bottom" id="KNF-ar-ZwN"/>
                     <constraint firstAttribute="bottom" secondItem="IvZ-HD-sD0" secondAttribute="bottom" id="Ls8-oC-8nk"/>
                     <constraint firstItem="IvZ-HD-sD0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NKN-d8-IPb"/>
                     <constraint firstAttribute="trailing" secondItem="IvZ-HD-sD0" secondAttribute="trailing" id="OKM-Fj-YMd"/>
+                    <constraint firstItem="ETg-7m-hHB" firstAttribute="leading" secondItem="2EI-cK-PPa" secondAttribute="leading" id="XU2-hk-4Zz"/>
                     <constraint firstItem="2EI-cK-PPa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="XUr-2b-KpJ"/>
                     <constraint firstItem="y8B-jZ-cfu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dmS-nY-TJ6"/>
                     <constraint firstItem="vfF-rS-RWW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dsb-E0-gYY"/>
+                    <constraint firstItem="ETg-7m-hHB" firstAttribute="bottom" secondItem="IvZ-HD-sD0" secondAttribute="bottom" id="loc-DP-J5v"/>
                     <constraint firstAttribute="trailing" secondItem="2EI-cK-PPa" secondAttribute="trailing" id="nz4-Xn-sXg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="blurView" destination="ETg-7m-hHB" id="Wdz-YV-6V5"/>
                 <outlet property="figFileProfileView" destination="vfF-rS-RWW" id="blX-Xg-jbR"/>
                 <outlet property="likeCommentShareView" destination="IvZ-HD-sD0" id="UjH-n3-LFa"/>
                 <outlet property="pdfImageView" destination="2EI-cK-PPa" id="ldF-nj-2Y4"/>

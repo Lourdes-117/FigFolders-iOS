@@ -126,7 +126,7 @@ struct FigFileModel: Encodable, Decodable {
         DocumentPickerDocumentType(rawValue: fileType ?? "")
     }
     
-    // TODO:- Add Types Here
+    // TODO: - Add Types Here
     var figFileDisplayCellId: String {
         switch fileTypeEnum {
         case .pdf:

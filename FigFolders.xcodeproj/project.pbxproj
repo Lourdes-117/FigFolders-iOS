@@ -120,6 +120,8 @@
 		AEC8312226F0E40A002E3732 /* FigFileDisplayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC8312126F0E40A002E3732 /* FigFileDisplayView.xib */; };
 		AEC8312426F0E554002E3732 /* FigFileDisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC8312326F0E554002E3732 /* FigFileDisplayViewModel.swift */; };
 		AED7DCA7264FD49F00C77143 /* EncodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */; };
+		AEE025ED27F4E99E006238B1 /* PurchaseToContinueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE025EC27F4E99E006238B1 /* PurchaseToContinueView.swift */; };
+		AEE025EF27F4E9BA006238B1 /* PurchaseToContinueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEE025EE27F4E9BA006238B1 /* PurchaseToContinueView.xib */; };
 		AEE25F5226922E080021ABDB /* AudioMessageCellUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */; };
 		AEE4ABCB27941425008E941A /* UrlEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4ABCA27941425008E941A /* UrlEndpoints.swift */; };
 		AEE4ABCD27944E0B008E941A /* CloudFunctionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE4ABCC27944E0B008E941A /* CloudFunctionsManager.swift */; };
@@ -288,6 +290,8 @@
 		AEC8312126F0E40A002E3732 /* FigFileDisplayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FigFileDisplayView.xib; sourceTree = "<group>"; };
 		AEC8312326F0E554002E3732 /* FigFileDisplayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFileDisplayViewModel.swift; sourceTree = "<group>"; };
 		AED7DCA6264FD49F00C77143 /* EncodableUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableUtility.swift; sourceTree = "<group>"; };
+		AEE025EC27F4E99E006238B1 /* PurchaseToContinueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseToContinueView.swift; sourceTree = "<group>"; };
+		AEE025EE27F4E9BA006238B1 /* PurchaseToContinueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseToContinueView.xib; sourceTree = "<group>"; };
 		AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessageCellUtility.swift; sourceTree = "<group>"; };
 		AEE4ABCA27941425008E941A /* UrlEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEndpoints.swift; sourceTree = "<group>"; };
 		AEE4ABCC27944E0B008E941A /* CloudFunctionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFunctionsManager.swift; sourceTree = "<group>"; };
@@ -450,6 +454,7 @@
 		AE470AB427968C73001AB85C /* FigFilesDisplayTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				AEE025EB27F4E968006238B1 /* PurchaseToContinueView */,
 				AE470ACD2796CB4E001AB85C /* Pdf */,
 				AE470AB527968CB6001AB85C /* Image */,
 				AE470AC62796AA47001AB85C /* Video */,
@@ -866,6 +871,15 @@
 			path = FigFilesDisplayViewToDelete;
 			sourceTree = "<group>";
 		};
+		AEE025EB27F4E968006238B1 /* PurchaseToContinueView */ = {
+			isa = PBXGroup;
+			children = (
+				AEE025EC27F4E99E006238B1 /* PurchaseToContinueView.swift */,
+				AEE025EE27F4E9BA006238B1 /* PurchaseToContinueView.xib */,
+			);
+			path = PurchaseToContinueView;
+			sourceTree = "<group>";
+		};
 		AEF2E270264C49C80004B8BB /* OnboardingPasswordReset */ = {
 			isa = PBXGroup;
 			children = (
@@ -1070,6 +1084,7 @@
 				AE7307AB279A8AE40097A372 /* FolderViewCollectionViewCell.xib in Resources */,
 				AEF8800426ECF277007BF7E9 /* FigFilesTableView.xib in Resources */,
 				AE470ACA2796AADA001AB85C /* FigFilesDisplayVideoTableViewCell.xib in Resources */,
+				AEE025EF27F4E9BA006238B1 /* PurchaseToContinueView.xib in Resources */,
 				AEF4A27C26EFABC80053DA78 /* UserProfileViewController.storyboard in Resources */,
 				AE3F86A9267BBA1100B4D814 /* ImageViewerViewController.storyboard in Resources */,
 				AEF84273264D8EAF00FB8003 /* Roboto-LightItalic.ttf in Resources */,
@@ -1257,6 +1272,7 @@
 				AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */,
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
 				AEF8801026ED1495007BF7E9 /* NetworkManager.swift in Sources */,
+				AEE025ED27F4E99E006238B1 /* PurchaseToContinueView.swift in Sources */,
 				AEE4ABCD27944E0B008E941A /* CloudFunctionsManager.swift in Sources */,
 				AEB3A2A827C0045900C06E88 /* AddCommentViewModel.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,

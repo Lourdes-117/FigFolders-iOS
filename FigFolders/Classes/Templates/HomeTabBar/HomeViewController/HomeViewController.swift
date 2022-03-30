@@ -178,7 +178,7 @@ extension HomeViewController: FigFilesTableViewCellDelegate {
     }
     
     func openFigFileLargeView(figFile: FigFileModel?) {
-        // TODO:- Add Types Here
+        // TODO: - Add Types Here
         guard let figFile = figFile else { return }
         switch figFile.fileTypeEnum {
         case .pdf:
@@ -205,7 +205,7 @@ extension HomeViewController: FigFilesTableViewCellDelegate {
     }
 }
 
-// Mark:- Like Comment Share Delegate
+// Mark: - Like Comment Share Delegate
 extension HomeViewController: LikeCommentShareDelegate {
     func onTapLike(figFileLikeModel: FigFileLikeModel?) {
         guard let figfileLikeModel = figFileLikeModel else { return }

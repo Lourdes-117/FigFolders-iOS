@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -46,6 +46,21 @@
                             <constraint firstAttribute="height" constant="250" id="jkB-Ry-T9G"/>
                         </constraints>
                     </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mG-tM-1Pi">
+                        <rect key="frame" x="0.0" y="77" width="380" height="295"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LMb-GZ-9Cd">
+                                <rect key="frame" x="70" y="140" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DAm-yj-D6d">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" name="Greyscale1"/>
                 <constraints>
@@ -53,6 +68,7 @@
                     <constraint firstAttribute="trailing" secondItem="oCO-1q-sS6" secondAttribute="trailing" id="Bkw-EK-rp6"/>
                     <constraint firstItem="oCO-1q-sS6" firstAttribute="top" secondItem="uBj-zq-cmP" secondAttribute="topMargin" id="FcS-Og-vNO"/>
                     <constraint firstItem="vE9-hZ-wJ8" firstAttribute="leading" secondItem="uBj-zq-cmP" secondAttribute="leading" id="Kev-W4-J2O"/>
+                    <constraint firstItem="6mG-tM-1Pi" firstAttribute="top" secondItem="vE9-hZ-wJ8" secondAttribute="top" id="Mbj-WC-4zY"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bqI-mt-mFz" secondAttribute="trailing" id="MfB-UX-Nds"/>
                     <constraint firstItem="bqI-mt-mFz" firstAttribute="top" secondItem="oCO-1q-sS6" secondAttribute="bottom" id="Olh-RP-maf"/>
                     <constraint firstItem="C82-WN-qb7" firstAttribute="top" secondItem="vE9-hZ-wJ8" secondAttribute="bottom" id="Tec-LO-h40"/>
@@ -60,11 +76,15 @@
                     <constraint firstAttribute="trailing" secondItem="C82-WN-qb7" secondAttribute="trailing" id="XRG-kL-Mpv"/>
                     <constraint firstAttribute="trailing" secondItem="vE9-hZ-wJ8" secondAttribute="trailing" id="cqU-cw-3Ye"/>
                     <constraint firstAttribute="bottom" secondItem="C82-WN-qb7" secondAttribute="bottom" id="dwB-Jj-1ch"/>
+                    <constraint firstItem="6mG-tM-1Pi" firstAttribute="leading" secondItem="vE9-hZ-wJ8" secondAttribute="leading" id="lai-nD-gme"/>
                     <constraint firstItem="vE9-hZ-wJ8" firstAttribute="top" secondItem="bqI-mt-mFz" secondAttribute="bottom" id="n0k-Dx-7qx"/>
+                    <constraint firstItem="6mG-tM-1Pi" firstAttribute="bottom" secondItem="C82-WN-qb7" secondAttribute="bottom" id="oGP-Ub-64L"/>
+                    <constraint firstItem="6mG-tM-1Pi" firstAttribute="trailing" secondItem="vE9-hZ-wJ8" secondAttribute="trailing" id="zO2-Qx-56f"/>
                     <constraint firstItem="C82-WN-qb7" firstAttribute="leading" secondItem="uBj-zq-cmP" secondAttribute="leading" id="zlP-ho-poz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="blurView" destination="6mG-tM-1Pi" id="GRW-4e-NDj"/>
                 <outlet property="figFileProfileView" destination="oCO-1q-sS6" id="Zdu-zb-4Vq"/>
                 <outlet property="likeCommentShareView" destination="C82-WN-qb7" id="TUT-SO-O4j"/>
                 <outlet property="videoPlayerView" destination="vE9-hZ-wJ8" id="cAD-qN-tI0"/>

@@ -664,7 +664,7 @@ final class DatabaseManager {
     }
 }
 
-// MARK:- Database Errors
+// MARK: - Database Errors
 public enum DatabaseError: Error {
     case failedToFetch
 }

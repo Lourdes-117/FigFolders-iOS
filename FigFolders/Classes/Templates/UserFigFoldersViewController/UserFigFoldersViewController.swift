@@ -59,7 +59,7 @@ extension UserFigFoldersViewController: FigFilesTableViewCellDelegate {
     }
     
     func openFigFileLargeView(figFile: FigFileModel?) {
-        // TODO:- Add Types Here
+        // TODO: - Add Types Here
         guard let figFile = figFile else { return }
         switch figFile.fileTypeEnum {
         case .pdf:

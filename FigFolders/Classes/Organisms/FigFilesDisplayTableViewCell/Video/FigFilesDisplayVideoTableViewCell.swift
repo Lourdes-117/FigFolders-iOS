@@ -12,6 +12,7 @@ class FigFilesDisplayVideoTableViewCell: UITableViewCell, FigFilesDisplayTableVi
     weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
     var likeCommentShareDelegate: LikeCommentShareDelegate?
     
+    @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var likeCommentShareView: LikeCommentShareView!
     @IBOutlet weak var figFileProfileView: FigFileProfileView!
     @IBOutlet weak var videoPlayerView: VideoPlayerView!
@@ -19,9 +20,10 @@ class FigFilesDisplayVideoTableViewCell: UITableViewCell, FigFilesDisplayTableVi
     let viewModel = FigFilesDisplayVideoTableViewModel()
 }
 
-// MARK:- Extension FigFIlesDisplayImageTableViewCell
+// MARK: - Extension FigFIlesDisplayImageTableViewCell
 extension FigFilesDisplayVideoTableViewCell {
     func setupCell(figFile: FigFileModel) {
+        setupBlurView(isFree: figFile.isFree, ownerUserName: figFile.ownerUsername, purchasedUsers: figFile.purchasedUsers)
         viewModel.figFile = figFile
         likeCommentShareView.figFileModel = viewModel.figFile
         likeCommentShareView.delegate = likeCommentShareDelegate

@@ -13,6 +13,7 @@ class FigFilesDisplayImageTableViewCell: UITableViewCell, FigFilesDisplayTableVi
     static let kCellId = "FigFilesDisplayImageTableViewCell"
     weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
     
+    @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var likeCommentShareView: LikeCommentShareView!
     @IBOutlet weak var figFileProfileView: FigFileProfileView!
     @IBOutlet weak var figFileImageView: UIImageView!
@@ -35,9 +36,10 @@ class FigFilesDisplayImageTableViewCell: UITableViewCell, FigFilesDisplayTableVi
     }
 }
 
-// MARK:- Extension FigFIlesDisplayImageTableViewCell
+// MARK: - Extension FigFIlesDisplayImageTableViewCell
 extension FigFilesDisplayImageTableViewCell {
     func setupCell(figFile: FigFileModel) {
+        setupBlurView(isFree: figFile.isFree, ownerUserName: figFile.ownerUsername, purchasedUsers: figFile.purchasedUsers)
         viewModel.figFile = figFile
         likeCommentShareView.delegate = likeCommentShareDelegate
         likeCommentShareView.figFileModel = viewModel.figFile
