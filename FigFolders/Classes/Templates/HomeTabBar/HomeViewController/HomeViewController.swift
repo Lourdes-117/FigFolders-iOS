@@ -23,6 +23,12 @@ class HomeViewController: ViewControllerWithLoading {
         initialSetup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // To reflect if any change made. Especially in profile page
+        figFilesTableView.tableView.reloadData()
+    }
+    
     private func initialSetup() {
         setUserDefaults()
         setupView()
@@ -171,9 +177,21 @@ extension HomeViewController: HamburgerMenuDelegate {
 }
 
 extension HomeViewController: FigFilesTableViewCellDelegate {
+    func followOrUnfollowUser(userNameToFollowOrUnfollow: String) {
+        let startIndex = 0
+        let endIndex = figFilesTableView.viewModel.figFiles.count-1
+        let arrayToIterate = startIndex...endIndex
+        arrayToIterate.forEach { index in
+            if figFilesTableView.viewModel.figFiles[index].ownerUsername == userNameToFollowOrUnfollow {
+                figFilesTableView.viewModel.figFiles[index].isUserFollowing?.toggle()
+            }
+        }
+    }
+    
     func openProfileDetailsPage(userNameToPopulate: String) {
         guard let profileDetailsPage = UserProfileViewController.initiateVC() else { return }
         profileDetailsPage.userNameToPopulate = userNameToPopulate
+        profileDetailsPage.figFilesTableViewCellDelegate = self
         navigationController?.pushViewController(profileDetailsPage, animated: true)
     }
     

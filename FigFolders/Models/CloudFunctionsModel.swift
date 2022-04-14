@@ -31,3 +31,8 @@ class AddCommentModel: Encodable {
     var fileOwner: String?
     var fileUrl: String?
 }
+
+struct FollowUserModel: Encodable {
+    var currentUser: String?
+    var userToFollow: String?
+}

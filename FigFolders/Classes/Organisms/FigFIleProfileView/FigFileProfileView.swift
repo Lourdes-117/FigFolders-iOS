@@ -11,6 +11,7 @@ class FigFileProfileView: UIView {
     private let nibName = "FigFileProfileView"
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var fileOwnerName: UILabel!
+    @IBOutlet weak var followButton: UIButton!
     weak var delegate: FigFilesTableViewCellDelegate?
     let viewModel = FigFileProfileViewModel()
     
@@ -31,9 +32,22 @@ class FigFileProfileView: UIView {
         }
         fileOwnerName.text = viewModel.fileOwnerName
         profilePicture.setRoundedCorners()
+        viewModel.isFollowed = figFile.isUserFollowing ?? false
+        setupFollowButton()
+    }
+    
+    private func setupFollowButton() {
+        // No need to follow self user
+        followButton.isHidden = currentUserUsername == viewModel.fileOwnerName
+        // Set title based on follow status
+        followButton.setTitle(viewModel.followButtonText, for: .normal)
     }
     
     @IBAction func onTapFollowButton(_ sender: Any) {
+        CloudFunctionsManager.shared.followOrUnfollowUser(userNameToFollow: viewModel.fileOwnerName)
+        delegate?.followOrUnfollowUser(userNameToFollowOrUnfollow: viewModel.fileOwnerName)
+        viewModel.isFollowed.toggle()
+        setupFollowButton()
     }
     
     @IBAction func onTapProfileButton(_ sender: Any) {

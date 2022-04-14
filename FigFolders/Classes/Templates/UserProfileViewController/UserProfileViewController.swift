@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class UserProfileViewController: UIViewController {
 
@@ -14,6 +15,8 @@ class UserProfileViewController: UIViewController {
     var userNameToPopulate: String?
     
     let viewModel = UserProfileViewModel()
+    
+    weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +101,19 @@ extension UserProfileViewController: UITableViewDelegate {
 }
 
 extension UserProfileViewController: FigFilesTableViewCellDelegate {
+    func followOrUnfollowUser(userNameToFollowOrUnfollow: String) {
+        let startIndex = 0
+        let endIndex = viewModel.figFiles.count-1
+        let arrayToIterate = startIndex...endIndex
+        arrayToIterate.forEach { index in
+            if viewModel.figFiles[index]?.ownerUsername == userNameToFollowOrUnfollow {
+                viewModel.figFiles[index]?.isUserFollowing?.toggle()
+            }
+        }
+        tableView.reloadData()
+        self.figFilesTableViewCellDelegate?.followOrUnfollowUser(userNameToFollowOrUnfollow: userNameToFollowOrUnfollow)
+    }
+    
     func openProfileDetailsPage(userNameToPopulate: String) {
         // Don't have to open profile page from here
     }

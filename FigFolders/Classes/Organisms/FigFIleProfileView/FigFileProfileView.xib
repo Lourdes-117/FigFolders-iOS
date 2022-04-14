@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,6 +20,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FigFileProfileView" customModule="FigFolders" customModuleProvider="target">
             <connections>
                 <outlet property="fileOwnerName" destination="sTH-AE-BuQ" id="uOC-ZE-T9W"/>
+                <outlet property="followButton" destination="XVZ-6l-WKh" id="Dt5-nW-brK"/>
                 <outlet property="profilePicture" destination="Qd5-mh-EeG" id="OYA-8F-dOZ"/>
             </connections>
         </placeholder>
@@ -44,11 +45,8 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVZ-6l-WKh">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVZ-6l-WKh">
                             <rect key="frame" x="349" y="17" width="60" height="31"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="60" id="p8z-o3-N4u"/>
-                            </constraints>
                             <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                             <state key="normal" title="+ Follow">
                                 <color key="titleColor" name="Primary-Green"/>
@@ -95,7 +93,7 @@
         </view>
     </objects>
     <resources>
-        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="person.circle" catalog="system" width="32" height="32"/>
         <namedColor name="Primary-Green">
             <color red="0.14499999582767487" green="0.82700002193450928" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

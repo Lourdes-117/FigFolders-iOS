@@ -52,6 +52,10 @@ extension UserFigFoldersViewController: LikeCommentShareDelegate {
 
 // MARK: - Fig Files TableView Delegate
 extension UserFigFoldersViewController: FigFilesTableViewCellDelegate {
+    func followOrUnfollowUser(userNameToFollowOrUnfollow: String) {
+        //
+    }
+    
     func openProfileDetailsPage(userNameToPopulate: String) {
         guard let profileDetailsPage = UserProfileViewController.initiateVC() else { return }
         profileDetailsPage.userNameToPopulate = userNameToPopulate

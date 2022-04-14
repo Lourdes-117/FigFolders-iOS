@@ -49,7 +49,7 @@ class CloudFunctionsManager {
     }
     
     func getFigFilesOfUser(username: String, paginationIndex: Int, completion: @escaping ((Result<[FigFileModel], Error>) -> Void) ) {
-        let figFilesOfUserUrlTemplate = String(format: UrlEndpoints.figFilesOfUserTemplateUrl, username, paginationIndex)
+        let figFilesOfUserUrlTemplate = String(format: UrlEndpoints.figFilesOfUserTemplateUrl, username, paginationIndex, currentUserUsername ?? "")
         let figFilesOfUserUrl = String(format: figFilesOfUserUrlTemplate, username, paginationIndex)
         debugPrint("Requested url - \(figFilesOfUserUrl)")
         NetworkManager.getData(figFilesOfUserUrl, [FigFileModel].self) { result in
@@ -72,7 +72,7 @@ class CloudFunctionsManager {
         debugPrint("Requested url - \(url.absoluteString)")
         var urlRequest = URLRequest(url: url)
         do {
-            let getCommentsModel = GetCommentsModel()
+            var getCommentsModel = GetCommentsModel()
             getCommentsModel.fileOwner = fileOwner
             getCommentsModel.fileUrl = fileUrl
             urlRequest.httpBody = try JSONEncoder().encode(getCommentsModel)
@@ -154,6 +154,24 @@ class CloudFunctionsManager {
             DispatchQueue.main.async {
                 completion(true)
             }
+        }.resume()
+    }
+    
+    func followOrUnfollowUser(userNameToFollow: String) {
+        guard let followUserUrl = URL(string: UrlEndpoints.followUser) else { return }
+        debugPrint("Requested url - \(followUserUrl.absoluteString)")
+        
+        let followUserModel = FollowUserModel(currentUser: currentUserUsername, userToFollow: userNameToFollow)
+        
+        var urlRequest = URLRequest(url: followUserUrl)
+        urlRequest.httpMethod = StringConstants.shared.httpMethodConstants.postMethod
+        urlRequest.addValue(StringConstants.shared.httpMethodConstants.applicationJson, forHTTPHeaderField: StringConstants.shared.httpMethodConstants.contentType)
+        do {
+            urlRequest.httpBody = try JSONEncoder().encode(followUserModel)
+        } catch {
+            return
+        }
+        URLSession.shared.dataTask(with: urlRequest) { _, _ , _ in
         }.resume()
     }
 }

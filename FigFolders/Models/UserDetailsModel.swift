@@ -113,6 +113,7 @@ struct FigFileModel: Encodable, Decodable {
     let comments: [FigFilesCommentsModel?]?
     var fileSizeBytes: Int?
     var purchasedUsers: [String?]?
+    var isUserFollowing: Bool? // Used in home screen to check if the user is follwing that particular user to set the follow button on home screen
     
     var isFree: Bool {
         return filePrice ?? 0 <= 0
