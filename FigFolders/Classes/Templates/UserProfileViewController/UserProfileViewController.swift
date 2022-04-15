@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: ViewControllerWithLoading {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -52,8 +52,10 @@ class UserProfileViewController: UIViewController {
     }
     
     private func getFigFilesInitial() {
+        showLoadingIndicator()
         viewModel.fetchFigFilesWithPagination { [weak self] _ in
             self?.tableView.reloadData()
+            self?.hideLoadingIndicatorView()
         }
     }
     

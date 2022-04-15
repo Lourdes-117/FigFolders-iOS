@@ -54,6 +54,7 @@ class UserProfileViewModel {
                 completion(fetchedFigFiles.count)
                 strongSelf.paginationIndex += 1
             case .failure(let error):
+                completion(0)
                 debugPrint("Error Fetching Random FigFiles \(error)")
             }
         }

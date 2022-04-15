@@ -9,6 +9,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--User Fig Folders View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -18,18 +23,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8FL-QQ-feB" customClass="FigFilesTableView" customModule="FigFolders" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ez-9Q-09r">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No files of this type uploaded yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JpC-Ac-Nq9">
+                                        <rect key="frame" x="8" y="396.5" width="398" height="25"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8FL-QQ-feB" customClass="FigFilesTableView" customModule="FigFolders" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="JpC-Ac-Nq9" secondAttribute="trailing" constant="8" id="G8y-Yc-DFM"/>
+                                    <constraint firstItem="JpC-Ac-Nq9" firstAttribute="centerX" secondItem="9Ez-9Q-09r" secondAttribute="centerX" id="Rfl-ZA-AJm"/>
+                                    <constraint firstItem="JpC-Ac-Nq9" firstAttribute="centerY" secondItem="9Ez-9Q-09r" secondAttribute="centerY" id="csg-8D-dUx"/>
+                                    <constraint firstItem="JpC-Ac-Nq9" firstAttribute="leading" secondItem="9Ez-9Q-09r" secondAttribute="leading" constant="8" id="zLq-Kh-FP5"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Primary-Green"/>
                         <constraints>
-                            <constraint firstItem="8FL-QQ-feB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="7DI-ow-Hg2"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="8FL-QQ-feB" secondAttribute="bottom" id="7OM-Zm-5mv"/>
-                            <constraint firstItem="8FL-QQ-feB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cFe-iL-q6k"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8FL-QQ-feB" secondAttribute="trailing" id="j7J-VW-d2z"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="9Ez-9Q-09r" secondAttribute="bottom" id="1Ts-F5-WA0"/>
+                            <constraint firstItem="9Ez-9Q-09r" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="T5s-k3-UmE"/>
+                            <constraint firstItem="9Ez-9Q-09r" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="e88-EJ-979"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9Ez-9Q-09r" secondAttribute="trailing" id="lpA-Qn-Xzy"/>
                         </constraints>
                     </view>
                     <connections>

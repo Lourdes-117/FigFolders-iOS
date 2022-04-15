@@ -7,6 +7,13 @@
 
 import UIKit
 
+protocol FigFileTableViewDelegate: AnyObject {
+    func initialNetworkCallStarted()
+    func initialNetworkCallFinishedWithNumberOfItems(newItems: Int)
+    func paginationCallStarted()
+    func paginationCallEnded(newItems: Int)
+}
+
 class FigFilesTableView: UIView {
     let nibName = "FigFilesTableView"
     let viewModel = FigFilesTableViewViewModel()
@@ -15,6 +22,7 @@ class FigFilesTableView: UIView {
     
     weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
     weak var likeCommentShareDelegate: LikeCommentShareDelegate?
+    weak var figFileTableViewDelegate: FigFileTableViewDelegate?
     
     var documentTypeToPopulate: DocumentPickerDocumentType?
     
@@ -32,8 +40,11 @@ class FigFilesTableView: UIView {
     }
     
     private func getRandomFilesInitial() {
+        figFileTableViewDelegate?.initialNetworkCallStarted()
         viewModel.fetchRandomFigFiles { [weak self] _ in
-            self?.tableView.reloadData()
+            guard let self = self else { return }
+            self.tableView.reloadData()
+            self.figFileTableViewDelegate?.initialNetworkCallFinishedWithNumberOfItems(newItems: self.viewModel.numberOfFiles)
         }
     }
     
@@ -54,6 +65,7 @@ class FigFilesTableView: UIView {
     }
     
     private func startPagination() {
+        figFileTableViewDelegate?.paginationCallStarted()
         viewModel.fetchRandomFigFiles { [weak self] numberOfNewCells in
             guard let strongSelf = self else { return }
             let numberOfFilesBeforeUpdate = strongSelf.viewModel.numberOfFiles -  numberOfNewCells
@@ -63,6 +75,7 @@ class FigFilesTableView: UIView {
             strongSelf.tableView.beginUpdates()
             strongSelf.tableView.insertRows(at: indexPathsToUpdate, with: .fade)
             strongSelf.tableView.endUpdates()
+            strongSelf.figFileTableViewDelegate?.paginationCallEnded(newItems: numberOfNewCells)
         }
     }
 }

@@ -40,6 +40,7 @@ class FigFilesTableViewViewModel {
                     strongSelf.figFiles.append(contentsOf: fetchedFigFiles)
                     completion(fetchedFigFiles.count)
                 case .failure(let error):
+                    completion(0)
                     debugPrint("Error Fetching User's FigFiles \(error)")
                 }
             }
@@ -52,6 +53,7 @@ class FigFilesTableViewViewModel {
                     strongSelf.figFiles.append(contentsOf: fetchedFigFiles)
                     completion(fetchedFigFiles.count)
                 case .failure(let error):
+                    completion(0)
                     debugPrint("Error Fetching User's FigFiles \(error)")
                 }
             }

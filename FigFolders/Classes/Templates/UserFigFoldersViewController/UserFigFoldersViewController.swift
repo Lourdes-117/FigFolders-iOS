@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserFigFoldersViewController: UIViewController {
+class UserFigFoldersViewController: ViewControllerWithLoading {
 // MARK: - Outlets
     @IBOutlet weak var tableView: FigFilesTableView!
     
@@ -21,6 +21,7 @@ class UserFigFoldersViewController: UIViewController {
     
     private func initialSetup() {
         self.title = documentTypeToPopulate?.rawValue.capitalized
+        tableView.figFileTableViewDelegate = self
         tableView.documentTypeToPopulate = documentTypeToPopulate
         setupDatasourceDelegate()
         tableView.initialSetup(pageBehaviour: .figFilesPage)
@@ -94,5 +95,25 @@ extension UserFigFoldersViewController: FigFilesTableViewCellDelegate {
         case .none:
             break
         }
+    }
+}
+
+// MARK: - FigFile TableView Delegate
+extension UserFigFoldersViewController: FigFileTableViewDelegate {
+    func initialNetworkCallStarted() {
+        showLoadingIndicator()
+    }
+    
+    func initialNetworkCallFinishedWithNumberOfItems(newItems: Int) {
+        hideLoadingIndicatorView()
+        tableView.isHidden = newItems == 0
+    }
+    
+    func paginationCallStarted() {
+        // Not needed
+    }
+    
+    func paginationCallEnded(newItems: Int) {
+        // Not needed
     }
 }
