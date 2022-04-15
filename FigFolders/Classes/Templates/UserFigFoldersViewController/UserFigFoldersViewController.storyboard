@@ -32,17 +32,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8FL-QQ-feB" customClass="FigFilesTableView" customModule="FigFolders" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8FL-QQ-feB" customClass="FigFilesTableView" customModule="FigFolders" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8FL-QQ-feB" secondAttribute="bottom" id="4Tk-R4-UkW"/>
                                     <constraint firstAttribute="trailing" secondItem="JpC-Ac-Nq9" secondAttribute="trailing" constant="8" id="G8y-Yc-DFM"/>
                                     <constraint firstItem="JpC-Ac-Nq9" firstAttribute="centerX" secondItem="9Ez-9Q-09r" secondAttribute="centerX" id="Rfl-ZA-AJm"/>
                                     <constraint firstItem="JpC-Ac-Nq9" firstAttribute="centerY" secondItem="9Ez-9Q-09r" secondAttribute="centerY" id="csg-8D-dUx"/>
+                                    <constraint firstItem="8FL-QQ-feB" firstAttribute="leading" secondItem="9Ez-9Q-09r" secondAttribute="leading" id="dT8-3Q-jMZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="8FL-QQ-feB" secondAttribute="trailing" id="gPU-tt-c7l"/>
+                                    <constraint firstItem="8FL-QQ-feB" firstAttribute="top" secondItem="9Ez-9Q-09r" secondAttribute="top" id="h7g-cS-zr1"/>
                                     <constraint firstItem="JpC-Ac-Nq9" firstAttribute="leading" secondItem="9Ez-9Q-09r" secondAttribute="leading" constant="8" id="zLq-Kh-FP5"/>
                                 </constraints>
                             </view>
