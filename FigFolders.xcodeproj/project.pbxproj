@@ -75,6 +75,9 @@
 		AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B26264FBCF400E708D7 /* DateUtility.swift */; };
 		AE861B2A264FBDE300E708D7 /* UserDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */; };
 		AE861B2D264FBE9200E708D7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */; };
+		AE8702E828097A9E00AED6F7 /* PurchaseFigFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8702E728097A9E00AED6F7 /* PurchaseFigFileViewController.swift */; };
+		AE8702EA28097BAC00AED6F7 /* PurchaseFigFileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8702E928097BAB00AED6F7 /* PurchaseFigFileViewController.storyboard */; };
+		AE8702EC28097C0A00AED6F7 /* PurchaseFigFileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8702EB28097C0A00AED6F7 /* PurchaseFigFileViewModel.swift */; };
 		AE89D4CB2665581000CF0439 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE89D4CA2665581000CF0439 /* PasswordTextField.swift */; };
 		AE8AE516267D11AE009065E2 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8AE515267D11AE009065E2 /* LocationPickerViewController.swift */; };
 		AE8AE518267D11E5009065E2 /* LocationPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8AE517267D11E5009065E2 /* LocationPickerViewController.storyboard */; };
@@ -243,6 +246,9 @@
 		AE861B26264FBCF400E708D7 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsModel.swift; sourceTree = "<group>"; };
 		AE861B2C264FBE9200E708D7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		AE8702E728097A9E00AED6F7 /* PurchaseFigFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFigFileViewController.swift; sourceTree = "<group>"; };
+		AE8702E928097BAB00AED6F7 /* PurchaseFigFileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PurchaseFigFileViewController.storyboard; sourceTree = "<group>"; };
+		AE8702EB28097C0A00AED6F7 /* PurchaseFigFileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFigFileViewModel.swift; sourceTree = "<group>"; };
 		AE89D4CA2665581000CF0439 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		AE8AE515267D11AE009065E2 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		AE8AE517267D11E5009065E2 /* LocationPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationPickerViewController.storyboard; sourceTree = "<group>"; };
@@ -594,6 +600,16 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		AE8702E428097A7600AED6F7 /* PurchaseFigFileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE8702E928097BAB00AED6F7 /* PurchaseFigFileViewController.storyboard */,
+				AE8702EB28097C0A00AED6F7 /* PurchaseFigFileViewModel.swift */,
+				AE8702E728097A9E00AED6F7 /* PurchaseFigFileViewController.swift */,
+			);
+			path = PurchaseFigFileViewController;
+			sourceTree = "<group>";
+		};
 		AE8AE514267D118E009065E2 /* LocationPickerViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -718,6 +734,7 @@
 		AEA197852649936400D0D181 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				AE8702E428097A7600AED6F7 /* PurchaseFigFileViewController */,
 				AEB3A2A227C003FB00C06E88 /* AddCommentViewController */,
 				AE6D5D3B279D37F300B817A3 /* CommentsViewController */,
 				AEF4A27A26EFABAD0053DA78 /* UserProfileViewController */,
@@ -1123,6 +1140,7 @@
 				AEC8312226F0E40A002E3732 /* FigFileDisplayView.xib in Resources */,
 				AEA1978D2649970800D0D181 /* OnboardingCollectionView.xib in Resources */,
 				AEA197982649A07E00D0D181 /* OnboardingCollectionViewCell.xib in Resources */,
+				AE8702EA28097BAC00AED6F7 /* PurchaseFigFileViewController.storyboard in Resources */,
 				AE9D2348266B6C56005B5C55 /* SearchChatViewController.storyboard in Resources */,
 				AE1E17C927BE195500FC5A20 /* CommentsTableViewCell.xib in Resources */,
 				AE7A26C3265056FE0057D454 /* HomeViewController.storyboard in Resources */,
@@ -1253,6 +1271,7 @@
 				AE7307AD279A8AF70097A372 /* FolderViewCollectionViewCellViewModel.swift in Sources */,
 				AEF4A28826EFAFF70053DA78 /* UserDetailsTableViewCellViewModel.swift in Sources */,
 				AE9DC66A2662DA42001B9392 /* StorageManager.swift in Sources */,
+				AE8702E828097A9E00AED6F7 /* PurchaseFigFileViewController.swift in Sources */,
 				AE987716264AFFDC00064A7D /* UIViewControllerUtility.swift in Sources */,
 				AE3F86A8267BBA1100B4D814 /* ImageViewerViewController.swift in Sources */,
 				AE861B27264FBCF400E708D7 /* DateUtility.swift in Sources */,
@@ -1272,6 +1291,7 @@
 				AE1E5F63265138C300C905DE /* HomeViewControllerViewModel.swift in Sources */,
 				AEF8427A264D91DA00FB8003 /* OnboardingViewModel.swift in Sources */,
 				AEF8801026ED1495007BF7E9 /* NetworkManager.swift in Sources */,
+				AE8702EC28097C0A00AED6F7 /* PurchaseFigFileViewModel.swift in Sources */,
 				AEE025ED27F4E99E006238B1 /* PurchaseToContinueView.swift in Sources */,
 				AEE4ABCD27944E0B008E941A /* CloudFunctionsManager.swift in Sources */,
 				AEB3A2A827C0045900C06E88 /* AddCommentViewModel.swift in Sources */,

@@ -22,12 +22,19 @@ class FigFilesDisplayPdfTableViewCell: UITableViewCell, FigFilesDisplayTableView
         pdfImageView.isUserInteractionEnabled = true
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapImageView))
         pdfImageView.addGestureRecognizer(tapGestureRecognizer)
+        
+        blurView.isUserInteractionEnabled = true
+        let blurViewTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapPurchaseBlurView))
+        blurView.addGestureRecognizer(blurViewTapGestureRecognizer)
     }
     
     @objc func onTapImageView() {
-        figFilesTableViewCellDelegate?.openFigFileLargeView(figFile: viewModel.figFile)
+        figFilesTableViewCellDelegate?.openFigFileLargeView(figFile: viewModel.figFile, shouldShowPurchaseScreen: false)
     }
     
+    @objc func onTapPurchaseBlurView() {
+        figFilesTableViewCellDelegate?.openFigFileLargeView(figFile: viewModel.figFile, shouldShowPurchaseScreen: true)
+    }
 }
 
 // MARK: - Extension FigFIlesDisplayImageTableViewCell

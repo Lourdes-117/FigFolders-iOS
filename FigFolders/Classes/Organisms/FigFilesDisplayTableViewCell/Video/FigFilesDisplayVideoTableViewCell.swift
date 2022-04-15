@@ -18,6 +18,16 @@ class FigFilesDisplayVideoTableViewCell: UITableViewCell, FigFilesDisplayTableVi
     @IBOutlet weak var videoPlayerView: VideoPlayerView!
     
     let viewModel = FigFilesDisplayVideoTableViewModel()
+    
+    private func setupGestureRecognizer() {
+        blurView.isUserInteractionEnabled = true
+        let blurViewTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapPurchaseBlurView))
+        blurView.addGestureRecognizer(blurViewTapGestureRecognizer)
+    }
+    
+    @objc func onTapPurchaseBlurView() {
+        figFilesTableViewCellDelegate?.openFigFileLargeView(figFile: viewModel.figFile, shouldShowPurchaseScreen: true)
+    }
 }
 
 // MARK: - Extension FigFIlesDisplayImageTableViewCell
@@ -30,5 +40,6 @@ extension FigFilesDisplayVideoTableViewCell {
         figFileProfileView.delegate = figFilesTableViewCellDelegate
         figFileProfileView.setupView(figFile: figFile)
         videoPlayerView.setupVideoPlayer(videoUrl: viewModel.figFile?.fileUrlAsUrl, thumbnailUrl: nil)
+        setupGestureRecognizer()
     }
 }

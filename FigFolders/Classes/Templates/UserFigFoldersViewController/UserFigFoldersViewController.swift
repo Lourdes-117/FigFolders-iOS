@@ -62,7 +62,14 @@ extension UserFigFoldersViewController: FigFilesTableViewCellDelegate {
         navigationController?.pushViewController(profileDetailsPage, animated: true)
     }
     
-    func openFigFileLargeView(figFile: FigFileModel?) {
+    func openFigFileLargeView(figFile: FigFileModel?, shouldShowPurchaseScreen: Bool) {
+        if shouldShowPurchaseScreen {
+            guard let purchaseFigFileViewController = PurchaseFigFileViewController.initiateVC() else { return }
+            purchaseFigFileViewController.figFile = figFile
+            let navigationController = UINavigationController(rootViewController: purchaseFigFileViewController)
+            self.present(navigationController, animated: true, completion: nil)
+            return
+        }
         // TODO: - Add Types Here
         guard let figFile = figFile else { return }
         switch figFile.fileTypeEnum {

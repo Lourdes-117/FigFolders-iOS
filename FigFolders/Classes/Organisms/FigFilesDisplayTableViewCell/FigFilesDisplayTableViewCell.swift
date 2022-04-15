@@ -64,6 +64,6 @@ extension FigFilesDisplayTableViewCell {
 
 protocol FigFilesTableViewCellDelegate: AnyObject {
     func openProfileDetailsPage(userNameToPopulate: String)
-    func openFigFileLargeView(figFile: FigFileModel?)
+    func openFigFileLargeView(figFile: FigFileModel?, shouldShowPurchaseScreen: Bool)
     func followOrUnfollowUser(userNameToFollowOrUnfollow: String)
 }
