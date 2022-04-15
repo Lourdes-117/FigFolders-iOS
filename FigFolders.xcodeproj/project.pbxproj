@@ -78,6 +78,7 @@
 		AE8702E828097A9E00AED6F7 /* PurchaseFigFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8702E728097A9E00AED6F7 /* PurchaseFigFileViewController.swift */; };
 		AE8702EA28097BAC00AED6F7 /* PurchaseFigFileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8702E928097BAB00AED6F7 /* PurchaseFigFileViewController.storyboard */; };
 		AE8702EC28097C0A00AED6F7 /* PurchaseFigFileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8702EB28097C0A00AED6F7 /* PurchaseFigFileViewModel.swift */; };
+		AE8702EF2809AD6100AED6F7 /* FigFoldersAppCheckProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8702EE2809AD6100AED6F7 /* FigFoldersAppCheckProviderFactory.swift */; };
 		AE89D4CB2665581000CF0439 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE89D4CA2665581000CF0439 /* PasswordTextField.swift */; };
 		AE8AE516267D11AE009065E2 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8AE515267D11AE009065E2 /* LocationPickerViewController.swift */; };
 		AE8AE518267D11E5009065E2 /* LocationPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8AE517267D11E5009065E2 /* LocationPickerViewController.storyboard */; };
@@ -249,6 +250,8 @@
 		AE8702E728097A9E00AED6F7 /* PurchaseFigFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFigFileViewController.swift; sourceTree = "<group>"; };
 		AE8702E928097BAB00AED6F7 /* PurchaseFigFileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PurchaseFigFileViewController.storyboard; sourceTree = "<group>"; };
 		AE8702EB28097C0A00AED6F7 /* PurchaseFigFileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFigFileViewModel.swift; sourceTree = "<group>"; };
+		AE8702ED2809AC6A00AED6F7 /* FigFolders.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FigFolders.entitlements; sourceTree = "<group>"; };
+		AE8702EE2809AD6100AED6F7 /* FigFoldersAppCheckProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigFoldersAppCheckProviderFactory.swift; sourceTree = "<group>"; };
 		AE89D4CA2665581000CF0439 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		AE8AE515267D11AE009065E2 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		AE8AE517267D11E5009065E2 /* LocationPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationPickerViewController.storyboard; sourceTree = "<group>"; };
@@ -596,6 +599,7 @@
 				AE9DC6692662DA42001B9392 /* StorageManager.swift */,
 				AEF8800F26ED1494007BF7E9 /* NetworkManager.swift */,
 				AEE4ABCC27944E0B008E941A /* CloudFunctionsManager.swift */,
+				AE8702EE2809AD6100AED6F7 /* FigFoldersAppCheckProviderFactory.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -710,6 +714,7 @@
 		AEA1976F2649933000D0D181 /* FigFolders */ = {
 			isa = PBXGroup;
 			children = (
+				AE8702ED2809AC6A00AED6F7 /* FigFolders.entitlements */,
 				AEA197842649935000D0D181 /* Lifecycle */,
 				AEA19787264995DF00D0D181 /* Classes */,
 				AE861B28264FBDAD00E708D7 /* Models */,
@@ -1300,6 +1305,7 @@
 				AEF4A28626EFAF810053DA78 /* UserDetailsTableViewCell.swift in Sources */,
 				AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */,
 				AEF8800226ECEF49007BF7E9 /* FigFilesTableViewCell.swift in Sources */,
+				AE8702EF2809AD6100AED6F7 /* FigFoldersAppCheckProviderFactory.swift in Sources */,
 				AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */,
 				AE7307AA279A8AE40097A372 /* FolderViewCollectionViewCell.swift in Sources */,
 				AE470AC52796A80E001AB85C /* FigFileProfileViewModel.swift in Sources */,
@@ -1476,6 +1482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FigFolders/FigFolders.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3M5G6V8PQA;
 				INFOPLIST_FILE = FigFolders/Info.plist;
@@ -1484,6 +1491,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.figfolders.general;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1497,6 +1505,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FigFolders/FigFolders.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3M5G6V8PQA;
@@ -1506,6 +1515,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.figfolders.general;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

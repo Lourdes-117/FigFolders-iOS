@@ -15,4 +15,5 @@ target 'FigFolders' do
   pod 'SDWebImage'
   pod 'MessageKit'
   pod 'Alamofire'
+  pod 'Firebase/AppCheck'
 end
