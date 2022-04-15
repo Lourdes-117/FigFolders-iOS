@@ -155,7 +155,7 @@ extension UserProfileViewController: FigFilesTableViewCellDelegate {
     }
 }
 
-// Mark: - Like Comment Share Delegate
+// MARK: - Like Comment Share Delegate
 extension UserProfileViewController: LikeCommentShareDelegate {
     func onTapLike(figFileLikeModel: FigFileLikeModel?) {
         guard let figfileLikeModel = figFileLikeModel else { return }

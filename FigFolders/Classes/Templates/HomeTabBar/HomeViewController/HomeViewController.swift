@@ -70,7 +70,6 @@ class HomeViewController: ViewControllerWithLoading {
     private func setUserDefaults() {
         let unsafeEmail = (UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String) ?? UserDetailsModel.getSafeEmail(email: FirebaseAuth.Auth.auth().currentUser?.email ?? "")
         let emailID = UserDetailsModel.getSafeEmail(email: unsafeEmail)
-        showLoadingIndicator(with: .ballScaleMultiple, color: .blue)
         if let userName = (UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String) {
             DatabaseManager.shared.getUserDetailsForUsername(username: userName) { [weak self] userDetails in
                 guard let userDetails = userDetails else {
@@ -83,7 +82,6 @@ class HomeViewController: ViewControllerWithLoading {
                 UserDefaults.standard.setValue(userDetails.phoneNumber, forKey: StringConstants.shared.userDefaults.phoneNumber)
                 UserDefaults.standard.setValue(userDetails.dateOfBirth, forKey: StringConstants.shared.userDefaults.dateOfBirth)
                 self?.hamburgerMenuView.refreshView()
-                self?.hideLoadingIndicatorView()
             }
         } else {
             DatabaseManager.shared.getUsernameForEmail(emailID: emailID) { [weak self] userName in
@@ -111,6 +109,7 @@ class HomeViewController: ViewControllerWithLoading {
     
     private func setupDelegate() {
         hamburgerMenuView.delegate = self
+        figFilesTableView.figFileTableViewDelegate = self
         figFilesTableView.figFilesTableViewCellDelegate = self
         figFilesTableView.likeCommentShareDelegate = self
     }
@@ -230,7 +229,7 @@ extension HomeViewController: FigFilesTableViewCellDelegate {
     }
 }
 
-// Mark: - Like Comment Share Delegate
+// MARK: - Like Comment Share Delegate
 extension HomeViewController: LikeCommentShareDelegate {
     func onTapLike(figFileLikeModel: FigFileLikeModel?) {
         guard let figfileLikeModel = figFileLikeModel else { return }
@@ -245,5 +244,24 @@ extension HomeViewController: LikeCommentShareDelegate {
     
     func onTapShare(figFileModel: FigFileModel?) {
         debugPrint("On Tap Share")
+    }
+}
+
+// MARK: - FigFile TableView Delegate
+extension HomeViewController: FigFileTableViewDelegate {
+    func initialNetworkCallStarted() {
+        showLoadingIndicator()
+    }
+    
+    func initialNetworkCallFinishedWithNumberOfItems(newItems: Int) {
+        hideLoadingIndicatorView()
+    }
+    
+    func paginationCallStarted() {
+        // Not Needed Now
+    }
+    
+    func paginationCallEnded(newItems: Int) {
+        // Not Needed Now
     }
 }
