@@ -14,7 +14,8 @@ class HomeTabControllerViewModel {
     let notEnoughSpaceAvailable = "Not Enough Space Available. Please Purchase More Space"
     let navigationTitleColor = LabelColorPalette.labelColorPrimary.color ?? UIColor()
     let navigationBarColor = ColorPalette.primary_green.color
-    let centerButtonBackgroundColor = ColorPalette.primary_green.color
+    let tabBarShadowColor = ColorPalette.greyscale2.color?.cgColor
+    let centerButtonBackgroundColor = ColorPalette.greyscale1.color
     let shadowOffset: CGSize = .zero
     let shadowColor = ColorPalette.greyscale4.color ?? UIColor()
     let shadowOpacity: Float = 1

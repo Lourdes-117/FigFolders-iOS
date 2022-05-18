@@ -138,8 +138,8 @@ struct FigFileModel: Encodable, Decodable {
             return FigFilesDisplayImageTableViewCell.kCellId
         case .video:
             return FigFilesDisplayVideoTableViewCell.kCellId
-        case .text:
-            return ""
+//        case .text:
+//            return ""
 //        case .html:
 //            return ""
         case .plainText:

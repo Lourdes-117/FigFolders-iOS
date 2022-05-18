@@ -5,8 +5,9 @@
 //  Created by Lourdes on 1/21/22.
 //
 
-import Foundation
+import UIKit
 
 class FolderViewCollectionViewCellViewModel {
-    
+    let cellBackgroundColor = ColorPalette.greyscale1.color
+    let cellCornerRadius: CGFloat = 8
 }

@@ -13,6 +13,7 @@ class FolderViewCollectionViewCell: UICollectionViewCell {
 // MARK: - Outlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var folderName: UILabel!
+    @IBOutlet weak var cellBackgroundView: UIView!
     
     let viewModel = FolderViewCollectionViewCellViewModel()
     
@@ -25,5 +26,9 @@ class FolderViewCollectionViewCell: UICollectionViewCell {
 // MARK: - SetupMethods
     func setupCell(cellType: DocumentPickerDocumentType) {
         folderName.text = cellType.rawValue.capitalized
+        imageView.image = cellType.folderIcon
+        cellBackgroundView.backgroundColor = viewModel.cellBackgroundColor
+        cellBackgroundView.layer.cornerRadius = viewModel.cellCornerRadius
+        contentView.backgroundColor = .clear
     }
 }

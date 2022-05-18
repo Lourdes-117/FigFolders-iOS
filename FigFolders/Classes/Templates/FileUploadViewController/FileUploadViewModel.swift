@@ -37,7 +37,7 @@ enum DocumentPickerDocumentType: String {
     case spreadsheet = "spreadsheet"
     case image = "image"
     case video = "video"
-    case text = "text"
+//    case text = "text"
 //    case html = "html"
     case plainText = "plainText"
     
@@ -47,7 +47,7 @@ enum DocumentPickerDocumentType: String {
         case .spreadsheet: return kUTTypeSpreadsheet
         case .image: return kUTTypeImage
         case .video: return kUTTypeVideo
-        case .text: return kUTTypeText
+//        case .text: return kUTTypeText
 //        case .html: return kUTTypeHTML
         case .plainText: return kUTTypePlainText
         }
@@ -75,9 +75,10 @@ enum DocumentPickerDocumentType: String {
             return .image
         } else if fileUti == DocumentPickerDocumentType.video.cfStringValue {
             return .video
-        } else if fileUti == DocumentPickerDocumentType.text.cfStringValue {
-            return .text
         }
+//        else if fileUti == DocumentPickerDocumentType.text.cfStringValue {
+//            return .text
+//        }
 //        else if fileUti == DocumentPickerDocumentType.html.cfStringValue {
 //            return .html
 //        }
@@ -93,7 +94,7 @@ enum DocumentPickerDocumentType: String {
          DocumentPickerDocumentType.spreadsheet.rawValue,
          DocumentPickerDocumentType.image.rawValue,
          DocumentPickerDocumentType.video.rawValue,
-         DocumentPickerDocumentType.text.rawValue,
+//         DocumentPickerDocumentType.text.rawValue,
 //         DocumentPickerDocumentType.html.rawValue,
          DocumentPickerDocumentType.plainText.rawValue]
     }
@@ -103,13 +104,32 @@ enum DocumentPickerDocumentType: String {
          DocumentPickerDocumentType.spreadsheet.identifierString,
          DocumentPickerDocumentType.image.identifierString,
          DocumentPickerDocumentType.video.identifierString,
-         DocumentPickerDocumentType.text.identifierString,
+//         DocumentPickerDocumentType.text.identifierString,
 //         DocumentPickerDocumentType.html.identifierString,
          DocumentPickerDocumentType.plainText.identifierString]
     }
     
     var pathToUpload: String? {
         return "\(StringConstants.shared.figFiles.currentUserFigFilesPath)\(self.rawValue)/"
+    }
+    
+    var folderIconName: String {
+        switch self {
+        case .pdf:
+            return "folder_pdf"
+        case .spreadsheet:
+            return "folder_spreadsheet"
+        case .image:
+            return "folder_image"
+        case .video:
+            return "folder_video"
+        case .plainText:
+            return "folder_text"
+        }
+    }
+    
+    var folderIcon: UIImage? {
+        UIImage(named: folderIconName)
     }
 }
 
@@ -131,9 +151,14 @@ class FileUploadViewModel {
     let fileDescriptionPlaceholderText = "Add a description of your file here"
     let attachMediaTitle = "Select File To Upload"
     let attachMediaMessage = "Select where you want to upload file from"
-    let photosAndVideos = "Photos and Videos"
+    let photosString = "Photos"
+    let videosString = "Videos"
+    let cameraString = "Camera"
+    let galleryString = "Gallery"
     let documents = "Browse"
     let cancel = "Cancel"
+    
+    let mediaTypeForVideo = "public.movie"
     
     let imageButtonTitle = "Image"
     let videoButtonTitle = "Video"

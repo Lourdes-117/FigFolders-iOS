@@ -217,8 +217,8 @@ extension HomeViewController: FigFilesTableViewCellDelegate {
             self.present(imageViewerViewController, animated: true, completion: nil)
         case .video:
             break
-        case .text:
-            break
+//        case .text:
+//            break
 //        case .html:
 //            break
         case .plainText:

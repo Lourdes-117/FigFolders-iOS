@@ -72,7 +72,7 @@ class CloudFunctionsManager {
         debugPrint("Requested url - \(url.absoluteString)")
         var urlRequest = URLRequest(url: url)
         do {
-            var getCommentsModel = GetCommentsModel()
+            let getCommentsModel = GetCommentsModel()
             getCommentsModel.fileOwner = fileOwner
             getCommentsModel.fileUrl = fileUrl
             urlRequest.httpBody = try JSONEncoder().encode(getCommentsModel)

@@ -126,6 +126,51 @@ class FileUploadViewController: UIViewController {
         }
     }
     
+    // Only use for photos and videos
+    private func presentPhotosAndVideosPicker(type: DocumentPickerDocumentType) {
+        let actionSheet = UIAlertController(title: viewModel.attachMediaTitle, message: viewModel.attachMediaMessage, preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: viewModel.cameraString, style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            if type == .image {
+                let picker = UIImagePickerController()
+                picker.sourceType = .camera
+                picker.delegate = self
+                picker.allowsEditing = false
+                self.present(picker, animated: false, completion: nil)
+            } else if type == .video {
+                let picker = UIImagePickerController()
+                picker.sourceType = .camera
+                picker.delegate = self
+                picker.allowsEditing = false
+                self.present(picker, animated: false, completion: nil)
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: viewModel.galleryString, style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            if type == .image {
+                let picker = UIImagePickerController()
+                picker.sourceType = .photoLibrary
+                picker.delegate = self
+                picker.allowsEditing = false
+                self.present(picker, animated: false, completion: nil)
+            } else if type == .video {
+                let picker = UIImagePickerController()
+                picker.sourceType = .photoLibrary
+                picker.delegate = self
+                picker.allowsEditing = true
+                picker.mediaTypes = [self.viewModel.mediaTypeForVideo]
+                self.present(picker, animated: false, completion: nil)
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: viewModel.cancel, style: .cancel, handler: { _ in
+            
+        }))
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
 // MARK: Button Tap Actions
     @IBAction private func onTapIOwnThisFileButton() {
         guard viewModel.selectedFileUrl?.absoluteString != nil,
@@ -152,8 +197,12 @@ class FileUploadViewController: UIViewController {
     @IBAction private func onTapSelectFileButton() {
         let actionSheet = UIAlertController(title: viewModel.attachMediaTitle, message: viewModel.attachMediaMessage, preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: viewModel.photosAndVideos, style: .default, handler: { [weak self] _ in
-            self?.presentImageAndVideoPicker()
+        actionSheet.addAction(UIAlertAction(title: viewModel.photosString, style: .default, handler: { [weak self] _ in
+            self?.presentPhotosAndVideosPicker(type: .image)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: viewModel.videosString, style: .default, handler: { [weak self] _ in
+            self?.presentPhotosAndVideosPicker(type: .video)
         }))
         
         actionSheet.addAction(UIAlertAction(title: viewModel.documents, style: .default, handler: { [weak self] _ in

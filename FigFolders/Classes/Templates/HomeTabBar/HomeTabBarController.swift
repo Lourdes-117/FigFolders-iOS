@@ -10,6 +10,7 @@ import UIKit
 class HomeTabBarController: UITabBarController {
 // MARK: - Outlets
     let uploadFileCenterButton = UIButton()
+    let uploadFileCenterButtonImageView = UIImageView()
     
     let viewModel = HomeTabControllerViewModel()
     
@@ -35,6 +36,10 @@ class HomeTabBarController: UITabBarController {
         tabBar.addSubview(uploadFileCenterButton)
         tabBar.centerXAnchor.constraint(equalTo: uploadFileCenterButton.centerXAnchor).isActive = true
         tabBar.topAnchor.constraint(equalTo: uploadFileCenterButton.topAnchor, constant: 8).isActive = true
+        tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+        tabBar.layer.shadowRadius = 2
+        tabBar.layer.shadowColor = viewModel.tabBarShadowColor
+        tabBar.layer.shadowOpacity = 0.3
         uploadFileCenterButton.widthAnchor.constraint(equalToConstant: centerButtonWidthHeight).isActive = true
         uploadFileCenterButton.heightAnchor.constraint(equalToConstant: centerButtonWidthHeight).isActive = true
         
@@ -43,6 +48,19 @@ class HomeTabBarController: UITabBarController {
                                          color: viewModel.shadowColor,
                                          opacity: viewModel.shadowOpacity,
                                          radius: viewModel.shadowRadius)
+        uploadFileCenterButtonImageView.translatesAutoresizingMaskIntoConstraints = false
+        uploadFileCenterButton.addSubview(uploadFileCenterButtonImageView)
+        
+        uploadFileCenterButtonImageView.centerXAnchor.constraint(equalTo: uploadFileCenterButton.centerXAnchor).isActive = true
+        uploadFileCenterButtonImageView.centerYAnchor.constraint(equalTo: uploadFileCenterButton.centerYAnchor).isActive = true
+        uploadFileCenterButtonImageView.topAnchor.constraint(equalTo: uploadFileCenterButton.topAnchor, constant: 18).isActive = true
+        uploadFileCenterButtonImageView.bottomAnchor.constraint(equalTo: uploadFileCenterButton.bottomAnchor, constant: -18).isActive = true
+        uploadFileCenterButtonImageView.leadingAnchor.constraint(equalTo: uploadFileCenterButton.leadingAnchor, constant: 0).isActive = true
+        uploadFileCenterButtonImageView.trailingAnchor.constraint(equalTo: uploadFileCenterButton.trailingAnchor, constant: 0).isActive = true
+        
+        uploadFileCenterButtonImageView.setRoundedCorners()
+        uploadFileCenterButtonImageView.image = UIImage(systemName: "plus")
+        uploadFileCenterButtonImageView.contentMode = .scaleAspectFit
     }
     
 // MARK: - Button Tap Actions
