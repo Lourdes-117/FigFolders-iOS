@@ -39,6 +39,7 @@ extension FigFilesDisplayVideoTableViewCell {
         likeCommentShareView.delegate = likeCommentShareDelegate
         figFileProfileView.delegate = figFilesTableViewCellDelegate
         figFileProfileView.setupView(figFile: figFile)
+        videoPlayerView.delegate = figFilesTableViewCellDelegate
         videoPlayerView.setupVideoPlayer(videoUrl: viewModel.figFile?.fileUrlAsUrl, thumbnailUrl: nil)
         setupGestureRecognizer()
     }

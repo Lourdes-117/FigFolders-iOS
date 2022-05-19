@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 class UserFigFoldersViewController: ViewControllerWithLoading {
 // MARK: - Outlets
@@ -53,6 +54,12 @@ extension UserFigFoldersViewController: LikeCommentShareDelegate {
 
 // MARK: - Fig Files TableView Delegate
 extension UserFigFoldersViewController: FigFilesTableViewCellDelegate {
+    func didTapFullScreenOnVideo(avPlayer: AVPlayer) {
+        let videoPlayerController = HomeScreenVideoPlayer()
+        videoPlayerController.player = avPlayer
+        self.present(videoPlayerController, animated: true)
+    }
+    
     func followOrUnfollowUser(userNameToFollowOrUnfollow: String) {
         //
     }

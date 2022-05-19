@@ -14,6 +14,9 @@ class VideoPlayerView: UIView {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var videoControlsView: UIView!
     @IBOutlet weak var playPauseButton: UIButton!
+    @IBOutlet weak var fullScreenButton: UIButton!
+    
+    weak var delegate: FigFilesTableViewCellDelegate?
     
     var player: AVPlayer? {
         get {
@@ -60,7 +63,7 @@ class VideoPlayerView: UIView {
         videoPlayer = AVPlayerOnUIView(frame: playerFrame)
         videoPlayer?.delegate = self
         videoPlayer?.player = player
-        
+        fullScreenButton.setTitle("", for: .normal)
         setupTapGestureRecognizerOnVideoControlsView()
         
         backgroundView.addSubview(videoPlayer ?? AVPlayerOnUIView(frame: playerFrame))
@@ -112,7 +115,7 @@ class VideoPlayerView: UIView {
     }
 
 // MARK: - Button Actions
-    @IBAction func onTapButton(_ sender: Any) {
+    @IBAction func onTapPlayPauseButton() {
         guard let isVideoPlaying = videoPlayer?.isPlaying else { return }
         if isVideoPlaying {
             videoPlayer?.player?.pause()
@@ -122,6 +125,14 @@ class VideoPlayerView: UIView {
         }
         viewModel.isVideoPlaying = !isVideoPlaying // !isVideoPlaying cuz video playing state changed in previous command
         playPauseButton.setImage(viewModel.playPauseButtonImage, for: .normal)
+    }
+    
+    @IBAction func onTapFullScreenButton(_ sender: Any) {
+        if let avPlayer = videoPlayer?.player {
+            self.onTapPlayPauseButton()
+            videoPlayer?.player?.seek(to: .zero)
+            delegate?.didTapFullScreenOnVideo(avPlayer: avPlayer)
+        }
     }
 }
 

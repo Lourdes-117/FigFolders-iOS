@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 protocol FigFilesDisplayTableViewCell: UITableViewCell {
     func setupCell(figFile: FigFileModel)
@@ -66,4 +67,5 @@ protocol FigFilesTableViewCellDelegate: AnyObject {
     func openProfileDetailsPage(userNameToPopulate: String)
     func openFigFileLargeView(figFile: FigFileModel?, shouldShowPurchaseScreen: Bool)
     func followOrUnfollowUser(userNameToFollowOrUnfollow: String)
+    func didTapFullScreenOnVideo(avPlayer: AVPlayer)
 }

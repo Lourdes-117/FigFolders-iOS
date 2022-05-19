@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import AVKit
 
 class HomeViewController: ViewControllerWithLoading {
 // MARK: - Outlets
@@ -176,6 +177,12 @@ extension HomeViewController: HamburgerMenuDelegate {
 }
 
 extension HomeViewController: FigFilesTableViewCellDelegate {
+    func didTapFullScreenOnVideo(avPlayer: AVPlayer) {
+        let videoPlayerController = HomeScreenVideoPlayer()
+        videoPlayerController.player = avPlayer
+        self.present(videoPlayerController, animated: true)
+    }
+    
     func followOrUnfollowUser(userNameToFollowOrUnfollow: String) {
         let startIndex = 0
         let endIndex = figFilesTableView.viewModel.figFiles.count-1

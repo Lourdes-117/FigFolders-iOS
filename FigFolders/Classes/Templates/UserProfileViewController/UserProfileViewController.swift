@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import AVKit
 
 class UserProfileViewController: ViewControllerWithLoading {
 
@@ -103,6 +104,12 @@ extension UserProfileViewController: UITableViewDelegate {
 }
 
 extension UserProfileViewController: FigFilesTableViewCellDelegate {
+    func didTapFullScreenOnVideo(avPlayer: AVPlayer) {
+        let videoPlayerController = HomeScreenVideoPlayer()
+        videoPlayerController.player = avPlayer
+        self.present(videoPlayerController, animated: true)
+    }
+    
     func followOrUnfollowUser(userNameToFollowOrUnfollow: String) {
         let startIndex = 0
         let endIndex = viewModel.figFiles.count-1
