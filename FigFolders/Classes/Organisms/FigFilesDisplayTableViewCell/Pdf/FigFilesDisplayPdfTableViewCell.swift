@@ -10,10 +10,10 @@ import UIKit
 class FigFilesDisplayPdfTableViewCell: UITableViewCell, FigFilesDisplayTableViewCell {
     static let kCellId = "FigFilesDisplayPdfTableViewCell"
     weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
-    weak var likeCommentShareDelegate: LikeCommentShareDelegate?
+    weak var LikeCommentReportDelegate: LikeCommentReportDelegate?
     
     @IBOutlet weak var blurView: UIView!
-    @IBOutlet weak var likeCommentShareView: LikeCommentShareView!
+    @IBOutlet weak var LikeCommentReportView: LikeCommentReportView!
     @IBOutlet weak var figFileProfileView: FigFileProfileView!
     @IBOutlet weak var pdfImageView: UIImageView!
     let viewModel = FigFilesDisplayPdfTableViewModel()
@@ -42,8 +42,8 @@ extension FigFilesDisplayPdfTableViewCell {
     func setupCell(figFile: FigFileModel) {
         setupBlurView(isFree: figFile.isFree, ownerUserName: figFile.ownerUsername, purchasedUsers: figFile.purchasedUsers)
         viewModel.figFile = figFile
-        likeCommentShareView.figFileModel = viewModel.figFile
-        likeCommentShareView.delegate = likeCommentShareDelegate
+        LikeCommentReportView.figFileModel = viewModel.figFile
+        LikeCommentReportView.delegate = LikeCommentReportDelegate
         figFileProfileView.delegate = figFilesTableViewCellDelegate
         setupGestureRecognizer()
         figFileProfileView.setupView(figFile: figFile)

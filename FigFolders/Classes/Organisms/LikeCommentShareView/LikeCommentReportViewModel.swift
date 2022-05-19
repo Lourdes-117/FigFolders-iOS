@@ -1,5 +1,5 @@
 //
-//  LikeCommentShareViewModel.swift
+//  LikeCommentReportViewModel.swift
 //  FigFolders
 //
 //  Created by Lourdes on 9/25/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LikeCommentShareViewModel {
+class LikeCommentReportViewModel {
     var figFileLikeModel: FigFileLikeModel = FigFileLikeModel()
     var figFileModel: FigFileModel?
     var isLiked = false

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +31,7 @@
                             <constraint firstAttribute="height" constant="65" id="hFx-FV-1Us"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IvZ-HD-sD0" customClass="LikeCommentShareView" customModule="FigFolders" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IvZ-HD-sD0" customClass="LikeCommentReportView" customModule="FigFolders" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="316" width="370" height="45"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -70,9 +70,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="LikeCommentReportView" destination="IvZ-HD-sD0" id="UjH-n3-LFa"/>
                 <outlet property="blurView" destination="ETg-7m-hHB" id="Wdz-YV-6V5"/>
                 <outlet property="figFileProfileView" destination="vfF-rS-RWW" id="blX-Xg-jbR"/>
-                <outlet property="likeCommentShareView" destination="IvZ-HD-sD0" id="UjH-n3-LFa"/>
                 <outlet property="pdfImageView" destination="2EI-cK-PPa" id="ldF-nj-2Y4"/>
             </connections>
             <point key="canvasLocation" x="172.46376811594203" y="111.16071428571428"/>

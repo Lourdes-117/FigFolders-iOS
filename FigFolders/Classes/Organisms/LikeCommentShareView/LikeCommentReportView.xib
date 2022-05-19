@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LikeCommentShareView" customModule="FigFolders" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LikeCommentReportView" customModule="FigFolders" customModuleProvider="target">
             <connections>
                 <outlet property="commentButton" destination="X7W-KT-8QE" id="Oda-Zc-rTS"/>
                 <outlet property="likeButton" destination="hd3-VN-kns" id="VZ7-uf-zMm"/>

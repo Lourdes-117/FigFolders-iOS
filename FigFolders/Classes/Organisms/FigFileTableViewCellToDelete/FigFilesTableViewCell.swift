@@ -11,7 +11,7 @@ class FigFilesTableViewCell: UITableViewCell {
     static let kCellId = "FigFilesTableViewCell"
     
 // MARK: - Outlets
-    @IBOutlet weak var likeCommetShareView: LikeCommentShareView!
+    @IBOutlet weak var likeCommetShareView: LikeCommentReportView!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var fileOwnerNameLabel: UILabel!
     @IBOutlet weak var fileTitleLabel: UILabel!
@@ -27,7 +27,7 @@ class FigFilesTableViewCell: UITableViewCell {
         viewModel.indexPath = indexPath
         setDetails()
         setupDelegate()
-        setupLikeCommentShare()
+        setupLikeCommentReport()
     }
     
     private func setDetails() {
@@ -46,7 +46,7 @@ class FigFilesTableViewCell: UITableViewCell {
         likeCommetShareView.delegate = self
     }
     
-    private func setupLikeCommentShare() {
+    private func setupLikeCommentReport() {
         likeCommetShareView.isLiked = viewModel.isFileLikedByUser
     }
     
@@ -59,7 +59,7 @@ class FigFilesTableViewCell: UITableViewCell {
     }
 }
 
-extension FigFilesTableViewCell: LikeCommentShareDelegate {
+extension FigFilesTableViewCell: LikeCommentReportDelegate {
     func onTapLike(figFileLikeModel: FigFileLikeModel?) {
         let figFileLikeModel = FigFileLikeModel()
         figFileLikeModel.currentUser = currentUserUsername
@@ -72,7 +72,7 @@ extension FigFilesTableViewCell: LikeCommentShareDelegate {
         
     }
     
-    func onTapShare(figFileModel: FigFileModel?) {
+    func onTapReport(figFileModel: FigFileModel?) {
         
     }
 }

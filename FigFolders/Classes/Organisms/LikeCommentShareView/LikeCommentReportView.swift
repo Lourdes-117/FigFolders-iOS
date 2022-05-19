@@ -1,5 +1,5 @@
 //
-//  LikeCommentShareView.swift
+//  LikeCommentReportView.swift
 //  FigFolders
 //
 //  Created by Lourdes on 9/11/21.
@@ -7,23 +7,23 @@
 
 import UIKit
 
-protocol LikeCommentShareDelegate: AnyObject {
+protocol LikeCommentReportDelegate: AnyObject {
     func onTapLike(figFileLikeModel: FigFileLikeModel?)
     func onTapComment(figFileModel: FigFileModel?)
-    func onTapShare(figFileModel: FigFileModel?)
+    func onTapReport(figFileModel: FigFileModel?)
 }
 
-class LikeCommentShareView: UIView {
+class LikeCommentReportView: UIView {
     
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     
-    private let nibName = "LikeCommentShareView"
+    private let nibName = "LikeCommentReportView"
     
-    let viewModel = LikeCommentShareViewModel()
+    let viewModel = LikeCommentReportViewModel()
     
-    weak var delegate: LikeCommentShareDelegate?
+    weak var delegate: LikeCommentReportDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,6 +73,6 @@ class LikeCommentShareView: UIView {
     }
     
     @IBAction func onTapShareButton(_ sender: Any) {
-        delegate?.onTapShare(figFileModel: figFileModel)
+        delegate?.onTapReport(figFileModel: figFileModel)
     }
 }

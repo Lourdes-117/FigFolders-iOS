@@ -14,7 +14,7 @@ protocol FigFilesDisplayTableViewCell: UITableViewCell {
     func setupBlurView(isFree: Bool, ownerUserName: String?, purchasedUsers: [String?]?)
     var blurView: UIView! { get set }
     var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate? { get set }
-    var likeCommentShareDelegate: LikeCommentShareDelegate? { get set }
+    var LikeCommentReportDelegate: LikeCommentReportDelegate? { get set }
 }
 
 extension FigFilesDisplayTableViewCell {

@@ -29,13 +29,13 @@ class UserFigFoldersViewController: ViewControllerWithLoading {
     }
     
     private func setupDatasourceDelegate() {
-        tableView.likeCommentShareDelegate = self
+        tableView.LikeCommentReportDelegate = self
         tableView.figFilesTableViewCellDelegate = self
     }
 }
 
 // MARK: - Like Comment Share Delegate
-extension UserFigFoldersViewController: LikeCommentShareDelegate {
+extension UserFigFoldersViewController: LikeCommentReportDelegate {
     func onTapLike(figFileLikeModel: FigFileLikeModel?) {
         guard let figfileLikeModel = figFileLikeModel else { return }
         CloudFunctionsManager.shared.likePostByUser(figFileLikeModel: figfileLikeModel)
@@ -47,7 +47,7 @@ extension UserFigFoldersViewController: LikeCommentShareDelegate {
         self.navigationController?.pushViewController(commentViewController, animated: true)
     }
     
-    func onTapShare(figFileModel: FigFileModel?) {
+    func onTapReport(figFileModel: FigFileModel?) {
         debugPrint("On Tap Share")
     }
 }

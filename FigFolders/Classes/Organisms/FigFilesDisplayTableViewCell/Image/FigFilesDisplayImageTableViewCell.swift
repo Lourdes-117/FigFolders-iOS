@@ -8,13 +8,13 @@
 import UIKit
 
 class FigFilesDisplayImageTableViewCell: UITableViewCell, FigFilesDisplayTableViewCell {
-    var likeCommentShareDelegate: LikeCommentShareDelegate?
+    var LikeCommentReportDelegate: LikeCommentReportDelegate?
     
     static let kCellId = "FigFilesDisplayImageTableViewCell"
     weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
     
     @IBOutlet weak var blurView: UIView!
-    @IBOutlet weak var likeCommentShareView: LikeCommentShareView!
+    @IBOutlet weak var LikeCommentReportView: LikeCommentReportView!
     @IBOutlet weak var figFileProfileView: FigFileProfileView!
     @IBOutlet weak var figFileImageView: UIImageView!
     
@@ -49,8 +49,8 @@ extension FigFilesDisplayImageTableViewCell {
     func setupCell(figFile: FigFileModel) {
         setupBlurView(isFree: figFile.isFree, ownerUserName: figFile.ownerUsername, purchasedUsers: figFile.purchasedUsers)
         viewModel.figFile = figFile
-        likeCommentShareView.delegate = likeCommentShareDelegate
-        likeCommentShareView.figFileModel = viewModel.figFile
+        LikeCommentReportView.delegate = LikeCommentReportDelegate
+        LikeCommentReportView.figFileModel = viewModel.figFile
         setupGestureRecognizer()
         figFileProfileView.setupView(figFile: figFile)
         figFileImageView.sd_setImage(with: figFile.fileUrlAsUrl, completed: nil)
