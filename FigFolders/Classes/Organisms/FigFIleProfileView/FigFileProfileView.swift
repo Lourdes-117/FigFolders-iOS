@@ -28,7 +28,7 @@ class FigFileProfileView: UIView {
     func setupView(figFile: FigFileModel) {
         viewModel.figFile = figFile
         StorageManager.shared.getProfilePicUrlForUser(userName: viewModel.fileOwnerName) { [weak self] profilePicUrl in
-            self?.profilePicture.sd_setImage(with: profilePicUrl, completed: nil)
+            self?.profilePicture.sd_setImage(with: profilePicUrl, placeholderImage: UIImage(systemName: "person.circle"))
         }
         fileOwnerName.text = viewModel.fileOwnerName
         profilePicture.setRoundedCorners()
