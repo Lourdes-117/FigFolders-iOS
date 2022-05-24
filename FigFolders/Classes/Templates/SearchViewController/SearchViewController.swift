@@ -48,6 +48,11 @@ class SearchViewController: UIViewController {
     
     // MARK: - Helper Methods
     private func searchUserName() {
+        if viewModel.queryString.length < 3 {
+            tableView.isHidden = true
+            self.noResultsLabel.text = viewModel.enterSearchTermString
+            return
+        }
         tableView.isHidden = false
         hud.show(in: tableView)
         guard !viewModel.shouldInturruptSearch else { return }

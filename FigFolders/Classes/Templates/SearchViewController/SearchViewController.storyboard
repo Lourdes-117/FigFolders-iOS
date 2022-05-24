@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Enter Search here" translatesAutoresizingMaskIntoConstraints="NO" id="ie0-Ud-eMa">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Enter Search Term Here" translatesAutoresizingMaskIntoConstraints="NO" id="ie0-Ud-eMa">
                                 <rect key="frame" x="8" y="44" width="398" height="51"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" smartDashesType="no" textContentType="username"/>
                             </searchBar>
