@@ -173,6 +173,7 @@
 		AEF98F7526AD30F700FFD5DA /* FileUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF98F7426AD30F700FFD5DA /* FileUploadViewController.swift */; };
 		AEF98F7726AD310400FFD5DA /* FileUploadViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF98F7626AD310400FFD5DA /* FileUploadViewController.storyboard */; };
 		AEF98F7926AD31F700FFD5DA /* FileUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF98F7826AD31F700FFD5DA /* FileUploadViewModel.swift */; };
+		AEFD0C16283CC06800753DF0 /* DummyFileUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFD0C15283CC06800753DF0 /* DummyFileUploadViewController.swift */; };
 		AEFFCFB9272C91A00069A577 /* NSLayoutConstraintUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFCFB8272C91A00069A577 /* NSLayoutConstraintUtility.swift */; };
 /* End PBXBuildFile section */
 
@@ -347,6 +348,7 @@
 		AEF98F7426AD30F700FFD5DA /* FileUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadViewController.swift; sourceTree = "<group>"; };
 		AEF98F7626AD310400FFD5DA /* FileUploadViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FileUploadViewController.storyboard; sourceTree = "<group>"; };
 		AEF98F7826AD31F700FFD5DA /* FileUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadViewModel.swift; sourceTree = "<group>"; };
+		AEFD0C15283CC06800753DF0 /* DummyFileUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyFileUploadViewController.swift; sourceTree = "<group>"; };
 		AEFFCFB8272C91A00069A577 /* NSLayoutConstraintUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -744,6 +746,7 @@
 		AEA197852649936400D0D181 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				AEFD0C17283CC06D00753DF0 /* DummyFileUpload */,
 				AE8702E428097A7600AED6F7 /* PurchaseFigFileViewController */,
 				AEB3A2A227C003FB00C06E88 /* AddCommentViewController */,
 				AE6D5D3B279D37F300B817A3 /* CommentsViewController */,
@@ -1034,6 +1037,14 @@
 			path = FileUploadViewController;
 			sourceTree = "<group>";
 		};
+		AEFD0C17283CC06D00753DF0 /* DummyFileUpload */ = {
+			isa = PBXGroup;
+			children = (
+				AEFD0C15283CC06800753DF0 /* DummyFileUploadViewController.swift */,
+			);
+			path = DummyFileUpload;
+			sourceTree = "<group>";
+		};
 		AF03CF8B2CBD88D8065AC6B8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1306,6 +1317,7 @@
 				AEE025ED27F4E99E006238B1 /* PurchaseToContinueView.swift in Sources */,
 				AEE4ABCD27944E0B008E941A /* CloudFunctionsManager.swift in Sources */,
 				AEB3A2A827C0045900C06E88 /* AddCommentViewModel.swift in Sources */,
+				AEFD0C16283CC06800753DF0 /* DummyFileUploadViewController.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
 				AE7307A6279A852B0097A372 /* FolderViewModel.swift in Sources */,
 				AEF4A28626EFAF810053DA78 /* UserDetailsTableViewCell.swift in Sources */,

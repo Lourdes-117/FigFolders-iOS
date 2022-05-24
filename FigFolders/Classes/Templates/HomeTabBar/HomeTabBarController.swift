@@ -8,16 +8,17 @@
 import UIKit
 
 class HomeTabBarController: UITabBarController {
-// MARK: - Outlets
-    let uploadFileCenterButton = UIButton()
-    let uploadFileCenterButtonImageView = UIImageView()
-    
     let viewModel = HomeTabControllerViewModel()
     
 // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDatasourceDelegates()
         setupNavigationBar()
+    }
+    
+    private func setupDatasourceDelegates() {
+        self.delegate = self
     }
     
     private func setupNavigationBar() {
@@ -27,40 +28,10 @@ class HomeTabBarController: UITabBarController {
     }
     
     private func setupUploadButton() {
-        uploadFileCenterButton.addTarget(self, action: #selector(onTapUploadButton), for: .touchUpInside)
-        let centerButtonWidthHeight = viewModel.centerButtonWidthHeightForTabBarHeight(tabbarHeight: tabBar.frame.height)
-        uploadFileCenterButton.bounds = CGRect(x: 0, y: 0, width: centerButtonWidthHeight, height: centerButtonWidthHeight)
-        uploadFileCenterButton.backgroundColor = viewModel.centerButtonBackgroundColor
-        
-        uploadFileCenterButton.translatesAutoresizingMaskIntoConstraints = false
-        tabBar.addSubview(uploadFileCenterButton)
-        tabBar.centerXAnchor.constraint(equalTo: uploadFileCenterButton.centerXAnchor).isActive = true
-        tabBar.topAnchor.constraint(equalTo: uploadFileCenterButton.topAnchor, constant: 8).isActive = true
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowRadius = 2
         tabBar.layer.shadowColor = viewModel.tabBarShadowColor
         tabBar.layer.shadowOpacity = 0.3
-        uploadFileCenterButton.widthAnchor.constraint(equalToConstant: centerButtonWidthHeight).isActive = true
-        uploadFileCenterButton.heightAnchor.constraint(equalToConstant: centerButtonWidthHeight).isActive = true
-        
-        uploadFileCenterButton.setRoundedCorners()
-        uploadFileCenterButton.addShadow(offset: viewModel.shadowOffset,
-                                         color: viewModel.shadowColor,
-                                         opacity: viewModel.shadowOpacity,
-                                         radius: viewModel.shadowRadius)
-        uploadFileCenterButtonImageView.translatesAutoresizingMaskIntoConstraints = false
-        uploadFileCenterButton.addSubview(uploadFileCenterButtonImageView)
-        
-        uploadFileCenterButtonImageView.centerXAnchor.constraint(equalTo: uploadFileCenterButton.centerXAnchor).isActive = true
-        uploadFileCenterButtonImageView.centerYAnchor.constraint(equalTo: uploadFileCenterButton.centerYAnchor).isActive = true
-        uploadFileCenterButtonImageView.topAnchor.constraint(equalTo: uploadFileCenterButton.topAnchor, constant: 18).isActive = true
-        uploadFileCenterButtonImageView.bottomAnchor.constraint(equalTo: uploadFileCenterButton.bottomAnchor, constant: -18).isActive = true
-        uploadFileCenterButtonImageView.leadingAnchor.constraint(equalTo: uploadFileCenterButton.leadingAnchor, constant: 0).isActive = true
-        uploadFileCenterButtonImageView.trailingAnchor.constraint(equalTo: uploadFileCenterButton.trailingAnchor, constant: 0).isActive = true
-        
-        uploadFileCenterButtonImageView.setRoundedCorners()
-        uploadFileCenterButtonImageView.image = UIImage(systemName: "plus")
-        uploadFileCenterButtonImageView.contentMode = .scaleAspectFit
     }
     
 // MARK: - Button Tap Actions
@@ -140,5 +111,16 @@ extension HomeTabBarController: FileUploadSelectionDelegate {
                 }
             }
         }
+    }
+}
+
+// MARK: - Tab Bar Controller Delegate
+extension HomeTabBarController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController as? DummyFileUploadViewController != nil {
+            onTapUploadButton()
+            return false
+        }
+        return true
     }
 }
