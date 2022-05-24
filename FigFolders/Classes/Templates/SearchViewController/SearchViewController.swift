@@ -13,12 +13,26 @@ class SearchViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var segmentedController: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var peopleSearchTableView: UITableView!
     @IBOutlet weak var noResultsLabel: UILabel!
     @IBOutlet weak var noResultsBackgroundView: UIView!
+    @IBOutlet weak var figFilesTableView: FigFilesTableView!
     
     // MARK: - Private Properties
     let viewModel = SearchControllerViewModel()
+    var flowType: searchFlowType = .searchPeople {
+        didSet {
+            switch flowType {
+            case .searchPeople:
+                peopleSearchTableView.isHidden = false
+                figFilesTableView.isHidden = true
+                searchUserName()
+            case .searchFiles:
+                peopleSearchTableView.isHidden = true
+                figFilesTableView.isHidden = false
+            }
+        }
+    }
     
     private let hud = JGProgressHUD(style: .extraLight)
 
@@ -30,21 +44,22 @@ class SearchViewController: UIViewController {
         setupDatasourceDelegate()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         noResultsBackgroundView.addGestureRecognizer(tapGesture)
+        flowType = .searchPeople
     }
     
     // MARK: - Initial Setup
     private func initialSetup() {
         self.title = viewModel.pageTitle
-        tableView.isHidden = true
+        peopleSearchTableView.isHidden = true
     }
     
     private func registerCells() {
-        tableView.register(UINib(nibName: ChatListTableViewCell.kIdentifier, bundle: Bundle.main), forCellReuseIdentifier: ChatListTableViewCell.kIdentifier)
+        peopleSearchTableView.register(UINib(nibName: ChatListTableViewCell.kIdentifier, bundle: Bundle.main), forCellReuseIdentifier: ChatListTableViewCell.kIdentifier)
     }
     
     private func setupDatasourceDelegate() {
-        tableView.dataSource = self
-        tableView.delegate = self
+        peopleSearchTableView.dataSource = self
+        peopleSearchTableView.delegate = self
         searchBar.delegate = self
     }
     
@@ -53,29 +68,31 @@ class SearchViewController: UIViewController {
     private func searchUserName() {
         viewModel.searchResultUserNames.removeAll()
         if viewModel.queryString.length < 3 {
-            tableView.isHidden = true
+            peopleSearchTableView.isHidden = true
             self.noResultsLabel.text = viewModel.enterSearchTermString
             return
         }
-        tableView.reloadData()
-        tableView.isHidden = false
-        hud.show(in: tableView)
+        peopleSearchTableView.reloadData()
+        peopleSearchTableView.isHidden = false
+        hud.show(in: peopleSearchTableView)
         guard !viewModel.shouldInturruptSearch else { return }
         viewModel.searchUserNames(queryUserName: viewModel.queryString) { [weak self] success in
             guard let self = self else { return }
             self.hud.dismiss(animated: true)
             guard success && self.viewModel.searchResultUserNames.count > 0 else {
-                self.tableView.isHidden = true
+                self.peopleSearchTableView.isHidden = true
                 self.noResultsLabel.text = self.searchBar.text?.isEmpty ?? true ? self.viewModel.enterSearchTermString : self.viewModel.noResultsFoundString
                 return
             }
-            self.tableView.isHidden = false
-            self.tableView.reloadData()
+            self.peopleSearchTableView.isHidden = false
+            self.peopleSearchTableView.reloadData()
         }
     }
     
     // MARK: - Actions
     @IBAction func segmentValueChanged(_ sender: Any) {
+        guard let selectedSearchType = searchFlowType(rawValue: segmentedController.selectedSegmentIndex) else { return }
+        flowType = selectedSearchType
         view.endEditing(true)
     }
 }

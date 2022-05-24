@@ -20,14 +20,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FigFilesTableViewCell" rowHeight="350" id="Il7-Uq-rUT" customClass="FigFilesTableViewCell" customModule="FigFolders" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="424" height="350"/>
+            <rect key="frame" x="0.0" y="0.0" width="424" height="354"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Il7-Uq-rUT" id="Dag-2y-AA8">
-                <rect key="frame" x="0.0" y="0.0" width="424" height="350"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Il7-Uq-rUT" id="Dag-2y-AA8">
+                <rect key="frame" x="0.0" y="0.0" width="424" height="354"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Nv-Fj-1GT">
-                        <rect key="frame" x="0.0" y="0.0" width="424" height="350"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Nv-Fj-1GT">
+                        <rect key="frame" x="0.0" y="0.0" width="424" height="354"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qit-OC-AYx" customClass="LikeCommentReportView" customModule="FigFolders" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="309" width="424" height="45"/>

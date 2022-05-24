@@ -63,11 +63,19 @@
                                 <rect key="frame" x="0.0" y="138" width="414" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mm9-81-p4M" customClass="FigFilesTableView" customModule="FigFolders" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Primary-Green"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="mm9-81-p4M" secondAttribute="bottom" id="0Vt-s4-QoQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mm9-81-p4M" secondAttribute="trailing" id="BeE-1R-o3A"/>
+                            <constraint firstItem="mm9-81-p4M" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FOC-4l-sQv"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="tII-IN-DCn" secondAttribute="top" id="NHN-fs-WHM"/>
+                            <constraint firstItem="mm9-81-p4M" firstAttribute="top" secondItem="XhG-9S-dT3" secondAttribute="top" id="Svo-dx-qdy"/>
                             <constraint firstItem="XhG-9S-dT3" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="WLx-Ae-tXJ"/>
                             <constraint firstItem="XhG-9S-dT3" firstAttribute="top" secondItem="ORN-i9-kWO" secondAttribute="bottom" constant="8" id="aBI-HQ-rvK"/>
                             <constraint firstItem="tII-IN-DCn" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="g96-EC-Hlm"/>
@@ -78,11 +86,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="figFilesTableView" destination="mm9-81-p4M" id="y1X-BX-F9H"/>
                         <outlet property="noResultsBackgroundView" destination="tII-IN-DCn" id="VGj-7K-4dq"/>
                         <outlet property="noResultsLabel" destination="vym-zb-9Gf" id="cUV-l5-f1B"/>
+                        <outlet property="peopleSearchTableView" destination="XhG-9S-dT3" id="0cZ-Mj-6a5"/>
                         <outlet property="searchBar" destination="ie0-Ud-eMa" id="p7P-Mx-vYs"/>
                         <outlet property="segmentedController" destination="ORN-i9-kWO" id="YqK-6H-QZ5"/>
-                        <outlet property="tableView" destination="XhG-9S-dT3" id="l5Z-C9-ENc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

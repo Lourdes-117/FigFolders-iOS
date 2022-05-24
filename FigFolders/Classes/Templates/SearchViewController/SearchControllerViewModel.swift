@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum searchFlowType: Int {
+    case searchPeople = 0
+    case searchFiles = 1
+}
+
 class SearchControllerViewModel {
     let pageTitle = "Search"
     let enterSearchTermString = "Enter Search Term To Continue"
