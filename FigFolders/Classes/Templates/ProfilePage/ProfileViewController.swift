@@ -26,6 +26,7 @@ class ProfileViewController: ViewControllerWithLoading {
     @IBOutlet weak var emailIDTextField: UITextField!
     @IBOutlet weak var dateOfBirthDatePicker: UIDatePicker!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var changeProfilePhotoButton: UIButton!
     
     let viewModel = ProfileViewModel()
     
@@ -63,6 +64,11 @@ class ProfileViewController: ViewControllerWithLoading {
         emailIDTextField.delegate = self
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        profilePictureView.layer.borderColor = viewModel.profilePicBorderColor
+    }
+    
     private func setupView() {
         self.title = viewModel.pageTitle
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -83,10 +89,14 @@ class ProfileViewController: ViewControllerWithLoading {
         personalDetailsEditButton.layer.shadowOffset = .zero
         personalDetailsEditButton.layer.shadowRadius = viewModel.editButtonCornerRadius
         dateOfBirthDatePicker.maximumDate = Date()
+        changeProfilePhotoButton.setTitle("", for: .normal)
+        changeProfilePhotoButton.setRoundedCorners()
+        profilePictureView.layer.borderWidth = viewModel.profildPicBorderWidth
+        profilePictureView.layer.borderColor = viewModel.profilePicBorderColor
     }
     
     private func setupProfilePicture() {
-        let profilePicTapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapProfilePicEdit))
+        let profilePicTapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapProfilePic))
         profilePictureView.addGestureRecognizer(profilePicTapGesture)
         profilePictureView.isUserInteractionEnabled = true
         if let profilePictureUrl = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) as? String,
@@ -205,8 +215,17 @@ class ProfileViewController: ViewControllerWithLoading {
         self.present(alertView, animated: true, completion: nil)
     }
     
-    @objc func onTapProfilePicEdit() {
+    @IBAction func onTapEditProfilePicButton(_ sender: Any) {
         presentPhotoActionSheet()
+    }
+    
+    @objc func onTapProfilePic() {
+        if let profilePictureUrl = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) as? String,
+           let url = URL(string: profilePictureUrl) {
+            guard let profilePicViewerViewController = ImageViewerViewController.initiateVC() else { return }
+            profilePicViewerViewController.imageUrl = url
+            self.present(profilePicViewerViewController, animated: true)
+        }
     }
     
     @IBAction func onTapEditPersonalDetails(_ sender: Any) {

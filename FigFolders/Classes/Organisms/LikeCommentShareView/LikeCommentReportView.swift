@@ -48,6 +48,10 @@ class LikeCommentReportView: UIView {
             viewModel.figFileLikeModel.currentUser = currentUserUsername
             
             isLiked = figFileModel?.likedUsers?.contains(currentUserUsername ?? "") ?? false
+            if let numberOfLikes = figFileModel?.likedUsers?.count,
+               numberOfLikes > 0 {
+                likeButton.setTitle(String(numberOfLikes), for: .normal)
+            }
         }
     }
     
@@ -66,6 +70,19 @@ class LikeCommentReportView: UIView {
         viewModel.isLiked.toggle()
         isLiked = viewModel.isLiked
         delegate?.onTapLike(figFileLikeModel: viewModel.figFileLikeModel)
+        if viewModel.isLiked { // liking
+            let numberOfLikes = (figFileModel?.likedUsers?.count ?? 0) + 1
+            likeButton.setTitle(String(numberOfLikes), for: .normal)
+        } else { // disliking
+            var likedUsers = figFileModel?.likedUsers ?? []
+            likedUsers.removeAll(where: {$0 == currentUserUsername})
+            let numberOfLikes = likedUsers.count
+            if numberOfLikes > 0 {
+                likeButton.setTitle(String(numberOfLikes), for: .normal)
+            } else {
+                likeButton.setTitle("", for: .normal)
+            }
+        }
     }
     
     @IBAction func onTapCommentButton(_ sender: Any) {

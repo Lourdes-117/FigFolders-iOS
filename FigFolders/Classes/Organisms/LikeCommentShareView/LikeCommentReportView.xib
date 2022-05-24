@@ -26,7 +26,10 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hd3-VN-kns">
                             <rect key="frame" x="0.0" y="0.0" width="189.5" height="119"/>
-                            <state key="normal" image="hand.thumbsup" catalog="system"/>
+                            <color key="tintColor" systemColor="linkColor"/>
+                            <state key="normal" image="hand.thumbsup" catalog="system">
+                                <color key="titleColor" systemColor="linkColor"/>
+                            </state>
                             <connections>
                                 <action selector="onTapLikeButton:" destination="-1" eventType="touchUpInside" id="4hp-0a-r5d"/>
                             </connections>
@@ -66,6 +69,9 @@
         <image name="comment_icon" width="24" height="24"/>
         <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
         <image name="redflag_icon" width="16" height="16"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

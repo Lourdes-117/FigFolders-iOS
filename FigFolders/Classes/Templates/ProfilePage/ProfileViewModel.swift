@@ -16,6 +16,8 @@ class ProfileViewModel {
     let editButtonDhadowOpacity: Float = 1
     let editButtonShadowRadius: CGFloat = 10
     let editButtonCornerRadius: CGFloat = 5
+    let profildPicBorderWidth: CGFloat = 1
+    let profilePicBorderColor = ColorPalette.greyscale4.color?.cgColor
     
     let logOutButtonTitle = "Log Out"
     let logOutButtonColor = LabelColorPalette.labelColorRed.color

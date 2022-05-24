@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -225,6 +225,22 @@
                                                 <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXY-cb-5iD">
+                                                <rect key="frame" x="83" y="83" width="35" height="35"/>
+                                                <color key="backgroundColor" name="Primary-Green"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="WXY-cb-5iD" secondAttribute="height" multiplier="1:1" id="SQR-6Y-aIM"/>
+                                                    <constraint firstAttribute="height" constant="35" id="cGh-jh-ecE"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="camera_icon">
+                                                    <color key="baseForegroundColor" name="Greyscale1"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onTapEditProfilePicButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="kE4-1C-M22"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" name="Greyscale1"/>
                                         <constraints>
@@ -242,6 +258,7 @@
                                             <constraint firstItem="dh7-Ar-Hgz" firstAttribute="centerX" secondItem="yLq-Dl-PAi" secondAttribute="centerX" multiplier="0.5" id="9gU-w0-L1o"/>
                                             <constraint firstItem="y00-Sa-11f" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" constant="20" id="9hb-W4-AmZ"/>
                                             <constraint firstItem="RJy-2y-avK" firstAttribute="centerY" secondItem="y00-Sa-11f" secondAttribute="centerY" id="BCM-f0-Egt"/>
+                                            <constraint firstItem="WXY-cb-5iD" firstAttribute="trailing" secondItem="pvw-zv-gzC" secondAttribute="trailing" id="BEN-Vc-5RD"/>
                                             <constraint firstItem="rtU-Na-qDA" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" id="BaJ-no-8GJ"/>
                                             <constraint firstAttribute="trailing" secondItem="Gr5-dU-UBy" secondAttribute="trailing" constant="13" id="CXG-98-gXe"/>
                                             <constraint firstItem="RJy-2y-avK" firstAttribute="leading" secondItem="y00-Sa-11f" secondAttribute="trailing" constant="10" id="E9J-Fm-CtT"/>
@@ -296,6 +313,7 @@
                                             <constraint firstItem="EbA-wq-3cm" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" id="v8s-6w-Gwd"/>
                                             <constraint firstItem="lKl-to-PpI" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" constant="17" id="wcI-g0-zKF"/>
                                             <constraint firstItem="dWk-LD-PIM" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" constant="20" id="wl5-zI-nnS"/>
+                                            <constraint firstItem="WXY-cb-5iD" firstAttribute="bottom" secondItem="pvw-zv-gzC" secondAttribute="bottom" id="x2J-DG-HyP"/>
                                             <constraint firstItem="gnI-CN-Sbd" firstAttribute="leading" secondItem="jyZ-Xf-e4Q" secondAttribute="leading" id="x9a-24-6FS"/>
                                             <constraint firstItem="Svx-ak-6xU" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" id="xQQ-r3-01y"/>
                                             <constraint firstAttribute="trailing" secondItem="EbA-wq-3cm" secondAttribute="trailing" id="ych-7b-FIe"/>
@@ -324,6 +342,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="changeProfilePhotoButton" destination="WXY-cb-5iD" id="8RX-wN-zqa"/>
                         <outlet property="dateOfBirthDatePicker" destination="qvt-pF-lTg" id="9le-GZ-NQE"/>
                         <outlet property="emailIDTextField" destination="gfy-Gn-aTG" id="BBv-4s-n6T"/>
                         <outlet property="firstNameTextField" destination="jyZ-Xf-e4Q" id="adf-WL-q1z"/>
@@ -343,6 +362,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera_icon" width="20" height="20"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="personal_details_icon" width="22" height="16"/>
         <image name="recent_uploads_icon" width="19" height="22"/>
