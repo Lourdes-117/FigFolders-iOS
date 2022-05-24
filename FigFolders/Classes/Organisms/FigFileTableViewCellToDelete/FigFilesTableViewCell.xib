@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,15 +22,15 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FigFilesTableViewCell" rowHeight="350" id="Il7-Uq-rUT" customClass="FigFilesTableViewCell" customModule="FigFolders" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="424" height="350"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Il7-Uq-rUT" id="Dag-2y-AA8">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Il7-Uq-rUT" id="Dag-2y-AA8">
                 <rect key="frame" x="0.0" y="0.0" width="424" height="350"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Nv-Fj-1GT">
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Nv-Fj-1GT">
                         <rect key="frame" x="0.0" y="0.0" width="424" height="350"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qit-OC-AYx" customClass="LikeCommentReportView" customModule="FigFolders" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="305" width="424" height="45"/>
+                                <rect key="frame" x="0.0" y="309" width="424" height="45"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="HaG-Yb-PhL"/>
@@ -51,7 +53,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gf-qZ-uyd">
-                                        <rect key="frame" x="348" y="17" width="61" height="31"/>
+                                        <rect key="frame" x="349" y="17" width="60" height="31"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                         <state key="normal" title="+ Follow">
                                             <color key="titleColor" name="Primary-Green"/>
@@ -106,7 +108,7 @@
                             <constraint firstItem="d1F-On-uCd" firstAttribute="leading" secondItem="4Nv-Fj-1GT" secondAttribute="leading" id="MGe-MV-3Nt"/>
                             <constraint firstItem="d1F-On-uCd" firstAttribute="top" secondItem="4Nv-Fj-1GT" secondAttribute="top" id="NR8-IB-Edn"/>
                             <constraint firstItem="j5X-zf-rz3" firstAttribute="leading" secondItem="EFY-gv-GXJ" secondAttribute="leading" id="PSd-RI-hhr"/>
-                            <constraint firstItem="qit-OC-AYx" firstAttribute="top" secondItem="9fv-8j-PjN" secondAttribute="bottom" id="Udz-Bh-dG4"/>
+                            <constraint firstItem="qit-OC-AYx" firstAttribute="top" secondItem="9fv-8j-PjN" secondAttribute="bottom" constant="4" id="Udz-Bh-dG4"/>
                             <constraint firstItem="9fv-8j-PjN" firstAttribute="top" secondItem="j5X-zf-rz3" secondAttribute="top" id="b34-Hz-gPI"/>
                             <constraint firstItem="9fv-8j-PjN" firstAttribute="leading" secondItem="4Nv-Fj-1GT" secondAttribute="leading" id="dtn-wn-Oh8"/>
                             <constraint firstItem="j5X-zf-rz3" firstAttribute="top" secondItem="d1F-On-uCd" secondAttribute="bottom" id="ifC-Gd-t3b"/>

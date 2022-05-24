@@ -15,6 +15,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noResultsLabel: UILabel!
+    @IBOutlet weak var noResultsBackgroundView: UIView!
     
     // MARK: - Private Properties
     let viewModel = SearchControllerViewModel()
@@ -27,12 +28,12 @@ class SearchViewController: UIViewController {
         initialSetup()
         registerCells()
         setupDatasourceDelegate()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        noResultsBackgroundView.addGestureRecognizer(tapGesture)
     }
     
     // MARK: - Initial Setup
     private func initialSetup() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tapGesture)
         self.title = viewModel.pageTitle
         tableView.isHidden = true
     }
@@ -50,11 +51,13 @@ class SearchViewController: UIViewController {
     
     // MARK: - Helper Methods
     private func searchUserName() {
+        viewModel.searchResultUserNames.removeAll()
         if viewModel.queryString.length < 3 {
             tableView.isHidden = true
             self.noResultsLabel.text = viewModel.enterSearchTermString
             return
         }
+        tableView.reloadData()
         tableView.isHidden = false
         hud.show(in: tableView)
         guard !viewModel.shouldInturruptSearch else { return }
@@ -116,6 +119,7 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let profileDetailsPage = UserProfileViewController.initiateVC() else { return }
+        view.endEditing(true)
         profileDetailsPage.userNameToPopulate = viewModel.searchResultUserNames.getObjectSafely(indexPath.row)
         navigationController?.pushViewController(profileDetailsPage, animated: true)
     }

@@ -32,7 +32,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IvZ-HD-sD0" customClass="LikeCommentReportView" customModule="FigFolders" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="316" width="370" height="45"/>
+                        <rect key="frame" x="0.0" y="320" width="370" height="45"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="g18-pU-nef"/>
@@ -45,13 +45,13 @@
                         </constraints>
                     </imageView>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETg-7m-hHB">
-                        <rect key="frame" x="0.0" y="66" width="370" height="295"/>
+                        <rect key="frame" x="0.0" y="66" width="370" height="299"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="y8B-jZ-cfu" secondAttribute="trailing" id="3BU-Xg-t1a"/>
-                    <constraint firstItem="IvZ-HD-sD0" firstAttribute="top" secondItem="2EI-cK-PPa" secondAttribute="bottom" id="4mN-Bv-baP"/>
+                    <constraint firstItem="IvZ-HD-sD0" firstAttribute="top" secondItem="2EI-cK-PPa" secondAttribute="bottom" constant="4" id="4mN-Bv-baP"/>
                     <constraint firstItem="y8B-jZ-cfu" firstAttribute="top" secondItem="vfF-rS-RWW" secondAttribute="bottom" id="5Tw-h9-2ey"/>
                     <constraint firstItem="ETg-7m-hHB" firstAttribute="trailing" secondItem="2EI-cK-PPa" secondAttribute="trailing" id="BNR-a0-XT9"/>
                     <constraint firstAttribute="trailing" secondItem="vfF-rS-RWW" secondAttribute="trailing" id="FHc-Sn-hXG"/>

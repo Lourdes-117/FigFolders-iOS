@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -24,14 +26,14 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wl0-V4-sla" userLabel="Divider View">
-                        <rect key="frame" x="16" y="65" width="348" height="1"/>
+                        <rect key="frame" x="20" y="65" width="340" height="1"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Ru5-2t-1Wa"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R1R-IC-16g" customClass="LikeCommentReportView" customModule="FigFolders" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="316" width="380" height="45"/>
+                        <rect key="frame" x="0.0" y="320" width="380" height="45"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="GB1-VM-cqj"/>
@@ -44,7 +46,7 @@
                         </constraints>
                     </imageView>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqd-V4-mCl">
-                        <rect key="frame" x="0.0" y="66" width="380" height="295"/>
+                        <rect key="frame" x="0.0" y="66" width="380" height="299"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </subviews>
@@ -54,7 +56,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="wl0-V4-sla" secondAttribute="trailing" id="2VX-HT-AEQ"/>
                     <constraint firstItem="R1R-IC-16g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="74a-j2-DvB"/>
                     <constraint firstAttribute="trailing" secondItem="0B4-cC-lq6" secondAttribute="trailing" id="8Sg-la-wiA"/>
-                    <constraint firstItem="R1R-IC-16g" firstAttribute="top" secondItem="89h-sY-y0J" secondAttribute="bottom" id="IOj-UV-4LT"/>
+                    <constraint firstItem="R1R-IC-16g" firstAttribute="top" secondItem="89h-sY-y0J" secondAttribute="bottom" constant="4" id="IOj-UV-4LT"/>
                     <constraint firstAttribute="trailing" secondItem="R1R-IC-16g" secondAttribute="trailing" id="M4W-YY-feI"/>
                     <constraint firstItem="0B4-cC-lq6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="PPX-mV-gGb"/>
                     <constraint firstItem="wl0-V4-sla" firstAttribute="top" secondItem="0B4-cC-lq6" secondAttribute="bottom" id="T3L-IQ-IQL"/>
