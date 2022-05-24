@@ -55,8 +55,12 @@ class UserProfileViewController: ViewControllerWithLoading {
     private func getFigFilesInitial() {
         showLoadingIndicator()
         viewModel.fetchFigFilesWithPagination { [weak self] _ in
-            self?.tableView.reloadData()
-            self?.hideLoadingIndicatorView()
+            guard let self = self else { return }
+            self.tableView.reloadData()
+            self.hideLoadingIndicatorView()
+            if self.viewModel.numberOfFigFiles <= 0 {
+                self.tableView.isHidden = true
+            }
         }
     }
     

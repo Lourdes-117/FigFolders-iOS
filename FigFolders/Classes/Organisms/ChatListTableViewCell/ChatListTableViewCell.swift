@@ -38,6 +38,7 @@ class ChatListTableViewCell: UITableViewCell {
         DatabaseManager.shared.getUserDetailsForUsername(username: userNameString) { [weak self] userDetailsModel in
             guard let userDetails = userDetailsModel else { return }
             let profilePicUrl = URL(string: userDetails.profilePicUrl)
+            self?.profilePic.image = self?.viewModel.profilePlaceholderImage
             self?.profilePic.sd_setImage(with: profilePicUrl, placeholderImage: self?.viewModel.profilePlaceholderImage)
         }
         setupContentPreviewImage()
@@ -53,7 +54,7 @@ class ChatListTableViewCell: UITableViewCell {
         case .chatList:
             usernameTopConstraint = usernameTopConstraint.getLayoutConstraintWithPriority(viewModel.highPriorityPriority)
             usernameCenterConstraint = usernameCenterConstraint.getLayoutConstraintWithPriority(viewModel.lowPriority)
-        case .chatSearch:
+        case .search:
             recentMessage.isHidden = true
             recentMessageDate.isHidden = true
             recentMessageContentPreviewImageView.isHidden = true

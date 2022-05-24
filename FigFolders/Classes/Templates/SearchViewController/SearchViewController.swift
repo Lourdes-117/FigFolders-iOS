@@ -22,6 +22,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        registerCells()
         setupDatasourceDelegate()
     }
     
@@ -31,24 +32,73 @@ class SearchViewController: UIViewController {
         tableView.isHidden = true
     }
     
+    private func registerCells() {
+        tableView.register(UINib(nibName: ChatListTableViewCell.kIdentifier, bundle: Bundle.main), forCellReuseIdentifier: ChatListTableViewCell.kIdentifier)
+    }
+    
     private func setupDatasourceDelegate() {
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
+    }
+    
+    
+    // MARK: - Helper Methods
+    private func searchUserName() {
+        guard !viewModel.shouldInturruptSearch else { return }
+        viewModel.searchUserNames(queryUserName: viewModel.queryString) { [weak self] success in
+            guard let self = self else { return }
+            guard success && self.viewModel.searchResultUserNames.count > 0 else {
+                self.tableView.isHidden = true
+                self.noResultsLabel.text = self.searchBar.text?.isEmpty ?? true ? self.viewModel.enterSearchTermString : self.viewModel.noResultsFoundString
+                return
+            }
+            self.tableView.isHidden = false
+            self.tableView.reloadData()
+        }
     }
 }
 
 // MARK: - TableView Datasource
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        viewModel.searchResultUserNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.kIdentifier) as? ChatListTableViewCell else { return UITableViewCell() }
+        cell.configureCell(userNameString: viewModel.searchResultUserNames.getObjectSafely(indexPath.row), cellType: .search)
+        return cell
+    }
+}
+
+// MARK: - SearchBar Delegate
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.queryString = (searchBar.text?.lowercased() ?? "").replacingOccurrences(of: " ", with: "")
+        view.endEditing(true)
+        self.viewModel.shouldInturruptSearch = false
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
+            guard let self = self else { return }
+            self.searchUserName()
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.queryString = (searchText.lowercased()).replacingOccurrences(of: " ", with: "")
+        self.viewModel.shouldInturruptSearch = true
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
+            guard let self = self else { return }
+            self.searchUserName()
+        }
     }
 }
 
 // MARK: - TableView Delegate
 extension SearchViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let profileDetailsPage = UserProfileViewController.initiateVC() else { return }
+        profileDetailsPage.userNameToPopulate = viewModel.searchResultUserNames.getObjectSafely(indexPath.row)
+        navigationController?.pushViewController(profileDetailsPage, animated: true)
+    }
 }

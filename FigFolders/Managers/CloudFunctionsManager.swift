@@ -174,4 +174,12 @@ class CloudFunctionsManager {
         URLSession.shared.dataTask(with: urlRequest) { _, _ , _ in
         }.resume()
     }
+    
+    func searchUsers(queryUserName: String, pagination: Int, completion: @escaping (Result<[String], Error>) -> Void ) {
+        let searchUsersUrl = String(format: UrlEndpoints.searchUsers, queryUserName, pagination)
+        debugPrint("Requested url - \(searchUsersUrl)")
+        NetworkManager.getData(searchUsersUrl, [String].self) { result in
+            completion(result)
+        }
+    }
 }

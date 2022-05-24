@@ -10,7 +10,7 @@ import UIKit
 import MessageKit
 
 enum ChatListCellType {
-    case chatSearch
+    case search
     case chatList
 }
 

@@ -126,7 +126,7 @@ extension SearchChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTableViewCell.kIdentifier) as? ChatListTableViewCell,
               let userNameString = searchResults[indexPath.row].values.first else { return UITableViewCell() }
-        cell.configureCell(userNameString: userNameString, cellType: .chatSearch)
+        cell.configureCell(userNameString: userNameString, cellType: .search)
         return cell
     }
 }

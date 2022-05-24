@@ -17,4 +17,5 @@ struct UrlEndpoints {
     static let addCommentUrl = "https://us-central1-figfolders-30b48.cloudfunctions.net/addCommentsForFile"
     static let editCommentUrl = "https://us-central1-figfolders-30b48.cloudfunctions.net/editCommentForFile"
     static let followUser = "https://us-central1-figfolders-30b48.cloudfunctions.net/followUser"
+    static let searchUsers = "https://us-central1-figfolders-30b48.cloudfunctions.net/searchUser?queryUserName=%@&pagination=%d"
 }
