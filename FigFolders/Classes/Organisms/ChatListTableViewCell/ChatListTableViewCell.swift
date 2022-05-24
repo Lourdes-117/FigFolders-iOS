@@ -28,6 +28,10 @@ class ChatListTableViewCell: UITableViewCell {
         setupView()
     }
     
+    override func prepareForReuse() {
+        profilePic.image = viewModel.profilePlaceholderImage
+    }
+    
     func configureCell(userNameString: String?, cellType: ChatListCellType, latestMessage: UserLatestConversationModel? = nil) {
         viewModel.latestMessage = latestMessage
         setupCellType(cellType: cellType)

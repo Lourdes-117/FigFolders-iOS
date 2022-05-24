@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class SearchViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class SearchViewController: UIViewController {
     
     // MARK: - Private Properties
     let viewModel = SearchControllerViewModel()
+    
+    private let hud = JGProgressHUD(style: .extraLight)
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -45,9 +48,12 @@ class SearchViewController: UIViewController {
     
     // MARK: - Helper Methods
     private func searchUserName() {
+        tableView.isHidden = false
+        hud.show(in: tableView)
         guard !viewModel.shouldInturruptSearch else { return }
         viewModel.searchUserNames(queryUserName: viewModel.queryString) { [weak self] success in
             guard let self = self else { return }
+            self.hud.dismiss(animated: true)
             guard success && self.viewModel.searchResultUserNames.count > 0 else {
                 self.tableView.isHidden = true
                 self.noResultsLabel.text = self.searchBar.text?.isEmpty ?? true ? self.viewModel.enterSearchTermString : self.viewModel.noResultsFoundString
