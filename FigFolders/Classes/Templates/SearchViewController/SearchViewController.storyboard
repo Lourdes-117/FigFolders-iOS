@@ -32,6 +32,9 @@
                                     <segment title="People"/>
                                     <segment title="Files"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentValueChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="PWu-Mn-SrW"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Search Term To Continue" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vym-zb-9Gf">
                                 <rect key="frame" x="16" y="436.5" width="382" height="23.5"/>

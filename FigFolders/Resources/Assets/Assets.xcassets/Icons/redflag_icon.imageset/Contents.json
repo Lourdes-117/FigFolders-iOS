@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "icons8-flag-filled-color-16.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
       "filename" : "icons8-flag-filled-color-32.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "icons8-flag-filled-color-96.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "idiom" : "universal"
     }
   ],
   "info" : {

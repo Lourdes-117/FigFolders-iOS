@@ -31,6 +31,8 @@ class SearchViewController: UIViewController {
     
     // MARK: - Initial Setup
     private func initialSetup() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
         self.title = viewModel.pageTitle
         tableView.isHidden = true
     }
@@ -67,6 +69,11 @@ class SearchViewController: UIViewController {
             self.tableView.isHidden = false
             self.tableView.reloadData()
         }
+    }
+    
+    // MARK: - Actions
+    @IBAction func segmentValueChanged(_ sender: Any) {
+        view.endEditing(true)
     }
 }
 
