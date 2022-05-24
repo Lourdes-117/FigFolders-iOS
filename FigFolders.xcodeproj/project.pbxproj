@@ -174,6 +174,12 @@
 		AEF98F7726AD310400FFD5DA /* FileUploadViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF98F7626AD310400FFD5DA /* FileUploadViewController.storyboard */; };
 		AEF98F7926AD31F700FFD5DA /* FileUploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF98F7826AD31F700FFD5DA /* FileUploadViewModel.swift */; };
 		AEFD0C16283CC06800753DF0 /* DummyFileUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFD0C15283CC06800753DF0 /* DummyFileUploadViewController.swift */; };
+		AEFD0C1A283CC17A00753DF0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFD0C19283CC17A00753DF0 /* SearchViewController.swift */; };
+		AEFD0C1C283CC18300753DF0 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFD0C1B283CC18300753DF0 /* SearchViewController.storyboard */; };
+		AEFD0C1E283CC19300753DF0 /* SearchControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFD0C1D283CC19300753DF0 /* SearchControllerViewModel.swift */; };
+		AEFD0C21283CC4C900753DF0 /* PurchasedFilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFD0C20283CC4C900753DF0 /* PurchasedFilesViewController.swift */; };
+		AEFD0C23283CC4D100753DF0 /* PurchasedFilesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFD0C22283CC4D100753DF0 /* PurchasedFilesViewController.storyboard */; };
+		AEFD0C25283CC4E500753DF0 /* PurchasedFilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFD0C24283CC4E500753DF0 /* PurchasedFilesViewModel.swift */; };
 		AEFFCFB9272C91A00069A577 /* NSLayoutConstraintUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFFCFB8272C91A00069A577 /* NSLayoutConstraintUtility.swift */; };
 /* End PBXBuildFile section */
 
@@ -349,6 +355,12 @@
 		AEF98F7626AD310400FFD5DA /* FileUploadViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FileUploadViewController.storyboard; sourceTree = "<group>"; };
 		AEF98F7826AD31F700FFD5DA /* FileUploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploadViewModel.swift; sourceTree = "<group>"; };
 		AEFD0C15283CC06800753DF0 /* DummyFileUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyFileUploadViewController.swift; sourceTree = "<group>"; };
+		AEFD0C19283CC17A00753DF0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AEFD0C1B283CC18300753DF0 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		AEFD0C1D283CC19300753DF0 /* SearchControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerViewModel.swift; sourceTree = "<group>"; };
+		AEFD0C20283CC4C900753DF0 /* PurchasedFilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedFilesViewController.swift; sourceTree = "<group>"; };
+		AEFD0C22283CC4D100753DF0 /* PurchasedFilesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PurchasedFilesViewController.storyboard; sourceTree = "<group>"; };
+		AEFD0C24283CC4E500753DF0 /* PurchasedFilesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedFilesViewModel.swift; sourceTree = "<group>"; };
 		AEFFCFB8272C91A00069A577 /* NSLayoutConstraintUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -746,6 +758,8 @@
 		AEA197852649936400D0D181 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				AEFD0C1F283CC4B600753DF0 /* PurchasedFilesViewController */,
+				AEFD0C18283CC16400753DF0 /* SearchViewController */,
 				AEFD0C17283CC06D00753DF0 /* DummyFileUpload */,
 				AE8702E428097A7600AED6F7 /* PurchaseFigFileViewController */,
 				AEB3A2A227C003FB00C06E88 /* AddCommentViewController */,
@@ -1045,6 +1059,26 @@
 			path = DummyFileUpload;
 			sourceTree = "<group>";
 		};
+		AEFD0C18283CC16400753DF0 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AEFD0C1B283CC18300753DF0 /* SearchViewController.storyboard */,
+				AEFD0C1D283CC19300753DF0 /* SearchControllerViewModel.swift */,
+				AEFD0C19283CC17A00753DF0 /* SearchViewController.swift */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		AEFD0C1F283CC4B600753DF0 /* PurchasedFilesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AEFD0C22283CC4D100753DF0 /* PurchasedFilesViewController.storyboard */,
+				AEFD0C24283CC4E500753DF0 /* PurchasedFilesViewModel.swift */,
+				AEFD0C20283CC4C900753DF0 /* PurchasedFilesViewController.swift */,
+			);
+			path = PurchasedFilesViewController;
+			sourceTree = "<group>";
+		};
 		AF03CF8B2CBD88D8065AC6B8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1136,6 +1170,7 @@
 				AE0E3CD226713046002D2D29 /* ChatListTableViewCell.xib in Resources */,
 				AEF8426F264D8EAF00FB8003 /* Roboto-Regular.ttf in Resources */,
 				AEF98F7726AD310400FFD5DA /* FileUploadViewController.storyboard in Resources */,
+				AEFD0C23283CC4D100753DF0 /* PurchasedFilesViewController.storyboard in Resources */,
 				AEF84289264DA33200FB8003 /* OnboardingRegisterStepTwoViewController.storyboard in Resources */,
 				AEF84272264D8EAF00FB8003 /* Roboto-BoldItalic.ttf in Resources */,
 				AE0C74FB26FCC567002724CF /* VideoPlayerView.xib in Resources */,
@@ -1165,6 +1200,7 @@
 				AE8702EA28097BAC00AED6F7 /* PurchaseFigFileViewController.storyboard in Resources */,
 				AE9D2348266B6C56005B5C55 /* SearchChatViewController.storyboard in Resources */,
 				AE1E17C927BE195500FC5A20 /* CommentsTableViewCell.xib in Resources */,
+				AEFD0C1C283CC18300753DF0 /* SearchViewController.storyboard in Resources */,
 				AE7A26C3265056FE0057D454 /* HomeViewController.storyboard in Resources */,
 				AEF84270264D8EAF00FB8003 /* Roboto-MediumItalic.ttf in Resources */,
 				AEF552DC27882F7F004A433D /* GoogleService-Info.plist in Resources */,
@@ -1259,9 +1295,11 @@
 				AE9D2345266B698B005B5C55 /* ChatListViewModel.swift in Sources */,
 				AE224B6B268FB64A003CE3E2 /* VoiceRecordingViewModel.swift in Sources */,
 				AEA197752649933000D0D181 /* OnboardingViewController.swift in Sources */,
+				AEFD0C1E283CC19300753DF0 /* SearchControllerViewModel.swift in Sources */,
 				AE470AD02796CB71001AB85C /* FigFilesDisplayPdfTableViewCell.swift in Sources */,
 				AEA197712649933000D0D181 /* AppDelegate.swift in Sources */,
 				AE0E3CD126713046002D2D29 /* ChatListTableViewCell.swift in Sources */,
+				AEFD0C21283CC4C900753DF0 /* PurchasedFilesViewController.swift in Sources */,
 				AE9D2351266B7D2A005B5C55 /* SearchChatViewModel.swift in Sources */,
 				AEF8801226ED250A007BF7E9 /* FigFilesTableViewCellViewModel.swift in Sources */,
 				AEF8428D264DA48500FB8003 /* OnboardingRegisterStepTwoViewModel.swift in Sources */,
@@ -1306,6 +1344,7 @@
 				AE1177B9266CEC930031FEBA /* HomeTabControllerViewModel.swift in Sources */,
 				AEF8427C264D936500FB8003 /* LoginViewModel.swift in Sources */,
 				AEF8427E264D940800FB8003 /* ResetPasswordViewModel.swift in Sources */,
+				AEFD0C1A283CC17A00753DF0 /* SearchViewController.swift in Sources */,
 				AE1E17CB27BE198500FC5A20 /* CommentsTableViewCell.swift in Sources */,
 				AE9DC66C2662E695001B9392 /* UIImageExtension.swift in Sources */,
 				AEF98F7526AD30F700FFD5DA /* FileUploadViewController.swift in Sources */,
@@ -1322,6 +1361,7 @@
 				AE7307A6279A852B0097A372 /* FolderViewModel.swift in Sources */,
 				AEF4A28626EFAF810053DA78 /* UserDetailsTableViewCell.swift in Sources */,
 				AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */,
+				AEFD0C25283CC4E500753DF0 /* PurchasedFilesViewModel.swift in Sources */,
 				AEF8800226ECEF49007BF7E9 /* FigFilesTableViewCell.swift in Sources */,
 				AE85161026A0A3310093E732 /* TimeIntervalUtility.swift in Sources */,
 				AE7307AA279A8AE40097A372 /* FolderViewCollectionViewCell.swift in Sources */,
