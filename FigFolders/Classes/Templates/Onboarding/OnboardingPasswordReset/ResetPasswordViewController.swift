@@ -54,6 +54,7 @@ class ResetPasswordViewController: ViewControllerWithLoading {
     private func resetPassword() {
         let isEmailValid = viewModel.isEmailValid(email: emailIDTextField.text)
         emailIDTextField.addBorder(color: isEmailValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        guard isEmailValid else { return }
         
         // Activity Indicator
         showLoadingIndicator()
