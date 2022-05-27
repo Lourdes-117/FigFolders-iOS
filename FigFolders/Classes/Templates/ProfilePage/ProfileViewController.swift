@@ -55,7 +55,7 @@ class ProfileViewController: ViewControllerWithLoading {
             let chartDataSet = PieChartDataSet(entries: dataEntries, label: "")
             chartDataSet.colors = [ColorPalette.primary_green.color ?? .green, .red]
             let chartData = PieChartData(dataSets: [chartDataSet])
-            self.pieChartView.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: .easeOutBounce)
+            self.pieChartView.animate(xAxisDuration: kAnimationDurationLong, yAxisDuration: kAnimationDurationLong, easingOption: .easeOutBounce)
             self.pieChartView.data = chartData
             self.pieChartView.noDataText = "Error In Loading Data"
         }

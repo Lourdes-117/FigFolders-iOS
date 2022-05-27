@@ -23,6 +23,7 @@ enum GradientDirection {
 }
 
 let kAnimationDuration = TimeInterval(0.25)
+let kAnimationDurationLong = TimeInterval(1.5)
 
 /// Returns Current User's email ID
 var currentUserEmail: String? {
