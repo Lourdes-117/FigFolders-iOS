@@ -182,4 +182,12 @@ class CloudFunctionsManager {
             completion(result)
         }
     }
+    
+    func getStorageUsedByUser(userName: String, completion: @escaping (Result<StorageUsedModel, Error>) -> Void ) {
+        let getStorageConsumptionOfUserUrl = String(format: UrlEndpoints.getStorageConsumptionOfUser, userName)
+        debugPrint("Requested url - \(getStorageConsumptionOfUserUrl)")
+        NetworkManager.getData(getStorageConsumptionOfUserUrl, StorageUsedModel.self) { result in
+            completion(result)
+        }
+    }
 }

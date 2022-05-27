@@ -36,3 +36,8 @@ struct FollowUserModel: Encodable {
     var currentUser: String?
     var userToFollow: String?
 }
+
+struct StorageUsedModel: Codable {
+    var figFilesStorageUsed: String?
+    var maxStorateInMegabytes: String?
+}

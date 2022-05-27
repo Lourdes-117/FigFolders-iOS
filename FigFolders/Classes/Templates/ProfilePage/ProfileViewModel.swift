@@ -114,4 +114,16 @@ class ProfileViewModel {
         guard let number = number else { return false }
         return number.matchesRegex(StringConstants.shared.regex.phoneNumber)
     }
+    
+    func getStorageUsedByCurrentUser(completion: @escaping (StorageUsedModel?) -> Void) {
+        guard let currentUser = currentUserUsername else { return }
+        CloudFunctionsManager.shared.getStorageUsedByUser(userName: currentUser) { result in
+            switch result {
+            case .success(let storageModel):
+                completion(storageModel)
+            case .failure(_):
+                completion(nil)
+            }
+        }
+    }
 }

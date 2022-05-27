@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import SDWebImage
+import Charts
 
 class ProfileViewController: ViewControllerWithLoading {
 
@@ -18,6 +19,7 @@ class ProfileViewController: ViewControllerWithLoading {
     
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var pieChartView: PieChartView!
     
     // Personal Details
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -29,11 +31,34 @@ class ProfileViewController: ViewControllerWithLoading {
     @IBOutlet weak var changeProfilePhotoButton: UIButton!
     
     let viewModel = ProfileViewModel()
+
     
 // MARK: - Lifecycle Methodss
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        setupChart()
+    }
+    
+    private func setupChart() {
+        self.pieChartView.noDataText = "Loading..."
+        viewModel.getStorageUsedByCurrentUser { [weak self] storageModel in
+            guard let self = self else { return }
+            var dataEntries: [PieChartDataEntry] = []
+            let dataEntry1 = PieChartDataEntry(value: Double((storageModel?.maxStorateInMegabytes ?? "0").floatValue - (storageModel?.figFilesStorageUsed ?? "0").floatValue))
+            dataEntry1.label = "MB Available"
+            dataEntries.append(dataEntry1)
+            
+            let dataEntry2 = PieChartDataEntry(value: Double((storageModel?.figFilesStorageUsed ?? "0").floatValue))
+            dataEntry2.label = "MB Used"
+            dataEntries.append(dataEntry2)
+            let chartDataSet = PieChartDataSet(entries: dataEntries, label: "")
+            chartDataSet.colors = [ColorPalette.primary_green.color ?? .green, .red]
+            let chartData = PieChartData(dataSets: [chartDataSet])
+            self.pieChartView.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: .easeOutBounce)
+            self.pieChartView.data = chartData
+            self.pieChartView.noDataText = "Error In Loading Data"
+        }
     }
     
     private func initialSetup() {

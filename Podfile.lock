@@ -1,5 +1,9 @@
 PODS:
   - Alamofire (5.4.3)
+  - Charts (4.0.3):
+    - Charts/Core (= 4.0.3)
+  - Charts/Core (4.0.3):
+    - SwiftAlgorithms (~> 1.0)
   - Firebase/Analytics (7.11.0):
     - Firebase/Core
   - Firebase/Auth (7.11.0):
@@ -126,9 +130,11 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Charts
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Crashlytics
@@ -142,6 +148,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Charts
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -163,9 +170,11 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - PromisesObjC
     - SDWebImage
+    - SwiftAlgorithms
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  Charts: d959d6723c8eedfdd0735dfc28cb0a71762ac4d9
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
   FirebaseAnalytics: cd3bd84d722a24a8923918af8af8e5236f615d77
   FirebaseAuth: 5fe4585c2ed847319f0ea68bd1d82c77e49ff9a0
@@ -187,7 +196,8 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 9c87ebe5359a21dc729877bbc8dd3972ce5f8789
+PODFILE CHECKSUM: e7249bdaaba19e027fee15ed4e77dc0d10bb6a93
 
 COCOAPODS: 1.11.3

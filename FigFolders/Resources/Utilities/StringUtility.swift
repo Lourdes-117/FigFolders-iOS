@@ -55,4 +55,8 @@ extension String {
     mutating func trimmedTrailingSpaces() {
         self = self.trimmingTrailingSpaces()
     }
+    
+    var floatValue: Float {
+        return (self as NSString).floatValue
+    }
 }

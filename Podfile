@@ -16,4 +16,5 @@ target 'FigFolders' do
   pod 'MessageKit'
   pod 'Alamofire'
   pod 'JGProgressHUD'
+  pod 'Charts'
 end
