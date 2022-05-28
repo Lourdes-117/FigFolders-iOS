@@ -89,12 +89,20 @@ extension UserProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = viewModel.getCellForSection(tableView: tableView, indexPath: indexPath) as? FigFilesDisplayTableViewCell,
-        let figFile = viewModel.figFiles[indexPath.row] else { return UITableViewCell() }
-        cell.LikeCommentReportDelegate = self
-        cell.figFilesTableViewCellDelegate = self
-        cell.setupCell(figFile: figFile)
-        return cell
+        if let cell = viewModel.getCellForSection(tableView: tableView, indexPath: indexPath) as? UserDetailsTableViewCell,
+           let userNameToPopulate = viewModel.userNameToPopulate {
+            cell.delegate = self
+            cell.setupCell(userName: userNameToPopulate)
+            return cell
+        }
+        if let cell = viewModel.getCellForSection(tableView: tableView, indexPath: indexPath) as? FigFilesDisplayTableViewCell,
+           let figFile = viewModel.figFiles[indexPath.row] {
+            cell.LikeCommentReportDelegate = self
+            cell.figFilesTableViewCellDelegate = self
+            cell.setupCell(figFile: figFile)
+            return cell
+        }
+        return UITableViewCell()
     }
 }
 
@@ -188,6 +196,18 @@ extension UserProfileViewController: LikeCommentReportDelegate {
     }
     
     func onTapReport(figFileModel: FigFileModel?) {
-        debugPrint("On Tap Share")
+        debugPrint("On Tap Report")
+    }
+}
+
+// MARK: - User Profile View Delegate
+extension UserProfileViewController: UserProfileViewDelegate {
+    func openProfileIconView(profilePicUrl: URL?) {
+        guard let profilePicUrl = profilePicUrl,
+              let imageViewController = ImageViewerViewController.initiateVC() else {
+            return
+        }
+        imageViewController.imageUrl = profilePicUrl
+        self.present(imageViewController, animated: true)
     }
 }

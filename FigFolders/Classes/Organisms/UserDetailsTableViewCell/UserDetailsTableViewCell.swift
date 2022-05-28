@@ -16,6 +16,8 @@ class UserDetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
     
+    weak var delegate: UserProfileViewDelegate?
+    
     let viewModel = UserDetailsTableViewCellViewModel()
     
     override func awakeFromNib() {
@@ -28,6 +30,11 @@ class UserDetailsTableViewCell: UITableViewCell {
         setValues()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        profilePictureImageView.layer.borderColor = viewModel.profilePicBorderColor
+    }
+    
     private func setValues() {
         usernameLabel.text = viewModel.userName
         DatabaseManager.shared.getUserDetailsForUsername(username: viewModel.userName ?? "") { [weak self] userDetailsModel in
@@ -38,8 +45,19 @@ class UserDetailsTableViewCell: UITableViewCell {
         }
         StorageManager.shared.getProfilePicUrlForUser(userName: viewModel.userName ?? "") { [weak self] url in
             guard let strongSelf = self else { return }
+            strongSelf.viewModel.profilePicUrl = url
             strongSelf.profilePictureImageView.sd_setImage(with: url, placeholderImage: strongSelf.viewModel.profilePicPlaceholder, options: .forceTransition, completed: nil)
             strongSelf.profilePictureImageView.setRoundedCorners()
         }
+        profilePictureImageView.setRoundedCorners()
+        profilePictureImageView.layer.borderWidth = viewModel.profildPicBorderWidth
+        profilePictureImageView.layer.borderColor = viewModel.profilePicBorderColor
+        profilePictureImageView.isUserInteractionEnabled = true
+        let profilePicTapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapProfileView))
+        profilePictureImageView.addGestureRecognizer(profilePicTapGesture)
+    }
+    
+    @objc private func onTapProfileView() {
+        delegate?.openProfileIconView(profilePicUrl: viewModel.profilePicUrl)
     }
 }
