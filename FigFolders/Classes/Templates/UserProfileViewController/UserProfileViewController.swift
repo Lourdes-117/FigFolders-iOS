@@ -127,8 +127,16 @@ extension UserProfileViewController: FigFilesTableViewCellDelegate {
         self.figFilesTableViewCellDelegate?.followOrUnfollowUser(userNameToFollowOrUnfollow: userNameToFollowOrUnfollow)
     }
     
-    func openProfileDetailsPage(userNameToPopulate: String) {
-        // Don't have to open profile page from here
+    func onTapProfileIcon(userNameToPopulate: String) {
+        StorageManager.shared.getProfilePicUrlForUser(userName: userNameToPopulate) { [weak self] profilePicUrl in
+            guard let self = self,
+                  let profilePicUrl = profilePicUrl,
+                  let imageViewController = ImageViewerViewController.initiateVC() else {
+                return
+            }
+            imageViewController.imageUrl = profilePicUrl
+            self.present(imageViewController, animated: true)
+        }
     }
     
     func openFigFileLargeView(figFile: FigFileModel?, shouldShowPurchaseScreen: Bool) {

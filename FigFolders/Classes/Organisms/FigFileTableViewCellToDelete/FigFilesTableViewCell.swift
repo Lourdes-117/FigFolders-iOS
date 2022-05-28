@@ -52,7 +52,7 @@ class FigFilesTableViewCell: UITableViewCell {
     
 // MARK: - Button Tap Functions
     @IBAction func onTapProfileInfo() {
-        delegate?.openProfileDetailsPage(userNameToPopulate: viewModel.ownerName)
+        delegate?.onTapProfileIcon(userNameToPopulate: viewModel.ownerName)
     }
     
     @IBAction func onTapFollowButton(_ sender: Any) {

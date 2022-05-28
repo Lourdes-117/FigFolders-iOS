@@ -51,6 +51,6 @@ class FigFileProfileView: UIView {
     }
     
     @IBAction func onTapProfileButton(_ sender: Any) {
-        delegate?.openProfileDetailsPage(userNameToPopulate: viewModel.fileOwnerName)
+        delegate?.onTapProfileIcon(userNameToPopulate: viewModel.fileOwnerName)
     }
 }

@@ -64,7 +64,7 @@ extension UserFigFoldersViewController: FigFilesTableViewCellDelegate {
         //
     }
     
-    func openProfileDetailsPage(userNameToPopulate: String) {
+    func onTapProfileIcon(userNameToPopulate: String) {
         guard let profileDetailsPage = UserProfileViewController.initiateVC() else { return }
         profileDetailsPage.userNameToPopulate = userNameToPopulate
         navigationController?.pushViewController(profileDetailsPage, animated: true)
