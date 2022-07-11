@@ -13,12 +13,19 @@ protocol FigFilesDisplayTableViewCell: UITableViewCell {
     func setupCell(figFile: FigFileModel)
     func setupBlurView(isFree: Bool, ownerUserName: String?, purchasedUsers: [String?]?)
     var blurView: UIView! { get set }
+    var freeOrPaidLockImage: UIImageView! { get set }
     var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate? { get set }
     var LikeCommentReportDelegate: LikeCommentReportDelegate? { get set }
 }
 
 extension FigFilesDisplayTableViewCell {
     func setupBlurView(isFree: Bool, ownerUserName: String?, purchasedUsers: [String?]?) {
+        guard !isFree else {
+            blurView.isHidden = true
+            freeOrPaidLockImage.isHidden = true
+            return
+        }
+        
         // Set Blur Effect
         blurView.backgroundColor = .clear
         let blurEffect = UIBlurEffect(style: .prominent)
@@ -49,17 +56,14 @@ extension FigFilesDisplayTableViewCell {
             blurView.bringSubviewToFront(purchaseToContinueView)
         }
         
-        if isFree || ownerUserName == currentUserUsername {
+        if ownerUserName == currentUserUsername || (purchasedUsers?.contains(currentUserUsername) ?? false) {
             blurView.isHidden = true
-            return
-        }
-        
-        if purchasedUsers?.contains(currentUserUsername) ?? false {
-            blurView.isHidden = true
+            freeOrPaidLockImage.isHidden = false
             return
         }
         
         blurView.isHidden = false
+        freeOrPaidLockImage.isHidden = true
     }
 }
 

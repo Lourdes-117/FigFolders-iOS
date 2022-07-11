@@ -48,7 +48,7 @@ extension UserFigFoldersViewController: LikeCommentReportDelegate {
     }
     
     func onTapReport(figFileModel: FigFileModel?) {
-        debugPrint("On Tap Share")
+        debugPrint("On Tap Report")
     }
 }
 

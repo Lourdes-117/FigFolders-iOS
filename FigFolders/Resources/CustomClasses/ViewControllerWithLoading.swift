@@ -13,7 +13,7 @@ class ViewControllerWithLoading: UIViewController {
     private var activityView: NVActivityIndicatorView?
     
     /// Shows Loading Indicator Over Full Screen
-    func showLoadingIndicator(with type: NVActivityIndicatorType = .orbit, color: UIColor = .blue) {
+    func showLoadingIndicator(with type: NVActivityIndicatorType = .ballClipRotateMultiple, color: UIColor = ColorPalette.greyscale6.color ?? .green) {
         activityBackgroundView = UIView(frame: view.frame)
         activityBackgroundView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
         activityView = NVActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-50,

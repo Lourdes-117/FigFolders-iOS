@@ -16,6 +16,8 @@ class FigFilesDisplayPdfTableViewCell: UITableViewCell, FigFilesDisplayTableView
     @IBOutlet weak var LikeCommentReportView: LikeCommentReportView!
     @IBOutlet weak var figFileProfileView: FigFileProfileView!
     @IBOutlet weak var pdfImageView: UIImageView!
+    @IBOutlet weak var freeOrPaidLockImage: UIImageView!
+    
     let viewModel = FigFilesDisplayPdfTableViewModel()
     
     private func setupGestureRecognizer() {

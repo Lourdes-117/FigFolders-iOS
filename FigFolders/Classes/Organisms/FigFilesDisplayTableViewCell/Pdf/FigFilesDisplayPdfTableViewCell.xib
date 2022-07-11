@@ -48,14 +48,24 @@
                         <rect key="frame" x="0.0" y="66" width="370" height="299"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Bdm-0a-Ohh">
+                        <rect key="frame" x="317" y="74.5" width="25" height="23.5"/>
+                        <color key="tintColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="Imo-U2-BqL"/>
+                            <constraint firstAttribute="height" constant="25" id="cID-Ib-CiS"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="y8B-jZ-cfu" secondAttribute="trailing" id="3BU-Xg-t1a"/>
                     <constraint firstItem="IvZ-HD-sD0" firstAttribute="top" secondItem="2EI-cK-PPa" secondAttribute="bottom" constant="4" id="4mN-Bv-baP"/>
                     <constraint firstItem="y8B-jZ-cfu" firstAttribute="top" secondItem="vfF-rS-RWW" secondAttribute="bottom" id="5Tw-h9-2ey"/>
                     <constraint firstItem="ETg-7m-hHB" firstAttribute="trailing" secondItem="2EI-cK-PPa" secondAttribute="trailing" id="BNR-a0-XT9"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Bdm-0a-Ohh" secondAttribute="trailing" constant="8" id="DFc-Jq-uDP"/>
                     <constraint firstAttribute="trailing" secondItem="vfF-rS-RWW" secondAttribute="trailing" id="FHc-Sn-hXG"/>
                     <constraint firstItem="ETg-7m-hHB" firstAttribute="top" secondItem="2EI-cK-PPa" secondAttribute="top" id="FjP-rg-ded"/>
+                    <constraint firstItem="Bdm-0a-Ohh" firstAttribute="top" secondItem="y8B-jZ-cfu" secondAttribute="bottom" constant="8" id="HRh-mN-V2A"/>
                     <constraint firstItem="vfF-rS-RWW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="IB6-a8-tlw"/>
                     <constraint firstItem="2EI-cK-PPa" firstAttribute="top" secondItem="y8B-jZ-cfu" secondAttribute="bottom" id="KNF-ar-ZwN"/>
                     <constraint firstAttribute="bottom" secondItem="IvZ-HD-sD0" secondAttribute="bottom" id="Ls8-oC-8nk"/>
@@ -73,18 +83,23 @@
                 <outlet property="LikeCommentReportView" destination="IvZ-HD-sD0" id="UjH-n3-LFa"/>
                 <outlet property="blurView" destination="ETg-7m-hHB" id="Wdz-YV-6V5"/>
                 <outlet property="figFileProfileView" destination="vfF-rS-RWW" id="blX-Xg-jbR"/>
+                <outlet property="freeOrPaidLockImage" destination="Bdm-0a-Ohh" id="E4r-3N-a4r"/>
                 <outlet property="pdfImageView" destination="2EI-cK-PPa" id="ldF-nj-2Y4"/>
             </connections>
-            <point key="canvasLocation" x="172.46376811594203" y="111.16071428571428"/>
+            <point key="canvasLocation" x="171.01449275362319" y="111.16071428571428"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="lock" catalog="system" width="128" height="128"/>
         <image name="pdf_placeholder" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

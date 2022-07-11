@@ -17,6 +17,7 @@ class FigFilesDisplayImageTableViewCell: UITableViewCell, FigFilesDisplayTableVi
     @IBOutlet weak var LikeCommentReportView: LikeCommentReportView!
     @IBOutlet weak var figFileProfileView: FigFileProfileView!
     @IBOutlet weak var figFileImageView: UIImageView!
+    @IBOutlet weak var freeOrPaidLockImage: UIImageView!
     
     let viewModel = FigFilesDisplayImageTableViewModel()
     
