@@ -237,7 +237,7 @@ class ChatViewController: MessagesViewController {
 
 // MARK: - Message Datasource
 extension ChatViewController: MessagesDataSource {
-    func currentSender() -> SenderType {
+  var currentSender: MessageKit.SenderType {
         guard let selfSender = viewModel.selfSender else {
             return Sender(senderId: "", displayName: "", photoUrl: "")
         }

@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseStorage
+import UIKit
 
 enum StorageErrors: Error {
     case failedToUpload
