@@ -52,6 +52,8 @@
 		AE470AD62796CFED001AB85C /* PDFViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE470AD52796CFED001AB85C /* PDFViewerViewController.swift */; };
 		AE470AD82796D002001AB85C /* PDFViewerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE470AD72796D002001AB85C /* PDFViewerViewController.storyboard */; };
 		AE549C7326AF5AD900342E8A /* TextViewWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE549C7226AF5AD900342E8A /* TextViewWithPlaceholder.swift */; };
+		AE605CF129E33BF5007ABF5E /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = AE605CF029E33BF5007ABF5E /* JGProgressHUD */; };
+		AE605CF429E33C9E007ABF5E /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = AE605CF329E33C9E007ABF5E /* Charts */; };
 		AE66557126580B76004DA48A /* DecodableUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE66557026580B76004DA48A /* DecodableUtility.swift */; };
 		AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6B944626542E90006463E1 /* ProfileViewController.swift */; };
 		AE6B944B26542EAF006463E1 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE6B944A26542EAF006463E1 /* ProfileViewController.storyboard */; };
@@ -386,7 +388,9 @@
 				AED01DDF29E2D43000CB871C /* SDWebImage in Frameworks */,
 				AED01DD729E2D3B400CB871C /* FirebaseRemoteConfigSwift in Frameworks */,
 				AED01DD329E2D3B400CB871C /* FirebaseFunctions in Frameworks */,
+				AE605CF129E33BF5007ABF5E /* JGProgressHUD in Frameworks */,
 				AED01DE129E2D43000CB871C /* SDWebImageMapKit in Frameworks */,
+				AE605CF429E33C9E007ABF5E /* Charts in Frameworks */,
 				AED01DD929E2D3B400CB871C /* FirebaseStorage in Frameworks */,
 				AED01DE729E2D4AE00CB871C /* NVActivityIndicatorView in Frameworks */,
 				AED01DCB29E2D3B400CB871C /* FirebaseAnalyticsSwift in Frameworks */,
@@ -1129,6 +1133,8 @@
 				AED01DE029E2D43000CB871C /* SDWebImageMapKit */,
 				AED01DE329E2D46A00CB871C /* MessageKit */,
 				AED01DE629E2D4AE00CB871C /* NVActivityIndicatorView */,
+				AE605CF029E33BF5007ABF5E /* JGProgressHUD */,
+				AE605CF329E33C9E007ABF5E /* Charts */,
 			);
 			productName = FigFolders;
 			productReference = AEA1976D2649933000D0D181 /* FigFolders.app */;
@@ -1163,6 +1169,8 @@
 				AED01DDD29E2D43000CB871C /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				AED01DE229E2D46A00CB871C /* XCRemoteSwiftPackageReference "MessageKit" */,
 				AED01DE529E2D4AE00CB871C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				AE605CEF29E33BF4007ABF5E /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				AE605CF229E33C9E007ABF5E /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = AEA1976E2649933000D0D181 /* Products */;
 			projectDirPath = "";
@@ -1592,6 +1600,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AE605CEF29E33BF4007ABF5E /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		AE605CF229E33C9E007ABF5E /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
 		AED01DC929E2D3B400CB871C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1635,6 +1659,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AE605CF029E33BF5007ABF5E /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE605CEF29E33BF4007ABF5E /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		AE605CF329E33C9E007ABF5E /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE605CF229E33C9E007ABF5E /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
 		AED01DCA29E2D3B400CB871C /* FirebaseAnalyticsSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AED01DC929E2D3B400CB871C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
