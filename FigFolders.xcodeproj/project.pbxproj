@@ -314,7 +314,7 @@
 		AEB3A2A327C0041400C06E88 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
 		AEB3A2A527C0042000C06E88 /* AddCommentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddCommentViewController.storyboard; sourceTree = "<group>"; };
 		AEB3A2A727C0045900C06E88 /* AddCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewModel.swift; sourceTree = "<group>"; };
-		AEBB86802656EB4400D2476B /* ViewControllerWithLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerWithLoading.swift; sourceTree = "<group>"; };
+		AEBB86802656EB4400D2476B /* ViewControllerWithLoading.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWithLoading.swift; sourceTree = "<group>"; tabWidth = 4; };
 		AEC7743D26791CCD00EEEED0 /* ChatViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatViewController.storyboard; sourceTree = "<group>"; };
 		AEC7743F26791CE200EEEED0 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		AEC774412679270300EEEED0 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };

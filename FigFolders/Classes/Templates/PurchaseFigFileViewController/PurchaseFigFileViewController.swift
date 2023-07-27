@@ -9,7 +9,7 @@ import UIKit
 import Stripe
 import SnapKit
 
-class PurchaseFigFileViewController: UIViewController {
+class PurchaseFigFileViewController: ViewControllerWithLoading {
   // MARK: - Public Properties
   var figFile: FigFileModel?
   
@@ -52,9 +52,27 @@ class PurchaseFigFileViewController: UIViewController {
   
   @IBAction func onTapPurchaseFigFile(_ sender: Any) {
     guard let figFile else { return }
+    showLoadingIndicator()
     viewModel.createPaymentIntent(figFile: figFile) { [weak self] response, error in
       guard let self else { return }
-      debugPrint(response?.clientSecret)
+      self.hideLoadingIndicatorView()
+      guard let clientSecret = response?.clientSecret else {
+        self.showAlert(title: "Error fetching payment details", subTitle: "")
+        return
+      }
+      let paymentIntentParams = STPPaymentIntentParams(clientSecret: clientSecret)
+      paymentIntentParams.paymentMethodParams = self.cardTextField.paymentMethodParams
+      viewModel.submitPayment(intent: paymentIntentParams, context: self) { paymentStatus, intent, error in
+        debugPrint(paymentStatus)
+        debugPrint(intent)
+        debugPrint(error)
+      }
     }
+  }
+}
+
+extension PurchaseFigFileViewController: STPAuthenticationContext {
+  func authenticationPresentingViewController() -> UIViewController {
+    return self
   }
 }

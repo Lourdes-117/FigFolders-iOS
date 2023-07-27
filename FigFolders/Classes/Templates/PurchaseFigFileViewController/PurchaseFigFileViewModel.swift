@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Stripe
 
 class PurchaseFigFileViewModel {
   let pageTitle = "Purchase FigFile"
@@ -25,6 +26,13 @@ class PurchaseFigFileViewModel {
       case .failure(let error):
         completion(nil, error.localizedDescription)
       }
+    }
+  }
+  
+  func submitPayment(intent: STPPaymentIntentParams, context: STPAuthenticationContext, completion: @escaping ((_ paymentStatus: STPPaymentHandlerActionStatus?, _ intent: STPPaymentIntent?, _ error: NSError?) -> Void)) {
+    let paymentHandler = STPPaymentHandler.shared()
+    paymentHandler.confirmPayment(intent, with: context) { status, intent, error in
+      completion(status, intent, error)
     }
   }
 }

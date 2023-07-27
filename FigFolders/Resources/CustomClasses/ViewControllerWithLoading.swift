@@ -43,4 +43,12 @@ class ViewControllerWithLoading: UIViewController {
         activityView.stopAnimating()
         activityBackgroundView.removeFromSuperview()
     }
+  
+    func showAlert(title: String, subTitle: String) {
+        let alert = UIAlertController(title: title, message: subTitle, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            //
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
