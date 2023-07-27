@@ -190,4 +190,32 @@ class CloudFunctionsManager {
             completion(result)
         }
     }
+    
+    func createPaymentIntenet(request: PaymentIntentRequestModel, completion: @escaping ((Result<PaymentIntentResponseModel, Error>) -> Void)) {
+        let createPaymentIntentUrl = UrlEndpoints.getPurchaseIntent
+        guard let url = URL(string: createPaymentIntentUrl) else {
+            debugPrint("Can't create url - \(createPaymentIntentUrl)")
+            return
+        }
+        debugPrint("Requested url - \(createPaymentIntentUrl)")
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = StringConstants.shared.httpMethodConstants.postMethod
+        urlRequest.addValue(StringConstants.shared.httpMethodConstants.applicationJson, forHTTPHeaderField: StringConstants.shared.httpMethodConstants.contentType)
+        urlRequest.httpBody = try? JSONEncoder().encode(request)
+        URLSession.shared.dataTask(with: urlRequest) { data, _ , error in
+            guard let data = data, error == nil else {
+                if let error = error {
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
+                    }
+                }
+                return
+            }
+            // Got Data, Have to parse it
+            let result = NetworkManager.getParsedData(PaymentIntentResponseModel.self, data)
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }.resume()
+    }
 }

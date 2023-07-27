@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7625BFBC2A72E8BF00465A16 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 7625BFBB2A72E8BF00465A16 /* Stripe */; };
+		7625BFBE2A72F5CD00465A16 /* PaymentIntentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7625BFBD2A72F5CD00465A16 /* PaymentIntentModel.swift */; };
+		7625BFC32A72F6CC00465A16 /* PaymentIntentRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7625BFC22A72F6CC00465A16 /* PaymentIntentRequestModel.swift */; };
 		AE0C74FB26FCC567002724CF /* VideoPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE0C74FA26FCC567002724CF /* VideoPlayerView.xib */; };
 		AE0C74FD26FCC57D002724CF /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C74FC26FCC57D002724CF /* VideoPlayerView.swift */; };
 		AE0C74FF26FCC58F002724CF /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C74FE26FCC58F002724CF /* VideoPlayerViewModel.swift */; };
@@ -198,6 +201,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7625BFBD2A72F5CD00465A16 /* PaymentIntentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentIntentModel.swift; sourceTree = "<group>"; };
+		7625BFC22A72F6CC00465A16 /* PaymentIntentRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentIntentRequestModel.swift; sourceTree = "<group>"; };
 		AE0C74FA26FCC567002724CF /* VideoPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerView.xib; sourceTree = "<group>"; };
 		AE0C74FC26FCC57D002724CF /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		AE0C74FE26FCC58F002724CF /* VideoPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewModel.swift; sourceTree = "<group>"; };
@@ -320,7 +325,7 @@
 		AEE025EE27F4E9BA006238B1 /* PurchaseToContinueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseToContinueView.xib; sourceTree = "<group>"; };
 		AEE25F5126922E080021ABDB /* AudioMessageCellUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMessageCellUtility.swift; sourceTree = "<group>"; };
 		AEE4ABCA27941425008E941A /* UrlEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlEndpoints.swift; sourceTree = "<group>"; };
-		AEE4ABCC27944E0B008E941A /* CloudFunctionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFunctionsManager.swift; sourceTree = "<group>"; };
+		AEE4ABCC27944E0B008E941A /* CloudFunctionsManager.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = CloudFunctionsManager.swift; sourceTree = "<group>"; tabWidth = 4; };
 		AEE4ABCE2794568C008E941A /* CloudFunctionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFunctionsModel.swift; sourceTree = "<group>"; };
 		AEF4A27B26EFABC80053DA78 /* UserProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfileViewController.storyboard; sourceTree = "<group>"; };
 		AEF4A27D26EFABD50053DA78 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -393,6 +398,7 @@
 				AE605CF429E33C9E007ABF5E /* Charts in Frameworks */,
 				AED01DD929E2D3B400CB871C /* FirebaseStorage in Frameworks */,
 				AED01DE729E2D4AE00CB871C /* NVActivityIndicatorView in Frameworks */,
+				7625BFBC2A72E8BF00465A16 /* Stripe in Frameworks */,
 				AED01DCB29E2D3B400CB871C /* FirebaseAnalyticsSwift in Frameworks */,
 				AED01DCD29E2D3B400CB871C /* FirebaseAuth in Frameworks */,
 			);
@@ -401,6 +407,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7625BFBF2A72F6B200465A16 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				7625BFC12A72F6BC00465A16 /* Response */,
+				7625BFC02A72F6B700465A16 /* Request */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		7625BFC02A72F6B700465A16 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				7625BFC22A72F6CC00465A16 /* PaymentIntentRequestModel.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		7625BFC12A72F6BC00465A16 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				7625BFBD2A72F5CD00465A16 /* PaymentIntentModel.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
 		AE0C74F926FCC546002724CF /* VideoPlayerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -624,6 +655,7 @@
 		AE861B28264FBDAD00E708D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7625BFBF2A72F6B200465A16 /* Payment */,
 				AE861B29264FBDE300E708D7 /* UserDetailsModel.swift */,
 				AEE4ABCE2794568C008E941A /* CloudFunctionsModel.swift */,
 			);
@@ -1135,6 +1167,7 @@
 				AED01DE629E2D4AE00CB871C /* NVActivityIndicatorView */,
 				AE605CF029E33BF5007ABF5E /* JGProgressHUD */,
 				AE605CF329E33C9E007ABF5E /* Charts */,
+				7625BFBB2A72E8BF00465A16 /* Stripe */,
 			);
 			productName = FigFolders;
 			productReference = AEA1976D2649933000D0D181 /* FigFolders.app */;
@@ -1171,6 +1204,7 @@
 				AED01DE529E2D4AE00CB871C /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				AE605CEF29E33BF4007ABF5E /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				AE605CF229E33C9E007ABF5E /* XCRemoteSwiftPackageReference "Charts" */,
+				7625BFBA2A72E8BF00465A16 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */,
 			);
 			productRefGroup = AEA1976E2649933000D0D181 /* Products */;
 			projectDirPath = "";
@@ -1317,6 +1351,7 @@
 				AE470ABE27968E38001AB85C /* FigFileProfileView.swift in Sources */,
 				AEF8428B264DA45300FB8003 /* OnboardingRegisterStepTwoViewController.swift in Sources */,
 				AE9D234A266B6C81005B5C55 /* SearchChatViewController.swift in Sources */,
+				7625BFBE2A72F5CD00465A16 /* PaymentIntentModel.swift in Sources */,
 				AEF84245264D83ED00FB8003 /* ResetPasswordViewController.swift in Sources */,
 				AE6D5D3D279D380F00B817A3 /* CommentsViewController.swift in Sources */,
 				AE6B944826542E90006463E1 /* ProfileViewController.swift in Sources */,
@@ -1357,6 +1392,7 @@
 				AEB3A2A827C0045900C06E88 /* AddCommentViewModel.swift in Sources */,
 				AEFD0C16283CC06800753DF0 /* DummyFileUploadViewController.swift in Sources */,
 				AEF84284264D9DB300FB8003 /* OnboardingRegisterStepOneViewController.swift in Sources */,
+				7625BFC32A72F6CC00465A16 /* PaymentIntentRequestModel.swift in Sources */,
 				AE7307A6279A852B0097A372 /* FolderViewModel.swift in Sources */,
 				AEF4A28626EFAF810053DA78 /* UserDetailsTableViewCell.swift in Sources */,
 				AEC774422679270300EEEED0 /* ChatViewModel.swift in Sources */,
@@ -1539,14 +1575,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VPT3JHZ528;
+				DEVELOPMENT_TEAM = H7SS5UH7G2;
 				INFOPLIST_FILE = FigFolders/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lourdes.figfolders.general;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lourdes.local.figfolders.general;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1568,7 +1604,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lourdes.figfolders.general;
+				PRODUCT_BUNDLE_IDENTIFIER = com..figfolders.general;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1600,6 +1636,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7625BFBA2A72E8BF00465A16 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.0.0;
+			};
+		};
 		AE605CEF29E33BF4007ABF5E /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
@@ -1659,6 +1703,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7625BFBB2A72E8BF00465A16 /* Stripe */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7625BFBA2A72E8BF00465A16 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
+			productName = Stripe;
+		};
 		AE605CF029E33BF5007ABF5E /* JGProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AE605CEF29E33BF4007ABF5E /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
