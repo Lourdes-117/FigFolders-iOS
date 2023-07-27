@@ -10,6 +10,7 @@
 		7625BFBC2A72E8BF00465A16 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 7625BFBB2A72E8BF00465A16 /* Stripe */; };
 		7625BFBE2A72F5CD00465A16 /* PaymentIntentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7625BFBD2A72F5CD00465A16 /* PaymentIntentModel.swift */; };
 		7625BFC32A72F6CC00465A16 /* PaymentIntentRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7625BFC22A72F6CC00465A16 /* PaymentIntentRequestModel.swift */; };
+		7625BFC62A72FDDE00465A16 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7625BFC52A72FDDE00465A16 /* SnapKit */; };
 		AE0C74FB26FCC567002724CF /* VideoPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE0C74FA26FCC567002724CF /* VideoPlayerView.xib */; };
 		AE0C74FD26FCC57D002724CF /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C74FC26FCC57D002724CF /* VideoPlayerView.swift */; };
 		AE0C74FF26FCC58F002724CF /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0C74FE26FCC58F002724CF /* VideoPlayerViewModel.swift */; };
@@ -396,6 +397,7 @@
 				AE605CF129E33BF5007ABF5E /* JGProgressHUD in Frameworks */,
 				AED01DE129E2D43000CB871C /* SDWebImageMapKit in Frameworks */,
 				AE605CF429E33C9E007ABF5E /* Charts in Frameworks */,
+				7625BFC62A72FDDE00465A16 /* SnapKit in Frameworks */,
 				AED01DD929E2D3B400CB871C /* FirebaseStorage in Frameworks */,
 				AED01DE729E2D4AE00CB871C /* NVActivityIndicatorView in Frameworks */,
 				7625BFBC2A72E8BF00465A16 /* Stripe in Frameworks */,
@@ -1168,6 +1170,7 @@
 				AE605CF029E33BF5007ABF5E /* JGProgressHUD */,
 				AE605CF329E33C9E007ABF5E /* Charts */,
 				7625BFBB2A72E8BF00465A16 /* Stripe */,
+				7625BFC52A72FDDE00465A16 /* SnapKit */,
 			);
 			productName = FigFolders;
 			productReference = AEA1976D2649933000D0D181 /* FigFolders.app */;
@@ -1205,6 +1208,7 @@
 				AE605CEF29E33BF4007ABF5E /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				AE605CF229E33C9E007ABF5E /* XCRemoteSwiftPackageReference "Charts" */,
 				7625BFBA2A72E8BF00465A16 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */,
+				7625BFC42A72FDDE00465A16 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = AEA1976E2649933000D0D181 /* Products */;
 			projectDirPath = "";
@@ -1644,6 +1648,14 @@
 				minimumVersion = 23.0.0;
 			};
 		};
+		7625BFC42A72FDDE00465A16 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		AE605CEF29E33BF4007ABF5E /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
@@ -1707,6 +1719,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7625BFBA2A72E8BF00465A16 /* XCRemoteSwiftPackageReference "stripe-ios-spm" */;
 			productName = Stripe;
+		};
+		7625BFC52A72FDDE00465A16 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7625BFC42A72FDDE00465A16 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 		AE605CF029E33BF5007ABF5E /* JGProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;

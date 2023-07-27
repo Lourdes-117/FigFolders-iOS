@@ -26,7 +26,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5Ji-GH-G3H">
-                                <rect key="frame" x="0.0" y="198" width="414" height="160"/>
+                                <rect key="frame" x="0.0" y="123" width="414" height="160"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ipA-OF-ofd">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -138,10 +138,11 @@
                             <constraint firstItem="5Ji-GH-G3H" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="LaB-WT-d50"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="BKl-wt-NZE" secondAttribute="bottom" constant="60" id="PQU-Xt-SS8"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5Ji-GH-G3H" secondAttribute="trailing" id="V2g-eA-NDn"/>
-                            <constraint firstItem="5Ji-GH-G3H" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="150" id="snf-0q-QXa"/>
+                            <constraint firstItem="5Ji-GH-G3H" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="75" id="snf-0q-QXa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="detailsStackView" destination="5Ji-GH-G3H" id="inJ-mY-iNB"/>
                         <outlet property="fileNameDetails" destination="a2D-Qf-Dg7" id="bpJ-Tl-Bmw"/>
                         <outlet property="fileTypeDetails" destination="cZe-lw-H3Z" id="oHe-VE-GUw"/>
                         <outlet property="ownerNameDetails" destination="Tbr-Fy-in1" id="eKl-Pb-cTX"/>
