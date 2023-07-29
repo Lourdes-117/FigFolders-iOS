@@ -19,4 +19,8 @@ struct UrlEndpoints {
     static let followUser = "https://us-central1-figfolders-30b48.cloudfunctions.net/followUser"
     static let searchUsers = "https://us-central1-figfolders-30b48.cloudfunctions.net/searchUser?queryUserName=%@&pagination=%d"
     static let getStorageConsumptionOfUser = "https://us-central1-figfolders-30b48.cloudfunctions.net/getStorageConsumptionOfUser?userName=%@"
+  
+  
+  // Payment
+  static let getPurchaseIntent = "http://192.168.233.153:5001/figfolders-30b48/us-central1/createPaymentIntent"
 }

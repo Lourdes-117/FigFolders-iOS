@@ -10,6 +10,8 @@ import Foundation
 class StringConstants {
     static let shared = StringConstants()
 
+    private init() { }
+  
     // Constants
     let regex = RegexConstants()
     let userDefaults = UserDefaultsConstants()
@@ -52,6 +54,11 @@ struct DatabaseConstants {
     let date = "date"
     let isRead = "isRead"
     let message = "message"
+    let userDetails = "user_details"
+  
+    func userDetailsPath(user: String) -> String {
+      return "\(userDetails)/\(user)"
+    }
 }
 
 ///Use Through StringConstants shared Instance
