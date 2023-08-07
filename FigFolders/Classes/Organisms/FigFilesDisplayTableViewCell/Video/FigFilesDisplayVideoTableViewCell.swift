@@ -36,6 +36,7 @@ class FigFilesDisplayVideoTableViewCell: UITableViewCell, FigFilesDisplayTableVi
     aboutLabel.text = nil
     viewModel.figFile = nil
     videoPlayerView.backgroundView.subviews.forEach({ $0.removeFromSuperview() })
+    figFileProfileView.profilePicture.image = nil
   }
 }
 

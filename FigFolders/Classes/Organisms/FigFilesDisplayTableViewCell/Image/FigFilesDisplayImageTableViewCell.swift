@@ -45,6 +45,10 @@ class FigFilesDisplayImageTableViewCell: UITableViewCell, FigFilesDisplayTableVi
     @objc func onTapPurchaseBlurView() {
         figFilesTableViewCellDelegate?.openFigFileLargeView(figFile: viewModel.figFile, shouldShowPurchaseScreen: true)
     }
+  
+  override func prepareForReuse() {
+    figFileProfileView.profilePicture.image = nil
+  }
 }
 
 // MARK: - Extension FigFIlesDisplayImageTableViewCell
