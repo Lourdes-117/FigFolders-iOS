@@ -19,7 +19,9 @@ class FigFilesDisplayImageTableViewCell: UITableViewCell, FigFilesDisplayTableVi
     @IBOutlet weak var figFileImageView: UIImageView!
     @IBOutlet weak var freeOrPaidLockImage: UIImageView!
     
-    let viewModel = FigFilesDisplayImageTableViewModel()
+    @IBOutlet weak var aboutLabel: UILabel!
+  
+  let viewModel = FigFilesDisplayImageTableViewModel()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,6 +58,7 @@ extension FigFilesDisplayImageTableViewCell {
         figFileProfileView.setupView(figFile: figFile)
         figFileImageView.sd_setImage(with: figFile.fileUrlAsUrl, completed: nil)
         figFileProfileView.delegate = figFilesTableViewCellDelegate
+      aboutLabel.text = figFile.fileName
+      aboutLabel.numberOfLines = 50
     }
 }
-

@@ -18,7 +18,9 @@ class FigFilesDisplayVideoTableViewCell: UITableViewCell, FigFilesDisplayTableVi
     @IBOutlet weak var videoPlayerView: VideoPlayerView!
     @IBOutlet weak var freeOrPaidLockImage: UIImageView!
     
-    let viewModel = FigFilesDisplayVideoTableViewModel()
+    @IBOutlet weak var aboutLabel: UILabel!
+  
+  let viewModel = FigFilesDisplayVideoTableViewModel()
     
     private func setupGestureRecognizer() {
         blurView.isUserInteractionEnabled = true
@@ -29,6 +31,12 @@ class FigFilesDisplayVideoTableViewCell: UITableViewCell, FigFilesDisplayTableVi
     @objc func onTapPurchaseBlurView() {
         figFilesTableViewCellDelegate?.openFigFileLargeView(figFile: viewModel.figFile, shouldShowPurchaseScreen: true)
     }
+  
+  override func prepareForReuse() {
+    aboutLabel.text = nil
+    viewModel.figFile = nil
+    videoPlayerView.backgroundView.subviews.forEach({ $0.removeFromSuperview() })
+  }
 }
 
 // MARK: - Extension FigFIlesDisplayImageTableViewCell
@@ -43,5 +51,6 @@ extension FigFilesDisplayVideoTableViewCell {
         videoPlayerView.delegate = figFilesTableViewCellDelegate
         videoPlayerView.setupVideoPlayer(videoUrl: viewModel.figFile?.fileUrlAsUrl, thumbnailUrl: nil)
         setupGestureRecognizer()
+        aboutLabel.text = figFile.fileName
     }
 }

@@ -22,5 +22,5 @@ struct UrlEndpoints {
   
   
   // Payment
-  static let getPurchaseIntent = "http://192.168.233.153:5001/figfolders-30b48/us-central1/createPaymentIntent"
+  static let getPurchaseIntent = "https://us-central1-figfolders-30b48.cloudfunctions.net/createPaymentIntent"
 }

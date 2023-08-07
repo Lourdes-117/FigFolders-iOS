@@ -39,6 +39,7 @@ class SearchViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        segmentedController.isHidden = true
         initialSetup()
         registerCells()
         setupDatasourceDelegate()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,52 +11,58 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="360" id="KGk-i7-Jjw" customClass="FigFilesDisplayImageTableViewCell" customModule="FigFolders" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="380" height="360"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="450" id="KGk-i7-Jjw" customClass="FigFilesDisplayImageTableViewCell" customModule="FigFolders" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="394" height="450"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="380" height="360"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="394" height="450"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0B4-cC-lq6" customClass="FigFileProfileView" customModule="FigFolders" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="380" height="65"/>
+                        <rect key="frame" x="0.0" y="0.0" width="394" height="65"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="65" id="GiL-BZ-A6M"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wl0-V4-sla" userLabel="Divider View">
-                        <rect key="frame" x="20" y="65" width="340" height="1"/>
+                        <rect key="frame" x="20" y="65" width="354" height="1"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Ru5-2t-1Wa"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R1R-IC-16g" customClass="LikeCommentReportView" customModule="FigFolders" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="320" width="380" height="45"/>
+                        <rect key="frame" x="0.0" y="405" width="394" height="45"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="GB1-VM-cqj"/>
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="89h-sY-y0J">
-                        <rect key="frame" x="0.0" y="66" width="380" height="250"/>
+                        <rect key="frame" x="0.0" y="66" width="394" height="250"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="250" id="Zcy-kL-uEG"/>
                         </constraints>
                     </imageView>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqd-V4-mCl">
-                        <rect key="frame" x="0.0" y="66" width="380" height="299"/>
+                        <rect key="frame" x="0.0" y="66" width="394" height="384"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DWF-hC-G2G">
-                        <rect key="frame" x="327" y="74.5" width="25" height="23.5"/>
+                        <rect key="frame" x="341" y="74.5" width="25" height="23.5"/>
                         <color key="tintColor" systemColor="systemGreenColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="8q7-vm-jtv"/>
                             <constraint firstAttribute="width" constant="25" id="rWa-3u-V2K"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzt-tD-Fa1">
+                        <rect key="frame" x="16" y="328" width="362" height="77"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" name="Greyscale1"/>
                 <constraints>
@@ -64,17 +70,20 @@
                     <constraint firstAttribute="trailingMargin" secondItem="wl0-V4-sla" secondAttribute="trailing" id="2VX-HT-AEQ"/>
                     <constraint firstItem="R1R-IC-16g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="74a-j2-DvB"/>
                     <constraint firstAttribute="trailing" secondItem="0B4-cC-lq6" secondAttribute="trailing" id="8Sg-la-wiA"/>
-                    <constraint firstItem="R1R-IC-16g" firstAttribute="top" secondItem="89h-sY-y0J" secondAttribute="bottom" constant="4" id="IOj-UV-4LT"/>
                     <constraint firstAttribute="trailingMargin" secondItem="DWF-hC-G2G" secondAttribute="trailing" constant="8" id="KPG-78-T9R"/>
                     <constraint firstAttribute="trailing" secondItem="R1R-IC-16g" secondAttribute="trailing" id="M4W-YY-feI"/>
                     <constraint firstItem="0B4-cC-lq6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="PPX-mV-gGb"/>
                     <constraint firstItem="wl0-V4-sla" firstAttribute="top" secondItem="0B4-cC-lq6" secondAttribute="bottom" id="T3L-IQ-IQL"/>
                     <constraint firstItem="Lqd-V4-mCl" firstAttribute="bottom" secondItem="R1R-IC-16g" secondAttribute="bottom" id="THB-kz-uxZ"/>
+                    <constraint firstItem="R1R-IC-16g" firstAttribute="top" secondItem="Xzt-tD-Fa1" secondAttribute="bottom" id="VWD-y7-KHj"/>
                     <constraint firstItem="89h-sY-y0J" firstAttribute="top" secondItem="wl0-V4-sla" secondAttribute="bottom" id="WRY-P1-baL"/>
+                    <constraint firstItem="Xzt-tD-Fa1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="XSm-sL-QR7"/>
+                    <constraint firstAttribute="trailing" secondItem="Xzt-tD-Fa1" secondAttribute="trailing" constant="16" id="Zix-7N-Be7"/>
                     <constraint firstItem="Lqd-V4-mCl" firstAttribute="trailing" secondItem="89h-sY-y0J" secondAttribute="trailing" id="cGw-WI-quq"/>
                     <constraint firstAttribute="trailing" secondItem="89h-sY-y0J" secondAttribute="trailing" id="dTG-bC-lDu"/>
                     <constraint firstItem="Lqd-V4-mCl" firstAttribute="top" secondItem="89h-sY-y0J" secondAttribute="top" id="fqW-f4-ZKM"/>
                     <constraint firstItem="DWF-hC-G2G" firstAttribute="top" secondItem="wl0-V4-sla" secondAttribute="bottom" constant="8" id="kV3-6r-ung"/>
+                    <constraint firstItem="Xzt-tD-Fa1" firstAttribute="top" secondItem="89h-sY-y0J" secondAttribute="bottom" constant="12" id="kfz-z4-Wlh"/>
                     <constraint firstItem="0B4-cC-lq6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kxQ-cR-xmM"/>
                     <constraint firstItem="wl0-V4-sla" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="nyM-hm-aCQ"/>
                     <constraint firstItem="Lqd-V4-mCl" firstAttribute="leading" secondItem="89h-sY-y0J" secondAttribute="leading" id="tOX-fC-iKE"/>
@@ -83,16 +92,17 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="LikeCommentReportView" destination="R1R-IC-16g" id="bmM-BL-imb"/>
+                <outlet property="aboutLabel" destination="Xzt-tD-Fa1" id="UQn-RA-B8B"/>
                 <outlet property="blurView" destination="Lqd-V4-mCl" id="QpA-kW-nop"/>
                 <outlet property="figFileImageView" destination="89h-sY-y0J" id="Se4-LC-4fB"/>
                 <outlet property="figFileProfileView" destination="0B4-cC-lq6" id="CbQ-YM-03t"/>
                 <outlet property="freeOrPaidLockImage" destination="DWF-hC-G2G" id="Jm4-Qe-0Xs"/>
             </connections>
-            <point key="canvasLocation" x="179.71014492753625" y="205.58035714285714"/>
+            <point key="canvasLocation" x="189.85507246376812" y="175.44642857142856"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="lock" catalog="system" width="128" height="128"/>
+        <image name="lock" catalog="system" width="125" height="128"/>
         <namedColor name="Greyscale1">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

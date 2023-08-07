@@ -18,7 +18,9 @@ class FigFilesDisplayPdfTableViewCell: UITableViewCell, FigFilesDisplayTableView
     @IBOutlet weak var pdfImageView: UIImageView!
     @IBOutlet weak var freeOrPaidLockImage: UIImageView!
     
-    let viewModel = FigFilesDisplayPdfTableViewModel()
+  @IBOutlet weak var aboutLabel: UILabel!
+  
+  let viewModel = FigFilesDisplayPdfTableViewModel()
     
     private func setupGestureRecognizer() {
         pdfImageView.isUserInteractionEnabled = true
@@ -49,5 +51,6 @@ extension FigFilesDisplayPdfTableViewCell {
         figFileProfileView.delegate = figFilesTableViewCellDelegate
         setupGestureRecognizer()
         figFileProfileView.setupView(figFile: figFile)
+      aboutLabel.text = figFile.fileName
     }
 }
