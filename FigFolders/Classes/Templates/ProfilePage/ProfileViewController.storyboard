@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -64,8 +65,9 @@
                                                 <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recent_uploads_icon" translatesAutoresizingMaskIntoConstraints="NO" id="dWk-LD-PIM">
-                                                <rect key="frame" x="20" y="198" width="22" height="22"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="externaldrive.fill.badge.icloud" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dWk-LD-PIM">
+                                                <rect key="frame" x="17.5" y="200" width="24.5" height="19"/>
+                                                <color key="tintColor" name="Greyscale4"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="As7-b1-Wyt"/>
                                                     <constraint firstAttribute="width" secondItem="dWk-LD-PIM" secondAttribute="height" multiplier="1:1" id="qEF-VK-hhl"/>
@@ -91,8 +93,8 @@
                                                     <constraint firstAttribute="width" secondItem="y00-Sa-11f" secondAttribute="height" multiplier="1:1" id="L2N-eX-0bb"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Uploads" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgv-ZJ-6bJ">
-                                                <rect key="frame" x="52" y="197" width="140.5" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage Used" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgv-ZJ-6bJ">
+                                                <rect key="frame" x="52" y="197" width="120" height="24"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
                                                 <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
@@ -225,9 +227,30 @@
                                                 <color key="textColor" name="LabelColorPrimary"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WXY-cb-5iD">
+                                                <rect key="frame" x="83" y="83" width="35" height="35"/>
+                                                <color key="backgroundColor" name="Primary-Green"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="WXY-cb-5iD" secondAttribute="height" multiplier="1:1" id="SQR-6Y-aIM"/>
+                                                    <constraint firstAttribute="height" constant="35" id="cGh-jh-ecE"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="camera_icon">
+                                                    <color key="baseForegroundColor" name="Greyscale1"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onTapEditProfilePicButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="kE4-1C-M22"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SF5-Qd-WaQ" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="221" width="414" height="250"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" name="Greyscale1"/>
                                         <constraints>
+                                            <constraint firstItem="8vR-gB-hcT" firstAttribute="top" secondItem="SF5-Qd-WaQ" secondAttribute="bottom" id="36k-5l-Qo6"/>
                                             <constraint firstAttribute="bottom" secondItem="stF-6n-D7P" secondAttribute="bottom" id="4vW-IT-gGQ"/>
                                             <constraint firstItem="jyZ-Xf-e4Q" firstAttribute="leading" secondItem="vev-Wa-K50" secondAttribute="leading" id="52E-PG-vDJ"/>
                                             <constraint firstItem="qvt-pF-lTg" firstAttribute="trailing" secondItem="jyZ-Xf-e4Q" secondAttribute="trailing" id="5EN-4f-vXU"/>
@@ -237,11 +260,13 @@
                                             <constraint firstItem="gnI-CN-Sbd" firstAttribute="trailing" secondItem="jyZ-Xf-e4Q" secondAttribute="trailing" id="6Eb-ey-GPP"/>
                                             <constraint firstItem="Sgv-ZJ-6bJ" firstAttribute="centerY" secondItem="dWk-LD-PIM" secondAttribute="centerY" id="6fl-su-ul2"/>
                                             <constraint firstItem="jyZ-Xf-e4Q" firstAttribute="top" secondItem="vev-Wa-K50" secondAttribute="bottom" constant="10" id="8AM-Rz-1fO"/>
+                                            <constraint firstItem="SF5-Qd-WaQ" firstAttribute="top" secondItem="Sgv-ZJ-6bJ" secondAttribute="bottom" id="8Bb-3d-cvR"/>
                                             <constraint firstItem="8vR-gB-hcT" firstAttribute="top" secondItem="Sgv-ZJ-6bJ" secondAttribute="bottom" constant="250" id="9C5-bn-31K"/>
                                             <constraint firstItem="hdd-WY-5TX" firstAttribute="top" secondItem="gnI-CN-Sbd" secondAttribute="bottom" constant="15" id="9JD-3l-Gnb"/>
                                             <constraint firstItem="dh7-Ar-Hgz" firstAttribute="centerX" secondItem="yLq-Dl-PAi" secondAttribute="centerX" multiplier="0.5" id="9gU-w0-L1o"/>
                                             <constraint firstItem="y00-Sa-11f" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" constant="20" id="9hb-W4-AmZ"/>
                                             <constraint firstItem="RJy-2y-avK" firstAttribute="centerY" secondItem="y00-Sa-11f" secondAttribute="centerY" id="BCM-f0-Egt"/>
+                                            <constraint firstItem="WXY-cb-5iD" firstAttribute="trailing" secondItem="pvw-zv-gzC" secondAttribute="trailing" id="BEN-Vc-5RD"/>
                                             <constraint firstItem="rtU-Na-qDA" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" id="BaJ-no-8GJ"/>
                                             <constraint firstAttribute="trailing" secondItem="Gr5-dU-UBy" secondAttribute="trailing" constant="13" id="CXG-98-gXe"/>
                                             <constraint firstItem="RJy-2y-avK" firstAttribute="leading" secondItem="y00-Sa-11f" secondAttribute="trailing" constant="10" id="E9J-Fm-CtT"/>
@@ -260,6 +285,7 @@
                                             <constraint firstAttribute="trailing" secondItem="jyZ-Xf-e4Q" secondAttribute="trailing" constant="25" id="QFl-gA-iCo"/>
                                             <constraint firstItem="gfy-Gn-aTG" firstAttribute="trailing" secondItem="gnI-CN-Sbd" secondAttribute="trailing" id="R88-v7-kcX"/>
                                             <constraint firstItem="rtU-Na-qDA" firstAttribute="top" secondItem="Svx-ak-6xU" secondAttribute="bottom" id="RYc-vg-mdg"/>
+                                            <constraint firstItem="SF5-Qd-WaQ" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" id="SD6-dg-BWU"/>
                                             <constraint firstItem="6TP-Je-Z08" firstAttribute="top" secondItem="qvt-pF-lTg" secondAttribute="bottom" constant="15" id="TI9-Mx-tax"/>
                                             <constraint firstItem="pvw-zv-gzC" firstAttribute="top" secondItem="yLq-Dl-PAi" secondAttribute="top" constant="18" id="Trn-wt-Arg"/>
                                             <constraint firstAttribute="trailing" secondItem="stF-6n-D7P" secondAttribute="trailing" id="Tsq-Su-VFN"/>
@@ -279,6 +305,7 @@
                                             <constraint firstItem="EbA-wq-3cm" firstAttribute="top" secondItem="gfy-Gn-aTG" secondAttribute="bottom" constant="20" id="gDu-ZP-ee1"/>
                                             <constraint firstItem="pvw-zv-gzC" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" constant="18" id="gHo-Sj-f4J"/>
                                             <constraint firstAttribute="trailing" secondItem="WCb-iN-vcN" secondAttribute="trailing" constant="8" id="gOJ-Jk-uNP"/>
+                                            <constraint firstAttribute="trailing" secondItem="SF5-Qd-WaQ" secondAttribute="trailing" id="hNG-U4-sqe"/>
                                             <constraint firstAttribute="trailing" secondItem="9Se-kT-9hN" secondAttribute="trailing" id="iAh-Mi-00L"/>
                                             <constraint firstItem="8vR-gB-hcT" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" id="igP-Ea-Xg1"/>
                                             <constraint firstItem="WCb-iN-vcN" firstAttribute="top" secondItem="pvw-zv-gzC" secondAttribute="top" id="is4-Sk-iWQ"/>
@@ -296,6 +323,7 @@
                                             <constraint firstItem="EbA-wq-3cm" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" id="v8s-6w-Gwd"/>
                                             <constraint firstItem="lKl-to-PpI" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" constant="17" id="wcI-g0-zKF"/>
                                             <constraint firstItem="dWk-LD-PIM" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" constant="20" id="wl5-zI-nnS"/>
+                                            <constraint firstItem="WXY-cb-5iD" firstAttribute="bottom" secondItem="pvw-zv-gzC" secondAttribute="bottom" id="x2J-DG-HyP"/>
                                             <constraint firstItem="gnI-CN-Sbd" firstAttribute="leading" secondItem="jyZ-Xf-e4Q" secondAttribute="leading" id="x9a-24-6FS"/>
                                             <constraint firstItem="Svx-ak-6xU" firstAttribute="leading" secondItem="yLq-Dl-PAi" secondAttribute="leading" id="xQQ-r3-01y"/>
                                             <constraint firstAttribute="trailing" secondItem="EbA-wq-3cm" secondAttribute="trailing" id="ych-7b-FIe"/>
@@ -324,6 +352,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="changeProfilePhotoButton" destination="WXY-cb-5iD" id="8RX-wN-zqa"/>
                         <outlet property="dateOfBirthDatePicker" destination="qvt-pF-lTg" id="9le-GZ-NQE"/>
                         <outlet property="emailIDTextField" destination="gfy-Gn-aTG" id="BBv-4s-n6T"/>
                         <outlet property="firstNameTextField" destination="jyZ-Xf-e4Q" id="adf-WL-q1z"/>
@@ -332,6 +361,7 @@
                         <outlet property="logoutButton" destination="stF-6n-D7P" id="JLs-e6-nsE"/>
                         <outlet property="personalDetailsEditButton" destination="Gr5-dU-UBy" id="9V9-0k-mNM"/>
                         <outlet property="phoneNumberTextField" destination="gnI-CN-Sbd" id="lgc-Ar-kub"/>
+                        <outlet property="pieChartView" destination="SF5-Qd-WaQ" id="OrV-Fv-Bun"/>
                         <outlet property="profilePictureView" destination="pvw-zv-gzC" id="HJq-eA-jiI"/>
                         <outlet property="scrollView" destination="Eja-QO-mDd" id="2lg-aD-QBB"/>
                         <outlet property="usernameLabel" destination="8Rt-Ue-0TR" id="rp1-fd-LSj"/>
@@ -343,15 +373,19 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera_icon" width="20" height="20"/>
+        <image name="externaldrive.fill.badge.icloud" catalog="system" width="128" height="83"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="personal_details_icon" width="22" height="16"/>
-        <image name="recent_uploads_icon" width="19" height="22"/>
         <image name="settings-icon" width="22" height="22"/>
         <namedColor name="Greyscale1">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Greyscale3">
             <color red="0.71399998664855957" green="0.71799999475479126" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Greyscale4">
+            <color red="0.3919999897480011" green="0.40799999237060547" blue="0.42699998617172241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LabelColorPrimary">
             <color red="0.093999996781349182" green="0.10199999809265137" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -362,5 +396,8 @@
         <namedColor name="Primary-Green">
             <color red="0.14499999582767487" green="0.82700002193450928" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

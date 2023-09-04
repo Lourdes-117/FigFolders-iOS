@@ -62,7 +62,7 @@ class OnboardingCollectionView: UIView {
     }
 }
 
-// MARK :- CollectionView Datasource And Delegate
+// MARK : - CollectionView Datasource And Delegate
 
 extension OnboardingCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

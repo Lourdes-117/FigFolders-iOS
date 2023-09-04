@@ -54,6 +54,7 @@ class ResetPasswordViewController: ViewControllerWithLoading {
     private func resetPassword() {
         let isEmailValid = viewModel.isEmailValid(email: emailIDTextField.text)
         emailIDTextField.addBorder(color: isEmailValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        guard isEmailValid else { return }
         
         // Activity Indicator
         showLoadingIndicator()
@@ -62,7 +63,7 @@ class ResetPasswordViewController: ViewControllerWithLoading {
         FirebaseAuth.Auth.auth().sendPasswordReset(withEmail: emailIDTextField.text ?? "") { [weak self] error in
             guard error == nil else {
                 guard let strongSelf = self else { return }
-                switch AuthErrorCode(rawValue: error!._code) {
+              switch AuthErrorCode.Code(rawValue: error!._code) {
                 case .userNotFound:
                     strongSelf.emailIDTextField.addBorder(color: strongSelf.viewModel.borderColor, width: strongSelf.viewModel.borderWidth)
                     strongSelf.statusLabel.text = strongSelf.viewModel.userNotFound

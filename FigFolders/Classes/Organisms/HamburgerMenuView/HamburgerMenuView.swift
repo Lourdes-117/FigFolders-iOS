@@ -41,6 +41,10 @@ class HamburgerMenuView: UIView {
         viewProfileButton.setTitle(viewModel.viewProfileButtonTitle, for: .normal)
         nameLabel.text = viewModel.fullName
         setupProfilePic()
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapViewProfileButton(_:)))
+        profilePictureImage.isUserInteractionEnabled = true
+        profilePictureImage.addGestureRecognizer(tapGestureRecognizer)
     }
     
     func expandOrCollapseMenu() {
@@ -68,7 +72,7 @@ class HamburgerMenuView: UIView {
     }
 
 // MARK: - Button Actions
-    @IBAction func onTapViewProfileButton(_ sender: Any) {
+    @IBAction @objc func onTapViewProfileButton(_ sender: Any) {
         delegate?.onTapViewProfile()
     }
     

@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseStorage
+import UIKit
 
 enum StorageErrors: Error {
     case failedToUpload
@@ -138,6 +139,7 @@ class StorageManager {
                 }
                 self?.uploadFileWithUrl(filePath: "\(filePath).mp4", fileURL: mp4EncodedFileUrl, completion: completion)
             }
+            return
         }
         uploadFileWithUrl(filePath: filePath, fileURL: localUrl, completion: completion)
     }

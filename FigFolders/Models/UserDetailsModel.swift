@@ -107,12 +107,13 @@ struct FigFileModel: Encodable, Decodable {
     let fileName: String?
     let fileType: String?
     let fileDescription: String?
-    let likedUsers: [String?]?
+    var likedUsers: [String?]?
     var fileUrl: String?
     let filePrice: Float?
     let comments: [FigFilesCommentsModel?]?
     var fileSizeBytes: Int?
     var purchasedUsers: [String?]?
+    var isUserFollowing: Bool? // Used in home screen to check if the user is follwing that particular user to set the follow button on home screen
     
     var isFree: Bool {
         return filePrice ?? 0 <= 0
@@ -126,7 +127,7 @@ struct FigFileModel: Encodable, Decodable {
         DocumentPickerDocumentType(rawValue: fileType ?? "")
     }
     
-    // TODO:- Add Types Here
+    // TODO: - Add Types Here
     var figFileDisplayCellId: String {
         switch fileTypeEnum {
         case .pdf:
@@ -137,10 +138,10 @@ struct FigFileModel: Encodable, Decodable {
             return FigFilesDisplayImageTableViewCell.kCellId
         case .video:
             return FigFilesDisplayVideoTableViewCell.kCellId
-        case .text:
-            return ""
-        case .html:
-            return ""
+//        case .text:
+//            return ""
+//        case .html:
+//            return ""
         case .plainText:
             return ""
         case .none:

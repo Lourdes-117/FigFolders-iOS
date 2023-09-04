@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Search Chat View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -17,10 +23,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TqZ-So-7ed">
-                                <rect key="frame" x="0.0" y="111" width="414" height="751"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVJ-6c-pAc" customClass="PullDownTopBarView" customModule="FigFolders" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -29,23 +31,43 @@
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search for a Username" translatesAutoresizingMaskIntoConstraints="NO" id="iDB-U3-Vhv">
-                                <rect key="frame" x="0.0" y="55" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="55" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results Found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SjD-6d-04a">
+                                <rect key="frame" x="132.5" y="437" width="149.5" height="22.5"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                <color key="textColor" name="LabelColorPrimary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Try A Differnt Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4S-YI-tAa">
+                                <rect key="frame" x="105" y="464.5" width="204" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                <color key="textColor" name="LabelColorPrimary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TqZ-So-7ed">
+                                <rect key="frame" x="0.0" y="106" width="414" height="756"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="V4S-YI-tAa" firstAttribute="top" secondItem="SjD-6d-04a" secondAttribute="bottom" constant="5" id="BqI-A8-QHL"/>
                             <constraint firstItem="TqZ-So-7ed" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="OFR-Hs-UKA"/>
                             <constraint firstItem="iDB-U3-Vhv" firstAttribute="top" secondItem="iVJ-6c-pAc" secondAttribute="bottom" id="PIE-ZH-6DI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="TqZ-So-7ed" secondAttribute="bottom" id="VKd-JL-B9q"/>
                             <constraint firstItem="iVJ-6c-pAc" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="ZBy-yS-Fdx"/>
+                            <constraint firstItem="V4S-YI-tAa" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="bZR-sW-UUO"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TqZ-So-7ed" secondAttribute="trailing" id="c4c-jl-wVu"/>
+                            <constraint firstItem="SjD-6d-04a" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ebW-Ua-02I"/>
                             <constraint firstItem="iDB-U3-Vhv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="gDe-ue-r8e"/>
                             <constraint firstItem="iDB-U3-Vhv" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="gpN-nM-6d3"/>
                             <constraint firstItem="TqZ-So-7ed" firstAttribute="top" secondItem="iDB-U3-Vhv" secondAttribute="bottom" id="iUv-GO-Tdt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iVJ-6c-pAc" secondAttribute="trailing" id="lgy-6r-5Xk"/>
                             <constraint firstItem="iVJ-6c-pAc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="n77-uH-R5M"/>
+                            <constraint firstItem="SjD-6d-04a" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="q32-XH-gdj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -60,6 +82,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="LabelColorPrimary">
+            <color red="0.093999996781349182" green="0.10199999809265137" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

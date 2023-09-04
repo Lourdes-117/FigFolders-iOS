@@ -9,6 +9,7 @@ import Foundation
 import MessageKit
 import CoreLocation
 import AVFoundation
+import UIKit
 
 struct Message: MessageType {
     var sender: SenderType

@@ -33,35 +33,54 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5q-SY-tjH">
-                                <rect key="frame" x="87" y="7" width="49" height="61"/>
+                                <rect key="frame" x="87" y="7" width="325" height="61"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                                 <color key="textColor" name="LabelColorPrimary"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9x-yh-Kx2">
-                                <rect key="frame" x="87" y="71" width="325" height="16.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9x-yh-Kx2">
+                                <rect key="frame" x="116" y="71" width="296" height="17"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <color key="textColor" name="LabelColorSecondary"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/01/2001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHc-KK-8uy">
+                                <rect key="frame" x="337" y="47" width="75" height="24"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                                <color key="textColor" name="LabelColorSecondary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ql6-Zo-V1c">
+                                <rect key="frame" x="87" y="68.5" width="24" height="21.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ql6-Zo-V1c" secondAttribute="height" multiplier="1:1" id="ETo-iz-hMg"/>
+                                    <constraint firstAttribute="width" priority="1" id="H4Z-pi-Ihd"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="f9x-yh-Kx2" firstAttribute="leading" secondItem="H5q-SY-tjH" secondAttribute="leading" id="2gQ-e4-Chv"/>
                             <constraint firstItem="OWy-ru-hwZ" firstAttribute="leading" secondItem="apk-FK-l9H" secondAttribute="leading" constant="8" id="3y7-o8-Hto"/>
+                            <constraint firstItem="bHc-KK-8uy" firstAttribute="height" secondItem="Ql6-Zo-V1c" secondAttribute="height" id="4pT-kB-5ae"/>
+                            <constraint firstItem="f9x-yh-Kx2" firstAttribute="centerY" secondItem="Ql6-Zo-V1c" secondAttribute="centerY" id="6Jf-wP-agV"/>
+                            <constraint firstAttribute="trailing" secondItem="bHc-KK-8uy" secondAttribute="trailing" constant="8" id="7g1-gz-54q"/>
                             <constraint firstAttribute="height" constant="75" id="DgR-0g-TJE"/>
-                            <constraint firstAttribute="trailing" secondItem="f9x-yh-Kx2" secondAttribute="trailing" constant="8" id="XGM-uz-fhQ"/>
+                            <constraint firstItem="f9x-yh-Kx2" firstAttribute="top" secondItem="bHc-KK-8uy" secondAttribute="bottom" id="QxW-GC-hQ0"/>
+                            <constraint firstAttribute="trailing" secondItem="H5q-SY-tjH" secondAttribute="trailing" constant="8" id="TbB-RE-N17"/>
                             <constraint firstAttribute="bottom" secondItem="OWy-ru-hwZ" secondAttribute="bottom" constant="7" id="XRx-5V-3v0"/>
                             <constraint firstItem="f9x-yh-Kx2" firstAttribute="top" secondItem="H5q-SY-tjH" secondAttribute="bottom" constant="3" id="acd-RC-YQB"/>
                             <constraint firstItem="OWy-ru-hwZ" firstAttribute="top" secondItem="apk-FK-l9H" secondAttribute="top" constant="7" id="hXq-JQ-1GK"/>
                             <constraint firstItem="H5q-SY-tjH" firstAttribute="top" secondItem="OWy-ru-hwZ" secondAttribute="top" id="jYA-fC-IS5"/>
                             <constraint firstItem="H5q-SY-tjH" firstAttribute="leading" secondItem="OWy-ru-hwZ" secondAttribute="trailing" constant="18" id="nwa-n7-d50"/>
+                            <constraint firstItem="Ql6-Zo-V1c" firstAttribute="leading" secondItem="H5q-SY-tjH" secondAttribute="leading" id="ugV-Fs-A2z"/>
                             <constraint firstItem="H5q-SY-tjH" firstAttribute="centerY" secondItem="OWy-ru-hwZ" secondAttribute="centerY" id="v9i-2E-bd5"/>
+                            <constraint firstItem="f9x-yh-Kx2" firstAttribute="leading" secondItem="Ql6-Zo-V1c" secondAttribute="trailing" constant="5" id="wDM-v1-XVA"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="apk-FK-l9H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7ah-Xm-Kg0"/>
+                    <constraint firstAttribute="trailing" secondItem="f9x-yh-Kx2" secondAttribute="trailing" constant="8" id="RIz-1T-zZ4"/>
                     <constraint firstAttribute="bottom" secondItem="apk-FK-l9H" secondAttribute="bottom" id="YvU-j8-QAh"/>
                     <constraint firstItem="apk-FK-l9H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dK1-7L-UMG"/>
                     <constraint firstAttribute="trailing" secondItem="apk-FK-l9H" secondAttribute="trailing" id="fCa-8L-dnf"/>
@@ -70,6 +89,11 @@
             <connections>
                 <outlet property="profilePic" destination="OWy-ru-hwZ" id="JNb-Hn-QcK"/>
                 <outlet property="recentMessage" destination="f9x-yh-Kx2" id="BFi-CX-iO5"/>
+                <outlet property="recentMessageContentAndPreviewImageHorizontalSpace" destination="wDM-v1-XVA" id="Y1k-72-Nas"/>
+                <outlet property="recentMessageContentPreviewImageAspectRatioConstraint" destination="ETo-iz-hMg" id="fwO-jj-kwD"/>
+                <outlet property="recentMessageContentPreviewImageView" destination="Ql6-Zo-V1c" id="GvU-Vc-i7V"/>
+                <outlet property="recentMessageContentPreviewImageWidthConstraint" destination="H4Z-pi-Ihd" id="zEl-6E-Mk3"/>
+                <outlet property="recentMessageDate" destination="bHc-KK-8uy" id="tiW-7p-WQf"/>
                 <outlet property="userName" destination="H5q-SY-tjH" id="Gaq-V0-BZw"/>
                 <outlet property="usernameCenterConstraint" destination="v9i-2E-bd5" id="O3C-Md-Jtq"/>
                 <outlet property="usernameTopConstraint" destination="jYA-fC-IS5" id="ZOe-6q-ceJ"/>
@@ -78,6 +102,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="photo" catalog="system" width="128" height="93"/>
         <namedColor name="LabelColorPrimary">
             <color red="0.093999996781349182" green="0.10199999809265137" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

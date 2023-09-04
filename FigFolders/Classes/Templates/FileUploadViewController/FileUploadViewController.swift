@@ -55,8 +55,8 @@ class FileUploadViewController: UIViewController {
         fileDescription.layer.cornerRadius = 5
         fileDescription.addBorder(color: UIColor.gray.withAlphaComponent(0.5) , width: 0.5)
         iOwnThisFileButton.addBorder(color: viewModel.selectFileBorderColor ?? UIColor(), width: 1)
-        backgroundView.roundCorners(corners: [.topLeft, .topRight], radius: viewModel.cornerRadius)
-        titleBackgroundView.roundCorners(corners: [.topLeft, .topRight], radius: viewModel.cornerRadius)
+        backgroundView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: viewModel.cornerRadius)
+        titleBackgroundView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: viewModel.cornerRadius)
         priceOfFile.isEnabled = viewModel.isPriceEnabled
         iOwnThisFileTrailingConstraint.constant = -uploadButton.frame.width
     }
@@ -96,22 +96,79 @@ class FileUploadViewController: UIViewController {
         resetErrorTexts()
         let isFileNameValid = viewModel.isFileNameValid(fileName.text)
         let isFileDescriptionValid = viewModel.isFileDescriptionValid(fileDescription.text)
-        if isFileNameValid == .valid && isFileDescriptionValid == .valid {
+        let isPriceValid = viewModel.isPriceValid(price: priceOfFile.text)
+        if isFileNameValid == .valid && isFileDescriptionValid == .valid && isPriceValid {
             return true
             
         } else {
             // Filename or Description Invalid
             if isFileNameValid != .valid {
                 fileNameError.isHidden = false
+            } else {
+                fileNameError.isHidden = true
             }
+            
             if isFileDescriptionValid != .valid {
                 fileDescriptionError.isHidden = false
+            } else {
+                fileDescriptionError.isHidden = true
+            }
+            
+            if isPriceValid {
+                priceOfFile.addBorder(color: .green, width: 1)
+            } else {
+                priceOfFile.addBorder(color: .red, width: 1)
             }
             
             fileNameError.text = isFileNameValid.errorText
             fileDescriptionError.text = isFileDescriptionValid.errorText
             return false
         }
+    }
+    
+    // Only use for photos and videos
+    private func presentPhotosAndVideosPicker(type: DocumentPickerDocumentType) {
+        let actionSheet = UIAlertController(title: viewModel.attachMediaTitle, message: viewModel.attachMediaMessage, preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: viewModel.cameraString, style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            if type == .image {
+                let picker = UIImagePickerController()
+                picker.sourceType = .camera
+                picker.delegate = self
+                picker.allowsEditing = false
+                self.present(picker, animated: false, completion: nil)
+            } else if type == .video {
+                let picker = UIImagePickerController()
+                picker.sourceType = .camera
+                picker.delegate = self
+                picker.allowsEditing = false
+                self.present(picker, animated: false, completion: nil)
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: viewModel.galleryString, style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            if type == .image {
+                let picker = UIImagePickerController()
+                picker.sourceType = .photoLibrary
+                picker.delegate = self
+                picker.allowsEditing = false
+                self.present(picker, animated: false, completion: nil)
+            } else if type == .video {
+                let picker = UIImagePickerController()
+                picker.sourceType = .photoLibrary
+                picker.delegate = self
+                picker.allowsEditing = true
+                picker.mediaTypes = [self.viewModel.mediaTypeForVideo]
+                self.present(picker, animated: false, completion: nil)
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: viewModel.cancel, style: .cancel, handler: { _ in
+            
+        }))
+        present(actionSheet, animated: true, completion: nil)
     }
     
 // MARK: Button Tap Actions
@@ -140,8 +197,12 @@ class FileUploadViewController: UIViewController {
     @IBAction private func onTapSelectFileButton() {
         let actionSheet = UIAlertController(title: viewModel.attachMediaTitle, message: viewModel.attachMediaMessage, preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: viewModel.photosAndVideos, style: .default, handler: { [weak self] _ in
-            self?.presentImageAndVideoPicker()
+        actionSheet.addAction(UIAlertAction(title: viewModel.photosString, style: .default, handler: { [weak self] _ in
+            self?.presentPhotosAndVideosPicker(type: .image)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: viewModel.videosString, style: .default, handler: { [weak self] _ in
+            self?.presentPhotosAndVideosPicker(type: .video)
         }))
         
         actionSheet.addAction(UIAlertAction(title: viewModel.documents, style: .default, handler: { [weak self] _ in

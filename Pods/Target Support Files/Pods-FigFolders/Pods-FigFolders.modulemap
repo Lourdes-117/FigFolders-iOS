@@ -1,6 +1,0 @@
-framework module Pods_FigFolders {
-  umbrella header "Pods-FigFolders-umbrella.h"
-
-  export *
-  module * { export * }
-}
