@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="364" id="KGk-i7-Jjw" customClass="FigFilesDisplayPdfTableViewCell" customModule="FigFolders" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="370" height="364"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="551" id="KGk-i7-Jjw" customClass="FigFilesDisplayPdfTableViewCell" customModule="FigFolders" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="398" height="551"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="370" height="364"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="398" height="551"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y8B-jZ-cfu" userLabel="Divider View">
-                        <rect key="frame" x="0.0" y="65" width="370" height="1"/>
+                        <rect key="frame" x="0.0" y="65" width="398" height="1"/>
                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="a4S-oA-yLc"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vfF-rS-RWW" customClass="FigFileProfileView" customModule="FigFolders" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="370" height="65"/>
+                        <rect key="frame" x="0.0" y="0.0" width="398" height="65"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="65" id="hFx-FV-1Us"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IvZ-HD-sD0" customClass="LikeCommentReportView" customModule="FigFolders" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="320" width="370" height="45"/>
+                        <rect key="frame" x="0.0" y="506" width="398" height="45"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="g18-pU-nef"/>
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pdf_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="2EI-cK-PPa">
-                        <rect key="frame" x="0.0" y="66" width="370" height="250"/>
+                        <rect key="frame" x="0.0" y="66" width="398" height="250"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="250" id="acl-XY-sl9"/>
                         </constraints>
@@ -49,17 +49,22 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Bdm-0a-Ohh">
-                        <rect key="frame" x="317" y="74.5" width="25" height="23.5"/>
+                        <rect key="frame" x="345" y="74.5" width="25" height="23.5"/>
                         <color key="tintColor" systemColor="systemGreenColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="Imo-U2-BqL"/>
                             <constraint firstAttribute="height" constant="25" id="cID-Ib-CiS"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKg-sR-wCf">
+                        <rect key="frame" x="16" y="328" width="366" height="174"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="y8B-jZ-cfu" secondAttribute="trailing" id="3BU-Xg-t1a"/>
-                    <constraint firstItem="IvZ-HD-sD0" firstAttribute="top" secondItem="2EI-cK-PPa" secondAttribute="bottom" constant="4" id="4mN-Bv-baP"/>
                     <constraint firstItem="y8B-jZ-cfu" firstAttribute="top" secondItem="vfF-rS-RWW" secondAttribute="bottom" id="5Tw-h9-2ey"/>
                     <constraint firstItem="ETg-7m-hHB" firstAttribute="trailing" secondItem="2EI-cK-PPa" secondAttribute="trailing" id="BNR-a0-XT9"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Bdm-0a-Ohh" secondAttribute="trailing" constant="8" id="DFc-Jq-uDP"/>
@@ -73,24 +78,34 @@
                     <constraint firstAttribute="trailing" secondItem="IvZ-HD-sD0" secondAttribute="trailing" id="OKM-Fj-YMd"/>
                     <constraint firstItem="ETg-7m-hHB" firstAttribute="leading" secondItem="2EI-cK-PPa" secondAttribute="leading" id="XU2-hk-4Zz"/>
                     <constraint firstItem="2EI-cK-PPa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="XUr-2b-KpJ"/>
+                    <constraint firstAttribute="trailing" secondItem="nKg-sR-wCf" secondAttribute="trailing" constant="16" id="czF-TI-U4W"/>
                     <constraint firstItem="y8B-jZ-cfu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dmS-nY-TJ6"/>
                     <constraint firstItem="vfF-rS-RWW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dsb-E0-gYY"/>
+                    <constraint firstItem="nKg-sR-wCf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="fNh-2H-UKV"/>
+                    <constraint firstItem="nKg-sR-wCf" firstAttribute="top" secondItem="2EI-cK-PPa" secondAttribute="bottom" constant="12" id="jJk-H5-XP6"/>
                     <constraint firstItem="ETg-7m-hHB" firstAttribute="bottom" secondItem="IvZ-HD-sD0" secondAttribute="bottom" id="loc-DP-J5v"/>
                     <constraint firstAttribute="trailing" secondItem="2EI-cK-PPa" secondAttribute="trailing" id="nz4-Xn-sXg"/>
+                    <constraint firstItem="IvZ-HD-sD0" firstAttribute="top" secondItem="nKg-sR-wCf" secondAttribute="bottom" constant="4" id="pUc-En-Czx"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="ETg-7m-hHB"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="LikeCommentReportView" destination="IvZ-HD-sD0" id="UjH-n3-LFa"/>
+                <outlet property="aboutLabel" destination="nKg-sR-wCf" id="4B1-Vq-alR"/>
                 <outlet property="blurView" destination="ETg-7m-hHB" id="Wdz-YV-6V5"/>
                 <outlet property="figFileProfileView" destination="vfF-rS-RWW" id="blX-Xg-jbR"/>
                 <outlet property="freeOrPaidLockImage" destination="Bdm-0a-Ohh" id="E4r-3N-a4r"/>
                 <outlet property="pdfImageView" destination="2EI-cK-PPa" id="ldF-nj-2Y4"/>
             </connections>
-            <point key="canvasLocation" x="171.01449275362319" y="111.16071428571428"/>
+            <point key="canvasLocation" x="189.85507246376812" y="48.549107142857139"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="lock" catalog="system" width="128" height="128"/>
+        <image name="lock" catalog="system" width="125" height="128"/>
         <image name="pdf_placeholder" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
