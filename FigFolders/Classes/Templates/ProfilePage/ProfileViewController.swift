@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import SDWebImage
+import Charts
 
 class ProfileViewController: ViewControllerWithLoading {
 
@@ -18,6 +19,7 @@ class ProfileViewController: ViewControllerWithLoading {
     
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var pieChartView: PieChartView!
     
     // Personal Details
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -26,13 +28,37 @@ class ProfileViewController: ViewControllerWithLoading {
     @IBOutlet weak var emailIDTextField: UITextField!
     @IBOutlet weak var dateOfBirthDatePicker: UIDatePicker!
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var changeProfilePhotoButton: UIButton!
     
     let viewModel = ProfileViewModel()
+
     
 // MARK: - Lifecycle Methodss
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        setupChart()
+    }
+    
+    private func setupChart() {
+        self.pieChartView.noDataText = "Loading..."
+        viewModel.getStorageUsedByCurrentUser { [weak self] storageModel in
+            guard let self = self else { return }
+            var dataEntries: [PieChartDataEntry] = []
+            let dataEntry1 = PieChartDataEntry(value: Double((storageModel?.maxStorateInMegabytes ?? "0").floatValue - (storageModel?.figFilesStorageUsed ?? "0").floatValue))
+            dataEntry1.label = "MB Available"
+            dataEntries.append(dataEntry1)
+            
+            let dataEntry2 = PieChartDataEntry(value: Double((storageModel?.figFilesStorageUsed ?? "0").floatValue))
+            dataEntry2.label = "MB Used"
+            dataEntries.append(dataEntry2)
+            let chartDataSet = PieChartDataSet(entries: dataEntries, label: "")
+            chartDataSet.colors = [ColorPalette.primary_green.color ?? .green, .red]
+            let chartData = PieChartData(dataSets: [chartDataSet])
+            self.pieChartView.animate(xAxisDuration: kAnimationDurationLong, yAxisDuration: kAnimationDurationLong, easingOption: .easeOutBounce)
+            self.pieChartView.data = chartData
+            self.pieChartView.noDataText = "Error In Loading Data"
+        }
     }
     
     private func initialSetup() {
@@ -63,6 +89,11 @@ class ProfileViewController: ViewControllerWithLoading {
         emailIDTextField.delegate = self
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        profilePictureView.layer.borderColor = viewModel.profilePicBorderColor
+    }
+    
     private func setupView() {
         self.title = viewModel.pageTitle
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -83,10 +114,14 @@ class ProfileViewController: ViewControllerWithLoading {
         personalDetailsEditButton.layer.shadowOffset = .zero
         personalDetailsEditButton.layer.shadowRadius = viewModel.editButtonCornerRadius
         dateOfBirthDatePicker.maximumDate = Date()
+        changeProfilePhotoButton.setTitle("", for: .normal)
+        changeProfilePhotoButton.setRoundedCorners()
+        profilePictureView.layer.borderWidth = viewModel.profildPicBorderWidth
+        profilePictureView.layer.borderColor = viewModel.profilePicBorderColor
     }
     
     private func setupProfilePicture() {
-        let profilePicTapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapProfilePicEdit))
+        let profilePicTapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapProfilePic))
         profilePictureView.addGestureRecognizer(profilePicTapGesture)
         profilePictureView.isUserInteractionEnabled = true
         if let profilePictureUrl = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) as? String,
@@ -205,8 +240,17 @@ class ProfileViewController: ViewControllerWithLoading {
         self.present(alertView, animated: true, completion: nil)
     }
     
-    @objc func onTapProfilePicEdit() {
+    @IBAction func onTapEditProfilePicButton(_ sender: Any) {
         presentPhotoActionSheet()
+    }
+    
+    @objc func onTapProfilePic() {
+        if let profilePictureUrl = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) as? String,
+           let url = URL(string: profilePictureUrl) {
+            guard let profilePicViewerViewController = ImageViewerViewController.initiateVC() else { return }
+            profilePicViewerViewController.imageUrl = url
+            self.present(profilePicViewerViewController, animated: true)
+        }
     }
     
     @IBAction func onTapEditPersonalDetails(_ sender: Any) {
@@ -230,16 +274,12 @@ class ProfileViewController: ViewControllerWithLoading {
                                            usernameString: viewModel.userName ?? "",
                                            profilePicUrlString: profilePicUrl)
         showLoadingIndicator()
-        
-        DatabaseManager.shared.getUsernameForEmail(emailID: viewModel.safeEmail ?? "") { [weak self] username in
-            guard username != nil else {
-                // TODO: - Add User Notification here
-                self?.hideLoadingIndicatorView()
-                return
-            }
+        guard let _ = currentUserUsername else {
+            self.hideLoadingIndicatorView()
+            return
+        }
             // Use Email Available. Can be updated in Firebase Auth
-            guard let strongSelf = self else { return }
-            if strongSelf.viewModel.emailID == strongSelf.emailIDTextField.text { // Email ID Not changed
+            if self.viewModel.emailID == self.emailIDTextField.text { // Email ID Not changed
                 DatabaseManager.shared.updateDetailsOfUser(userDetails: userDetails) { [weak self] success in
                     guard let strongSelf = self else { return }
                     strongSelf.hideLoadingIndicatorView()
@@ -253,14 +293,13 @@ class ProfileViewController: ViewControllerWithLoading {
                     }
                 }
             } else { // Email ID Changed
-                strongSelf.viewModel.userDetailToUpdate = userDetails
+                self.viewModel.userDetailToUpdate = userDetails
                 if let loginViewController = LoginViewController.initiateVC() {
                     loginViewController.delegate = self
                     loginViewController.shouldActAsVerificationScreen = true
-                    self?.present(loginViewController, animated: true, completion: nil)
+                    self.present(loginViewController, animated: true, completion: nil)
                 }
             }
-        }
         disableAllInputFields()
     }
     
@@ -352,7 +391,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         actionSheet.addAction(UIAlertAction(title: viewModel.takePhoto, style: .default, handler: {[weak self] _ in
             self?.presentCamera()
         }))
-        actionSheet.addAction(UIAlertAction(title: viewModel.choosePhoto, style: .default, handler: {[weak self] _ in
+        actionSheet.addAction(UIAlertAction(title: viewModel.selectPhoto, style: .default, handler: {[weak self] _ in
             self?.presentPhotoPicker()
         }))
         if let _ = UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.profilePicUrl) { // Show delete button only if image already available

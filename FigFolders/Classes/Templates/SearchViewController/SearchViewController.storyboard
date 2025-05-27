@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="SearchViewController" customModule="FigFolders" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tII-IN-DCn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Enter Search Term Here" translatesAutoresizingMaskIntoConstraints="NO" id="ie0-Ud-eMa">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" smartDashesType="no" textContentType="username"/>
+                                    </searchBar>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ORN-i9-kWO">
+                                        <rect key="frame" x="0.0" y="55" width="414" height="32"/>
+                                        <segments>
+                                            <segment title="People"/>
+                                            <segment title="Files"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentValueChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="PWu-Mn-SrW"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Search Term To Continue" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vym-zb-9Gf">
+                                        <rect key="frame" x="70" y="392.5" width="274.5" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="Greyscale1"/>
+                                <constraints>
+                                    <constraint firstItem="vym-zb-9Gf" firstAttribute="centerX" secondItem="tII-IN-DCn" secondAttribute="centerX" id="BuG-or-5sU"/>
+                                    <constraint firstItem="ORN-i9-kWO" firstAttribute="leading" secondItem="tII-IN-DCn" secondAttribute="leading" id="Ey2-EG-DfO"/>
+                                    <constraint firstAttribute="trailing" secondItem="ie0-Ud-eMa" secondAttribute="trailing" id="TAb-54-hfp"/>
+                                    <constraint firstItem="ie0-Ud-eMa" firstAttribute="leading" secondItem="tII-IN-DCn" secondAttribute="leading" id="aQ4-ho-Z4a"/>
+                                    <constraint firstItem="ORN-i9-kWO" firstAttribute="top" secondItem="ie0-Ud-eMa" secondAttribute="bottom" constant="4" id="gkF-bh-dwe"/>
+                                    <constraint firstItem="vym-zb-9Gf" firstAttribute="centerY" secondItem="tII-IN-DCn" secondAttribute="centerY" constant="-4.75" id="kEp-oL-eKa"/>
+                                    <constraint firstItem="ie0-Ud-eMa" firstAttribute="top" secondItem="tII-IN-DCn" secondAttribute="top" id="m7d-vp-Ekr"/>
+                                    <constraint firstAttribute="trailing" secondItem="ORN-i9-kWO" secondAttribute="trailing" id="uT1-ae-tEP"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XhG-9S-dT3">
+                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mm9-81-p4M" customClass="FigFilesTableView" customModule="FigFolders" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="138" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="Primary-Green"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="mm9-81-p4M" secondAttribute="bottom" id="0Vt-s4-QoQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mm9-81-p4M" secondAttribute="trailing" id="BeE-1R-o3A"/>
+                            <constraint firstItem="mm9-81-p4M" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FOC-4l-sQv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="tII-IN-DCn" secondAttribute="top" id="NHN-fs-WHM"/>
+                            <constraint firstItem="mm9-81-p4M" firstAttribute="top" secondItem="XhG-9S-dT3" secondAttribute="top" id="Svo-dx-qdy"/>
+                            <constraint firstItem="XhG-9S-dT3" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="WLx-Ae-tXJ"/>
+                            <constraint firstItem="XhG-9S-dT3" firstAttribute="top" secondItem="ORN-i9-kWO" secondAttribute="bottom" constant="8" id="aBI-HQ-rvK"/>
+                            <constraint firstItem="tII-IN-DCn" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="g96-EC-Hlm"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XhG-9S-dT3" secondAttribute="bottom" id="hXr-h5-oNL"/>
+                            <constraint firstAttribute="trailing" secondItem="tII-IN-DCn" secondAttribute="trailing" id="uaG-Jj-Ou9"/>
+                            <constraint firstItem="tII-IN-DCn" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="vFz-RE-9Fu"/>
+                            <constraint firstItem="XhG-9S-dT3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yTi-Vo-HPf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="figFilesTableView" destination="mm9-81-p4M" id="y1X-BX-F9H"/>
+                        <outlet property="noResultsBackgroundView" destination="tII-IN-DCn" id="VGj-7K-4dq"/>
+                        <outlet property="noResultsLabel" destination="vym-zb-9Gf" id="cUV-l5-f1B"/>
+                        <outlet property="peopleSearchTableView" destination="XhG-9S-dT3" id="0cZ-Mj-6a5"/>
+                        <outlet property="searchBar" destination="ie0-Ud-eMa" id="p7P-Mx-vYs"/>
+                        <outlet property="segmentedController" destination="ORN-i9-kWO" id="YqK-6H-QZ5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46" y="68"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Greyscale1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Primary-Green">
+            <color red="0.14499999582767487" green="0.82700002193450928" blue="0.40000000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

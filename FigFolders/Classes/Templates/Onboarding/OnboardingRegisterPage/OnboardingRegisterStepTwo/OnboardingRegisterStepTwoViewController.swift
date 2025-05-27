@@ -19,6 +19,7 @@ class OnboardingRegisterStepTwoViewController: ViewControllerWithLoading {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var usernameTakenLabel: UILabel!
     @IBOutlet weak var emailIDTakenLabel: UILabel!
+    @IBOutlet weak var passwordErrorText: UIView!
     
     let viewModel = OnboardingRegisterStepTwoViewModel()
     
@@ -62,6 +63,7 @@ class OnboardingRegisterStepTwoViewController: ViewControllerWithLoading {
     private func setupViews() {
         usernameTakenLabel.isHidden = true
         emailIDTakenLabel.isHidden = true
+        passwordErrorText.isHidden = true
         view.addGradient(from: viewModel.gradientStartColor, to: viewModel.gradientEndColor, direction: .topToBottom)
         userNameTextField.addBorder(color: viewModel.borderColor, width: viewModel.borderWidth)
         userNameTextField.layer.cornerRadius = viewModel.borderRadius
@@ -88,6 +90,7 @@ class OnboardingRegisterStepTwoViewController: ViewControllerWithLoading {
         userNameTextField.addBorder(color: isUsernameValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
         let isPasswordValid = viewModel.isPasswordValid(password: passwordTextField.text)
         passwordTextField.addBorder(color: isPasswordValid ? viewModel.fieldValidColor : viewModel.fieldInvalidColor, width: viewModel.borderWidth)
+        passwordErrorText.isHidden = isPasswordValid
         
         return isEmailValid && isUsernameValid && isPasswordValid
     }

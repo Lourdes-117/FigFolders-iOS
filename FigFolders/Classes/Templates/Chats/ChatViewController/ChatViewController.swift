@@ -67,6 +67,7 @@ class ChatViewController: MessagesViewController {
         }
         messageInputBar.setLeftStackViewWidthConstant(to: 36, animated: false)
         messageInputBar.setStackViewItems([button], forStack: .left, animated: false)
+        messageInputBar.inputTextView.isImagePasteEnabled = false
     }
     
     private func presentInputActionSheet() {
@@ -236,7 +237,7 @@ class ChatViewController: MessagesViewController {
 
 // MARK: - Message Datasource
 extension ChatViewController: MessagesDataSource {
-    func currentSender() -> SenderType {
+  var currentSender: MessageKit.SenderType {
         guard let selfSender = viewModel.selfSender else {
             return Sender(senderId: "", displayName: "", photoUrl: "")
         }
@@ -488,7 +489,7 @@ extension ChatViewController: UIImagePickerControllerDelegate {
 
 // MARK: - Loading Indicator
 extension ChatViewController {
-    func showLoadingIndicator(with type: NVActivityIndicatorType = .orbit, color: UIColor = .blue) {
+    func showLoadingIndicator(with type: NVActivityIndicatorType = .ballClipRotateMultiple, color: UIColor = .blue) {
         activityBackgroundView = UIView(frame: view.frame)
         activityBackgroundView?.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
         activityView = NVActivityIndicatorView(frame: CGRect(x: (view.frame.width/2)-50,

@@ -6,14 +6,18 @@
 //
 
 import UIKit
+import FirebaseAuth
+import AVKit
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: ViewControllerWithLoading {
 
     @IBOutlet weak var tableView: UITableView!
     
     var userNameToPopulate: String?
     
     let viewModel = UserProfileViewModel()
+    
+    weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +53,14 @@ class UserProfileViewController: UIViewController {
     }
     
     private func getFigFilesInitial() {
+        showLoadingIndicator()
         viewModel.fetchFigFilesWithPagination { [weak self] _ in
-            self?.tableView.reloadData()
+            guard let self = self else { return }
+            self.tableView.reloadData()
+            self.hideLoadingIndicatorView()
+            if self.viewModel.numberOfFigFiles <= 0 {
+                self.tableView.isHidden = true
+            }
         }
     }
     
@@ -79,12 +89,20 @@ extension UserProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = viewModel.getCellForSection(tableView: tableView, indexPath: indexPath) as? FigFilesDisplayTableViewCell,
-        let figFile = viewModel.figFiles[indexPath.row] else { return UITableViewCell() }
-        cell.likeCommentShareDelegate = self
-        cell.figFilesTableViewCellDelegate = self
-        cell.setupCell(figFile: figFile)
-        return cell
+        if let cell = viewModel.getCellForSection(tableView: tableView, indexPath: indexPath) as? UserDetailsTableViewCell,
+           let userNameToPopulate = viewModel.userNameToPopulate {
+            cell.delegate = self
+            cell.setupCell(userName: userNameToPopulate)
+            return cell
+        }
+        if let cell = viewModel.getCellForSection(tableView: tableView, indexPath: indexPath) as? FigFilesDisplayTableViewCell,
+           let figFile = viewModel.figFiles[indexPath.row] {
+            cell.LikeCommentReportDelegate = self
+            cell.figFilesTableViewCellDelegate = self
+            cell.setupCell(figFile: figFile)
+            return cell
+        }
+        return UITableViewCell()
     }
 }
 
@@ -98,12 +116,46 @@ extension UserProfileViewController: UITableViewDelegate {
 }
 
 extension UserProfileViewController: FigFilesTableViewCellDelegate {
-    func openProfileDetailsPage(userNameToPopulate: String) {
-        // Don't have to open profile page from here
+    func didTapFullScreenOnVideo(avPlayer: AVPlayer) {
+        let videoPlayerController = HomeScreenVideoPlayer()
+        videoPlayerController.player = avPlayer
+        self.present(videoPlayerController, animated: true)
     }
     
-    func openFigFileLargeView(figFile: FigFileModel?) {
-        // TODO:- Add Types Here
+    func followOrUnfollowUser(userNameToFollowOrUnfollow: String) {
+        let startIndex = 0
+        let endIndex = viewModel.figFiles.count-1
+        let arrayToIterate = startIndex...endIndex
+        arrayToIterate.forEach { index in
+            if viewModel.figFiles[index]?.ownerUsername == userNameToFollowOrUnfollow {
+                viewModel.figFiles[index]?.isUserFollowing?.toggle()
+            }
+        }
+        tableView.reloadData()
+        self.figFilesTableViewCellDelegate?.followOrUnfollowUser(userNameToFollowOrUnfollow: userNameToFollowOrUnfollow)
+    }
+    
+    func onTapProfileIcon(userNameToPopulate: String) {
+        StorageManager.shared.getProfilePicUrlForUser(userName: userNameToPopulate) { [weak self] profilePicUrl in
+            guard let self = self,
+                  let profilePicUrl = profilePicUrl,
+                  let imageViewController = ImageViewerViewController.initiateVC() else {
+                return
+            }
+            imageViewController.imageUrl = profilePicUrl
+            self.present(imageViewController, animated: true)
+        }
+    }
+    
+    func openFigFileLargeView(figFile: FigFileModel?, shouldShowPurchaseScreen: Bool) {
+        if shouldShowPurchaseScreen {
+            guard let purchaseFigFileViewController = PurchaseFigFileViewController.initiateVC() else { return }
+            purchaseFigFileViewController.figFile = figFile
+            let navigationController = UINavigationController(rootViewController: purchaseFigFileViewController)
+            self.present(navigationController, animated: true, completion: nil)
+            return
+        }
+        // TODO: - Add Types Here
         guard let figFile = figFile else { return }
         switch figFile.fileTypeEnum {
         case .pdf:
@@ -118,10 +170,10 @@ extension UserProfileViewController: FigFilesTableViewCellDelegate {
             self.present(imageViewerViewController, animated: true, completion: nil)
         case .video:
             break
-        case .text:
-            break
-        case .html:
-            break
+//        case .text:
+//            break
+//        case .html:
+//            break
         case .plainText:
             break
         case .none:
@@ -130,18 +182,32 @@ extension UserProfileViewController: FigFilesTableViewCellDelegate {
     }
 }
 
-// Mark:- Like Comment Share Delegate
-extension UserProfileViewController: LikeCommentShareDelegate {
+// MARK: - Like Comment Share Delegate
+extension UserProfileViewController: LikeCommentReportDelegate {
     func onTapLike(figFileLikeModel: FigFileLikeModel?) {
         guard let figfileLikeModel = figFileLikeModel else { return }
         CloudFunctionsManager.shared.likePostByUser(figFileLikeModel: figfileLikeModel)
     }
     
     func onTapComment(figFileModel: FigFileModel?) {
-        debugPrint("On Tap Comment")
+        guard let commentViewController = CommentsViewController.initiateVC() else { return }
+        commentViewController.figFileModel = figFileModel
+        self.navigationController?.pushViewController(commentViewController, animated: true)
     }
     
-    func onTapShare(figFileModel: FigFileModel?) {
-        debugPrint("On Tap Share")
+    func onTapReport(figFileModel: FigFileModel?) {
+        debugPrint("On Tap Report")
+    }
+}
+
+// MARK: - User Profile View Delegate
+extension UserProfileViewController: UserProfileViewDelegate {
+    func openProfileIconView(profilePicUrl: URL?) {
+        guard let profilePicUrl = profilePicUrl,
+              let imageViewController = ImageViewerViewController.initiateVC() else {
+            return
+        }
+        imageViewController.imageUrl = profilePicUrl
+        self.present(imageViewController, animated: true)
     }
 }

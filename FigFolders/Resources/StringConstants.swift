@@ -10,6 +10,8 @@ import Foundation
 class StringConstants {
     static let shared = StringConstants()
 
+    private init() { }
+  
     // Constants
     let regex = RegexConstants()
     let userDefaults = UserDefaultsConstants()
@@ -23,7 +25,7 @@ class StringConstants {
 ///Use Through StringConstants shared Instance
 struct RegexConstants {
     let email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-    let name = "^[A-Za-z]\\w{1,29}$"
+    let name = "([a-zA-Z]{3,30}\\s*)+"
     let phoneNumber = "^(\\+\\d{1,2}\\s?)?1?\\-?\\.?\\s?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$"
     let userName = "^[a-zA-Z0-9](_(?!(\\.|_))|\\.(?!(_|\\.))|[a-zA-Z0-9]){6,18}[a-zA-Z0-9]$"
 }
@@ -52,6 +54,11 @@ struct DatabaseConstants {
     let date = "date"
     let isRead = "isRead"
     let message = "message"
+    let userDetails = "user_details"
+  
+    func userDetailsPath(user: String) -> String {
+      return "\(userDetails)/\(user)"
+    }
 }
 
 ///Use Through StringConstants shared Instance

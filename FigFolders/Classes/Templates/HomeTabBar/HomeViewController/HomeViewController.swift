@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import AVKit
 
 class HomeViewController: ViewControllerWithLoading {
 // MARK: - Outlets
@@ -23,12 +24,18 @@ class HomeViewController: ViewControllerWithLoading {
         initialSetup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // To reflect if any change made. Especially in profile page
+        figFilesTableView.tableView.reloadData()
+    }
+    
     private func initialSetup() {
         setUserDefaults()
         setupView()
         setupGestures()
         setupDelegate()
-        figFilesTableView.initialSetup()
+        figFilesTableView.initialSetup(pageBehaviour: .homePage)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,7 +71,6 @@ class HomeViewController: ViewControllerWithLoading {
     private func setUserDefaults() {
         let unsafeEmail = (UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.emailID) as? String) ?? UserDetailsModel.getSafeEmail(email: FirebaseAuth.Auth.auth().currentUser?.email ?? "")
         let emailID = UserDetailsModel.getSafeEmail(email: unsafeEmail)
-        showLoadingIndicator(with: .ballScaleMultiple, color: .blue)
         if let userName = (UserDefaults.standard.value(forKey: StringConstants.shared.userDefaults.userName) as? String) {
             DatabaseManager.shared.getUserDetailsForUsername(username: userName) { [weak self] userDetails in
                 guard let userDetails = userDetails else {
@@ -77,7 +83,6 @@ class HomeViewController: ViewControllerWithLoading {
                 UserDefaults.standard.setValue(userDetails.phoneNumber, forKey: StringConstants.shared.userDefaults.phoneNumber)
                 UserDefaults.standard.setValue(userDetails.dateOfBirth, forKey: StringConstants.shared.userDefaults.dateOfBirth)
                 self?.hamburgerMenuView.refreshView()
-                self?.hideLoadingIndicatorView()
             }
         } else {
             DatabaseManager.shared.getUsernameForEmail(emailID: emailID) { [weak self] userName in
@@ -105,8 +110,9 @@ class HomeViewController: ViewControllerWithLoading {
     
     private func setupDelegate() {
         hamburgerMenuView.delegate = self
+        figFilesTableView.figFileTableViewDelegate = self
         figFilesTableView.figFilesTableViewCellDelegate = self
-        figFilesTableView.likeCommentShareDelegate = self
+        figFilesTableView.LikeCommentReportDelegate = self
     }
     
 // MARK: - Button Actions
@@ -171,14 +177,39 @@ extension HomeViewController: HamburgerMenuDelegate {
 }
 
 extension HomeViewController: FigFilesTableViewCellDelegate {
-    func openProfileDetailsPage(userNameToPopulate: String) {
+    func didTapFullScreenOnVideo(avPlayer: AVPlayer) {
+        let videoPlayerController = HomeScreenVideoPlayer()
+        videoPlayerController.player = avPlayer
+        self.present(videoPlayerController, animated: true)
+    }
+    
+    func followOrUnfollowUser(userNameToFollowOrUnfollow: String) {
+        let startIndex = 0
+        let endIndex = figFilesTableView.viewModel.figFiles.count-1
+        let arrayToIterate = startIndex...endIndex
+        arrayToIterate.forEach { index in
+            if figFilesTableView.viewModel.figFiles[index].ownerUsername == userNameToFollowOrUnfollow {
+                figFilesTableView.viewModel.figFiles[index].isUserFollowing?.toggle()
+            }
+        }
+    }
+    
+    func onTapProfileIcon(userNameToPopulate: String) {
         guard let profileDetailsPage = UserProfileViewController.initiateVC() else { return }
         profileDetailsPage.userNameToPopulate = userNameToPopulate
+        profileDetailsPage.figFilesTableViewCellDelegate = self
         navigationController?.pushViewController(profileDetailsPage, animated: true)
     }
     
-    func openFigFileLargeView(figFile: FigFileModel?) {
-        // TODO:- Add Types Here
+    func openFigFileLargeView(figFile: FigFileModel?, shouldShowPurchaseScreen: Bool) {
+        if shouldShowPurchaseScreen {
+            guard let purchaseFigFileViewController = PurchaseFigFileViewController.initiateVC() else { return }
+            purchaseFigFileViewController.figFile = figFile
+            let navigationController = UINavigationController(rootViewController: purchaseFigFileViewController)
+            self.present(navigationController, animated: true, completion: nil)
+            return
+        }
+        // TODO: - Add Types Here
         guard let figFile = figFile else { return }
         switch figFile.fileTypeEnum {
         case .pdf:
@@ -193,10 +224,10 @@ extension HomeViewController: FigFilesTableViewCellDelegate {
             self.present(imageViewerViewController, animated: true, completion: nil)
         case .video:
             break
-        case .text:
-            break
-        case .html:
-            break
+//        case .text:
+//            break
+//        case .html:
+//            break
         case .plainText:
             break
         case .none:
@@ -205,18 +236,39 @@ extension HomeViewController: FigFilesTableViewCellDelegate {
     }
 }
 
-// Mark:- Like Comment Share Delegate
-extension HomeViewController: LikeCommentShareDelegate {
+// MARK: - Like Comment Share Delegate
+extension HomeViewController: LikeCommentReportDelegate {
     func onTapLike(figFileLikeModel: FigFileLikeModel?) {
         guard let figfileLikeModel = figFileLikeModel else { return }
         CloudFunctionsManager.shared.likePostByUser(figFileLikeModel: figfileLikeModel)
     }
     
     func onTapComment(figFileModel: FigFileModel?) {
-        debugPrint("On Tap Comment")
+        guard let commentViewController = CommentsViewController.initiateVC() else { return }
+        commentViewController.figFileModel = figFileModel
+        self.navigationController?.pushViewController(commentViewController, animated: true)
     }
     
-    func onTapShare(figFileModel: FigFileModel?) {
+    func onTapReport(figFileModel: FigFileModel?) {
         debugPrint("On Tap Share")
+    }
+}
+
+// MARK: - FigFile TableView Delegate
+extension HomeViewController: FigFileTableViewDelegate {
+    func initialNetworkCallStarted() {
+        showLoadingIndicator()
+    }
+    
+    func initialNetworkCallFinishedWithNumberOfItems(newItems: Int) {
+        hideLoadingIndicatorView()
+    }
+    
+    func paginationCallStarted() {
+        // Not Needed Now
+    }
+    
+    func paginationCallEnded(newItems: Int) {
+        // Not Needed Now
     }
 }

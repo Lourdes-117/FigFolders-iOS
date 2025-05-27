@@ -43,4 +43,20 @@ extension String {
         let dateObject = dateFormatter.date(from: self)
         return dateObject
     }
+    
+    func trimmingTrailingSpaces() -> String {
+        var string = self
+        while string.hasSuffix(" ") {
+            string = "" + string.dropLast()
+        }
+        return string
+    }
+    
+    mutating func trimmedTrailingSpaces() {
+        self = self.trimmingTrailingSpaces()
+    }
+    
+    var floatValue: Float {
+        return (self as NSString).floatValue
+    }
 }

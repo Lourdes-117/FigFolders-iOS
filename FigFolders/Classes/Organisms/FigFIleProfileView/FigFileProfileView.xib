@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,6 +20,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FigFileProfileView" customModule="FigFolders" customModuleProvider="target">
             <connections>
                 <outlet property="fileOwnerName" destination="sTH-AE-BuQ" id="uOC-ZE-T9W"/>
+                <outlet property="followButton" destination="XVZ-6l-WKh" id="Dt5-nW-brK"/>
                 <outlet property="profilePicture" destination="Qd5-mh-EeG" id="OYA-8F-dOZ"/>
             </connections>
         </placeholder>
@@ -39,16 +40,13 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTH-AE-BuQ">
-                            <rect key="frame" x="75" y="10" width="53.5" height="23.5"/>
+                            <rect key="frame" x="75" y="21" width="53.5" height="23.5"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVZ-6l-WKh">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVZ-6l-WKh">
                             <rect key="frame" x="349" y="17" width="60" height="31"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="60" id="p8z-o3-N4u"/>
-                            </constraints>
                             <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                             <state key="normal" title="+ Follow">
                                 <color key="titleColor" name="Primary-Green"/>
@@ -71,8 +69,8 @@
                         <constraint firstItem="a2i-En-fAb" firstAttribute="leading" secondItem="MTf-MC-gFA" secondAttribute="leading" id="QhI-eT-tFv"/>
                         <constraint firstItem="XVZ-6l-WKh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sTH-AE-BuQ" secondAttribute="trailing" constant="8" id="SJ6-qD-DGu"/>
                         <constraint firstItem="a2i-En-fAb" firstAttribute="trailing" secondItem="sTH-AE-BuQ" secondAttribute="trailing" id="UXy-dP-epx"/>
+                        <constraint firstItem="sTH-AE-BuQ" firstAttribute="centerY" secondItem="Qd5-mh-EeG" secondAttribute="centerY" id="XjQ-uX-2nZ"/>
                         <constraint firstItem="Qd5-mh-EeG" firstAttribute="top" secondItem="MTf-MC-gFA" secondAttribute="top" constant="10" id="bEg-z2-6kt"/>
-                        <constraint firstItem="sTH-AE-BuQ" firstAttribute="top" secondItem="Qd5-mh-EeG" secondAttribute="top" id="d5J-6n-HHJ"/>
                         <constraint firstItem="XVZ-6l-WKh" firstAttribute="centerY" secondItem="MTf-MC-gFA" secondAttribute="centerY" id="f6S-jL-JW4"/>
                         <constraint firstAttribute="trailing" secondItem="XVZ-6l-WKh" secondAttribute="trailing" constant="15" id="ijc-tS-sAB"/>
                         <constraint firstItem="sTH-AE-BuQ" firstAttribute="leading" secondItem="Qd5-mh-EeG" secondAttribute="trailing" constant="15" id="l3l-yN-ygm"/>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoPlayerView" customModule="FigFolders" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundView" destination="5AM-kK-rsd" id="Ady-YY-0f3"/>
+                <outlet property="fullScreenButton" destination="QOT-Ml-8TE" id="Acw-Vu-6Pk"/>
                 <outlet property="playPauseButton" destination="ita-qU-zI2" id="SlU-QR-Chb"/>
                 <outlet property="videoControlsView" destination="Mwl-0j-G6J" id="5FB-N8-zfR"/>
             </connections>
@@ -29,17 +31,39 @@
                     <rect key="frame" x="0.0" y="0.0" width="485" height="301"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ita-qU-zI2">
-                            <rect key="frame" x="229" y="135" width="27" height="31"/>
+                            <rect key="frame" x="205" y="113" width="75" height="75"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="PQI-Rk-Ec4"/>
+                                <constraint firstAttribute="width" secondItem="ita-qU-zI2" secondAttribute="height" multiplier="1:1" id="fx9-ps-qXV"/>
+                            </constraints>
                             <state key="normal" image="play_icon"/>
                             <connections>
-                                <action selector="onTapButton:" destination="-1" eventType="touchUpInside" id="n79-Qq-cZ1"/>
+                                <action selector="onTapPlayPauseButton" destination="-1" eventType="touchUpInside" id="DfY-On-1mA"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOT-Ml-8TE">
+                            <rect key="frame" x="420" y="236" width="49" height="49"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="49" id="alD-HE-upJ"/>
+                                <constraint firstAttribute="width" secondItem="QOT-Ml-8TE" secondAttribute="height" multiplier="1:1" id="uGP-aa-yjx"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <imageReference key="image" image="fullscreen_icon" symbolScale="default"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
+                                <color key="baseForegroundColor" name="Greyscale1"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="onTapFullScreenButton:" destination="-1" eventType="touchUpInside" id="x9h-1G-nKA"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" name="overlay50"/>
                     <constraints>
                         <constraint firstItem="ita-qU-zI2" firstAttribute="centerX" secondItem="Mwl-0j-G6J" secondAttribute="centerX" id="AwC-fJ-VCO"/>
+                        <constraint firstAttribute="bottom" secondItem="QOT-Ml-8TE" secondAttribute="bottom" constant="16" id="DmZ-FI-0v2"/>
                         <constraint firstItem="ita-qU-zI2" firstAttribute="centerY" secondItem="Mwl-0j-G6J" secondAttribute="centerY" id="VK3-cr-tJG"/>
+                        <constraint firstAttribute="trailing" secondItem="QOT-Ml-8TE" secondAttribute="trailing" constant="16" id="oyL-k7-9oR"/>
                     </constraints>
                 </view>
             </subviews>
@@ -57,16 +81,17 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="133" y="-1"/>
+            <point key="canvasLocation" x="132.60869565217394" y="-1.0044642857142856"/>
         </view>
     </objects>
     <resources>
+        <image name="fullscreen_icon" width="30" height="30"/>
         <image name="play_icon" width="27" height="31"/>
         <namedColor name="Greyscale1">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="overlay50">
-            <color red="0.035294117647058823" green="0.039215686274509803" blue="0.043137254901960784" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.035000000149011612" green="0.039000000804662704" blue="0.043000001460313797" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

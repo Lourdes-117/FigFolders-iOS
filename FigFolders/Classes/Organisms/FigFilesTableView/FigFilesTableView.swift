@@ -7,6 +7,13 @@
 
 import UIKit
 
+protocol FigFileTableViewDelegate: AnyObject {
+    func initialNetworkCallStarted()
+    func initialNetworkCallFinishedWithNumberOfItems(newItems: Int)
+    func paginationCallStarted()
+    func paginationCallEnded(newItems: Int)
+}
+
 class FigFilesTableView: UIView {
     let nibName = "FigFilesTableView"
     let viewModel = FigFilesTableViewViewModel()
@@ -14,22 +21,30 @@ class FigFilesTableView: UIView {
     @IBOutlet weak var tableView: UITableView!
     
     weak var figFilesTableViewCellDelegate: FigFilesTableViewCellDelegate?
-    weak var likeCommentShareDelegate: LikeCommentShareDelegate?
+    weak var LikeCommentReportDelegate: LikeCommentReportDelegate?
+    weak var figFileTableViewDelegate: FigFileTableViewDelegate?
+    
+    var documentTypeToPopulate: DocumentPickerDocumentType?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         commonInit(nibName)
     }
     
-    func initialSetup() {
+    func initialSetup(pageBehaviour: FigFilesTableViewBehaviour) {
+        viewModel.figFilesTableViewBehaviour = pageBehaviour
+        viewModel.documentTypeToPopulate = documentTypeToPopulate
         registerCells()
         setupDatasourceDelegate()
         getRandomFilesInitial()
     }
     
     private func getRandomFilesInitial() {
+        figFileTableViewDelegate?.initialNetworkCallStarted()
         viewModel.fetchRandomFigFiles { [weak self] _ in
-            self?.tableView.reloadData()
+            guard let self = self else { return }
+            self.tableView.reloadData()
+            self.figFileTableViewDelegate?.initialNetworkCallFinishedWithNumberOfItems(newItems: self.viewModel.numberOfFiles)
         }
     }
     
@@ -50,14 +65,17 @@ class FigFilesTableView: UIView {
     }
     
     private func startPagination() {
+        figFileTableViewDelegate?.paginationCallStarted()
         viewModel.fetchRandomFigFiles { [weak self] numberOfNewCells in
             guard let strongSelf = self else { return }
             let numberOfFilesBeforeUpdate = strongSelf.viewModel.numberOfFiles -  numberOfNewCells
             let numberOfFilesAfterUpdate = strongSelf.viewModel.numberOfFiles
+            guard numberOfFilesBeforeUpdate != numberOfFilesAfterUpdate else { return } // Pagination Returned No Values
             let indexPathsToUpdate = strongSelf.viewModel.getIndexPathBetweenNumbers(numberOfItemsBeforeUpdate: numberOfFilesBeforeUpdate, numberOfItemsAfterUpdate: numberOfFilesAfterUpdate)
             strongSelf.tableView.beginUpdates()
             strongSelf.tableView.insertRows(at: indexPathsToUpdate, with: .fade)
             strongSelf.tableView.endUpdates()
+            strongSelf.figFileTableViewDelegate?.paginationCallEnded(newItems: numberOfNewCells)
         }
     }
 }
@@ -72,7 +90,7 @@ extension FigFilesTableView: UITableViewDataSource {
         let cellId = viewModel.figFiles[indexPath.row].figFileDisplayCellId
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? FigFilesDisplayTableViewCell else { return UITableViewCell() }
         cell.figFilesTableViewCellDelegate = figFilesTableViewCellDelegate
-        cell.likeCommentShareDelegate = likeCommentShareDelegate
+        cell.LikeCommentReportDelegate = LikeCommentReportDelegate
         cell.setupCell(figFile: viewModel.figFiles[indexPath.row])
         return cell
     }
@@ -93,7 +111,7 @@ extension FigFilesTableView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row >= (viewModel.numberOfFiles-1) {
+        if indexPath.row >= (viewModel.numberOfFiles-3) {
             startPagination()
         }
     }

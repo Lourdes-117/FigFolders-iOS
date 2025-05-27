@@ -18,10 +18,10 @@ class OnboardingRegisterStepTwoViewModel {
     let fieldValidColor = UIColor.green
     let fieldInvalidColor = LabelColorPalette.labelColorRed.color ?? UIColor()
     
-    let usernameNotAvailable = "Username Not Available"
+    let usernameNotAvailable = "Username Taken"
     let usernameAvailable = "Username Available"
     
-    let emailIDNotAvailable = "Email-ID Not Available"
+    let emailIDNotAvailable = "Email-ID Already In Use"
     let emailIDAvailable = "Email-ID Available"
     
     let activityIndicatorBackgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
